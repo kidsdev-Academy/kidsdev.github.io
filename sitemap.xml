@@ -5,19 +5,31 @@
       <lastmod>2026-01-05</lastmod>
       <priority>1.0</priority>
    </url>
+   
    <url>
       <loc>https://thekidsdev.netlify.app/courses.html</loc>
       <lastmod>2026-01-05</lastmod>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc> https://thekidsdev.netlify.app/daily.html</loc>
+      <loc>https://thekidsdev.netlify.app/daily.html</loc>
       <lastmod>2026-01-05</lastmod>
       <priority>0.8</priority>
    </url>
    <url>
+      <loc>https://thekidsdev.netlify.app/about.html</loc>
+      <lastmod>2026-01-05</lastmod>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
       <loc>https://thekidsdev.netlify.app/contact.html</loc>
       <lastmod>2026-01-05</lastmod>
       <priority>0.6</priority>
+   </url>
+   <url>
+      <loc>https://thekidsdev.netlify.app/privacy.html</loc>
+      <lastmod>2026-01-05</lastmod>
+      <priority>0.5</priority>
    </url>
 </urlset>

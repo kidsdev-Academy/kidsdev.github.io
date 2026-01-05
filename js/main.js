@@ -154,9 +154,13 @@ const UI = {
   setActiveLink() {
     const path = window.location.pathname;
     let section = "index";
+    
+    // UPDATED LOGIC TO INCLUDE ABOUT PAGE
     if (path.includes("daily") || path.includes("/posts/")) section = "daily";
     else if (path.includes("courses")) section = "courses";
     else if (path.includes("contact")) section = "contact";
+    else if (path.includes("about")) section = "about"; // <--- Added this!
+
     if (this.navLinks) {
         this.navLinks.forEach(link => {
             const href = link.getAttribute("href");

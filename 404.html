@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 - Bug in the System! | KidsDev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="flex flex-col min-h-screen justify-center items-center text-center p-4">
+
+  <div class="absolute top-10 left-10 text-[#2C2C54] animate-bounce"><i data-lucide="binary" class="w-24 h-24"></i></div>
+  <div class="absolute bottom-10 right-10 text-[#2C2C54] animate-pulse"><i data-lucide="bug" class="w-32 h-32"></i></div>
+
+  <div class="relative z-10 max-w-lg">
+    <div class="text-[#E94560] mb-6">
+      <i data-lucide="alert-triangle" class="w-24 h-24 mx-auto"></i>
+    </div>
+    
+    <h1 class="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFE66D] to-[#E94560] mb-4">404</h1>
+    <h2 class="text-2xl font-bold text-white mb-4">Oops! We found a bug.</h2>
+    <p class="text-gray-400 mb-8 text-lg">
+      The page you are looking for seems to have vanished into cyberspace.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="index.html" class="btn btn-primary">
+        <i data-lucide="home" class="w-5 h-5 mr-2"></i> Go Home
+      </a>
+      <a href="contact.html" class="btn btn-outline">
+        Report Issue
+      </a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

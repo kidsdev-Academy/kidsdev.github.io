@@ -2,19 +2,18 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="google-site-verification" content="836Cbkmpz1gM7whaJuEOacTVkAuMAFX547cB0C58lQg" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="KidsDev Academy: The best free platform for kids to learn Python, Web Development, and Game Design. Start coding today!">
-  <meta name="keywords" content="coding for kids, learn python, kids programming, web development course, scratch, game design">
-  <meta name="robots" content="index, follow">
   <title>KidsDev | Coding for Future Innovators</title>
+  
+  <meta name="description" content="KidsDev Academy is the #1 free platform for kids to learn Python, Web Development, and Game Design. Fun, project-based coding lessons for ages 8-14.">
+  <meta name="keywords" content="coding for kids, learn python, kids programming, web development course, scratch, game design, free coding lessons">
+  <meta name="robots" content="index, follow">
+  
+  <meta name="google-site-verification" content="" />
 
   <script src="https://cdn.tailwindcss.com"></script>
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
   <script src="https://unpkg.com/lucide@latest"></script>
-
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -22,168 +21,144 @@
 
 <header class="navbar">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-
     <a href="index.html" class="flex items-center gap-3 cursor-pointer">
-      <img 
-        src="image/logo.png" 
-        alt="KidsDev Logo" 
-        class="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform"
-      >
+      <img src="image/logo.png" alt="KidsDev Logo" class="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform">
     </a>
 
     <nav class="hidden md:flex gap-6 items-center">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a> <a href="courses.html" class="nav-link">Courses</a>
       <a href="daily.html" class="nav-link">Daily</a>
-      <a href="courses.html" class="nav-link">Courses</a>
       <a href="contact.html" class="nav-link">Contact</a>
-      
       <div class="h-5 w-px bg-gray-700 mx-2"></div>
-
-      <button class="text-gray-400 hover:text-[#FFE66D] transition" title="Search">
-        <i data-lucide="search" class="w-5 h-5"></i>
-      </button>
-
-      <a href="https://github.com/nathylyang" target="_blank" class="text-gray-400 hover:text-white transition" title="GitHub">
-        <i data-lucide="github" class="w-5 h-5"></i>
-      </a>
+      <button class="text-gray-400 hover:text-[#FFE66D] transition" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
+      <a href="https://github.com/nathylyang" target="_blank" class="text-gray-400 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
     </nav>
-
-    <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white">
-      <i data-lucide="menu" class="w-7 h-7"></i>
-    </button>
+    <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
   </div>
-
+  
   <div id="mobileMenu" class="mobile-menu md:hidden">
     <div class="px-6 py-4 space-y-3 border-t border-gray-700">
-      <div class="relative mb-4">
-        <input type="text" placeholder="Search..." class="w-full bg-[#0F3460] border border-gray-600 rounded-lg py-2 px-4 text-sm text-white focus:outline-none focus:border-[#FFE66D]">
-      </div>
-
+      <a href="about.html" class="block text-gray-300 hover:text-[#FFE66D]">About Us</a> <a href="courses.html" class="block text-gray-300 hover:text-[#FFE66D]">Courses</a>
       <a href="daily.html" class="block text-gray-300 hover:text-[#FFE66D]">Daily</a>
-      <a href="courses.html" class="block text-gray-300 hover:text-[#FFE66D]">Courses</a>
       <a href="contact.html" class="block text-gray-300 hover:text-[#FFE66D]">Contact</a>
     </div>
   </div>
 </header>
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16 grid md:grid-cols-2 gap-12 items-center">
-
   <div class="order-2 md:order-1 reveal-up">
-    <div class="hero-badge">
-      <span class="w-2 h-2 rounded-full bg-[#E94560]"></span>
-      New Python Course Added!
-    </div>
-
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-      Coding Made <br>
-      <span class="hero-text-gradient">Super Fun!</span>
-    </h1>
-
-    <p class="text-gray-300 text-lg mb-8 max-w-lg">
-      Join thousands of kids building games, websites, and robots. No boring lectures—just pure creativity.
-    </p>
-
+    <div class="hero-badge"><span class="w-2 h-2 rounded-full bg-[#E94560]"></span> New Python Course Added!</div>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6">Coding Made <br> <span class="hero-text-gradient">Super Fun!</span></h1>
+    <p class="text-gray-300 text-lg mb-8 max-w-lg">Join thousands of kids building games, websites, and robots. No boring lectures—just pure creativity.</p>
     <div class="flex gap-4 flex-col sm:flex-row">
-      <a href="courses.html" class="btn btn-primary">
-        Start Learning <i data-lucide="rocket" class="ml-2 w-4 h-4"></i>
-      </a>
-      <a href="daily.html" class="btn btn-outline">
-        View Daily Tips
-      </a>
+      <a href="courses.html" class="btn btn-primary">Start Learning <i data-lucide="rocket" class="ml-2 w-4 h-4"></i></a>
+      <a href="daily.html" class="btn btn-outline">View Daily Tips</a>
     </div>
   </div>
-
   <div class="order-1 md:order-2 flex justify-center reveal-up" style="transition-delay:200ms">
     <div class="hero-image-wrapper max-w-md w-full">
-      <img
-        src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=800&q=80"
-        alt="Happy kid coding"
-        class="hero-image"
-      >
+      <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=800&q=80" alt="Happy kid coding" class="hero-image">
     </div>
   </div>
 </section>
 
-<section class="max-w-7xl mx-auto px-4 sm:px-6 mb-16 reveal-up">
+<section class="border-y border-gray-800 bg-[#16213E]/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="reveal-up"><h3 class="text-3xl font-bold text-white">500+</h3><p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Students Enrolled</p></div>
+      <div class="reveal-up" style="transition-delay:100ms"><h3 class="text-3xl font-bold text-[#FFE66D]">50+</h3><p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Projects Built</p></div>
+      <div class="reveal-up" style="transition-delay:200ms"><h3 class="text-3xl font-bold text-[#4CC9F0]">100%</h3><p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Free Resources</p></div>
+      <div class="reveal-up" style="transition-delay:300ms"><h3 class="text-3xl font-bold text-[#E94560]">24/7</h3><p class="text-xs text-gray-400 uppercase tracking-wider mt-1">Community Support</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 reveal-up">
   <div class="text-center mb-6">
     <h2 class="text-sm font-bold text-gray-400 uppercase tracking-widest">Explore Categories</h2>
   </div>
-  
   <div class="flex flex-wrap justify-center gap-4">
-    <a href="daily.html" class="category-card group no-underline hover:border-[#4CC9F0]">
-      <i data-lucide="terminal" class="text-[#4CC9F0]"></i>
-      <span class="text-gray-300 group-hover:text-white">Python</span>
-    </a>
-    <a href="daily.html" class="category-card group no-underline hover:border-[#FFE66D]">
-      <i data-lucide="globe" class="text-[#FFE66D]"></i>
-      <span class="text-gray-300 group-hover:text-white">Web Dev</span>
-    </a>
-    <a href="daily.html" class="category-card group no-underline hover:border-[#E94560]">
-      <i data-lucide="gamepad-2" class="text-[#E94560]"></i>
-      <span class="text-gray-300 group-hover:text-white">Game Design</span>
-    </a>
+    <a href="daily.html" class="category-card group no-underline hover:border-[#4CC9F0]"><i data-lucide="terminal" class="text-[#4CC9F0]"></i><span class="text-gray-300 group-hover:text-white">Python</span></a>
+    <a href="daily.html" class="category-card group no-underline hover:border-[#FFE66D]"><i data-lucide="globe" class="text-[#FFE66D]"></i><span class="text-gray-300 group-hover:text-white">Web Dev</span></a>
+    <a href="daily.html" class="category-card group no-underline hover:border-[#E94560]"><i data-lucide="gamepad-2" class="text-[#E94560]"></i><span class="text-gray-300 group-hover:text-white">Game Design</span></a>
   </div>
 </section>
 
 <section class="section-dark reveal-up">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-
     <div class="flex flex-col sm:flex-row justify-between sm:items-end mb-12 gap-4">
-      <div>
-        <h2 class="section-title">📅 Today's Challenges</h2>
-        <p class="text-gray-400">Fresh coding bites updated every day.</p>
-      </div>
-      <a href="daily.html" class="text-[#FFE66D] font-semibold flex items-center gap-2 hover:underline">
-        See All Posts <i data-lucide="arrow-right" class="w-4 h-4"></i>
-      </a>
+      <div><h2 class="section-title">📅 Today's Challenges</h2><p class="text-gray-400">Fresh coding bites updated every day.</p></div>
+      <a href="daily.html" class="text-[#FFE66D] font-semibold flex items-center gap-2 hover:underline">See All Posts <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
     </div>
-
     <div id="posts-container" class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="col-span-full text-center py-12">
-        <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-[#FFE66D] border-t-transparent"></div>
-        <p class="text-gray-400 mt-4">Loading updates...</p>
-      </div>
+      <div class="col-span-full text-center py-12"><div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-[#FFE66D] border-t-transparent"></div></div>
     </div>
-
   </div>
 </section>
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 py-24">
   <div class="text-center mb-16 reveal-up">
-    <h2 class="section-title">Choose Your Path</h2>
-    <p class="text-gray-400 max-w-2xl mx-auto">
-      From beginner blocks to advanced Python text coding.
-    </p>
+    <h2 class="section-title">Why Kids Love KidsDev?</h2>
+    <p class="text-gray-400 max-w-2xl mx-auto">We don't just teach syntax. We teach how to think like an engineer.</p>
   </div>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="card p-8 bg-[#16213E] border border-gray-700 hover:border-[#4CC9F0] reveal-up">
+      <div class="w-12 h-12 rounded-lg bg-[#4CC9F0]/10 flex items-center justify-center text-[#4CC9F0] mb-4"><i data-lucide="monitor-play" class="w-6 h-6"></i></div>
+      <h3 class="text-xl font-bold text-white mb-3">Project-Based Learning</h3>
+      <p class="text-gray-400 text-sm">Stop watching tutorials. Start building real games and websites from Day 1.</p>
+    </div>
+    <div class="card p-8 bg-[#16213E] border border-gray-700 hover:border-[#FFE66D] reveal-up" style="transition-delay: 100ms">
+      <div class="w-12 h-12 rounded-lg bg-[#FFE66D]/10 flex items-center justify-center text-[#FFE66D] mb-4"><i data-lucide="trophy" class="w-6 h-6"></i></div>
+      <h3 class="text-xl font-bold text-white mb-3">Gamified Progress</h3>
+      <p class="text-gray-400 text-sm">Earn badges, unlock levels, and track your coding streak as you learn.</p>
+    </div>
+    <div class="card p-8 bg-[#16213E] border border-gray-700 hover:border-[#E94560] reveal-up" style="transition-delay: 200ms">
+      <div class="w-12 h-12 rounded-lg bg-[#E94560]/10 flex items-center justify-center text-[#E94560] mb-4"><i data-lucide="users" class="w-6 h-6"></i></div>
+      <h3 class="text-xl font-bold text-white mb-3">Safe Community</h3>
+      <p class="text-gray-400 text-sm">Join a supportive community of young coders helping each other grow.</p>
+    </div>
+  </div>
+</section>
 
-  <div id="courses-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-     <div class="col-span-full text-center py-12">
-        <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-[#4CC9F0] border-t-transparent"></div>
-     </div>
+<section class="section-dark reveal-up">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16">
+      <h2 class="section-title">Choose Your Path</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">From beginner blocks to advanced Python text coding.</p>
+    </div>
+    <div id="courses-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+       <div class="col-span-full text-center py-12"><div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-[#4CC9F0] border-t-transparent"></div></div>
+    </div>
+    <div class="text-center mt-12">
+      <a href="courses.html" class="btn btn-outline px-8">View All Curriculum</a>
+    </div>
   </div>
-  
-  <div class="text-center mt-12">
-    <a href="courses.html" class="btn btn-outline px-8">View All Curriculum</a>
+</section>
+
+<section class="max-w-4xl mx-auto px-4 sm:px-6 py-24 text-center reveal-up">
+  <div class="bg-gradient-to-r from-[#E94560] to-[#ff7b54] rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full translate-x-1/2 translate-y-1/2"></div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Start Coding Today!</h2>
+    <p class="text-white/90 mb-8 text-lg">Join our newsletter to get free coding cheat sheets and daily challenges sent to your inbox.</p>
+    <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+      <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-4 focus:ring-white/30">
+      <button type="button" class="bg-white text-[#E94560] font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition shadow-lg">Subscribe</button>
+    </form>
   </div>
 </section>
 
 <footer class="bg-[#0b1021] border-t border-gray-800 text-gray-300 pt-16 pb-8 mt-auto">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-
       <div class="space-y-6">
         <div class="flex items-center gap-3">
-           <img 
-             src="image/logo.png" 
-             alt="KidsDev" 
-             class="h-10 w-auto object-contain"
-           >
+           <img src="image/logo.png" alt="KidsDev" class="h-10 w-auto object-contain">
            <span class="text-2xl font-bold text-white tracking-tight">KidsDev</span>
         </div>
-        <p class="text-sm text-gray-500">
-          Empowering the next generation.
-        </p>
+        <p class="text-sm text-gray-500">Empowering the next generation.</p>
       </div>
-
       <div>
         <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Explore</h4>
         <ul class="space-y-3 text-sm font-medium text-gray-400">
@@ -191,7 +166,6 @@
           <li><a href="daily.html" class="hover:text-white transition">Daily Challenges</a></li>
         </ul>
       </div>
-
       <div>
         <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Support</h4>
         <ul class="space-y-3 text-sm font-medium text-gray-400">
@@ -199,36 +173,21 @@
           <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
         </ul>
       </div>
-
       <div>
         <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Follow Us</h4>
-       <div class="flex gap-4">
-  <a href="https://github.com/kidsdev-Academy" target="_blank" class="social-icon-btn github">
-    <i data-lucide="github" class="w-5 h-5"></i>
-  </a>
-
-  <a href="https://instagram.com/thekidsdev" target="_blank" class="social-icon-btn instagram">
-    <i data-lucide="instagram" class="w-5 h-5"></i>
-  </a>
-
-  <a href="https://facebook.com/Kids Dev" target="_blank" class="social-icon-btn facebook">
-    <i data-lucide="facebook" class="w-5 h-5"></i>
-  </a>
-
-  <a href="https://tiktok.com/@the_kidsdev" target="_blank" class="social-icon-btn tiktok">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music-2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-  </a>
-</div>
+        <div class="flex gap-4">
+          <a href="https://github.com/nathylyang" target="_blank" class="social-icon-btn github"><i data-lucide="github" class="w-5 h-5"></i></a>
+          <a href="https://instagram.com/nathyyangi" target="_blank" class="social-icon-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          <a href="#" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="https://tiktok.com/@nathyyangi" target="_blank" class="social-icon-btn tiktok"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music-2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></a>
+        </div>
       </div>
-
     </div>
-
     <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-      <p>&copy; 2026 KidsDev Academy. Made with ❤️ by Nath.</p>
+      <p>© 2026 KidsDev Academy. Made with ❤️ by Nath.</p>
     </div>
   </div>
 </footer>
-
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -228,6 +228,10 @@ body {
 .social-icon-btn.github:hover { background-color: #333; }
 .social-icon-btn.facebook:hover { background-color: #1877F2; }
 .social-icon-btn.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.social-icon-btn.tiktok:hover {
+  background-color: #000;
+  text-shadow: 2px 2px 0px #FE2C55, -2px -2px 0px #25F4EE;
+}
 
 /* ================= ANIMATIONS ================= */
 .reveal-up {
