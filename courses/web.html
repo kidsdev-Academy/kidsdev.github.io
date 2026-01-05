@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Creator Course | KidsDev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary ~ * { animation: sweep .5s ease-in-out; }
+    @keyframes sweep { 0% {opacity: 0; transform: translateY(-10px)} 100% {opacity: 1; transform: translateY(0)} }
+  </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+<header class="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+    <a href="../index.html" class="flex items-center gap-3 cursor-pointer">
+      <img src="../logo.jpg" alt="KidsDev Logo" class="h-10 w-auto object-contain">
+    </a>
+    <nav class="hidden md:flex gap-6 items-center">
+      <a href="../daily.html" class="nav-link">Daily</a>
+      <a href="../courses.html" class="nav-link active">Courses</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+      <div class="h-5 w-px bg-gray-700 mx-2"></div>
+      <button class="text-gray-400 hover:text-[#FFE66D]" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
+      <a href="https://github.com/nathylyang" target="_blank" class="text-gray-400 hover:text-white"><i data-lucide="github" class="w-5 h-5"></i></a>
+    </nav>
+    <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu md:hidden">
+    <div class="px-6 py-4 space-y-3 border-t border-gray-700">
+      <a href="../daily.html" class="block text-[#FFE66D]">Daily</a>
+      <a href="../courses.html" class="block text-gray-300">Courses</a>
+      <a href="../contact.html" class="block text-gray-300">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section class="relative pt-20 pb-20 overflow-hidden">
+  <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-[#4CC9F0] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+  <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-[#FFE66D] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+    <div class="reveal-up">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16213E] border border-blue-500/30 text-[#4CC9F0] text-xs font-bold uppercase tracking-wide mb-6">
+        <i data-lucide="layout" class="w-4 h-4"></i> Beginner Level
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+        Become a <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#4CC9F0] to-[#E94560]">Web Creator</span>
+      </h1>
+      <p class="text-gray-400 text-lg mb-8">
+        Learn the languages of the internet: HTML, CSS, and JavaScript. Build your own portfolio, a fan page, and interactive websites.
+      </p>
+      <div class="flex flex-wrap gap-4 text-sm text-gray-300 mb-8">
+        <div class="flex items-center gap-2 bg-[#16213E] px-4 py-2 rounded-lg"><i data-lucide="clock" class="w-4 h-4 text-[#FFE66D]"></i> 6 Weeks</div>
+        <div class="flex items-center gap-2 bg-[#16213E] px-4 py-2 rounded-lg"><i data-lucide="video" class="w-4 h-4 text-[#E94560]"></i> 18 Lessons</div>
+      </div>
+      <a href="../contact.html" class="btn btn-primary">Enroll Now - Free</a>
+    </div>
+
+    <div class="reveal-up" style="transition-delay: 200ms">
+      <div class="bg-[#1e293b] rounded-xl border border-gray-700 shadow-2xl overflow-hidden transform rotate-2 hover:rotate-0 transition duration-500">
+        <div class="bg-[#0f172a] px-4 py-3 flex gap-2 border-b border-gray-700">
+          <div class="w-3 h-3 rounded-full bg-red-500"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500"></div>
+          <div class="bg-[#1e293b] rounded text-xs text-gray-500 px-3 py-0.5 ml-4 flex-1 text-center">my-website.com</div>
+        </div>
+        <div class="p-8 flex flex-col items-center justify-center bg-white h-64 text-center">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Hello World!</h2>
+          <p class="text-gray-500">I built this myself.</p>
+          <button class="mt-4 px-6 py-2 bg-blue-500 text-white rounded-full font-bold">Click Me</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-4xl mx-auto px-4 sm:px-6 py-24 reveal-up">
+  <h2 class="section-title text-center mb-12">Class Curriculum</h2>
+  <div class="space-y-4">
+    <details class="group bg-[#16213E] rounded-xl border border-gray-700 open:border-[#4CC9F0] transition-colors duration-300">
+      <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-lg select-none">
+        <div class="flex items-center gap-4"><span class="bg-[#1A1A2E] text-gray-400 w-8 h-8 flex items-center justify-center rounded-full text-sm">01</span> HTML: The Skeleton</div>
+        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+      </summary>
+      <div class="px-6 pb-6 text-gray-400 text-sm border-t border-gray-700 pt-4">
+        <ul class="space-y-2">
+          <li>• Tags, Elements, and Attributes</li>
+          <li>• Building a Profile Page</li>
+        </ul>
+      </div>
+    </details>
+    <details class="group bg-[#16213E] rounded-xl border border-gray-700 open:border-[#FFE66D] transition-colors duration-300">
+      <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-lg select-none">
+        <div class="flex items-center gap-4"><span class="bg-[#1A1A2E] text-gray-400 w-8 h-8 flex items-center justify-center rounded-full text-sm">02</span> CSS: The Style</div>
+        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+      </summary>
+      <div class="px-6 pb-6 text-gray-400 text-sm border-t border-gray-700 pt-4">
+        <ul class="space-y-2">
+          <li>• Colors, Fonts, and Layouts</li>
+          <li>• Flexbox and Grid</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<footer class="bg-[#0b1021] border-t border-gray-800 text-gray-300 pt-16 pb-8 mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center text-xs text-gray-500">
+    <p>&copy; 2026 KidsDev Academy.</p>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Python Masterclass",
+    "type": "course",
+    "category": "Programming",
+    "url": "courses/python.html",
+    "image": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=800&q=80",
+    "desc": "The complete 8-week guide to Python. Build chatbots, calculators, and games.",
+    "colorClass": "text-[#4CC9F0]",
+    "duration": "8 Weeks",
+    "level": "Beginner",
+    "status": "Popular"
+  },
+  {
+    "title": "Web Creator",
+    "type": "course",
+    "category": "Design",
+    "url": "courses/web.html",
+    "image": "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80",
+    "desc": "Build your own portfolio! Learn HTML, CSS, and basic JavaScript.",
+    "colorClass": "text-[#FFE66D]",
+    "duration": "6 Weeks",
+    "level": "Beginner",
+    "status": "New"
+  },
+  {
+    "title": "Game Design",
+    "type": "course",
+    "category": "Game Dev",
+    "url": "#",
+    "image": "https://images.unsplash.com/photo-1556438064-2d7646166914?auto=format&fit=crop&w=800&q=80",
+    "desc": "From Scratch blocks to Unity C#. Create 2D platformers.",
+    "colorClass": "text-[#E94560]",
+    "duration": "10 Weeks",
+    "level": "Intermediate",
+    "status": "Coming Soon"
+  },
+  {
+    "title": "Design a Superhero",
+    "type": "post",
+    "category": "Web Dev",
+    "url": "posts/superhero.html",
+    "image": "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?auto=format&fit=crop&w=800&q=80",
+    "desc": "Use CSS to color and style your own superhero card. Download the template!",
+    "colorClass": "text-[#E94560]"
+  },
+  {
+    "title": "Hacker vs Defender",
+    "type": "post",
+    "category": "Python Security",
+    "url": "posts/hacker-vs-defender.html",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+    "desc": "Check if a password is strong or weak using Python conditionals.",
+    "colorClass": "text-[#E94560]"
+  },
+  {
+    "title": "Python Snake Game",
+    "type": "post",
+    "category": "Python Game",
+    "url": "posts/snake-game.html",
+    "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80",
+    "desc": "Learn how to build the classic Snake game using Python and the Pygame library.",
+    "colorClass": "text-[#4CC9F0]"
+  },
+  {
+    "title": "How Do Computers Count?",
+    "type": "post",
+    "category": "Concept",
+    "url": "daily.html",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+    "desc": "Understand binary numbers and why computers only speak in 0s and 1s.",
+    "colorClass": "text-[#FFE66D]"
+  }
+]
