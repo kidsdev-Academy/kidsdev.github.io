@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* KidsDev Academy Theme Styling */
+        :root {
+            --primary-color: #2E86AB; /* Nice blue */
+            --accent-color: #F24C00; /* Playful orange */
+            --bg-color: #F4F7F6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .module-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+
+        /* Table of Contents Styling */
+        .toc-box {
+            background-color: #fff;
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .toc-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .toc-list {
+            list-style-type: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .toc-list a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            display: block;
+            padding: 8px;
+            border-radius: 5px;
+            transition: all 0.2s;
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+        }
+
+        .toc-list a:hover {
+            color: #fff;
+            background-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        /* Collapsible Section Styling */
+        details {
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #e1e1e1;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            background-color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #444;
+            list-style: none;
+            position: relative;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        summary:hover {
+            background-color: #f0f8ff;
+            color: var(--primary-color);
+        }
+
+        summary::after {
+            content: '+'; 
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        .content-inner {
+            padding: 25px;
+            line-height: 1.7;
+            color: #555;
+            border-top: 1px solid #f0f0f0;
+            background-color: #fff;
+        }
+
+        /* Content highlighting */
+        .highlight-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        /* Code Block Styling */
+        pre {
+            background-color: #282c34;
+            color: #e06c75;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        code {
+            font-family: 'Consolas', monospace;
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+
+<div class="module-container">
+
+    <h2>Module 1: Introduction to Python</h2>
+    <p>Welcome to the world of coding! In this module, we will set up our tools and write our very first computer program. Click a topic below to start learning.</p>
+
+    <div class="toc-box">
+        <h3>📍 Module Map (Click to Jump)</h3>
+        <ul class="toc-list">
+            <li><a href="#topic1-1" onclick="openSection('topic1-1')">1.1 What is Python?</a></li>
+            <li><a href="#topic1-2" onclick="openSection('topic1-2')">1.2 Installing Python & IDLE</a></li>
+            <li><a href="#topic1-3" onclick="openSection('topic1-3')">1.3 First Code (Hello World)</a></li>
+            <li><a href="#topic1-4" onclick="openSection('topic1-4')">1.4 Variables (The Box)</a></li>
+            <li><a href="#topic1-5" onclick="openSection('topic1-5')">1.5 Data Types</a></li>
+        </ul>
+    </div>
+
+    <details id="topic1-1">
+        <summary>1.1 What is Python & Why learn it?</summary>
+        <div class="content-inner">
+            <p>Imagine you want to talk to a person from France, but you only speak English. You would need a translator, right?</p>
+            <p><strong>Python is a translator for computers.</strong> Computers only understand zeros and ones (010101), which is very hard for humans to read. Python lets us write instructions in simple English, and then it translates those instructions so the computer understands.</p>
+            
+            
+
+            <h4>Why is Python the best language for kids?</h4>
+            <ul>
+                <li><strong>It's Readable:</strong> Python code looks almost like reading a normal sentence.</li>
+                <li><strong>It's Powerful:</strong> It's used to build real things like YouTube, Instagram, and even by NASA scientists!</li>
+                <li><strong>It's Versatile:</strong> You can use it to make games, build websites, or create Artificial Intelligence (AI).</li>
+            </ul>
+        </div>
+    </details>
+
+    <details id="topic1-2">
+        <summary>1.2 Installing Python & IDLE</summary>
+        <div class="content-inner">
+            <p>Before we can code, we need to install the software on your computer. Follow these steps carefully:</p>
+            
+            
+
+            <ol>
+                <li>Go to the official website: <a href="https://www.python.org" target="_blank">python.org</a>.</li>
+                <li>Click on <strong>Downloads</strong> and download the latest version for your computer.</li>
+                <li><strong>VERY IMPORTANT:</strong> When the installer opens, you will see a small checkbox at the bottom that says <em>"Add Python to PATH"</em>. <strong>Check this box!</strong> If you don't, your computer might not find Python later.</li>
+                <li>Click "Install Now" and wait for it to finish.</li>
+            </ol>
+            
+            <h4>What is IDLE?</h4>
+            <p>Along with Python, you installed a program called <strong>IDLE</strong>. Think of IDLE as your "Sketchbook." It is a simple place where we can write code and run it immediately to see what happens.</p>
+        </div>
+    </details>
+
+    <details id="topic1-3">
+        <summary>1.3 Your First Code (Hello World)</summary>
+        <div class="content-inner">
+            <p>Let's write your first program! We are going to use a special command (function) called <code>print()</code>.</p>
+            <p>The <code>print()</code> function tells the computer: <em>"Show this text on the screen."</em></p>
+            
+            <h4>Try this in IDLE:</h4>
+            <pre>print("Hello, World!")</pre>
+            
+            <p><strong>The Rules (Syntax):</strong></p>
+            <ul>
+                <li>You must use <strong>parentheses</strong> <code>( )</code> after the word print.</li>
+                <li>You must put your text inside <strong>quotation marks</strong> <code>" "</code>. This tells Python that "Hello World" is text, not a command.</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <strong>💡 Fun Challenge:</strong> Try writing a second line of code to print your name! <br>
+                Example: <code>print("My name is Alex")</code>
+            </div>
+        </div>
+    </details>
+
+    <details id="topic1-4">
+        <summary>1.4 Understanding Variables (The Box)</summary>
+        <div class="content-inner">
+            <p>In programming, we need to save information to use later. We use <strong>Variables</strong> to do this.</p>
+            
+            
+
+            <h4>The Box Analogy</h4>
+            <p>Imagine you have an empty cardboard box. You can write a label on the outside (the Name) and put something inside (the Value).</p>
+            <ul>
+                <li><strong>Label:</strong> <code>score</code></li>
+                <li><strong>Value inside:</strong> <code>100</code></li>
+            </ul>
+
+            <p>In Python, we create a variable using the <code>=</code> sign. This is not "equals" like in math; it means "assign to".</p>
+            
+            <pre>
+# We create a box called 'player_name' and put 'Sarah' inside it
+player_name = "Sarah"
+
+# We create a box called 'score' and put 50 inside it
+score = 50
+
+# Now we can ask Python to show us what is in the box
+print(player_name)
+print(score)
+            </pre>
+            <p>When you run this, Python looks inside the box labeled <code>player_name</code> and prints "Sarah".</p>
+        </div>
+    </details>
+
+    <details id="topic1-5">
+        <summary>1.5 Basic Data Types (Strings & Numbers)</summary>
+        <div class="content-inner">
+            <p>Computers organize data into different types. Just like you sort your laundry into "Socks," "Shirts," and "Pants," Python sorts data into types.</p>
+            
+            
+
+            <h4>1. Strings (str)</h4>
+            <p>A string is just text. It is a string of characters (letters) tied together. In Python, strings <strong>must</strong> be inside quotes.</p>
+            <ul>
+                <li><code>"Hello"</code></li>
+                <li><code>"123 Main Street"</code></li>
+            </ul>
+
+            <h4>2. Integers (int)</h4>
+            <p>An integer is a <strong>whole number</strong>. It does not have any decimal points. Think of it like a whole pizza.</p>
+            <ul>
+                <li><code>5</code></li>
+                <li><code>100</code></li>
+                <li><code>-20</code></li>
+            </ul>
+
+            <h4>3. Floats (float)</h4>
+            <p>A float is a number with a <strong>decimal point</strong>. Think of this like a slice of pizza (a fraction of a whole).</p>
+            <ul>
+                <li><code>2.5</code></li>
+                <li><code>3.14</code></li>
+                <li><code>99.9</code></li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>📝 Remember:</strong> If you put a number in quotes like <code>"5"</code>, Python treats it as a String (text), not a number!
+            </div>
+        </div>
+    </details>
+
+</div>
+
+<div class="module-container">
+
+    <h2>Module 1: Introduction to Python</h2>
+    <p>Welcome to the world of coding! In this module, we will set up our tools and write our very first computer program. Click a topic below to start learning.</p>
+
+    <div class="toc-box">
+        <h3>📍 Module Map (Click to Jump)</h3>
+        <ul class="toc-list">
+            <li><a href="#topic1-1" onclick="openSection('topic1-1'); return false;">1.1 What is Python?</a></li>
+            <li><a href="#topic1-2" onclick="openSection('topic1-2'); return false;">1.2 Installing Python</a></li>
+            <li><a href="#topic1-3" onclick="openSection('topic1-3'); return false;">1.3 First Code (Hello World)</a></li>
+            <li><a href="#topic1-4" onclick="openSection('topic1-4'); return false;">1.4 Variables (The Box)</a></li>
+            <li><a href="#topic1-5" onclick="openSection('topic1-5'); return false;">1.5 Data Types</a></li>
+        </ul>
+    </div>
+
+    <details id="topic1-1">
+        <summary>1.1 What is Python & Why learn it?</summary>
+        <div class="content-inner">
+            <p>Imagine you want to talk to a person from France, but you only speak English. You would need a translator, right?</p>
+            <p><strong>Python is a translator for computers.</strong> Computers only understand zeros and ones (010101), which is very hard for humans to read. Python lets us write instructions in simple English, and then it translates those instructions so the computer understands.</p>
+            
+            
+
+            <h4>Why is Python the best language for kids?</h4>
+            <ul>
+                <li><strong>It's Readable:</strong> Python code looks almost like reading a normal sentence.</li>
+                <li><strong>It's Powerful:</strong> It is used to build real things like YouTube, Instagram, and even by NASA scientists!</li>
+                <li><strong>It's Versatile:</strong> You can use it to make games, build websites, or create Artificial Intelligence (AI).</li>
+            </ul>
+        </div>
+    </details>
+
+    <details id="topic1-2">
+        <summary>1.2 Installing Python & IDLE</summary>
+        <div class="content-inner">
+            <p>Before we can code, we need to install the software on your computer. Follow these steps carefully:</p>
+            
+            
+
+            <ol>
+                <li>Go to the official website: <a href="https://www.python.org" target="_blank">python.org</a>.</li>
+                <li>Click on <strong>Downloads</strong> and download the latest version for your computer.</li>
+                <li><strong>VERY IMPORTANT:</strong> When the installer opens, you will see a small checkbox at the bottom that says <em>"Add Python to PATH"</em>. <strong>Check this box!</strong> If you don't, your computer might not find Python later.</li>
+                <li>Click "Install Now" and wait for it to finish.</li>
+            </ol>
+            
+            <h4>What is IDLE?</h4>
+            <p>Along with Python, you installed a program called <strong>IDLE</strong>. Think of IDLE as your "Sketchbook." It is a simple place where we can write code and run it immediately to see what happens.</p>
+        </div>
+    </details>
+
+    <details id="topic1-3">
+        <summary>1.3 Your First Code (Hello World)</summary>
+        <div class="content-inner">
+            <p>Let's write your first program! We are going to use a special command (function) called <code>print()</code>.</p>
+            <p>The <code>print()</code> function tells the computer: <em>"Show this text on the screen."</em></p>
+            
+            <h4>Try this in IDLE:</h4>
+            <pre>print("Hello, World!")</pre>
+            
+            <p><strong>The Rules (Syntax):</strong></p>
+            <ul>
+                <li>You must use <strong>parentheses</strong> <code>( )</code> after the word print.</li>
+                <li>You must put your text inside <strong>quotation marks</strong> <code>" "</code>. This tells Python that "Hello World" is text, not a command.</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <strong>💡 Fun Challenge:</strong> Try writing a second line of code to print your name! <br>
+                Example: <code>print("My name is Alex")</code>
+            </div>
+        </div>
+    </details>
+
+    <details id="topic1-4">
+        <summary>1.4 Understanding Variables (The Box)</summary>
+        <div class="content-inner">
+            <p>In programming, we need to save information to use later. We use <strong>Variables</strong> to do this.</p>
+            
+            
+
+            <h4>The Box Analogy</h4>
+            <p>Imagine you have an empty cardboard box. You can write a label on the outside (the Name) and put something inside (the Value).</p>
+            <ul>
+                <li><strong>Label:</strong> <code>score</code></li>
+                <li><strong>Value inside:</strong> <code>100</code></li>
+            </ul>
+
+            <p>In Python, we create a variable using the <code>=</code> sign. This is not "equals" like in math; it means "assign to".</p>
+            
+            <pre>
+# We create a box called 'player_name' and put 'Sarah' inside it
+player_name = "Sarah"
+
+# We create a box called 'score' and put 50 inside it
+score = 50
+
+# Now we can ask Python to show us what is in the box
+print(player_name)
+print(score)</pre>
+            <p>When you run this, Python looks inside the box labeled <code>player_name</code> and prints "Sarah".</p>
+        </div>
+    </details>
+
+    <details id="topic1-5">
+        <summary>1.5 Basic Data Types (Strings & Numbers)</summary>
+        <div class="content-inner">
+            <p>Computers organize data into different types. Just like you sort your laundry into "Socks," "Shirts," and "Pants," Python sorts data into types.</p>
+            
+            
+
+            <h4>1. Strings (str)</h4>
+            <p>A string is just text. It is a string of characters (letters) tied together. In Python, strings <strong>must</strong> be inside quotes.</p>
+            <ul>
+                <li><code>"Hello"</code></li>
+                <li><code>"123 Main Street"</code></li>
+            </ul>
+
+            <h4>2. Integers (int)</h4>
+            <p>An integer is a <strong>whole number</strong>. It does not have any decimal points. Think of it like a whole pizza.</p>
+            <ul>
+                <li><code>5</code></li>
+                <li><code>100</code></li>
+                <li><code>-20</code></li>
+            </ul>
+
+            <h4>3. Floats (float)</h4>
+            <p>A float is a number with a <strong>decimal point</strong>. Think of this like a slice of pizza (a fraction of a whole).</p>
+            <ul>
+                <li><code>2.5</code></li>
+                <li><code>3.14</code></li>
+                <li><code>99.9</code></li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>📝 Remember:</strong> If you put a number in quotes like <code>"5"</code>, Python treats it as a String (text), not a number!
+            </div>
+        </div>
+    </details>
+
+</div>
+
+<script>
+    function openSection(id) {
+        const section = document.getElementById(id);
+        if (section) {
+            // Optional: Close other sections to keep it clean
+            document.querySelectorAll('details').forEach((detail) => {
+                if (detail.id !== id) {
+                    detail.open = false;
+                }
+            });
+
+            // Open the specific section
+            section.open = true;
+            
+            // Scroll to the section smoothly
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: "smooth", block: "center" });
+            }, 100);
+        }
+    }
+</script>
+</body>
+</html>

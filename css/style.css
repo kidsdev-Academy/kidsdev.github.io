@@ -7,6 +7,8 @@
   --accent-pink: #E94560;
   --accent-yellow: #FFE66D;
   --accent-blue: #4CC9F0;
+  /* New Purple for Challenges */
+  --accent-purple: #A66CFF; 
 
   --text-main: #ffffff;
   --text-muted: #9ca3af;
@@ -36,12 +38,14 @@ body {
   font-size: 0.95rem;
   transition: color 0.3s;
   position: relative;
+  text-decoration: none;
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--accent-yellow);
 }
 
+/* Underline animation for nav links */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -159,14 +163,6 @@ body {
 }
 
 /* ================= CATEGORY GRID ================= */
-.category-grid {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 3rem;
-}
-
 .category-card {
   background-color: var(--bg-nav);
   border: 1px solid rgba(255,255,255,0.1);
@@ -206,7 +202,7 @@ body {
   font-weight: 700;
 }
 
-/* ================= SOCIAL ICONS ================= */
+/* ================= SOCIAL ICONS (UPDATED) ================= */
 .social-icon-btn {
   display: inline-flex;
   align-items: center;
@@ -225,12 +221,131 @@ body {
   color: white;
 }
 
-.social-icon-btn.github:hover { background-color: #333; }
-.social-icon-btn.facebook:hover { background-color: #1877F2; }
-.social-icon-btn.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+/* --- Brand Specific Hover Colors --- */
+
+/* GitHub: Dark Gray/Black */
+.social-icon-btn.github:hover { 
+  background-color: #333; 
+}
+
+/* Facebook: Official Blue */
+.social-icon-btn.facebook:hover { 
+  background-color: #1877F2; 
+}
+
+/* Instagram: Colorful Gradient */
+.social-icon-btn.instagram:hover { 
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* TikTok: Black background with Cyan/Red shadow effect */
 .social-icon-btn.tiktok:hover {
-  background-color: #000;
-  text-shadow: 2px 2px 0px #FE2C55, -2px -2px 0px #25F4EE;
+  background-color: #000000;
+  color: #ff0050; 
+  box-shadow: 2px 2px 0px rgba(0, 242, 234, 0.5); 
+}
+
+/* ================= SPOTLIGHT SEARCH (UPDATED) ================= */
+/* This replaces the old full-screen overlay with a focused modal style */
+
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Semi-transparent dark background to dim the page */
+  background-color: rgba(0, 0, 0, 0.6); 
+  backdrop-filter: blur(4px); /* Blur the background content slightly */
+  z-index: 9999;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Start from top */
+  padding-top: 15vh; /* Push down 15% from the top */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.search-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* The Box containing input and results */
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 20px;
+  background-color: #16213E; /* Solid Dark Blue Box */
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Deep shadow to make it pop */
+  border: 1px solid rgba(255,255,255,0.1);
+  animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px) scale(0.95); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* The large text input */
+.search-input-lg {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+  padding: 1.5rem 1.5rem; /* Spacious padding */
+  outline: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.search-input-lg::placeholder {
+  color: #6b7280;
+}
+
+/* Scrollable Results Area */
+.search-results {
+  width: 100%;
+  max-height: 50vh; /* Don't grow larger than half the screen height */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 transparent;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.search-result-item:hover {
+  background-color: rgba(76, 201, 240, 0.1); /* Light blue highlight */
+}
+
+/* Close 'X' Button inside the modal */
+.close-search {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  color: #9ca3af;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 10;
+}
+
+.close-search:hover {
+  color: white;
 }
 
 /* ================= ANIMATIONS ================= */
@@ -245,6 +360,7 @@ body {
   transform: translateY(0);
 }
 
+/* Mobile Menu Animation */
 .mobile-menu {
   max-height: 0;
   opacity: 0;
@@ -258,106 +374,7 @@ body {
   opacity: 1;
 }
 
-/* ================= SEARCH OVERLAY ================= */
-.search-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(15, 23, 42, 0.98);
-  backdrop-filter: blur(10px);
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 100px;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.search-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.search-container {
-  width: 100%;
-  max-width: 600px;
-  padding: 0 20px;
-  animation: slideDown 0.4s ease forwards;
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.search-input-lg {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid #334155;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-  padding: 1rem 0;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.search-input-lg:focus {
-  border-color: var(--accent-yellow);
-}
-
-.search-results {
-  width: 100%;
-  max-width: 600px;
-  margin-top: 2rem;
-  max-height: 60vh;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #334155 transparent;
-}
-
-.search-result-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  transition: background 0.2s;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.search-result-item:hover {
-  background: rgba(255,255,255,0.05);
-}
-
-.close-search {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  color: #9ca3af;
-  font-size: 2.5rem;
-  line-height: 1;
-  cursor: pointer;
-  transition: transform 0.3s, color 0.3s;
-}
-
-.close-search:hover {
-  transform: rotate(90deg);
-  color: var(--accent-pink);
-}
-
-/* ================= CONTACT PAGE STYLES (NEW) ================= */
-.map-container iframe {
-  filter: grayscale(100%) invert(92%) contrast(83%);
-  border-radius: 0.75rem;
-}
-
+/* ================= CONTACT FORM SUCCESS ANIMATION ================= */
 .checkmark {
   width: 56px;
   height: 56px;

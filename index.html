@@ -8,8 +8,21 @@
   <meta name="description" content="KidsDev Academy is the #1 free platform for kids to learn Python, Web Development, and Game Design. Fun, project-based coding lessons for ages 8-14.">
   <meta name="keywords" content="coding for kids, learn python, kids programming, web development course, scratch, game design, free coding lessons">
   <meta name="robots" content="index, follow">
-  
-  <meta name="google-site-verification" content="" />
+  <link rel="canonical" href="https://thekidsdev.netlify.app/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thekidsdev.netlify.app/">
+  <meta property="og:title" content="KidsDev | Coding for Future Innovators">
+  <meta property="og:description" content="Free coding courses for kids. Learn Python, Web Dev, and Game Design.">
+  <meta property="og:image" content="https://thekidsdev.netlify.app/image/social-preview.png">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://thekidsdev.netlify.app/">
+  <meta property="twitter:title" content="KidsDev | Coding for Future Innovators">
+  <meta property="twitter:description" content="Free coding courses for kids. Learn Python, Web Dev, and Game Design.">
+  <meta property="twitter:image" content="https://thekidsdev.netlify.app/image/social-preview.png">
+
+  <link rel="icon" type="image/png" href="image/logo.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -27,19 +40,25 @@
 
     <nav class="hidden md:flex gap-6 items-center">
       <a href="index.html" class="nav-link active">Home</a>
-      <a href="about.html" class="nav-link">About</a> <a href="courses.html" class="nav-link">Courses</a>
+      <a href="about.html" class="nav-link">About</a> 
+      <a href="courses.html" class="nav-link">Courses</a>
       <a href="daily.html" class="nav-link">Daily</a>
+      <a href="challenges.html" class="nav-link text-[#A66CFF] hover:text-[#A66CFF]">Challenges</a>
       <a href="contact.html" class="nav-link">Contact</a>
       <div class="h-5 w-px bg-gray-700 mx-2"></div>
-      <button class="text-gray-400 hover:text-[#FFE66D] transition" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
+      <button id="openSearchBtn" class="text-gray-400 hover:text-[#FFE66D] transition" title="Search">
+        <i data-lucide="search" class="w-5 h-5"></i>
+      </button>
     </nav>
     <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
   </div>
   
   <div id="mobileMenu" class="mobile-menu md:hidden">
     <div class="px-6 py-4 space-y-3 border-t border-gray-700">
-      <a href="about.html" class="block text-gray-300 hover:text-[#FFE66D]">About Us</a> <a href="courses.html" class="block text-gray-300 hover:text-[#FFE66D]">Courses</a>
+      <a href="about.html" class="block text-gray-300 hover:text-[#FFE66D]">About Us</a> 
+      <a href="courses.html" class="block text-gray-300 hover:text-[#FFE66D]">Courses</a>
       <a href="daily.html" class="block text-gray-300 hover:text-[#FFE66D]">Daily</a>
+      <a href="challenges.html" class="block text-[#A66CFF]">Challenges</a>
       <a href="contact.html" class="block text-gray-300 hover:text-[#FFE66D]">Contact</a>
     </div>
   </div>
@@ -81,6 +100,10 @@
     <a href="daily.html" class="category-card group no-underline hover:border-[#4CC9F0]"><i data-lucide="terminal" class="text-[#4CC9F0]"></i><span class="text-gray-300 group-hover:text-white">Python</span></a>
     <a href="daily.html" class="category-card group no-underline hover:border-[#FFE66D]"><i data-lucide="globe" class="text-[#FFE66D]"></i><span class="text-gray-300 group-hover:text-white">Web Dev</span></a>
     <a href="daily.html" class="category-card group no-underline hover:border-[#E94560]"><i data-lucide="gamepad-2" class="text-[#E94560]"></i><span class="text-gray-300 group-hover:text-white">Game Design</span></a>
+    <a href="challenges.html" class="category-card group no-underline hover:border-[#A66CFF]">
+      <i data-lucide="trophy" class="text-[#A66CFF]"></i>
+      <span class="text-gray-300 group-hover:text-white">Challenges</span>
+    </a>
   </div>
 </section>
 
@@ -152,10 +175,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
       <div class="space-y-6">
-        <div class="flex items-center gap-3">
-           <img src="image/logo.png" alt="KidsDev" class="h-10 w-auto object-contain">
-           <span class="text-2xl font-bold text-white tracking-tight">KidsDev</span>
-        </div>
+        <a href="index.html" class="flex items-center gap-3"><img src="image/logo.png" alt="KidsDev" class="h-10 w-auto object-contain"><span class="text-2xl font-bold text-white tracking-tight">KidsDev</span></a>
         <p class="text-sm text-gray-500">Empowering the next generation.</p>
       </div>
       <div>
@@ -163,6 +183,7 @@
         <ul class="space-y-3 text-sm font-medium text-gray-400">
           <li><a href="courses.html" class="hover:text-white transition">All Courses</a></li>
           <li><a href="daily.html" class="hover:text-white transition">Daily Challenges</a></li>
+          <li><a href="challenges.html" class="hover:text-[#A66CFF] transition">Weekly Battles</a></li>
         </ul>
       </div>
       <div>
@@ -177,14 +198,12 @@
         <div class="flex gap-4">
           <a href="https://github.com/kidsdev-Academy" target="_blank" class="social-icon-btn github"><i data-lucide="github" class="w-5 h-5"></i></a>
           <a href="https://instagram.com/thekidsdev" target="_blank" class="social-icon-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-          <a href="#" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-          <a href="https://tiktok.com/@the_kidsdev" target="_blank" class="social-icon-btn tiktok"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music-2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></a>
+          <a href="#" target="_blank" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="https://tiktok.com/@the_kidsdev" target="_blank" class="social-icon-btn tiktok"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
         </div>
       </div>
     </div>
-    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-      <p>© 2026 KidsDev Academy. Made with ❤️ by KidsDev Team.</p>
-    </div>
+    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500"><p>© 2026 KidsDev Academy. Made with ❤️ by KidsDev Team.</p></div>
   </div>
 </footer>
 <script src="js/main.js"></script>

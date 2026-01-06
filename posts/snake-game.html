@@ -3,241 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Build Snake with Python | KidsDev Tutorial</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <title>Build a Snake Game | KidsDev</title> <meta name="description" content="Learn how to build a Snake Game in Python step-by-step."> <link rel="canonical" href="https://thekidsdev.netlify.app/posts/snake-game.html"> <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css"> </head>
 
-  <link rel="stylesheet" href="../css/style.css">
-
-  <style>
-    /* Tutorial Specific Styles */
-    .code-block {
-      background-color: #0F172A;
-      border: 1px solid #334155;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      margin: 1.5rem 0;
-      font-family: 'Fira Code', monospace;
-    }
-    .code-header {
-      background-color: #1E293B;
-      padding: 0.5rem 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #334155;
-    }
-    .code-content {
-      padding: 1.5rem;
-      overflow-x: auto;
-      color: #e2e8f0;
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-    /* Simple Syntax Highlighting Colors */
-    .k { color: #E94560; } /* Keyword (def, if, import) */
-    .f { color: #FFE66D; } /* Function (print, init) */
-    .s { color: #4CC9F0; } /* String */
-    .c { color: #64748b; font-style: italic; } /* Comment */
-  </style>
-</head>
-
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#1A1A2E]">
 
 <header class="navbar">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
     <a href="../index.html" class="flex items-center gap-3 cursor-pointer">
-      <img src="../logo.jpg" alt="KidsDev Logo" class="h-10 w-auto object-contain hover:scale-105 transition-transform">
+      <img src="../image/logo.png" alt="KidsDev Logo" class="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform">
     </a>
-
     <nav class="hidden md:flex gap-6 items-center">
-      <a href="../daily.html" class="nav-link active">Daily</a>
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../about.html" class="nav-link">About</a> 
       <a href="../courses.html" class="nav-link">Courses</a>
+      <a href="../daily.html" class="nav-link active">Daily</a>
+      <a href="../challenges.html" class="nav-link text-[#A66CFF] hover:text-[#A66CFF]">Challenges</a>
       <a href="../contact.html" class="nav-link">Contact</a>
       <div class="h-5 w-px bg-gray-700 mx-2"></div>
-      <button class="text-gray-400 hover:text-[#FFE66D] transition" title="Search">
-        <i data-lucide="search" class="w-5 h-5"></i>
-      </button>
-      <a href="https://github.com/nathylyang" target="_blank" class="text-gray-400 hover:text-white transition">
-        <i data-lucide="github" class="w-5 h-5"></i>
-      </a>
+      <button id="openSearchBtn" class="text-gray-400 hover:text-[#FFE66D] transition" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
     </nav>
-
-    <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white">
-      <i data-lucide="menu" class="w-7 h-7"></i>
-    </button>
+    <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
   </div>
-  
   <div id="mobileMenu" class="mobile-menu md:hidden">
     <div class="px-6 py-4 space-y-3 border-t border-gray-700">
-      <a href="../daily.html" class="block text-[#FFE66D]">Daily</a>
       <a href="../courses.html" class="block text-gray-300">Courses</a>
+      <a href="../daily.html" class="block text-[#FFE66D]">Daily</a>
+      <a href="../challenges.html" class="block text-[#A66CFF]">Challenges</a>
       <a href="../contact.html" class="block text-gray-300">Contact</a>
     </div>
   </div>
 </header>
 
-<article class="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-20">
-  
-  <div class="flex items-center gap-2 text-sm text-gray-400 mb-6">
-    <a href="../daily.html" class="hover:text-white">Daily</a>
-    <span>/</span>
-    <span class="text-[#FFE66D]">Tutorials</span>
-  </div>
-
-  <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-    Create Your Own <span class="text-[#4CC9F0]">Snake Game</span> in Python
-  </h1>
-
-  <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-700">
-    <div class="w-10 h-10 rounded-full bg-gray-700 overflow-hidden">
-      <img src="https://ui-avatars.com/api/?name=Nath&background=E94560&color=fff" alt="Nath">
+<section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+  <article class="prose prose-invert prose-lg max-w-none">
+    <h1 class="text-4xl font-bold text-white mb-4">Build a Snake Game in Python</h1>
+    <div class="flex gap-4 text-sm text-gray-400 mb-8">
+      <span><i data-lucide="calendar" class="inline w-4 h-4"></i> Jan 10, 2026</span>
+      <span class="text-[#FFE66D]">Python</span>
     </div>
-    <div>
-      <p class="text-sm font-bold text-white">By Nath</p>
-      <p class="text-xs text-gray-400">Oct 24, 2025 • 10 min read</p>
-    </div>
-  </div>
-
-  <div class="rounded-xl overflow-hidden mb-12 border border-gray-700 shadow-2xl">
-    <img 
-      src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80" 
-      alt="Python Code Screen" 
-      class="w-full h-auto"
-    >
-  </div>
-
-  <div class="prose prose-invert prose-lg max-w-none text-gray-300">
-    <p>
-      Remember the classic Snake game on old Nokia phones? Today, we are going to build it from scratch! 
-      We will use <strong>Python</strong> and a library called <strong>Pygame</strong>.
-    </p>
-
-    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Step 1: Install Pygame</h2>
-    <p>
-      First, we need to install the library that handles graphics and keyboard input. Open your terminal and type:
-    </p>
-
-    <div class="code-block">
-      <div class="code-header">
-        <span class="text-xs text-gray-400">Terminal</span>
-      </div>
-      <div class="code-content">
-        pip install pygame
-      </div>
-    </div>
-
-    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Step 2: Set up the Screen</h2>
-    <p>
-      Let's create a blank window. Copy this code into a file named <code>snake.py</code>.
-    </p>
-
-    <div class="code-block">
-      <div class="code-header">
-        <span class="text-xs text-gray-400">snake.py</span>
-        <button class="text-xs text-[#4CC9F0] hover:text-white transition">Copy</button>
-      </div>
-      <div class="code-content">
-        <span class="k">import</span> pygame<br>
-        <span class="k">import</span> time<br>
-        <br>
-        <span class="c"># Initialize the game</span><br>
-        pygame.<span class="f">init</span>()<br>
-        <br>
-        <span class="c"># Define colors</span><br>
-        WHITE = (255, 255, 255)<br>
-        BLACK = (0, 0, 0)<br>
-        RED = (213, 50, 80)<br>
-        <br>
-        <span class="c"># Create screen</span><br>
-        dis = pygame.display.<span class="f">set_mode</span>((800, 600))<br>
-        pygame.display.<span class="f">set_caption</span>(<span class="s">'KidsDev Snake Game'</span>)<br>
-        <br>
-        <span class="c"># Keep the window open</span><br>
-        game_over = False<br>
-        <span class="k">while not</span> game_over:<br>
-        &nbsp;&nbsp;for event in pygame.event.<span class="f">get</span>():<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span> event.type == pygame.QUIT:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game_over = True<br>
-        <br>
-        &nbsp;&nbsp;pygame.display.<span class="f">update</span>()<br>
-        <br>
-        pygame.<span class="f">quit</span>()<br>
-        quit()
-      </div>
-    </div>
-
-    <h2 class="text-2xl font-bold text-white mt-8 mb-4">What just happened?</h2>
-    <p>
-      We imported the library, defined some colors (computers see colors as numbers!), and created a "Game Loop". 
-      The <code>while not game_over:</code> line keeps the window running until you click the X button.
-    </p>
-
-    <div class="bg-[#16213E] border-l-4 border-[#FFE66D] p-6 my-8 rounded-r-lg">
-      <h3 class="font-bold text-[#FFE66D] mb-2">💡 Challenge</h3>
-      <p class="text-sm">Can you change the background color from BLACK to BLUE? Hint: Look for where we fill the screen (you might need to add <code>dis.fill(BLUE)</code>).</p>
-    </div>
-
-    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Next Steps</h2>
-    <p>
-      In Part 2, we will make the snake move and eat food. If you want to master Python properly, check out our full course below!
-    </p>
-
-  </div>
-
-  <div class="mt-16 p-8 bg-gradient-to-r from-[#16213E] to-[#0F172A] rounded-2xl border border-gray-700 text-center">
-    <h3 class="text-2xl font-bold mb-4">Want to learn more?</h3>
-    <p class="text-gray-400 mb-6">This is just the beginning. Join our Python Masterclass to build 5 real games.</p>
-    <a href="../courses/python.html" class="btn btn-primary">
-      View Full Course <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
-    </a>
-  </div>
-
-</article>
+    <img src="https://images.unsplash.com/photo-1614741118881-1e4fe860b313?auto=format&fit=crop&w=1200&q=80" alt="Snake Game" class="rounded-xl w-full mb-8">
+    
+    <p class="text-gray-300">Today we are going to learn how to use arrays (lists) to make a snake grow...</p>
+    </article>
+</section>
 
 <footer class="bg-[#0b1021] border-t border-gray-800 text-gray-300 pt-16 pb-8 mt-auto">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-      <div class="space-y-4">
-        <div class="flex items-center gap-2">
-           <img src="../logo.jpg" alt="KidsDev" class="h-8 w-auto grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition">
-           <span class="text-xl font-bold text-white">KidsDev</span>
-        </div>
-        <p class="text-sm text-gray-500">Empowering the next generation.</p>
-      </div>
-      <div>
-        <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Explore</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="../courses.html" class="hover:text-[#FFE66D] transition">All Courses</a></li>
-          <li><a href="../daily.html" class="hover:text-[#4CC9F0] transition">Daily Challenges</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Support</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="../contact.html" class="hover:text-white transition">Contact Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Follow Us</h4>
-        <div class="flex gap-4">
-          <a href="https://github.com/nathylyang" target="_blank" class="social-icon-btn github"><i data-lucide="github" class="w-5 h-5"></i></a>
-          <a href="#" class="social-icon-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-          <a href="#" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-          <a href="#" class="social-icon-btn tiktok">
-             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music-2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
-      <p>&copy; 2026 KidsDev Academy. Made with ❤️ by Nath.</p>
-    </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center text-sm text-gray-500">
+    <p>© 2026 KidsDev Academy.</p>
   </div>
 </footer>
 

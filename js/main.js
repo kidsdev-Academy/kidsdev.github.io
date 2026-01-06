@@ -5,6 +5,7 @@ const CONFIG = {
 };
 
 /* ================= UTILS ================= */
+// Helper to handle paths when inside sub-folders
 const isSubPage = window.location.pathname.includes("/courses/") || window.location.pathname.includes("/posts/");
 
 const getPath = (path) => {
@@ -25,28 +26,32 @@ const UI = {
     this.cacheElements();
     await this.loadData();
     
-    // RENDER LOGIC
+    // 1. RENDER LOGIC
     this.renderIcons();
     
-    // 1. Render Posts (if container exists)
+    // Render Posts (for Home/Daily pages)
     const posts = allData.filter(item => item.type === "post");
     this.renderPosts(posts);
 
-    // 2. Render Courses (if container exists)
+    // Render Courses (for Home/Courses pages)
     const courses = allData.filter(item => item.type === "course");
     this.renderCourses(courses);
+
+    // Render Challenges (for Challenges page)
+    const challenges = allData.filter(item => item.type === "challenge");
+    this.renderChallenges(challenges);
     
-    // 3. Setup Interactive Elements
+    // 2. SETUP INTERACTIVE ELEMENTS
     this.setupMobileMenu();
     this.setupScrollReveal();
     this.setActiveLink();
-    this.setupGlobalSearch(); 
+    this.setupGlobalSearch(); // Init the Spotlight Search
     
-    // 4. Attach Global Functions (For Contact Form)
+    // 3. EXPOSE GLOBAL FUNCTIONS (For Contact/Submission Forms)
     window.handleFormSubmit = this.handleFormSubmit;
     window.resetForm = this.resetForm;
     window.copyEmail = this.copyEmail;
-    window.UI = this; // Expose UI for category filters
+    window.UI = this; 
   },
 
   cacheElements() {
@@ -55,7 +60,7 @@ const UI = {
     this.menuBtn = document.getElementById("menuBtn");
     this.mobileMenu = document.getElementById("mobileMenu");
     this.navLinks = document.querySelectorAll(".nav-link");
-    this.searchBtn = document.querySelector('button[title="Search"]');
+    this.searchBtn = document.getElementById('openSearchBtn'); 
     this.gridTitle = document.getElementById("grid-title");
   },
 
@@ -68,6 +73,8 @@ const UI = {
       console.error("Error loading data:", error);
     }
   },
+
+  /* --- RENDER FUNCTIONS --- */
 
   renderPosts(posts) {
     if (!this.postsContainer) return;
@@ -135,6 +142,69 @@ const UI = {
     setTimeout(() => { document.querySelectorAll(".reveal-up").forEach(el => el.classList.add('active')); }, 100);
   },
 
+  renderChallenges(challenges) {
+    // Only run this if we are on the challenges.html page
+    const activeContainer = document.getElementById("active-challenge-container");
+    const pastContainer = document.getElementById("past-challenges-grid");
+    
+    if (!activeContainer) return;
+
+    // 1. Separate Active vs Past
+    const activeChallenge = challenges.find(c => c.status === "active");
+    const pastChallenges = challenges.filter(c => c.status !== "active");
+
+    // 2. Render Active Challenge
+    if (activeChallenge) {
+      activeContainer.innerHTML = `
+        <div class="grid md:grid-cols-2 h-full">
+          <div class="p-8 md:p-12 flex flex-col justify-center">
+            <h2 class="text-2xl font-bold text-white mb-2">🔥 This Week's Challenge:</h2>
+            <h3 class="text-3xl font-extrabold text-[#A66CFF] mb-6">${activeChallenge.title}</h3>
+            <p class="text-gray-400 mb-6">
+              <strong class="text-white">Goal:</strong> ${activeChallenge.desc}<br><br>
+              <strong class="text-white">Tech Stack:</strong> ${activeChallenge.tech}<br>
+              <strong class="text-white">Difficulty:</strong> ${activeChallenge.difficulty}
+            </p>
+            <div class="flex flex-wrap gap-4 text-sm text-gray-500 mb-8">
+              <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> Deadline: ${activeChallenge.deadline}</span>
+            </div>
+            <a href="#submit-form" class="btn btn-primary bg-[#A66CFF] hover:bg-[#9254ff] border-none shadow-none w-max">
+              Submit Solution <i data-lucide="arrow-down" class="ml-2 w-4 h-4"></i>
+            </a>
+          </div>
+          <div class="relative h-64 md:h-auto bg-[#0b1021] flex items-center justify-center border-t md:border-t-0 md:border-l border-gray-700">
+             <i data-lucide="code-2" class="w-24 h-24 text-gray-700 opacity-50"></i>
+             <div class="absolute inset-0 bg-gradient-to-t from-[#0b1021] to-transparent opacity-50"></div>
+          </div>
+        </div>
+      `;
+    } else {
+      activeContainer.innerHTML = `<div class="p-12 text-center text-gray-500">No active challenge right now. Check back later!</div>`;
+    }
+
+    // 3. Render Past Challenges
+    if (pastContainer) {
+      pastContainer.innerHTML = pastChallenges.map(c => `
+        <div class="bg-[#16213E] p-6 rounded-xl border border-gray-700 flex flex-col hover:border-[#A66CFF] transition duration-300">
+           <div class="flex justify-between items-start mb-4">
+              <h4 class="text-xl font-bold text-white">${c.title}</h4>
+              <span class="text-xs font-bold px-2 py-1 rounded bg-gray-700 text-gray-300">Ended</span>
+           </div>
+           <p class="text-sm text-gray-400 mb-6 flex-1">${c.desc}</p>
+           <div class="text-xs text-gray-500 pt-4 border-t border-gray-700 flex justify-between">
+              <span>Tech: ${c.tech}</span>
+              <span class="text-[#A66CFF]">${c.difficulty}</span>
+           </div>
+        </div>
+      `).join("");
+    }
+    
+    // Refresh icons because we injected new HTML
+    if(window.lucide) lucide.createIcons();
+  },
+
+  /* --- NAVIGATION & INTERACTION --- */
+
   filterPosts(category, btnElement) {
     const buttons = document.querySelectorAll('.category-card');
     buttons.forEach(btn => btn.classList.remove('active'));
@@ -155,11 +225,11 @@ const UI = {
     const path = window.location.pathname;
     let section = "index";
     
-    // UPDATED LOGIC TO INCLUDE ABOUT PAGE
     if (path.includes("daily") || path.includes("/posts/")) section = "daily";
     else if (path.includes("courses")) section = "courses";
     else if (path.includes("contact")) section = "contact";
-    else if (path.includes("about")) section = "about"; // <--- Added this!
+    else if (path.includes("about")) section = "about";
+    else if (path.includes("challenges")) section = "challenges"; // Handles the new page
 
     if (this.navLinks) {
         this.navLinks.forEach(link => {
@@ -185,27 +255,109 @@ const UI = {
     elements.forEach(el => observer.observe(el));
   },
 
+  /* ================= SPOTLIGHT SEARCH LOGIC ================= */
   setupGlobalSearch() {
-    const searchHTML = `<div id="searchOverlay" class="search-overlay"><div class="close-search" id="closeSearch">&times;</div><div class="search-container"><input type="text" id="globalSearchInput" class="search-input-lg" placeholder="Type to search..." autocomplete="off"><div id="searchResults" class="search-results"></div></div></div>`;
+    // 1. Inject HTML for Spotlight Modal
+    const searchHTML = `
+    <div id="searchOverlay" class="search-overlay">
+      <div class="search-container">
+         <div class="relative">
+            <i data-lucide="search" class="absolute left-6 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5"></i>
+            <input type="text" id="globalSearchInput" class="search-input-lg pl-14 pr-12" placeholder="Search courses, posts, or topics..." autocomplete="off">
+            <div class="close-search" id="closeSearch">&times;</div>
+         </div>
+         <div id="searchResults" class="search-results"></div>
+      </div>
+    </div>`;
+
     if(!document.getElementById("searchOverlay")) document.body.insertAdjacentHTML('beforeend', searchHTML);
+    
     const overlay = document.getElementById('searchOverlay');
     const closeBtn = document.getElementById('closeSearch');
     const input = document.getElementById('globalSearchInput');
     const resultsContainer = document.getElementById('searchResults');
-    if (this.searchBtn) this.searchBtn.addEventListener('click', () => { overlay.classList.add('active'); setTimeout(() => input.focus(), 100); });
-    const closeOverlay = () => { overlay.classList.remove('active'); input.value = ''; resultsContainer.innerHTML = ''; };
+
+    // 2. Open Search
+    if (this.searchBtn) {
+      this.searchBtn.addEventListener('click', () => { 
+        overlay.classList.add('active'); 
+        setTimeout(() => input.focus(), 100); 
+      });
+    }
+
+    // 3. Close Functions
+    const closeOverlay = () => { 
+      overlay.classList.remove('active'); 
+      input.value = ''; 
+      resultsContainer.innerHTML = ''; 
+    };
+
     closeBtn.addEventListener('click', closeOverlay);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('active')) closeOverlay(); });
+    
+    // Close when clicking background (but not the box)
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        closeOverlay();
+      }
+    });
+
+    // Close on Escape Key
+    document.addEventListener('keydown', (e) => { 
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closeOverlay(); 
+    });
+
+    // 4. Live Search Logic
     input.addEventListener('input', (e) => {
         const term = e.target.value.toLowerCase();
         resultsContainer.innerHTML = ''; 
-        if (term.length < 2) return; 
-        const matches = allData.filter(item => item.title.toLowerCase().includes(term) || (item.desc && item.desc.toLowerCase().includes(term)));
-        if (matches.length === 0) resultsContainer.innerHTML = '<div class="text-gray-500 text-center">No results found.</div>';
-        else matches.forEach(item => {
-            const safeUrl = getPath(item.url);
-            resultsContainer.innerHTML += `<a href="${safeUrl}" class="search-result-item"><div class="w-12 h-12 rounded overflow-hidden flex-shrink-0"><img src="${item.image}" class="w-full h-full object-cover"></div><div><h4 class="text-white font-bold">${item.title}</h4><p class="text-gray-400 text-xs">${item.type === 'course' ? 'COURSE' : item.category}</p></div></a>`;
-        });
+        
+        if (term.length < 1) return; 
+
+        // Search logic includes Title, Description, and Category
+        const matches = allData.filter(item => 
+          item.title.toLowerCase().includes(term) || 
+          (item.desc && item.desc.toLowerCase().includes(term)) ||
+          (item.category && item.category.toLowerCase().includes(term)) ||
+          (item.type && item.type.toLowerCase().includes(term))
+        );
+
+        if (matches.length === 0) {
+          resultsContainer.innerHTML = '<div class="p-6 text-gray-500 text-center text-sm">No results found.</div>';
+        } else {
+          matches.forEach(item => {
+              const safeUrl = getPath(item.url || 'challenges.html');
+              
+              // Determine Icon & Color based on Type
+              let icon = 'file-text';
+              let colorClass = 'text-gray-400';
+
+              if (item.type === 'course') {
+                icon = 'graduation-cap';
+                colorClass = 'text-[#FFE66D]';
+              } else if (item.type === 'challenge') {
+                icon = 'trophy';
+                colorClass = 'text-[#A66CFF]';
+              } else if (item.type === 'post') {
+                 icon = 'file-text';
+                 colorClass = 'text-[#4CC9F0]';
+              }
+              
+              const resultHTML = `
+                <a href="${safeUrl}" class="search-result-item group">
+                  <div class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center ${colorClass} group-hover:bg-white group-hover:text-black transition">
+                    <i data-lucide="${icon}" class="w-4 h-4"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="text-white text-sm font-bold group-hover:text-[#4CC9F0] transition">${item.title}</h4>
+                    <span class="text-xs text-gray-500 uppercase tracking-wider">${item.category || item.type}</span>
+                  </div>
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-gray-600 group-hover:text-white transition"></i>
+                </a>`;
+              
+              resultsContainer.innerHTML += resultHTML;
+          });
+          lucide.createIcons(); // Refresh icons for new results
+        }
     });
   },
 
@@ -228,7 +380,7 @@ const UI = {
     document.getElementById('successMessage').classList.remove('flex');
   },
   copyEmail() {
-    navigator.clipboard.writeText("hello@kidsdev.com").then(() => {
+    navigator.clipboard.writeText("kidsdevteam@gmail.com").then(() => {
       const btn = document.getElementById('copyBtn');
       const originalText = btn.innerText;
       btn.innerText = "Copied!";

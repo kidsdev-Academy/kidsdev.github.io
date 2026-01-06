@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coding Challenges | KidsDev</title>
+  
+  <meta name="description" content="Join our weekly coding battles! Fun programming challenges for kids to test their skills in Python, Web Dev, and more.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thekidsdev.netlify.app/challenges.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thekidsdev.netlify.app/challenges.html">
+  <meta property="og:title" content="Weekly Coding Battles | KidsDev">
+  <meta property="og:description" content="Compete in fun coding challenges and build cool projects.">
+  <meta property="og:image" content="https://thekidsdev.netlify.app/image/social-preview.png">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://thekidsdev.netlify.app/challenges.html">
+  <meta property="twitter:title" content="Weekly Coding Battles">
+  <meta property="twitter:description" content="Compete in fun coding challenges and build cool projects.">
+  <meta property="twitter:image" content="https://thekidsdev.netlify.app/image/social-preview.png">
+
+  <link rel="icon" type="image/png" href="image/logo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+<header class="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3 cursor-pointer">
+      <img src="image/logo.png" alt="KidsDev Logo" class="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform">
+    </a>
+    
+    <nav class="hidden md:flex gap-6 items-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="courses.html" class="nav-link">Courses</a>
+      <a href="daily.html" class="nav-link">Daily</a>
+      <a href="challenges.html" class="nav-link active text-[#A66CFF]">Challenges</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <div class="h-5 w-px bg-gray-700 mx-2"></div>
+      <button id="openSearchBtn" class="text-gray-400 hover:text-[#FFE66D]" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
+    </nav>
+
+    <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
+  </div>
+  
+  <div id="mobileMenu" class="mobile-menu md:hidden">
+    <div class="px-6 py-4 space-y-3 border-t border-gray-700">
+      <a href="courses.html" class="block text-gray-300 hover:text-[#FFE66D]">Courses</a>
+      <a href="challenges.html" class="block text-[#A66CFF]">Challenges</a>
+      <a href="contact.html" class="block text-gray-300 hover:text-[#FFE66D]">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section class="relative pt-20 pb-20 overflow-hidden text-center">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[#A66CFF] opacity-5 filter blur-[120px]"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-4">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16213E] border border-[#A66CFF]/30 text-[#A66CFF] text-xs font-bold uppercase tracking-wide mb-6">
+      <i data-lucide="trophy" class="w-4 h-4"></i> Weekly Battles
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+      Code. Submit. <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#A66CFF] to-[#E94560]">Win!</span>
+    </h1>
+    <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+      Test your skills with our weekly coding challenges. Build the project, submit your code link, and get featured on our Hall of Fame!
+    </p>
+  </div>
+</section>
+
+<section class="max-w-5xl mx-auto px-4 sm:px-6 mb-24">
+  <div id="active-challenge-container" class="bg-[#16213E] border border-[#A66CFF] rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(166,108,255,0.15)] reveal-up min-h-[400px]">
+    <div class="flex items-center justify-center h-full py-24">
+       <div class="animate-spin rounded-full h-12 w-12 border-4 border-[#A66CFF] border-t-transparent"></div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-5xl mx-auto px-4 sm:px-6 mb-24 reveal-up">
+  <div class="flex items-center gap-4 mb-10 justify-center">
+    <div class="h-px bg-gray-800 flex-1"></div>
+    <h2 class="section-title text-center text-2xl !mb-0">Past Challenges</h2>
+    <div class="h-px bg-gray-800 flex-1"></div>
+  </div>
+  <div id="past-challenges-grid" class="grid md:grid-cols-2 gap-6"></div>
+</section>
+
+<section id="submit-form" class="max-w-2xl mx-auto px-4 sm:px-6 pb-24 reveal-up">
+  <div class="text-center mb-10">
+    <h2 class="section-title">Submit Your Work</h2>
+    <p class="text-gray-400">Paste your GitHub link or CodePen URL below.</p>
+  </div>
+
+  <form id="challengeForm" action="https://formspree.io/f/xqeavjnl" method="POST" class="space-y-6 bg-[#16213E] p-8 rounded-2xl border border-gray-700">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block text-gray-400 text-sm font-bold mb-2">Your Name</label>
+        <input type="text" name="name" required class="w-full bg-[#0b1021] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#A66CFF] focus:ring-1 focus:ring-[#A66CFF]">
+      </div>
+      <div>
+        <label class="block text-gray-400 text-sm font-bold mb-2">Your Email</label>
+        <input type="email" name="email" required class="w-full bg-[#0b1021] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#A66CFF] focus:ring-1 focus:ring-[#A66CFF]">
+      </div>
+    </div>
+    <div>
+      <label class="block text-gray-400 text-sm font-bold mb-2">Challenge Name</label>
+      <select name="challenge_title" class="w-full bg-[#0b1021] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#A66CFF]">
+        <option value="Current Weekly Challenge">Current Weekly Challenge</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-gray-400 text-sm font-bold mb-2">Project URL</label>
+      <div class="relative">
+        <i data-lucide="link" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5"></i>
+        <input type="url" name="project_url" placeholder="https://..." required class="w-full bg-[#0b1021] border border-gray-700 rounded-lg pl-12 pr-4 py-3 text-white focus:outline-none focus:border-[#A66CFF] focus:ring-1 focus:ring-[#A66CFF]">
+      </div>
+    </div>
+    <div>
+      <label class="block text-gray-400 text-sm font-bold mb-2">Notes (Optional)</label>
+      <textarea name="message" rows="3" placeholder="I added a cool extra feature..." class="w-full bg-[#0b1021] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#A66CFF] focus:ring-1 focus:ring-[#A66CFF]"></textarea>
+    </div>
+    <button type="submit" class="w-full btn btn-primary bg-[#A66CFF] hover:bg-[#9254ff] border-none shadow-none">
+      Send Challenge <i data-lucide="send" class="ml-2 w-4 h-4"></i>
+    </button>
+  </form>
+
+  <div id="challengeSuccess" class="hidden flex-col items-center justify-center p-8 bg-[#16213E] rounded-2xl border border-green-500/50 mt-6 text-center">
+    <div class="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center text-green-500 mb-4">
+      <i data-lucide="check" class="w-8 h-8"></i>
+    </div>
+    <h3 class="text-2xl font-bold text-white mb-2">Received!</h3>
+    <p class="text-gray-400">Thanks for submitting. We'll check your code and email you soon.</p>
+    <button onclick="window.location.reload()" class="mt-4 text-[#A66CFF] hover:underline text-sm">Submit another</button>
+  </div>
+</section>
+
+<footer class="bg-[#0b1021] border-t border-gray-800 text-gray-300 pt-16 pb-8 mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div class="space-y-6">
+        <a href="index.html" class="flex items-center gap-3"><img src="image/logo.png" alt="KidsDev" class="h-10 w-auto object-contain"><span class="text-2xl font-bold text-white tracking-tight">KidsDev</span></a>
+        <p class="text-sm text-gray-500">Empowering the next generation.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Explore</h4>
+        <ul class="space-y-3 text-sm font-medium text-gray-400">
+          <li><a href="courses.html" class="hover:text-white transition">All Courses</a></li>
+          <li><a href="daily.html" class="hover:text-white transition">Daily Challenges</a></li>
+          <li><a href="challenges.html" class="hover:text-[#A66CFF] transition">Weekly Battles</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Support</h4>
+        <ul class="space-y-3 text-sm font-medium text-gray-400">
+          <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+          <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Follow Us</h4>
+        <div class="flex gap-4">
+          <a href="https://github.com/kidsdev-Academy" target="_blank" class="social-icon-btn github"><i data-lucide="github" class="w-5 h-5"></i></a>
+          <a href="https://instagram.com/thekidsdev" target="_blank" class="social-icon-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          <a href="#" target="_blank" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="https://tiktok.com/@the_kidsdev" target="_blank" class="social-icon-btn tiktok"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500"><p>© 2026 KidsDev Academy. Made with ❤️ by KidsDev Team.</p></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+  const form = document.getElementById("challengeForm");
+  const successMsg = document.getElementById("challengeSuccess");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const btn = form.querySelector('button');
+    const originalText = btn.innerHTML;
+    const data = new FormData(event.target);
+    btn.innerHTML = `<div class="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent inline-block mr-2"></div> Sending...`;
+    btn.disabled = true;
+
+    try {
+      const response = await fetch(event.target.action, {
+        method: form.method, body: data, headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+        successMsg.classList.add('flex');
+        if(window.lucide) lucide.createIcons();
+      } else {
+        alert("Oops! There was a problem submitting your form.");
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    } catch (error) {
+        alert("Oops! There was a problem submitting your form.");
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+  }
+  form.addEventListener("submit", handleSubmit);
+</script>
+</body>
+</html>

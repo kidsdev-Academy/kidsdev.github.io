@@ -77,5 +77,27 @@
     "category": "Concept",
     "url": "#",
     "colorClass": "bg-purple-500 text-white"
+  },
+  {
+    "id": 201,
+    "type": "challenge",
+    "title": "The Digital Clock",
+    "desc": "Create a website that shows the current time in Hours, Minutes, and Seconds. It must update every second!",
+    "difficulty": "Easy",
+    "deadline": "Sunday, Jan 12",
+    "tech": "HTML, CSS, JS",
+    "status": "active",
+    "colorClass": "text-[#A66CFF]"
+  },
+  {
+    "id": 202,
+    "type": "challenge",
+    "title": "Neon Glow Button",
+    "desc": "Create a button that glows with a neon effect when you hover over it using CSS box-shadow.",
+    "difficulty": "Beginner",
+    "deadline": "Ended",
+    "tech": "HTML, CSS",
+    "status": "past",
+    "colorClass": "text-[#E94560]"
   }
 ]

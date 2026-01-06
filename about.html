@@ -5,8 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Us | KidsDev</title>
   
-  <meta name="description" content="Learn about KidsDev Academy. We are on a mission to empower the next generation of innovators in Sunderland and beyond through free coding education.">
+  <meta name="description" content="Learn about KidsDev Academy's mission to empower the next generation of innovators in Sunderland and beyond through free coding education.">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thekidsdev.netlify.app/about.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thekidsdev.netlify.app/about.html">
+  <meta property="og:title" content="About KidsDev | Empowering Young Coders">
+  <meta property="og:description" content="Our mission is to provide 100% free coding education to kids everywhere.">
+  <meta property="og:image" content="https://thekidsdev.netlify.app/image/social-preview.png">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://thekidsdev.netlify.app/about.html">
+  <meta property="twitter:title" content="About KidsDev">
+  <meta property="twitter:description" content="Our mission is to provide 100% free coding education to kids everywhere.">
+  <meta property="twitter:image" content="https://thekidsdev.netlify.app/image/social-preview.png">
+
+  <link rel="icon" type="image/png" href="image/logo.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -18,22 +33,20 @@
 
 <header class="navbar">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-    
     <a href="index.html" class="flex items-center gap-3 cursor-pointer">
       <img src="image/logo.png" alt="KidsDev Logo" class="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform">
     </a>
 
     <nav class="hidden md:flex gap-6 items-center">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link active">About</a> <a href="courses.html" class="nav-link">Courses</a>
+      <a href="about.html" class="nav-link active">About</a> 
+      <a href="courses.html" class="nav-link">Courses</a>
       <a href="daily.html" class="nav-link">Daily</a>
+      <a href="challenges.html" class="nav-link text-[#A66CFF] hover:text-[#A66CFF]">Challenges</a>
       <a href="contact.html" class="nav-link">Contact</a>
-      
       <div class="h-5 w-px bg-gray-700 mx-2"></div>
-      <button class="text-gray-400 hover:text-[#FFE66D] transition" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
-      <a href="https://github.com/nathylyang" target="_blank" class="text-gray-400 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+      <button id="openSearchBtn" class="text-gray-400 hover:text-[#FFE66D] transition" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
     </nav>
-
     <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
   </div>
   
@@ -42,6 +55,7 @@
       <a href="about.html" class="block text-[#FFE66D]">About Us</a>
       <a href="courses.html" class="block text-gray-300">Courses</a>
       <a href="daily.html" class="block text-gray-300">Daily</a>
+      <a href="challenges.html" class="block text-[#A66CFF]">Challenges</a>
       <a href="contact.html" class="block text-gray-300">Contact</a>
     </div>
   </div>
@@ -49,7 +63,6 @@
 
 <section class="relative pt-20 pb-16 text-center px-4 reveal-up overflow-hidden">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#4CC9F0] rounded-full mix-blend-multiply filter blur-[120px] opacity-10 pointer-events-none"></div>
-  
   <div class="hero-badge mb-6"><span class="w-2 h-2 rounded-full bg-[#FFE66D]"></span> Our Mission</div>
   <h1 class="text-4xl md:text-5xl font-extrabold mb-6">Empowering the <br> <span class="hero-text-gradient">Next Generation</span></h1>
   <p class="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">
@@ -59,40 +72,25 @@
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
   <div class="grid md:grid-cols-2 gap-12 items-center">
-    
     <div class="order-2 md:order-1 reveal-up">
       <h2 class="text-3xl font-bold mb-6 text-white">How We Started</h2>
       <div class="space-y-4 text-gray-400 leading-relaxed">
-        <p>
-          KidsDev began right here in **Sunderland** with a simple idea: coding shouldn't be boring, and it shouldn't be expensive.
-        </p>
-        <p>
-          We realized that while technology is everywhere, true digital literacy is rare. We wanted to create a space where kids could move from being *consumers* of technology to being **creators** of it.
-        </p>
-        <p>
-          Today, we offer free resources, daily challenges, and structured courses to help students take their first steps into Python, Web Development, and Game Design.
-        </p>
+        <p>KidsDev began right here in **Sunderland** with a simple idea: coding shouldn't be boring, and it shouldn't be expensive.</p>
+        <p>We realized that while technology is everywhere, true digital literacy is rare. We wanted to create a space where kids could move from being *consumers* to **creators**.</p>
+        <p>Today, we offer free resources, daily challenges, and structured courses to help students take their first steps into Python, Web Development, and Game Design.</p>
       </div>
       <div class="mt-8 flex gap-4">
-        <div class="text-center">
-          <span class="block text-2xl font-bold text-[#E94560]">100%</span>
-          <span class="text-xs text-gray-500 uppercase">Free Content</span>
-        </div>
+        <div class="text-center"><span class="block text-2xl font-bold text-[#E94560]">100%</span><span class="text-xs text-gray-500 uppercase">Free Content</span></div>
         <div class="w-px h-10 bg-gray-700"></div>
-        <div class="text-center">
-          <span class="block text-2xl font-bold text-[#4CC9F0]">Global</span>
-          <span class="text-xs text-gray-500 uppercase">Community</span>
-        </div>
+        <div class="text-center"><span class="block text-2xl font-bold text-[#4CC9F0]">Global</span><span class="text-xs text-gray-500 uppercase">Community</span></div>
       </div>
     </div>
-
     <div class="order-1 md:order-2 reveal-up" style="transition-delay: 200ms">
       <div class="relative rounded-2xl overflow-hidden border border-gray-700 shadow-2xl">
         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students learning together" class="w-full h-auto hover:scale-105 transition-transform duration-700">
         <div class="absolute inset-0 bg-gradient-to-t from-[#0b1021] to-transparent opacity-60"></div>
       </div>
     </div>
-    
   </div>
 </section>
 
@@ -102,7 +100,6 @@
       <h2 class="section-title">Core Values</h2>
       <p class="text-gray-400">What makes KidsDev different?</p>
     </div>
-    
     <div class="grid md:grid-cols-3 gap-8">
       <div class="card p-8 bg-[#16213E] border border-gray-700">
         <i data-lucide="heart-handshake" class="w-10 h-10 text-[#E94560] mb-4"></i>
@@ -125,19 +122,16 @@
 
 <section class="max-w-4xl mx-auto px-4 sm:px-6 py-24 text-center reveal-up">
   <h2 class="text-3xl font-bold mb-12">Meet the Founder</h2>
-  
   <div class="bg-[#16213E] border border-gray-700 rounded-2xl p-8 md:p-12 relative">
     <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-24 h-24 rounded-full border-4 border-[#1A1A2E] overflow-hidden bg-gray-700">
       <img src="https://ui-avatars.com/api/?name=Nath&background=E94560&color=fff" alt="Nath" class="w-full h-full object-cover">
     </div>
-    
     <div class="mt-8">
       <h3 class="text-2xl font-bold text-white">Nath</h3>
       <p class="text-[#4CC9F0] text-sm font-bold uppercase tracking-widest mb-6">Lead Instructor & Developer</p>
       <p class="text-gray-400 leading-relaxed italic">
         "I started KidsDev because I wanted to see more young people creating the future, not just watching it on a screen. Whether you want to build games, websites, or AI, it all starts with that first line of code."
       </p>
-      
       <div class="mt-8 flex justify-center gap-4">
         <a href="contact.html" class="btn btn-outline text-sm py-2">Get in Touch</a>
       </div>
@@ -148,23 +142,18 @@
 <footer class="bg-[#0b1021] border-t border-gray-800 text-gray-300 pt-16 pb-8 mt-auto">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-      
       <div class="space-y-6">
-        <div class="flex items-center gap-3">
-           <img src="image/logo.png" alt="KidsDev" class="h-10 w-auto object-contain">
-           <span class="text-2xl font-bold text-white tracking-tight">KidsDev</span>
-        </div>
+        <a href="index.html" class="flex items-center gap-3"><img src="image/logo.png" alt="KidsDev" class="h-10 w-auto object-contain"><span class="text-2xl font-bold text-white tracking-tight">KidsDev</span></a>
         <p class="text-sm text-gray-500">Empowering the next generation.</p>
       </div>
-
       <div>
         <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Explore</h4>
         <ul class="space-y-3 text-sm font-medium text-gray-400">
           <li><a href="courses.html" class="hover:text-white transition">All Courses</a></li>
           <li><a href="daily.html" class="hover:text-white transition">Daily Challenges</a></li>
+          <li><a href="challenges.html" class="hover:text-[#A66CFF] transition">Weekly Battles</a></li>
         </ul>
       </div>
-
       <div>
         <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Support</h4>
         <ul class="space-y-3 text-sm font-medium text-gray-400">
@@ -172,26 +161,19 @@
           <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
         </ul>
       </div>
-
       <div>
         <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Follow Us</h4>
         <div class="flex gap-4">
-          <a href="https://github.com/nathylyang" target="_blank" class="social-icon-btn github"><i data-lucide="github" class="w-5 h-5"></i></a>
-          <a href="https://instagram.com/nathyyangi" target="_blank" class="social-icon-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-          <a href="#" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-          <a href="https://tiktok.com/@nathyyangi" target="_blank" class="social-icon-btn tiktok">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music-2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-          </a>
+          <a href="https://github.com/kidsdev-Academy" target="_blank" class="social-icon-btn github"><i data-lucide="github" class="w-5 h-5"></i></a>
+          <a href="https://instagram.com/thekidsdev" target="_blank" class="social-icon-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          <a href="#" target="_blank" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="https://tiktok.com/@the_kidsdev" target="_blank" class="social-icon-btn tiktok"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
         </div>
       </div>
     </div>
-
-    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-      <p>© 2026 KidsDev Academy. Made with ❤️ by Nath.</p>
-    </div>
+    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500"><p>© 2026 KidsDev Academy. Made with ❤️ by KidsDev Team.</p></div>
   </div>
 </footer>
-
 <script src="js/main.js"></script>
 </body>
 </html>

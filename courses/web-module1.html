@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Module 1: HTML Skeleton | Web Creator Course</title>
+  
+  <meta name="robots" content="noindex"> <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+<header class="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+    <a href="../index.html" class="flex items-center gap-3 cursor-pointer">
+      <img src="../image/logo.png" alt="KidsDev Logo" class="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform">
+    </a>
+
+    <nav class="hidden md:flex gap-6 items-center">
+      <a href="../index.html" class="nav-link">Home</a>
+      <a href="../courses.html" class="nav-link active">Courses</a>
+      <a href="../daily.html" class="nav-link">Daily</a>
+    </nav>
+    <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
+  </div>
+</header>
+
+<section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+  
+  <div class="mb-8 flex items-center gap-2 text-sm text-gray-400">
+    <a href="web.html" class="hover:text-[#4CC9F0] transition">Web Creator</a>
+    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+    <span class="text-white">Module 1</span>
+  </div>
+
+  <div class="bg-[#16213E] border border-gray-700 rounded-2xl p-8 md:p-12 reveal-up">
+    <span class="text-[#4CC9F0] font-bold tracking-widest text-xs uppercase mb-4 block">Lesson 1.1</span>
+    <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-6">The HTML Skeleton</h1>
+    
+    <div class="prose prose-invert prose-lg max-w-none text-gray-300">
+      <p>
+        Imagine you are building a robot. Before you paint it (CSS) or make it move (JavaScript), you need to build the metal frame. That frame is <strong>HTML</strong>.
+      </p>
+      <p>
+        HTML stands for <strong>HyperText Markup Language</strong>. It uses "tags" to tell the browser what is a heading, what is a paragraph, and what is an image.
+      </p>
+
+      <h3 class="text-white font-bold mt-8 mb-4">The Basic Structure</h3>
+      <p>Every website in the world starts with this exact code. It's like the bun of a burger—it holds everything together.</p>
+
+      <div class="relative group mt-4 mb-8">
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-[#4CC9F0] to-[#4c51f0] rounded-lg blur opacity-30 group-hover:opacity-75 transition duration-200"></div>
+        <div class="relative bg-[#0b1021] rounded-lg border border-gray-700 p-6 overflow-x-auto">
+          <pre><code class="text-sm font-mono text-blue-300">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Website&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;This is my very first webpage.&lt;/p&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <button onclick="copyCode(this)" class="absolute top-4 right-4 text-xs bg-gray-700 hover:bg-[#4CC9F0] hover:text-black text-white px-3 py-1 rounded transition">Copy</button>
+        </div>
+      </div>
+
+      <h3 class="text-white font-bold mt-8 mb-4">Tags Explained</h3>
+      <ul class="list-none space-y-3 pl-0">
+        <li class="flex items-center gap-3">
+          <code class="bg-gray-800 text-[#4CC9F0] px-2 py-1 rounded text-sm">&lt;html&gt;</code>
+          <span>The wrapper for your entire site.</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <code class="bg-gray-800 text-[#4CC9F0] px-2 py-1 rounded text-sm">&lt;head&gt;</code>
+          <span>Information for the browser (like the tab title). Users don't see this directly.</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <code class="bg-gray-800 text-[#4CC9F0] px-2 py-1 rounded text-sm">&lt;body&gt;</code>
+          <span>Everything the user sees (text, images, buttons) goes here.</span>
+        </li>
+      </ul>
+
+      <div class="mt-12 bg-[#4CC9F0]/10 border border-[#4CC9F0]/30 p-6 rounded-xl">
+        <h4 class="text-[#4CC9F0] font-bold flex items-center gap-2 mb-2">
+          <i data-lucide="zap" class="w-5 h-5"></i> Your Mission
+        </h4>
+        <p class="text-sm text-white">
+          1. Create a folder on your desktop named <code>MyWebsite</code>.<br>
+          2. Open VS Code and create a file named <code>index.html</code>.<br>
+          3. Copy the code above and save it.<br>
+          4. Double-click the file to open it in Chrome!
+        </p>
+      </div>
+
+    </div>
+
+    <div class="flex justify-between mt-12 pt-8 border-t border-gray-700">
+      <a href="web.html" class="btn btn-outline text-sm">Back to Menu</a>
+      <button class="btn btn-primary bg-gray-600 cursor-not-allowed opacity-50" disabled>Next Lesson (Locked)</button>
+    </div>
+
+  </div>
+</section>
+
+<footer class="bg-[#0b1021] border-t border-gray-800 text-gray-300 pt-16 pb-8 mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+    <div class="flex justify-center items-center gap-3 mb-6">
+       <img src="../image/logo.png" alt="KidsDev" class="h-10 w-auto object-contain">
+       <span class="text-2xl font-bold text-white tracking-tight">KidsDev</span>
+    </div>
+    <p class="text-sm text-gray-500">© 2026 KidsDev Academy. Made with ❤️ by Nath.</p>
+  </div>
+</footer>
+
+<script>
+  // Simple copy script for the lesson
+  function copyCode(btn) {
+    const code = btn.previousElementSibling.innerText;
+    navigator.clipboard.writeText(code);
+    const originalText = btn.innerText;
+    btn.innerText = "Copied!";
+    setTimeout(() => { btn.innerText = originalText; }, 2000);
+  }
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>
