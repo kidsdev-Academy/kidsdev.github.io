@@ -72,6 +72,7 @@
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
   <div class="grid lg:grid-cols-2 gap-8 lg:gap-16">
+    
     <div class="space-y-6 reveal-up">
       <div class="group bg-[#16213E]/80 backdrop-blur-md border border-gray-700 rounded-2xl p-6 hover:border-[#4CC9F0] transition-colors relative overflow-hidden">
         <div class="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity"><button onclick="copyEmail()" class="text-xs bg-[#0F172A] text-white px-2 py-1 rounded border border-gray-600 hover:bg-[#4CC9F0] hover:border-[#4CC9F0] transition" id="copyBtn">Copy</button></div>
@@ -92,18 +93,33 @@
     <div class="relative reveal-up" style="transition-delay: 200ms">
       <div class="relative bg-[#16213E] border border-gray-700 rounded-2xl p-8 md:p-10 shadow-2xl">
         <h2 class="text-2xl font-bold mb-6">Send a Message</h2>
+        
         <div id="successMessage" class="hidden absolute inset-0 bg-[#16213E] rounded-2xl z-20 flex-col items-center justify-center text-center p-8">
            <div class="checkmark"><svg class="checkmark__circle" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="26" cy="26" r="25" fill="none"/></svg><svg class="checkmark__check" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg></div>
-           <h3 class="text-xl font-bold text-white mt-4">Message Sent!</h3><button onclick="resetForm()" class="mt-6 text-[#FFE66D] text-sm hover:underline">Send another</button>
+           <h3 class="text-xl font-bold text-white mt-4">Message Sent!</h3>
+           <p class="text-gray-400 text-sm mt-2">We will get back to you shortly.</p>
+           <button onclick="window.location.reload()" class="mt-6 text-[#FFE66D] text-sm hover:underline">Send another</button>
         </div>
-        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+
+        <form id="contactForm" action="https://formspree.io/f/xjgkqdwb" method="POST">
           <div class="grid grid-cols-2 gap-6 mb-6">
-            <div class="relative group"><i data-lucide="user" class="absolute top-3.5 left-4 w-5 h-5 text-gray-500 group-focus-within:text-[#E94560] transition-colors"></i><input type="text" required class="w-full bg-[#0b1021] border border-gray-600 rounded-lg py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#E94560] transition-all" placeholder="Name"></div>
-            <div class="relative group"><i data-lucide="at-sign" class="absolute top-3.5 left-4 w-5 h-5 text-gray-500 group-focus-within:text-[#E94560] transition-colors"></i><input type="email" required class="w-full bg-[#0b1021] border border-gray-600 rounded-lg py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#E94560] transition-all" placeholder="Email"></div>
+            <div class="relative group">
+              <i data-lucide="user" class="absolute top-3.5 left-4 w-5 h-5 text-gray-500 group-focus-within:text-[#E94560] transition-colors"></i>
+              <input type="text" name="name" required class="w-full bg-[#0b1021] border border-gray-600 rounded-lg py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#E94560] transition-all" placeholder="Name">
+            </div>
+            <div class="relative group">
+              <i data-lucide="at-sign" class="absolute top-3.5 left-4 w-5 h-5 text-gray-500 group-focus-within:text-[#E94560] transition-colors"></i>
+              <input type="email" name="email" required class="w-full bg-[#0b1021] border border-gray-600 rounded-lg py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#E94560] transition-all" placeholder="Email">
+            </div>
           </div>
-          <div class="mb-8 relative group"><textarea required rows="4" class="w-full bg-[#0b1021] border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-[#E94560] transition-all" placeholder="Type your message here..."></textarea></div>
-          <button type="submit" class="w-full btn btn-primary py-4 text-lg shadow-lg shadow-pink-500/20 group relative overflow-hidden"><span class="relative z-10 flex items-center justify-center gap-2">Send Message <i data-lucide="send" class="w-5 h-5"></i></span></button>
+          <div class="mb-8 relative group">
+            <textarea name="message" required rows="4" class="w-full bg-[#0b1021] border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-[#E94560] transition-all" placeholder="Type your message here..."></textarea>
+          </div>
+          <button type="submit" class="w-full btn btn-primary py-4 text-lg shadow-lg shadow-pink-500/20 group relative overflow-hidden">
+            <span class="relative z-10 flex items-center justify-center gap-2">Send Message <i data-lucide="send" class="w-5 h-5"></i></span>
+          </button>
         </form>
+
       </div>
     </div>
   </div>
@@ -136,14 +152,63 @@
         <div class="flex gap-4">
           <a href="https://github.com/kidsdev-Academy" target="_blank" class="social-icon-btn github"><i data-lucide="github" class="w-5 h-5"></i></a>
           <a href="https://instagram.com/thekidsdev" target="_blank" class="social-icon-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-          <a href="#" target="_blank" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-          <a href="https://tiktok.com/@the_kidsdev" target="_blank" class="social-icon-btn tiktok"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+          <a href="https://facebook.com/thekidsdev" target="_blank" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="https://tiktok.com/@the_kidsdev" target="_blank" class="social-icon-btn tiktok">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
-    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500"><p>© 2026 KidsDev Academy. Made with ❤️ by KidsDev Team.</p></div>
+    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500"><p>© 2026 KidsDev Academy. Made with ❤️ by Nath.</p></div>
   </div>
 </footer>
+
 <script src="js/main.js"></script>
+
+<script>
+  const form = document.getElementById("contactForm");
+  const successMsg = document.getElementById("successMessage");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const btn = form.querySelector('button');
+    const originalText = btn.innerHTML;
+    const data = new FormData(event.target);
+    
+    // Show Loading
+    btn.innerHTML = `<div class="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent inline-block mr-2"></div> Sending...`;
+    btn.disabled = true;
+
+    try {
+      const response = await fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // Success
+        form.classList.add('hidden'); // Hide fields
+        successMsg.classList.remove('hidden'); // Show success card
+        successMsg.classList.add('flex');
+        
+        // Refresh icons just in case
+        if(window.lucide) lucide.createIcons();
+      } else {
+        alert("Oops! There was a problem submitting your form.");
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    } catch (error) {
+        alert("Oops! There was a problem submitting your form.");
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+  }
+  form.addEventListener("submit", handleSubmit);
+</script>
+
 </body>
 </html>

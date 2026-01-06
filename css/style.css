@@ -7,8 +7,7 @@
   --accent-pink: #E94560;
   --accent-yellow: #FFE66D;
   --accent-blue: #4CC9F0;
-  /* New Purple for Challenges */
-  --accent-purple: #A66CFF; 
+  --accent-purple: #A66CFF;
 
   --text-main: #ffffff;
   --text-muted: #9ca3af;
@@ -45,7 +44,6 @@ body {
   color: var(--accent-yellow);
 }
 
-/* Underline animation for nav links */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -162,7 +160,7 @@ body {
   box-shadow: 0 20px 30px rgba(0,0,0,0.4);
 }
 
-/* ================= CATEGORY GRID ================= */
+/* ================= CATEGORY BOXES (Home Page) ================= */
 .category-card {
   background-color: var(--bg-nav);
   border: 1px solid rgba(255,255,255,0.1);
@@ -191,15 +189,49 @@ body {
   transform: scale(1.2) rotate(5deg);
 }
 
-.category-card.active {
-  background: linear-gradient(135deg, var(--bg-card), var(--bg-nav));
-  border-color: var(--accent-yellow);
-  box-shadow: 0 0 15px rgba(255, 230, 109, 0.2);
+/* ================= MODERN CATEGORY PILLS (Daily Page) ================= */
+/* This is the new style for the filter buttons */
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background-color: rgba(22, 33, 62, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9ca3af;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  text-decoration: none;
 }
 
-.category-card.active span {
-  color: var(--accent-yellow);
-  font-weight: 700;
+.category-pill:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.category-pill.active {
+  background: linear-gradient(135deg, #16213E, #0F3460);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  box-shadow: 0 4px 15px rgba(76, 201, 240, 0.2);
+}
+
+/* Special Style for the Challenges Pill */
+.category-pill.challenge-mode {
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+}
+
+.category-pill.challenge-mode:hover {
+  background-color: var(--accent-purple);
+  color: white;
+  box-shadow: 0 0 20px rgba(166, 108, 255, 0.4);
 }
 
 /* ================= SOCIAL ICONS (UPDATED) ================= */
@@ -221,47 +253,31 @@ body {
   color: white;
 }
 
-/* --- Brand Specific Hover Colors --- */
-
-/* GitHub: Dark Gray/Black */
-.social-icon-btn.github:hover { 
-  background-color: #333; 
-}
-
-/* Facebook: Official Blue */
-.social-icon-btn.facebook:hover { 
-  background-color: #1877F2; 
-}
-
-/* Instagram: Colorful Gradient */
+.social-icon-btn.github:hover { background-color: #333; }
+.social-icon-btn.facebook:hover { background-color: #1877F2; }
 .social-icon-btn.instagram:hover { 
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
-
-/* TikTok: Black background with Cyan/Red shadow effect */
 .social-icon-btn.tiktok:hover {
   background-color: #000000;
   color: #ff0050; 
   box-shadow: 2px 2px 0px rgba(0, 242, 234, 0.5); 
 }
 
-/* ================= SPOTLIGHT SEARCH (UPDATED) ================= */
-/* This replaces the old full-screen overlay with a focused modal style */
-
+/* ================= SPOTLIGHT SEARCH (TRANSPARENT MODAL) ================= */
 .search-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* Semi-transparent dark background to dim the page */
   background-color: rgba(0, 0, 0, 0.6); 
-  backdrop-filter: blur(4px); /* Blur the background content slightly */
+  backdrop-filter: blur(4px);
   z-index: 9999;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: flex-start; /* Start from top */
-  padding-top: 15vh; /* Push down 15% from the top */
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 15vh;
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
@@ -272,14 +288,13 @@ body {
   visibility: visible;
 }
 
-/* The Box containing input and results */
 .search-container {
   width: 100%;
   max-width: 600px;
   margin: 0 20px;
-  background-color: #16213E; /* Solid Dark Blue Box */
+  background-color: #16213E; 
   border-radius: 1rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Deep shadow to make it pop */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255,255,255,0.1);
   animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   position: relative;
@@ -291,7 +306,6 @@ body {
   to { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* The large text input */
 .search-input-lg {
   width: 100%;
   background: transparent;
@@ -299,19 +313,14 @@ body {
   font-size: 1.25rem;
   font-weight: 500;
   color: #fff;
-  padding: 1.5rem 1.5rem; /* Spacious padding */
+  padding: 1.5rem 1.5rem;
   outline: none;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.search-input-lg::placeholder {
-  color: #6b7280;
-}
-
-/* Scrollable Results Area */
 .search-results {
   width: 100%;
-  max-height: 50vh; /* Don't grow larger than half the screen height */
+  max-height: 50vh;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #4b5563 transparent;
@@ -329,10 +338,9 @@ body {
 }
 
 .search-result-item:hover {
-  background-color: rgba(76, 201, 240, 0.1); /* Light blue highlight */
+  background-color: rgba(76, 201, 240, 0.1);
 }
 
-/* Close 'X' Button inside the modal */
 .close-search {
   position: absolute;
   top: 1.2rem;
@@ -360,7 +368,6 @@ body {
   transform: translateY(0);
 }
 
-/* Mobile Menu Animation */
 .mobile-menu {
   max-height: 0;
   opacity: 0;
@@ -374,7 +381,7 @@ body {
   opacity: 1;
 }
 
-/* ================= CONTACT FORM SUCCESS ANIMATION ================= */
+/* Success Checkmark */
 .checkmark {
   width: 56px;
   height: 56px;

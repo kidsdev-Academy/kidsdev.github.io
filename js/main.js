@@ -5,7 +5,6 @@ const CONFIG = {
 };
 
 /* ================= UTILS ================= */
-// Helper to handle paths when inside sub-folders
 const isSubPage = window.location.pathname.includes("/courses/") || window.location.pathname.includes("/posts/");
 
 const getPath = (path) => {
@@ -26,28 +25,31 @@ const UI = {
     this.cacheElements();
     await this.loadData();
     
-    // 1. RENDER LOGIC
+    // RENDER LOGIC
     this.renderIcons();
     
-    // Render Posts (for Home/Daily pages)
+    // 1. Render Posts (Articles) for Homepage "Recent Posts"
     const posts = allData.filter(item => item.type === "post");
     this.renderPosts(posts);
 
-    // Render Courses (for Home/Courses pages)
+    // 2. Render Courses
     const courses = allData.filter(item => item.type === "course");
     this.renderCourses(courses);
 
-    // Render Challenges (for Challenges page)
+    // 3. Render Challenges (On challenges.html)
     const challenges = allData.filter(item => item.type === "challenge");
     this.renderChallenges(challenges);
+
+    // 4. Render Home Active Challenge (On index.html)
+    this.renderHomeChallenge(challenges);
     
-    // 2. SETUP INTERACTIVE ELEMENTS
+    // 5. Interactive Setup
     this.setupMobileMenu();
     this.setupScrollReveal();
     this.setActiveLink();
-    this.setupGlobalSearch(); // Init the Spotlight Search
+    this.setupGlobalSearch(); 
     
-    // 3. EXPOSE GLOBAL FUNCTIONS (For Contact/Submission Forms)
+    // 6. Global Functions
     window.handleFormSubmit = this.handleFormSubmit;
     window.resetForm = this.resetForm;
     window.copyEmail = this.copyEmail;
@@ -79,6 +81,8 @@ const UI = {
   renderPosts(posts) {
     if (!this.postsContainer) return;
     const isHomePage = !window.location.pathname.includes("daily");
+    
+    // On Homepage, show only the first 3 posts (Recent)
     const displayPosts = isHomePage ? posts.slice(0, 3) : posts;
 
     if (displayPosts.length === 0) {
@@ -143,17 +147,14 @@ const UI = {
   },
 
   renderChallenges(challenges) {
-    // Only run this if we are on the challenges.html page
     const activeContainer = document.getElementById("active-challenge-container");
     const pastContainer = document.getElementById("past-challenges-grid");
     
     if (!activeContainer) return;
 
-    // 1. Separate Active vs Past
     const activeChallenge = challenges.find(c => c.status === "active");
     const pastChallenges = challenges.filter(c => c.status !== "active");
 
-    // 2. Render Active Challenge
     if (activeChallenge) {
       activeContainer.innerHTML = `
         <div class="grid md:grid-cols-2 h-full">
@@ -182,7 +183,6 @@ const UI = {
       activeContainer.innerHTML = `<div class="p-12 text-center text-gray-500">No active challenge right now. Check back later!</div>`;
     }
 
-    // 3. Render Past Challenges
     if (pastContainer) {
       pastContainer.innerHTML = pastChallenges.map(c => `
         <div class="bg-[#16213E] p-6 rounded-xl border border-gray-700 flex flex-col hover:border-[#A66CFF] transition duration-300">
@@ -199,14 +199,50 @@ const UI = {
       `).join("");
     }
     
-    // Refresh icons because we injected new HTML
+    if(window.lucide) lucide.createIcons();
+  },
+
+  // NEW: Logic for the "Active Challenge" section on index.html
+  renderHomeChallenge(challenges) {
+    const homeContainer = document.getElementById("home-challenge-container");
+    if (!homeContainer) return;
+
+    const activeChallenge = challenges.find(c => c.status === "active");
+
+    if (activeChallenge) {
+      homeContainer.innerHTML = `
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-[#A66CFF]/20 text-[#A66CFF] text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Active Now</span>
+            <span class="text-gray-400 text-xs"><i data-lucide="calendar" class="w-3 h-3 inline"></i> Ends ${activeChallenge.deadline}</span>
+          </div>
+          <h3 class="text-3xl font-bold text-white mb-4">${activeChallenge.title}</h3>
+          <p class="text-gray-300 mb-6 max-w-xl">${activeChallenge.desc}</p>
+          <div class="flex gap-4">
+            <a href="challenges.html" class="btn btn-primary bg-[#A66CFF] hover:bg-[#9254ff] border-none">
+              View Challenge <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+        <div class="hidden md:flex flex-col items-center justify-center p-6 bg-[#0b1021] rounded-xl border border-gray-700 w-64 text-center">
+           <div class="text-4xl font-bold text-white mb-1">XP</div>
+           <div class="text-xs text-gray-400 uppercase tracking-widest mb-4">Reward</div>
+           <div class="w-12 h-12 bg-[#FFE66D] rounded-full flex items-center justify-center text-black font-bold animate-bounce">
+             <i data-lucide="star" class="w-6 h-6"></i>
+           </div>
+        </div>
+      `;
+    } else {
+      homeContainer.innerHTML = `<div class="text-center w-full text-gray-500">Checking for new challenges...</div>`;
+    }
+    
     if(window.lucide) lucide.createIcons();
   },
 
   /* --- NAVIGATION & INTERACTION --- */
 
   filterPosts(category, btnElement) {
-    const buttons = document.querySelectorAll('.category-card');
+    const buttons = document.querySelectorAll('.category-pill'); // Updated selector for new CSS
     buttons.forEach(btn => btn.classList.remove('active'));
     if(btnElement) btnElement.classList.add('active');
 
@@ -229,7 +265,7 @@ const UI = {
     else if (path.includes("courses")) section = "courses";
     else if (path.includes("contact")) section = "contact";
     else if (path.includes("about")) section = "about";
-    else if (path.includes("challenges")) section = "challenges"; // Handles the new page
+    else if (path.includes("challenges")) section = "challenges"; 
 
     if (this.navLinks) {
         this.navLinks.forEach(link => {
@@ -257,7 +293,6 @@ const UI = {
 
   /* ================= SPOTLIGHT SEARCH LOGIC ================= */
   setupGlobalSearch() {
-    // 1. Inject HTML for Spotlight Modal
     const searchHTML = `
     <div id="searchOverlay" class="search-overlay">
       <div class="search-container">
@@ -277,7 +312,6 @@ const UI = {
     const input = document.getElementById('globalSearchInput');
     const resultsContainer = document.getElementById('searchResults');
 
-    // 2. Open Search
     if (this.searchBtn) {
       this.searchBtn.addEventListener('click', () => { 
         overlay.classList.add('active'); 
@@ -285,7 +319,6 @@ const UI = {
       });
     }
 
-    // 3. Close Functions
     const closeOverlay = () => { 
       overlay.classList.remove('active'); 
       input.value = ''; 
@@ -294,26 +327,22 @@ const UI = {
 
     closeBtn.addEventListener('click', closeOverlay);
     
-    // Close when clicking background (but not the box)
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay) {
         closeOverlay();
       }
     });
 
-    // Close on Escape Key
     document.addEventListener('keydown', (e) => { 
       if (e.key === 'Escape' && overlay.classList.contains('active')) closeOverlay(); 
     });
 
-    // 4. Live Search Logic
     input.addEventListener('input', (e) => {
         const term = e.target.value.toLowerCase();
         resultsContainer.innerHTML = ''; 
         
         if (term.length < 1) return; 
 
-        // Search logic includes Title, Description, and Category
         const matches = allData.filter(item => 
           item.title.toLowerCase().includes(term) || 
           (item.desc && item.desc.toLowerCase().includes(term)) ||
@@ -326,8 +355,6 @@ const UI = {
         } else {
           matches.forEach(item => {
               const safeUrl = getPath(item.url || 'challenges.html');
-              
-              // Determine Icon & Color based on Type
               let icon = 'file-text';
               let colorClass = 'text-gray-400';
 
@@ -356,12 +383,11 @@ const UI = {
               
               resultsContainer.innerHTML += resultHTML;
           });
-          lucide.createIcons(); // Refresh icons for new results
+          lucide.createIcons(); 
         }
     });
   },
 
-  /* --- CONTACT FORM FUNCTIONS --- */
   handleFormSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button[type="submit"]');
