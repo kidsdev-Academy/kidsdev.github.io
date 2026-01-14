@@ -19,7 +19,9 @@
     "category": "Python Logic",
     "url": "challenges/simple-calculator.html",
     "date": "2026-02-10",
+    "level": "easy",
     "colorClass": "text-blue-500"
+    
   },
   {
     "id": 206,
@@ -104,5 +106,27 @@
     "url": "challenges/digital-clock.html",
     "date": "2025-09-20",
     "colorClass": "text-[#A66CFF]"
+  },
+  {
+    "id": 202,
+    "type": "challenge",
+    "title": "Design a Personal Card",
+    "desc": "Use HTML and CSS to create a digital business card for yourself.",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+    "category": "Web",
+    "level": "Medium",
+    "url": "challenges/card.html",
+    "date": "2026-01-17"
+  },
+  {
+    "id": 203,
+    "type": "challenge",
+    "title": "Guess the Number",
+    "desc": "Write a program where the computer picks a random number and you have to guess it.",
+    "image": "https://images.unsplash.com/photo-1614741118881-1e2570758d97?auto=format&fit=crop&w=800&q=80",
+    "category": "Logic",
+    "level": "Hard",
+    "url": "challenges/guess.html",
+    "date": "2026-01-24"
   }
 ]
