@@ -1,16 +1,14 @@
 /* =========================================
    MAIN JAVASCRIPT CONTROLLER
-   - Handles Global Footer & Header Sync
+   - Handles Global Footer
    - Powers Search, Filtering & Animations
-   - Auto-detects folder depth for broken links
+   - Uses ABSOLUTE PATHS to fix Subfolder issues
 ========================================== */
 
 const UI = {
   data: [],
-  prefix: '', // Stores "../" or "../../" to fix links in subfolders
 
   async init() {
-    this.detectPathDepth();
     this.cacheElements();
     this.setupMobileMenu(); 
     this.initTypewriter();
@@ -21,7 +19,7 @@ const UI = {
     // 2. RENDER GLOBAL FOOTER (Syncs across all pages)
     this.renderFooter();
 
-    // 3. FETCH DATA (Loads courses.json, posts.json etc.)
+    // 3. FETCH DATA (Loads JSON from the root /data/ folder)
     await this.fetchData();
     
     // 4. ROUTER: Detect current page and render content
@@ -92,18 +90,8 @@ const UI = {
     this.searchResults = document.getElementById("searchResults");
   },
 
-  detectPathDepth() {
-      const path = window.location.pathname;
-      // Heuristic: If we are deep in courses/python/, go back 2 levels
-      if (path.includes('/courses/') || path.includes('/daily/') || path.includes('/posts/')) {
-          this.prefix = (path.split('/').length > 3) ? '../../' : '../';
-      } else {
-          this.prefix = '';
-      }
-  },
-
   /* ------------------------------------------------
-     GLOBAL FOOTER RENDERER (The Sync Magic)
+     GLOBAL FOOTER RENDERER (Absolute Paths)
   ------------------------------------------------ */
   renderFooter() {
       const footer = document.getElementById('main-footer');
@@ -117,8 +105,8 @@ const UI = {
           <div class="grid md:grid-cols-4 gap-12 mb-12">
             
             <div class="col-span-1 md:col-span-2 space-y-4">
-              <a href="${this.prefix}index.html" class="flex items-center gap-2 group">
-                 <img src="${this.prefix}image/logo.png" class="h-8 w-auto object-contain transition transform group-hover:scale-105" onerror="this.style.display='none'"> 
+              <a href="/index.html" class="flex items-center gap-2 group">
+                 <img src="/image/logo.png" class="h-8 w-auto object-contain transition transform group-hover:scale-105" onerror="this.style.display='none'"> 
                  <span class="font-extrabold text-2xl tracking-tighter">Kids<span class="text-[#F97316]">Dev</span></span>
               </a>
               <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
@@ -129,9 +117,9 @@ const UI = {
             <div>
               <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Support</h3>
               <ul class="space-y-4 text-sm text-slate-400">
-                <li><a href="${this.prefix}contact.html" class="hover:text-white transition">Contact Us</a></li>
-                <li><a href="${this.prefix}privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
-                <li><a href="${this.prefix}about.html" class="hover:text-white transition">About Us</a></li>
+                <li><a href="/contact.html" class="hover:text-white transition">Contact Us</a></li>
+                <li><a href="/privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                <li><a href="/about.html" class="hover:text-white transition">About Us</a></li>
               </ul>
             </div>
 
@@ -156,7 +144,7 @@ const UI = {
   },
 
   /* ------------------------------------------------
-     SEARCH FUNCTIONALITY (Powers the Search Bar)
+     SEARCH FUNCTIONALITY
   ------------------------------------------------ */
   setupSearch() {
       if (!this.searchBtn || !this.searchModal) return;
@@ -165,7 +153,6 @@ const UI = {
       this.searchBtn.addEventListener('click', (e) => {
           e.preventDefault();
           this.searchModal.classList.remove('hidden');
-          // Focus input after small delay to ensure modal is visible
           setTimeout(() => this.searchInput.focus(), 100);
       });
 
@@ -179,7 +166,7 @@ const UI = {
           if (e.target === this.searchModal) this.searchModal.classList.add('hidden');
       });
 
-      // Type to Search Logic
+      // Type to Search
       if(this.searchInput) {
           this.searchInput.addEventListener('input', (e) => {
               const query = e.target.value.toLowerCase();
@@ -189,7 +176,6 @@ const UI = {
                   return;
               }
 
-              // Search through all loaded data
               const results = this.data.filter(item => 
                   (item.title && item.title.toLowerCase().includes(query)) ||
                   (item.desc && item.desc.toLowerCase().includes(query)) ||
@@ -208,11 +194,14 @@ const UI = {
       }
       
       this.searchResults.innerHTML = results.map(item => {
-          const url = item.url ? (this.prefix + item.url) : '#';
+          // Normalize Path
+          const url = item.url.startsWith('/') ? item.url : '/' + item.url;
+          const img = item.image.startsWith('http') ? item.image : '/' + item.image;
+
           return `
             <a href="${url}" class="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-xl transition border border-transparent hover:border-slate-100 group">
                 <div class="w-12 h-12 rounded-lg bg-slate-100 overflow-hidden shrink-0">
-                    <img src="${item.image || 'https://placehold.co/100x100'}" class="w-full h-full object-cover">
+                    <img src="${img}" class="w-full h-full object-cover">
                 </div>
                 <div>
                     <h4 class="font-bold text-sm text-[#0F172A] group-hover:text-[#F97316]">${item.title}</h4>
@@ -227,14 +216,20 @@ const UI = {
   },
 
   /* ------------------------------------------------
-     DATA FETCHING & NORMALIZATION
+     DATA FETCHING (Absolute Paths)
   ------------------------------------------------ */
   async fetchData() {
     try {
-      // FETCH 5 FILES using the calculated prefix
-      const paths = ['data/posts.json', 'data/courses.json', 'data/challenges.json', 'data/daily.json', 'data/networking.json'];
+      // Use "/" to force loading from root domain
+      const paths = [
+        '/data/posts.json', 
+        '/data/courses.json', 
+        '/data/challenges.json', 
+        '/data/daily.json', 
+        '/data/networking.json'
+      ];
       
-      const responses = await Promise.allSettled(paths.map(p => fetch(this.prefix + p)));
+      const responses = await Promise.allSettled(paths.map(p => fetch(p)));
 
       const unpack = async (res) => (res.status === 'fulfilled' && res.value.ok) ? await res.value.json() : [];
 
@@ -249,8 +244,8 @@ const UI = {
           ...item, 
           type: 'networking-course',
           category: 'Networking',
-          // Fix path relative to root if needed
-          url: item.url || 'courses/networking/module1.html' 
+          // Ensure URL is absolute
+          url: item.url.startsWith('/') ? item.url : '/' + item.url 
       }));
 
       // MERGE EVERYTHING
@@ -299,7 +294,7 @@ const UI = {
   },
 
   /* ------------------------------------------------
-     COURSES / DAILY PAGE LOGIC (Smart Filtering)
+     COURSES / DAILY PAGE LOGIC
   ------------------------------------------------ */
   filterPage(category) {
     // 1. COURSES PAGE
@@ -315,7 +310,7 @@ const UI = {
             items = items.filter(item => {
                 const itemCat = (item.category || "").toLowerCase();
                 
-                // Smart Matching: "Coding" button finds Python
+                // Smart Matching
                 if (target === 'programming') {
                     return itemCat.includes('programming') || itemCat.includes('python') || itemCat.includes('logic') || itemCat.includes('code');
                 }
@@ -378,14 +373,16 @@ const UI = {
   },
 
   /* ------------------------------------------------
-     CARD GENERATOR
+     CARD GENERATOR (Normalize Paths)
   ------------------------------------------------ */
   createCard(item) {
     let badgeClass = "bg-slate-100 text-slate-600";
     let icon = "file-text";
     let btnText = "Read";
-    // Important: Use prefix for links so they work from subfolders
-    let linkUrl = item.url ? (this.prefix + item.url) : '#';
+    
+    // NORMALIZE PATHS (Crucial Fix)
+    const linkUrl = item.url.startsWith('/') ? item.url : '/' + item.url;
+    const imgUrl = item.image.startsWith('http') ? item.image : '/' + item.image;
     
     let topicsHtml = ""; 
 
@@ -398,7 +395,6 @@ const UI = {
 
         btnText = "View Course";
         
-        // Render Topic Tags
         if (item.topics && Array.isArray(item.topics)) {
             topicsHtml = `<div class="flex flex-wrap gap-2 mb-4">
                 ${item.topics.map(t => `<span class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-slate-100 text-slate-500 border border-slate-200">${t}</span>`).join('')}
@@ -409,11 +405,6 @@ const UI = {
         badgeClass = "bg-purple-100 text-purple-600";
         icon = "shield";
         btnText = "Start Lesson";
-         if (item.topics && Array.isArray(item.topics)) {
-            topicsHtml = `<div class="flex flex-wrap gap-2 mb-4">
-                ${item.topics.map(t => `<span class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-slate-100 text-slate-500 border border-slate-200">${t}</span>`).join('')}
-            </div>`;
-        }
     }
     else if (item.type === 'post') {
         badgeClass = "bg-orange-50 text-orange-600 border-orange-100";
@@ -436,7 +427,7 @@ const UI = {
     return `
       <a href="${linkUrl}" class="dynamic-card bg-white rounded-2xl overflow-hidden border border-slate-200 block h-full reveal-up group flex flex-col hover:border-slate-300 transition-all shadow-sm hover:shadow-lg">
         <div class="h-48 relative overflow-hidden bg-slate-50 shrink-0">
-          <img src="${item.image || 'https://placehold.co/600x400'}" alt="${item.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+          <img src="${imgUrl}" alt="${item.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
           
           <div class="absolute top-3 left-3 px-3 py-1 rounded-lg text-xs font-bold uppercase border ${badgeClass} shadow-sm flex items-center gap-1 bg-white/95 backdrop-blur-sm">
             <i data-lucide="${icon}" class="w-3 h-3"></i> ${item.category || item.type}
@@ -466,11 +457,11 @@ const UI = {
   ------------------------------------------------ */
   updateViewAllButton(type) {
     if(!this.viewAllContainer) return;
-    let text = "View All Content", url = this.prefix + "courses.html";
+    let text = "View All Content", url = "/courses.html";
     
-    if (type === 'course') { text = "View All Courses"; url = this.prefix + "courses.html"; }
-    else if (type === 'daily') { text = "View All Tips"; url = this.prefix + "daily.html"; }
-    else if (type === 'challenge') { text = "View All Challenges"; url = this.prefix + "challenges.html"; }
+    if (type === 'course') { text = "View All Courses"; url = "/courses.html"; }
+    else if (type === 'daily') { text = "View All Tips"; url = "/daily.html"; }
+    else if (type === 'challenge') { text = "View All Challenges"; url = "/challenges.html"; }
     
     this.viewAllContainer.innerHTML = `<a href="${url}" class="inline-flex items-center gap-2 bg-white border border-slate-300 hover:border-[#F97316] hover:text-[#F97316] text-[#0F172A] px-8 py-3 rounded-full font-bold transition shadow-sm">${text} <i data-lucide="arrow-right" class="w-4 h-4"></i></a>`;
     if (window.lucide) lucide.createIcons();

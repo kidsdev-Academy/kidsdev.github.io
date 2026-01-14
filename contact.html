@@ -5,30 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <title>Contact KidsDev | Start Your Free Coding Journey</title>
-  <meta name="description" content="Have questions about our free coding courses? Want to partner with us? Reach out to KidsDev Academy today. We are building the future of tech in Nigeria.">
+  <meta name="description" content="Have questions about our free coding courses? Want to partner with us? Reach out to KidsDev Academy today. We are building the future of tech.">
   <meta name="keywords" content="contact kidsdev, coding school nigeria, free tech education, learn python, partner with us, sunderland coding, Tolani Agbeyangi">
   <meta name="author" content="Tolani Agbeyangi">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Join the Coding Revolution - Contact KidsDev">
   <meta property="og:description" content="100% Free Coding Education. Reach out to join, partner, or support the mission.">
-  <meta property="og:image" content="image/logo.png">
+  <meta property="og:image" content="/image/logo.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thekidsdev.netlify.app/contact.html">
 
-  <link rel="icon" type="image/png" href="image/logo.png">
+  <link rel="icon" type="image/png" href="/image/logo.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   
   <style>
     .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
     
-    /* Dropdown & Modal Animations */
+    /* Animations */
     .group:hover .group-hover\:block { display: block; animation: fadeIn 0.2s ease-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px) translateX(-50%); } to { opacity: 1; transform: translateY(0) translateX(-50%); } }
+    
     #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
     @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
     
@@ -42,8 +43,8 @@
   <header class="pro-header sticky top-0 z-[100]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
       <div class="flex items-center gap-4">
-        <a href="index.html" class="flex items-center gap-2 cursor-pointer group">
-          <img src="image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
+        <a href="/index.html" class="flex items-center gap-2 cursor-pointer group">
+          <img src="/image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
           <div class="flex flex-col leading-none">
             <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
             <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
@@ -57,32 +58,17 @@
 
       <div class="flex items-center gap-6">
         <nav class="hidden md:flex gap-6 font-medium text-sm text-slate-600 items-center h-full">
-          <a href="index.html" class="hover:text-[#F97316] transition">Home</a>
-          <a href="about.html" class="hover:text-[#F97316] transition">About</a>
-          
-          <div class="relative group h-full flex items-center">
-            <a href="courses.html" class="hover:text-[#F97316] flex items-center gap-1 cursor-pointer py-6">
-              Courses <i data-lucide="chevron-down" class="w-3 h-3"></i>
-            </a>
-            <div class="absolute top-[80%] left-1/2 -translate-x-1/2 w-60 bg-white border border-slate-100 shadow-xl rounded-2xl p-2 hidden group-hover:block transition-all z-50">
-              <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-slate-100 transform rotate-45"></div>
-              <div class="relative bg-white rounded-xl overflow-hidden">
-                <a href="courses.html?category=Programming" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="code" class="w-4 h-4 text-yellow-500"></i> Coding</a>
-                <a href="courses.html?category=Web Dev" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="globe" class="w-4 h-4 text-blue-500"></i> Web Dev</a>
-                <a href="courses.html?category=Networking" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="network" class="w-4 h-4 text-purple-500"></i> Networking</a>
-                <a href="courses.html?category=Logic" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="cpu" class="w-4 h-4 text-pink-500"></i> Logic</a>
-              </div>
-            </div>
-          </div>
-
-          <a href="daily.html" class="hover:text-[#F97316] transition">Daily</a>
-          <a href="challenges.html" class="hover:text-[#F97316] transition">Challenges</a>
-          <a href="contact.html" class="text-[#F97316] font-bold">Contact</a>
+          <a href="/index.html" class="hover:text-[#F97316] transition">Home</a>
+          <a href="/about.html" class="hover:text-[#F97316] transition">About</a>
+          <a href="/courses.html" class="hover:text-[#F97316] transition">Courses</a>
+          <a href="/daily.html" class="hover:text-[#F97316] transition">Daily</a>
+          <a href="/challenges.html" class="hover:text-[#F97316] transition">Challenges</a>
+          <a href="/contact.html" class="text-[#F97316] font-bold">Contact</a>
         </nav>
         
         <div class="hidden md:flex items-center gap-3 pl-6 border-l border-slate-200" id="authArea">
-           <a href="login.html" class="text-sm font-bold hover:text-black">Log In</a>
-           <a href="register.html" class="bg-[#F97316] hover:bg-orange-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md transition">Sign Up</a>
+           <a href="/login.html" class="text-sm font-bold hover:text-black">Log In</a>
+           <a href="/register.html" class="bg-[#F97316] hover:bg-orange-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md transition">Sign Up</a>
         </div>
         
         <button id="menuBtn" class="md:hidden p-2"><i data-lucide="menu"></i></button>
@@ -90,20 +76,16 @@
     </div>
     
     <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white border-b shadow-lg p-4 space-y-3 z-50">
-       <a href="index.html" class="block py-2 text-slate-600">Home</a>
-       <a href="about.html" class="block py-2 text-slate-600">About</a>
-       <a href="courses.html" class="block py-2 text-slate-600">Courses</a>
-       <div class="pl-4 space-y-2 border-l-2 border-slate-100 ml-2">
-          <a href="courses.html?category=Programming" class="block text-sm text-slate-500">Programming</a>
-          <a href="courses.html?category=Web Dev" class="block text-sm text-slate-500">Web Dev</a>
-          <a href="courses.html?category=Networking" class="block text-sm text-slate-500">Networking</a>
-       </div>
-       <a href="daily.html" class="block py-2 text-slate-600">Daily Tips</a>
-       <a href="challenges.html" class="block py-2 text-slate-600">Challenges</a>
-       <a href="contact.html" class="block py-2 font-bold text-[#F97316]">Contact</a>
+       <a href="/index.html" class="block py-2 text-slate-600">Home</a>
+       <a href="/about.html" class="block py-2 text-slate-600">About</a>
+       <a href="/courses.html" class="block py-2 text-slate-600">Courses</a>
+       <a href="/daily.html" class="block py-2 text-slate-600">Daily Tips</a>
+       <a href="/challenges.html" class="block py-2 text-slate-600">Challenges</a>
+       <a href="/contact.html" class="block py-2 font-bold text-[#F97316]">Contact</a>
+       
        <div class="pt-3 border-t grid grid-cols-2 gap-3">
-         <a href="login.html" class="text-center py-2 border rounded-lg font-bold">Log In</a>
-         <a href="register.html" class="text-center py-2 bg-[#F97316] text-white rounded-lg font-bold">Sign Up</a>
+         <a href="/login.html" class="text-center py-2 border rounded-lg font-bold">Log In</a>
+         <a href="/register.html" class="text-center py-2 bg-[#F97316] text-white rounded-lg font-bold">Sign Up</a>
        </div>
     </div>
   </header>
@@ -131,9 +113,9 @@
                 <div><h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Socials</h3><p class="text-base font-bold text-[#0F172A]">Connect with us</p></div>
               </div>
               <div class="flex gap-2">
-                 <a href="https://github.com/kidsdev-Academy" target="_blank" class="p-2 hover:text-[#F97316] transition"><i data-lucide="github" class="w-5 h-5"></i></a>
-                 <a href="https://instagram.com/thekidsdev" target="_blank" class="p-2 hover:text-[#E94560] transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                 <a href="https://facebook.com/thekidsdev" target="_blank" class="p-2 hover:text-[#3b82f6] transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                  <a href="https://github.com/kidsdev-Academy" target="_blank" class="p-2 hover:text-[#F97316] transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+                  <a href="https://instagram.com/thekidsdev" target="_blank" class="p-2 hover:text-[#E94560] transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                  <a href="https://facebook.com/thekidsdev" target="_blank" class="p-2 hover:text-[#3b82f6] transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
               </div>
           </div>
         </div>
@@ -171,8 +153,8 @@
       </div>
   </div>
 
-  <script src="js/auth.js"></script>
-  <script src="js/main.js"></script>
+  <script type="module" src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
   
   <script>
     if(window.lucide) lucide.createIcons();
@@ -185,13 +167,31 @@
           event.preventDefault();
           const btn = form.querySelector('button');
           const originalText = btn.innerHTML;
+          
+          // Loading State
           btn.innerHTML = `<div class="inline-block animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2"></div> Sending...`;
           btn.disabled = true;
+          
           try {
-            const response = await fetch(event.target.action, { method: form.method, body: new FormData(event.target), headers: { 'Accept': 'application/json' } });
-            if (response.ok) { form.classList.add('hidden'); successMsg.classList.remove('hidden'); } 
-            else { alert("Oops! Problem submitting form."); btn.innerHTML = originalText; btn.disabled = false; }
-          } catch (error) { alert("Oops! Problem submitting form."); btn.innerHTML = originalText; btn.disabled = false; }
+            const response = await fetch(event.target.action, { 
+                method: form.method, 
+                body: new FormData(event.target), 
+                headers: { 'Accept': 'application/json' } 
+            });
+            
+            if (response.ok) { 
+                form.classList.add('hidden'); 
+                successMsg.classList.remove('hidden'); 
+            } else { 
+                alert("Oops! Problem submitting form."); 
+                btn.innerHTML = originalText; 
+                btn.disabled = false; 
+            }
+          } catch (error) { 
+            alert("Oops! Problem submitting form."); 
+            btn.innerHTML = originalText; 
+            btn.disabled = false; 
+          }
         });
     }
   </script>

@@ -1,15 +1,9 @@
-/* =========================================
-   FIREBASE CONFIGURATION
-   Project: KidsDev1
-========================================== */
-
-// Import from CDN for direct browser usage
+// 1. Import the functions you need from the SDKs (CDN for Browser)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 
-// Your web app's Firebase configuration
+// 2. Your Web App's Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBLLonVra_uTjNycYeUahAMfJFcYKbBOKY",
   authDomain: "kidsdev1.firebaseapp.com",
@@ -20,13 +14,10 @@ const firebaseConfig = {
   measurementId: "G-RS03NGLD1K"
 };
 
-// Initialize Firebase
+// 3. Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Initialize Services
-const auth = getAuth(app);       // Authentication
-const db = getFirestore(app);    // Database
-const analytics = getAnalytics(app); // Analytics
-
-// Export for use in other files
-export { auth, db, analytics };
+// 4. Export for use in other files
+export { auth, db, app };

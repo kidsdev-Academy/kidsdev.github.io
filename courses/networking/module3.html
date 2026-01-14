@@ -3,47 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>Networking Module 3: Security | KidsDev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../../css/style.css">
+  
   <style>
-    .locked-blur { filter: blur(8px); user-select: none; pointer-events: none; opacity: 0.4; }
-    .lock-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; display: flex; flex-direction: column; align-items: center; padding-top: 80px; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 25%, rgba(255,255,255,1) 100%); }
+    /* Lock Blur Effect */
+    .locked-blur { filter: blur(8px); user-select: none; pointer-events: none; opacity: 0.4; transition: all 0.5s ease; }
+    .lock-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; display: flex; flex-direction: column; align-items: center; padding-top: 100px; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 30%, rgba(255,255,255,1) 100%); }
   </style>
 </head>
 <body class="bg-white text-slate-800 font-[Poppins]">
 
-  <div class="h-16 border-b flex items-center px-6 sticky top-0 bg-white/90 z-50">
-    <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-purple-600">
+  <div class="h-16 border-b flex items-center px-6 sticky top-0 bg-white/95 backdrop-blur z-50">
+    <a href="/courses.html?category=Networking" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-purple-600 transition">
       <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Networking
     </a>
   </div>
 
-  <main class="max-w-3xl mx-auto px-4 py-12">
+  <main class="max-w-3xl mx-auto px-4 py-12 relative min-h-screen">
+    
     <div class="mb-10">
         <span class="text-xs font-bold uppercase text-purple-600 bg-purple-100 px-3 py-1 rounded-full">Module 3</span>
-        <h1 class="text-4xl font-extrabold mt-4 mb-6">Cyber Security</h1>
+        <h1 class="text-3xl md:text-4xl font-extrabold mt-4 mb-6 text-[#0F172A]">Cyber Security</h1>
         <p class="text-lg leading-relaxed text-slate-600 mb-6">
             The internet is amazing, but it has bad guys too. They are called <strong>Hackers</strong>. We need to learn how to lock our digital doors.
         </p>
     </div>
 
     <div class="relative">
-        <div id="protectedContent" class="space-y-8">
+        
+        <div id="protectedContent" class="space-y-10 locked-blur">
             <section>
                 <h2 class="text-2xl font-bold mb-4 text-[#0F172A]">Strong Passwords</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-red-50 p-4 rounded-xl border border-red-200">
-                        <strong class="text-red-700 flex items-center gap-2"><i data-lucide="x-circle" class="w-4 h-4"></i> Bad Password</strong>
-                        <p class="text-sm mt-2 text-red-900">123456</p>
-                        <p class="text-sm text-red-900">password</p>
-                        <p class="text-sm text-red-900">monkey</p>
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-100">
+                        <strong class="text-red-700 flex items-center gap-2 mb-2"><i data-lucide="x-circle" class="w-5 h-5"></i> Bad Password</strong>
+                        <ul class="text-sm text-red-900 space-y-1">
+                            <li>• 123456</li>
+                            <li>• password</li>
+                            <li>• monkey</li>
+                        </ul>
                     </div>
-                    <div class="bg-green-50 p-4 rounded-xl border border-green-200">
-                        <strong class="text-green-700 flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i> Good Password</strong>
-                        <p class="text-sm mt-2 text-green-900">Pizz@R0cket$99</p>
-                        <p class="text-sm text-green-900">Mix of letters, numbers, and symbols!</p>
+                    <div class="bg-green-50 p-6 rounded-2xl border border-green-100">
+                        <strong class="text-green-700 flex items-center gap-2 mb-2"><i data-lucide="check-circle" class="w-5 h-5"></i> Good Password</strong>
+                        <p class="text-sm text-green-900 font-mono bg-white/50 p-2 rounded mb-2">Pizz@R0cket$99</p>
+                        <p class="text-xs text-green-800">Mix of letters, numbers, and symbols!</p>
                     </div>
                 </div>
             </section>
@@ -51,34 +59,52 @@
             <section>
                 <h2 class="text-2xl font-bold mb-4 text-[#0F172A]">Beware of Phishing</h2>
                 <p class="text-slate-600 mb-4"><strong>Phishing</strong> is when a hacker sends a fake email pretending to be Roblox or Instagram to steal your password.</p>
-                <div class="bg-yellow-50 p-4 rounded-xl border-l-4 border-yellow-400">
-                    <p class="italic text-slate-700">"URGENT: Your account will be banned! Click here to fix it."</p>
-                    <p class="text-xs font-bold text-yellow-700 mt-2 uppercase">Do not click! It is a trap.</p>
+                <div class="bg-yellow-50 p-6 rounded-2xl border-l-4 border-yellow-400 text-slate-700">
+                    <p class="italic mb-2">"URGENT: Your account will be banned! Click here to fix it."</p>
+                    <p class="text-xs font-bold text-yellow-700 uppercase flex items-center gap-1"><i data-lucide="alert-triangle" class="w-3 h-3"></i> Do not click! It is a trap.</p>
                 </div>
             </section>
 
-            <div class="bg-purple-50 border border-purple-200 p-6 rounded-2xl text-center">
+            <div class="bg-purple-50 border border-purple-100 p-8 rounded-2xl text-center">
                 <h3 class="font-bold text-2xl text-purple-900 mb-2">🎓 Course Complete!</h3>
                 <p class="text-lg text-purple-700 mb-6">You now understand how the internet works and how to stay safe. You are a Cyber Hero.</p>
-                <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-full shadow-xl shadow-purple-200 transition">Download Certificate</button>
+                <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-purple-200 transition transform hover:-translate-y-1">Download Certificate</button>
             </div>
         </div>
 
-        <div id="lockOverlay" class="hidden lock-overlay">
+        <div id="lockOverlay" class="lock-overlay">
             <div class="bg-white p-8 rounded-2xl shadow-2xl border border-slate-100 text-center max-w-sm mx-4 transform translate-y-4">
-                <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="lock" class="w-7 h-7"></i></div>
-                <h3 class="text-xl font-bold mb-2 text-[#0F172A]">Login Required</h3>
-                <p class="text-slate-500 text-sm mb-6">Log in to unlock this lesson.</p>
-                <a href="../../login.html" class="block w-full bg-[#0F172A] text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition">Log In</a>
+                <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce"><i data-lucide="lock" class="w-8 h-8"></i></div>
+                <h3 class="text-xl font-bold mb-2 text-[#0F172A]">Member Access Only</h3>
+                <p class="text-slate-500 text-sm mb-6">Create a free account to unlock this cyber security lesson.</p>
+                <a href="../../register.html" class="block w-full bg-[#0F172A] text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition mb-3 shadow-lg">Create Free Account</a>
+                <a href="../../login.html" class="block w-full text-slate-500 font-bold text-sm hover:text-[#0F172A] transition">Log In</a>
             </div>
         </div>
+
     </div>
   </main>
-  <script>
-    lucide.createIcons();
-    const user = localStorage.getItem("user");
-    if (!user) { document.getElementById("protectedContent").classList.add("locked-blur"); document.getElementById("lockOverlay").classList.remove("hidden"); } 
-    else { document.getElementById("protectedContent").classList.remove("locked-blur"); document.getElementById("lockOverlay").classList.add("hidden"); }
+
+  <script>lucide.createIcons();</script>
+
+  <script type="module">
+    import { auth } from "../../js/firebase.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    const content = document.getElementById("protectedContent");
+    const overlay = document.getElementById("lockOverlay");
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is Logged In -> UNLOCK
+        content.classList.remove("locked-blur");
+        overlay.classList.add("hidden");
+      } else {
+        // User is Logged Out -> LOCK
+        content.classList.add("locked-blur");
+        overlay.classList.remove("hidden");
+      }
+    });
   </script>
 </body>
 </html>

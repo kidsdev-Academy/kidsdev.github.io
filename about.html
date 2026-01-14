@@ -10,25 +10,29 @@
   <meta name="author" content="Tolani Agbeyangi">
   <meta name="robots" content="index, follow">
   
-  <link rel="icon" type="image/png" href="image/logo.png">
+  <meta property="og:title" content="Empowering the Next Generation of Builders 🚀">
+  <meta property="og:description" content="KidsDev Academy provides world-class coding education for free. Meet our founder and see our mission.">
+  <meta property="og:image" content="/image/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thekidsdev.netlify.app/about.html">
+
+  <link rel="icon" type="image/png" href="/image/logo.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   
   <style>
     .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
     
-    /* Dropdown Animation */
+    /* Animations */
     .group:hover .group-hover\:block { display: block; animation: fadeIn 0.2s ease-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px) translateX(-50%); } to { opacity: 1; transform: translateY(0) translateX(-50%); } }
     
-    /* Search Modal Animation */
     #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
     @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
     
-    /* Profile Image Blob Animation */
     .profile-blob {
       border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
       overflow: hidden;
@@ -51,8 +55,8 @@
   <header class="pro-header sticky top-0 z-[100]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
       <div class="flex items-center gap-4">
-        <a href="index.html" class="flex items-center gap-2 cursor-pointer group">
-          <img src="image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
+        <a href="/index.html" class="flex items-center gap-2 cursor-pointer group">
+          <img src="/image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
           <div class="flex flex-col leading-none">
             <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
             <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
@@ -66,32 +70,31 @@
 
       <div class="flex items-center gap-6">
         <nav class="hidden md:flex gap-6 font-medium text-sm text-slate-600 items-center h-full">
-          <a href="index.html" class="hover:text-[#F97316] transition">Home</a>
-          <a href="about.html" class="text-[#F97316] font-bold">About</a>
+          <a href="/index.html" class="hover:text-[#F97316] transition">Home</a>
+          <a href="/about.html" class="text-[#F97316] font-bold">About</a>
           
           <div class="relative group h-full flex items-center">
-            <a href="courses.html" class="hover:text-[#F97316] flex items-center gap-1 cursor-pointer py-6">
+            <a href="/courses.html" class="hover:text-[#F97316] flex items-center gap-1 cursor-pointer py-6">
               Courses <i data-lucide="chevron-down" class="w-3 h-3"></i>
             </a>
             <div class="absolute top-[80%] left-1/2 -translate-x-1/2 w-60 bg-white border border-slate-100 shadow-xl rounded-2xl p-2 hidden group-hover:block transition-all z-50">
               <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-slate-100 transform rotate-45"></div>
               <div class="relative bg-white rounded-xl overflow-hidden">
-                <a href="courses.html?category=Programming" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="code" class="w-4 h-4 text-yellow-500"></i> Coding</a>
-                <a href="courses.html?category=Web Dev" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="globe" class="w-4 h-4 text-blue-500"></i> Web Dev</a>
-                <a href="courses.html?category=Networking" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="network" class="w-4 h-4 text-purple-500"></i> Networking</a>
-                <a href="courses.html?category=Logic" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="cpu" class="w-4 h-4 text-pink-500"></i> Logic</a>
+                <a href="/courses.html?category=Programming" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="code" class="w-4 h-4 text-yellow-500"></i> Coding</a>
+                <a href="/courses.html?category=Web Dev" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="globe" class="w-4 h-4 text-blue-500"></i> Web Dev</a>
+                <a href="/courses.html?category=Networking" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="network" class="w-4 h-4 text-purple-500"></i> Networking</a>
               </div>
             </div>
           </div>
 
-          <a href="daily.html" class="hover:text-[#F97316] transition">Daily</a>
-          <a href="challenges.html" class="hover:text-[#F97316] transition">Challenges</a>
-          <a href="contact.html" class="hover:text-[#F97316] transition">Contact</a>
+          <a href="/daily.html" class="hover:text-[#F97316] transition">Daily</a>
+          <a href="/challenges.html" class="hover:text-[#F97316] transition">Challenges</a>
+          <a href="/contact.html" class="hover:text-[#F97316] transition">Contact</a>
         </nav>
         
         <div class="hidden md:flex items-center gap-3 pl-6 border-l border-slate-200" id="authArea">
-           <a href="login.html" class="text-sm font-bold hover:text-black">Log In</a>
-           <a href="register.html" class="bg-[#F97316] hover:bg-orange-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md transition">Sign Up</a>
+           <a href="/login.html" class="text-sm font-bold hover:text-black">Log In</a>
+           <a href="/register.html" class="bg-[#F97316] hover:bg-orange-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md transition">Sign Up</a>
         </div>
         
         <button id="menuBtn" class="md:hidden p-2"><i data-lucide="menu"></i></button>
@@ -99,27 +102,22 @@
     </div>
     
     <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white border-b shadow-lg p-4 space-y-3 z-50">
-       <a href="index.html" class="block py-2 text-slate-600">Home</a>
-       <a href="about.html" class="block py-2 font-bold text-[#F97316]">About</a>
-       <a href="courses.html" class="block py-2 text-slate-600">Courses</a>
-       <div class="pl-4 space-y-2 border-l-2 border-slate-100 ml-2">
-          <a href="courses.html?category=Programming" class="block text-sm text-slate-500">Programming</a>
-          <a href="courses.html?category=Web Dev" class="block text-sm text-slate-500">Web Dev</a>
-          <a href="courses.html?category=Networking" class="block text-sm text-slate-500">Networking</a>
-       </div>
-       <a href="daily.html" class="block py-2 text-slate-600">Daily Tips</a>
-       <a href="challenges.html" class="block py-2 text-slate-600">Challenges</a>
-       <a href="contact.html" class="block py-2 text-slate-600">Contact</a>
+       <a href="/index.html" class="block py-2 text-slate-600">Home</a>
+       <a href="/about.html" class="block py-2 font-bold text-[#F97316]">About</a>
+       <a href="/courses.html" class="block py-2 text-slate-600">Courses</a>
+       <a href="/daily.html" class="block py-2 text-slate-600">Daily Tips</a>
+       <a href="/challenges.html" class="block py-2 text-slate-600">Challenges</a>
+       <a href="/contact.html" class="block py-2 text-slate-600">Contact</a>
        <div class="pt-3 border-t grid grid-cols-2 gap-3">
-         <a href="login.html" class="text-center py-2 border rounded-lg font-bold">Log In</a>
-         <a href="register.html" class="text-center py-2 bg-[#F97316] text-white rounded-lg font-bold">Sign Up</a>
+         <a href="/login.html" class="text-center py-2 border rounded-lg font-bold">Log In</a>
+         <a href="/register.html" class="text-center py-2 bg-[#F97316] text-white rounded-lg font-bold">Sign Up</a>
        </div>
     </div>
   </header>
 
   <section class="pt-20 pb-16 text-center px-4 relative overflow-hidden">
-    <div class="absolute top-20 left-10 w-32 h-32 bg-[#F97316]/10 rounded-full blur-2xl"></div>
-    <div class="absolute bottom-20 right-10 w-48 h-48 bg-[#0F172A]/5 rounded-full blur-2xl"></div>
+    <div class="absolute top-20 left-10 w-32 h-32 bg-[#F97316]/10 rounded-full blur-2xl pointer-events-none"></div>
+    <div class="absolute bottom-20 right-10 w-48 h-48 bg-[#0F172A]/5 rounded-full blur-2xl pointer-events-none"></div>
 
     <div class="max-w-4xl mx-auto relative z-10 reveal-up">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F172A]/5 border border-[#0F172A]/10 text-[#0F172A] text-xs font-bold uppercase tracking-wide mb-6">
@@ -128,7 +126,7 @@
       <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-[#0F172A] leading-tight">
         Empowering the <br><span class="text-[#F97316]">Next Generation</span>
       </h1>
-      <p class="text-slate-500 text-lg max-w-2xl mx-auto mb-8">
+      <p class="text-slate-500 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
         We believe every child deserves the chance to understand the technology shaping their world. We don't just teach code; we teach creativity, logic, and problem-solving.
       </p>
     </div>
@@ -162,7 +160,7 @@
         <div class="absolute inset-0 bg-[#F97316] rounded-2xl transform rotate-3 scale-95 opacity-20"></div>
         <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
           <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students learning together" class="w-full h-auto transform group-hover:scale-105 transition duration-700">
-          <div class="absolute inset-0 bg-[#0F172A]/10"></div>
+          <div class="absolute inset-0 bg-[#0F172A]/10 pointer-events-none"></div>
         </div>
       </div>
 
@@ -210,7 +208,7 @@
     
     <div class="bg-white border border-slate-200 rounded-3xl p-12 shadow-xl relative mt-12">
       <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-40 h-40 profile-blob border-4 border-white bg-slate-100 overflow-hidden">
-        <img src="image/tola.jpg" 
+        <img src="/image/tola.jpg" 
              onerror="this.src='https://ui-avatars.com/api/?name=Tolani+Agbeyangi&background=F97316&color=fff&size=200'" 
              alt="Tolani Agbeyangi" 
              class="w-full h-full object-cover">
@@ -228,7 +226,7 @@
         </div>
         
         <div class="mt-10 flex justify-center gap-4">
-          <a href="contact.html" class="bg-[#0F172A] hover:bg-slate-800 text-white px-8 py-3 rounded-full font-bold transition shadow-lg hover:-translate-y-1">
+          <a href="/contact.html" class="bg-[#0F172A] hover:bg-slate-800 text-white px-8 py-3 rounded-full font-bold transition shadow-lg hover:-translate-y-1">
             Get in Touch
           </a>
         </div>
@@ -251,8 +249,8 @@
       </div>
   </div>
 
-  <script src="js/auth.js"></script>
-  <script src="js/main.js"></script>
+  <script type="module" src="/js/auth.js"></script>
+  <script src="/js/main.js"></script>
   
   <script>
     if(window.lucide) lucide.createIcons();

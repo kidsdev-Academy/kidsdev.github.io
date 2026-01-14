@@ -22,5 +22,34 @@
     "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
     "url": "courses/networking/module2.html",
     "locked": false
+  },
+  [
+  {
+    "id": 501,
+    "title": "Module 1: What is an IP Address?",
+    "desc": "Every house has an address, and every computer does too. Learn about IPs.",
+    "image": "https://images.unsplash.com/photo-1558494949-ef526b0042a0?auto=format&fit=crop&w=800&q=80",
+    "category": "Basics",
+    "url": "courses/networking/ip-address.html",
+    "date": "2026-02-10"
+  },
+  {
+    "id": 502,
+    "title": "Module 2: How WiFi Works",
+    "desc": "Invisible waves carrying data? Let's explore radio waves and routers.",
+    "image": "https://images.unsplash.com/photo-1544197150-b99a580bbcbf?auto=format&fit=crop&w=800&q=80",
+    "category": "Hardware",
+    "url": "courses/networking/wifi.html",
+    "date": "2026-02-12"
+  },
+  {
+    "id": 503,
+    "title": "Module 3: Cyber Security",
+    "desc": "Hackers, passwords, and phishing. Learn how to lock your digital doors.",
+    "image": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80",
+    "category": "Security",
+    "url": "courses/networking/module3.html",
+    "date": "2026-02-15"
   }
+]
 ]
