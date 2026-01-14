@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Project: Space Invaders | KidsDev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .code-box { font-family: 'Fira Code', monospace; background: #1e293b; color: #a5b3ce; padding: 1.5rem; border-radius: 0.5rem; margin: 1rem 0; overflow-x: auto; }
+    .locked-blur { filter: blur(8px); user-select: none; pointer-events: none; opacity: 0.4; }
+    .lock-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; display: flex; flex-direction: column; align-items: center; padding-top: 80px; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 25%, rgba(255,255,255,1) 100%); }
+    .step-card { border-left: 4px solid #8B5CF6; background: #F5F3FF; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 2rem; }
+  </style>
+</head>
+<body class="bg-white text-slate-800 font-[Poppins]">
+
+  <div class="h-16 border-b flex items-center px-6 sticky top-0 bg-white/90 z-50">
+    <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-purple-600">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Python Map
+    </a>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <div class="mb-10 text-center">
+        <span class="text-xs font-bold uppercase text-purple-600 bg-purple-100 px-3 py-1 rounded-full">Final Project 2</span>
+        <h1 class="text-4xl font-extrabold mt-4 mb-6">Build Space Invaders</h1>
+        <p class="text-lg leading-relaxed text-slate-600 mb-6 max-w-2xl mx-auto">
+            Defend the planet! This project focuses on managing many objects at once (bullets and enemies) using Lists and Loops.
+        </p>
+    </div>
+
+    <div class="relative">
+        <div id="protectedContent" class="space-y-12">
+            
+            <section class="step-card">
+                <h2 class="text-2xl font-bold mb-4 text-purple-900">Phase 1: The Player Ship (Using Images)</h2>
+                <p class="text-slate-700 mb-4">Instead of drawing rectangles, we will load an image file (like a .png of a spaceship). We need to make sure the ship stops at the edge of the screen.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="code-box text-xs">
+# Load Image
+playerImg = pygame.image.load('spaceship.png')
+playerX = 370
+playerY = 480
+
+def player(x, y):
+    # Draw image at coordinates
+    screen.blit(playerImg, (x, y))
+
+# Inside Loop: Check Boundaries
+if playerX <= 0:
+    playerX = 0
+elif playerX >= 736: # Screen width - image width
+    playerX = 736
+                    </div>
+                    <div>
+                        <strong class="block mb-2 text-sm text-slate-500">Expected Result:</strong>
+                        <img src="https://placehold.co/400x300/000033/FFFFFF?text=Phase+1:+Player+Ship+Image" class="rounded-xl shadow-lg border border-slate-200">
+                    </div>
+                </div>
+            </section>
+
+            <section class="step-card">
+                <h2 class="text-2xl font-bold mb-4 text-purple-900">Phase 2: Firing Lasers (States)</h2>
+                <p class="text-slate-700 mb-4">The laser has two states: "ready" (hidden in the ship) and "fire" (moving up the screen). When you press Space, it changes state.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="code-box text-xs">
+bulletY = 480
+bullet_state = "ready"
+
+if event.key == pygame.K_SPACE:
+    if bullet_state == "ready":
+        bulletX = playerX # Set start position
+        fire_bullet(bulletX, bulletY)
+
+# Movement Logic
+if bullet_state == "fire":
+    fire_bullet(bulletX, bulletY)
+    bulletY -= 10 # Move up rapidly
+    
+# Reset when off screen
+if bulletY <= 0:
+    bulletY = 480
+    bullet_state = "ready"
+                    </div>
+                    <div>
+                        <strong class="block mb-2 text-sm text-slate-500">Expected Result:</strong>
+                        <img src="https://placehold.co/400x300/000033/FFFFFF?text=Phase+2:+Firing+Laser" class="rounded-xl shadow-lg border border-slate-200">
+                    </div>
+                </div>
+            </section>
+
+            <div class="bg-purple-50 border border-purple-200 p-6 rounded-2xl text-center">
+                <h3 class="font-bold text-2xl text-purple-900 mb-2">🚀 Final Boss Challenge</h3>
+                <p class="text-lg text-purple-700 mb-6">Create the <strong>Enemy Fleet</strong> using a List of multiple aliens. Make them move left and right, dropping down closer to the player when they hit the edge!</p>
+                <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-10 rounded-full shadow-xl shadow-purple-200 transition transform hover:-translate-y-1">Download Full Project Files</button>
+            </div>
+        </div>
+
+        <div id="lockOverlay" class="hidden lock-overlay">
+            <div class="bg-white p-8 rounded-2xl shadow-2xl border border-slate-100 text-center max-w-sm mx-4 transform translate-y-4">
+                <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="lock" class="w-7 h-7"></i></div>
+                <h3 class="text-xl font-bold mb-2 text-[#0F172A]">Login Required</h3>
+                <p class="text-slate-500 text-sm mb-6">Log in to unlock the final projects.</p>
+                <a href="../../login.html" class="block w-full bg-[#0F172A] text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition">Log In</a>
+            </div>
+        </div>
+    </div>
+  </main>
+  <script>
+    lucide.createIcons();
+    const user = localStorage.getItem("user");
+    if (!user) { document.getElementById("protectedContent").classList.add("locked-blur"); document.getElementById("lockOverlay").classList.remove("hidden"); } 
+    else { document.getElementById("protectedContent").classList.remove("locked-blur"); document.getElementById("lockOverlay").classList.add("hidden"); }
+  </script>
+</body>
+</html>

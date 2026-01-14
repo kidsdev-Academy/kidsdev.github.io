@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox vs Grid | KidsDev</title>
+  <link rel="icon" type="image/png" href="../image/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-white font-[Poppins]">
+
+  <header class="sticky top-0 bg-white/90 backdrop-blur border-b h-20 flex items-center px-6 justify-between z-50">
+     <a href="../index.html" class="font-bold text-xl">KidsDev</a>
+     <button id="searchBtn"><i data-lucide="search"></i></button>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    <a href="../daily.html" class="text-slate-400 hover:text-pink-500 font-bold mb-4 block">&larr; Back</a>
+    <h1 class="text-4xl font-extrabold mb-6">Flexbox vs <span class="text-pink-500">Grid</span></h1>
+
+    
+
+    <div class="grid md:grid-cols-2 gap-8 mt-8">
+      <div>
+        <h3 class="font-bold text-xl mb-2 text-blue-500">Flexbox (1D)</h3>
+        <p class="text-slate-600 text-sm">Use this when you want items in a single row OR a single column. Perfect for Navigation bars.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-xl mb-2 text-pink-500">Grid (2D)</h3>
+        <p class="text-slate-600 text-sm">Use this when you want items in rows AND columns at the same time. Perfect for Photo Galleries.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+  <div id="searchModal" class="hidden fixed inset-0 bg-black/80 z-50"></div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

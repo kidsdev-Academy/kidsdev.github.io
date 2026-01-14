@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Networking Module 1 | KidsDev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  
+  <style>
+    .locked-blur { filter: blur(8px); user-select: none; pointer-events: none; opacity: 0.4; }
+    .lock-overlay { 
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; 
+        display: flex; flex-direction: column; align-items: center; padding-top: 80px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 25%, rgba(255,255,255,1) 100%);
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 font-[Poppins]">
+
+  <div class="h-16 border-b flex items-center px-6 sticky top-0 bg-white/90 z-50">
+    <a href="../../courses.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-purple-600">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Return to Catalog
+    </a>
+  </div>
+
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    
+    <div class="mb-8">
+        <span class="text-xs font-bold uppercase text-purple-600 bg-purple-100 px-3 py-1 rounded-full">Net • Level 1</span>
+        <h1 class="text-4xl font-extrabold mt-4 mb-6">How the Internet Works</h1>
+        
+        <img src="https://images.unsplash.com/photo-1544197150-b99a580bbcbf?auto=format&fit=crop&w=800&q=80" class="rounded-xl shadow-lg mb-8 w-full h-64 object-cover">
+
+        <h3 class="text-2xl font-bold mb-4">The Big Wire</h3>
+        <p class="text-lg leading-relaxed text-slate-600">
+            The internet feels invisible, like magic in the air. But actually, it is physical! The internet is basically a <strong>massive wire</strong> (often buried deep underwater) that connects your computer to giant computers called <strong>Servers</strong>.
+        </p>
+    </div>
+
+    <div class="relative">
+        
+        <div id="protectedContent" class="space-y-8">
+            <p class="text-lg leading-relaxed text-slate-600">
+                When you visit a website like YouTube, your computer sends a request through these wires to a server in a Google data center. The server finds the video you want and sends it back to you.
+            </p>
+
+            <h3 class="text-2xl font-bold text-[#0F172A]">Clients vs Servers</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-purple-50 p-4 rounded-xl">
+                    <strong class="block text-purple-700 mb-2">Client (You)</strong>
+                    <p class="text-sm text-slate-600">Laptops, Phones, iPads. Devices that ask for information.</p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-xl">
+                    <strong class="block text-blue-700 mb-2">Server (The Web)</strong>
+                    <p class="text-sm text-slate-600">Powerful computers that store websites and never turn off.</p>
+                </div>
+            </div>
+            
+            <div class="bg-slate-900 text-white p-6 rounded-xl mt-8">
+                <h4 class="font-bold mb-2 flex items-center gap-2"><i data-lucide="activity"></i> Assignment</h4>
+                <p class="text-sm text-slate-300 mb-4">Draw a diagram showing the path from your Tablet -> WiFi -> Router -> Internet.</p>
+                <button class="bg-purple-600 px-6 py-2 rounded-lg font-bold hover:bg-purple-500 transition">Submit Diagram</button>
+            </div>
+        </div>
+
+        <div id="lockOverlay" class="hidden lock-overlay">
+            <div class="bg-white p-8 rounded-2xl shadow-2xl border border-slate-100 text-center max-w-sm mx-4 transform translate-y-4">
+                <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="lock" class="w-7 h-7"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-[#0F172A]">Unlock the Full Course</h3>
+                <p class="text-slate-500 text-sm mb-6">Join 500+ other kids learning networking. It's free!</p>
+                <div class="flex flex-col gap-3">
+                    <a href="../../register.html" class="bg-[#0F172A] text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition">Create Account</a>
+                    <a href="../../login.html" class="text-slate-500 text-sm font-bold hover:text-slate-800">Log In</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+    const user = localStorage.getItem("user");
+    const protectedContent = document.getElementById("protectedContent");
+    const lockOverlay = document.getElementById("lockOverlay");
+
+    if (!user) {
+        protectedContent.classList.add("locked-blur");
+        lockOverlay.classList.remove("hidden");
+    } else {
+        protectedContent.classList.remove("locked-blur");
+        lockOverlay.classList.add("hidden");
+    }
+  </script>
+</body>
+</html>

@@ -3,75 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy | KidsDev</title>
   
-  <meta name="description" content="Privacy Policy for KidsDev Academy. We prioritize the safety and privacy of our young learners.">
-  <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="https://thekidsdev.netlify.app/privacy.html">
+  <title>Privacy Policy | KidsDev Academy</title>
+  <meta name="description" content="We prioritize the safety and privacy of our young students. Read our transparent data policy.">
+  <meta name="keywords" content="privacy policy, kids safety online, coppa compliance, data protection, kidsdev academy">
+  <meta name="author" content="Tolani Agbeyangi">
+  <meta name="robots" content="index, follow">
+  
+  <meta property="og:title" content="Privacy Policy | KidsDev Academy">
+  <meta property="og:description" content="Our commitment to keeping your child's data safe and secure.">
+  <meta property="og:image" content="image/logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thekidsdev.netlify.app/privacy.html">
+
+  <link rel="icon" type="image/png" href="image/logo.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
+    
+    /* Policy Text Styling */
+    .policy-content h2 { color: #0F172A; font-weight: 700; font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+    .policy-content p { color: #475569; margin-bottom: 1.25rem; line-height: 1.75; font-size: 0.95rem; }
+    .policy-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+    .policy-content li { margin-bottom: 0.5rem; }
+    
+    /* Animations */
+    .group:hover .group-hover\:block { display: block; animation: fadeIn 0.2s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px) translateX(-50%); } to { opacity: 1; transform: translateY(0) translateX(-50%); } }
+    #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
+    @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
+  </style>
 </head>
 
-<body class="flex flex-col min-h-screen bg-[#1A1A2E] text-gray-300">
+<body class="bg-white text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
 
-<header class="navbar">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-    <a href="index.html" class="flex items-center gap-3 cursor-pointer">
-      <img src="image/logo.png" alt="KidsDev Logo" class="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform">
-    </a>
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="flex items-center gap-2 cursor-pointer group">
+          <img src="image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
+          <div class="flex flex-col leading-none">
+            <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+            <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
+          </div>
+        </a>
+        
+        <button id="searchBtn" class="p-2 text-slate-400 hover:text-[#F97316] hover:bg-orange-50 rounded-full transition ml-2 border border-transparent hover:border-orange-100 group">
+             <i data-lucide="search" class="w-5 h-5 group-hover:scale-110 transition"></i>
+        </button>
+      </div>
 
-    <nav class="hidden md:flex gap-6 items-center">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a> 
-      <a href="courses.html" class="nav-link">Courses</a>
-      <a href="daily.html" class="nav-link">Daily</a>
-      <a href="challenges.html" class="nav-link text-[#A66CFF] hover:text-[#A66CFF]">Challenges</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <div class="h-5 w-px bg-gray-700 mx-2"></div>
-      <button id="openSearchBtn" class="text-gray-400 hover:text-[#FFE66D] transition" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
-    </nav>
-    <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
-  </div>
-  
-  <div id="mobileMenu" class="mobile-menu md:hidden">
-    <div class="px-6 py-4 space-y-3 border-t border-gray-700">
-      <a href="about.html" class="block text-gray-300 hover:text-[#FFE66D]">About Us</a>
-      <a href="courses.html" class="block text-gray-300 hover:text-[#FFE66D]">Courses</a>
-      <a href="daily.html" class="block text-gray-300 hover:text-[#FFE66D]">Daily</a>
-      <a href="challenges.html" class="block text-[#A66CFF]">Challenges</a>
-      <a href="contact.html" class="block text-gray-300 hover:text-[#FFE66D]">Contact</a>
+      <div class="flex items-center gap-6">
+        <nav class="hidden md:flex gap-6 font-medium text-sm text-slate-600 items-center h-full">
+          <a href="index.html" class="hover:text-[#F97316] transition">Home</a>
+          <a href="about.html" class="hover:text-[#F97316] transition">About</a>
+          
+          <div class="relative group h-full flex items-center">
+            <a href="courses.html" class="hover:text-[#F97316] flex items-center gap-1 cursor-pointer py-6">
+              Courses <i data-lucide="chevron-down" class="w-3 h-3"></i>
+            </a>
+            <div class="absolute top-[80%] left-1/2 -translate-x-1/2 w-60 bg-white border border-slate-100 shadow-xl rounded-2xl p-2 hidden group-hover:block transition-all z-50">
+              <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-slate-100 transform rotate-45"></div>
+              <div class="relative bg-white rounded-xl overflow-hidden">
+                <a href="courses.html?category=Programming" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="code" class="w-4 h-4 text-yellow-500"></i> Coding</a>
+                <a href="courses.html?category=Web Dev" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="globe" class="w-4 h-4 text-blue-500"></i> Web Dev</a>
+                <a href="courses.html?category=Networking" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="network" class="w-4 h-4 text-purple-500"></i> Networking</a>
+                <a href="courses.html?category=Logic" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="cpu" class="w-4 h-4 text-pink-500"></i> Logic</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="daily.html" class="hover:text-[#F97316] transition">Daily</a>
+          <a href="challenges.html" class="hover:text-[#F97316] transition">Challenges</a>
+          <a href="contact.html" class="hover:text-[#F97316] transition">Contact</a>
+        </nav>
+        
+        <div class="hidden md:flex items-center gap-3 pl-6 border-l border-slate-200" id="authArea">
+           <a href="login.html" class="text-sm font-bold hover:text-black">Log In</a>
+           <a href="register.html" class="bg-[#F97316] hover:bg-orange-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md transition">Sign Up</a>
+        </div>
+        
+        <button id="menuBtn" class="md:hidden p-2"><i data-lucide="menu"></i></button>
+      </div>
     </div>
-  </div>
-</header>
-
-<section class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
-  <h1 class="text-4xl font-bold text-white mb-8">Privacy Policy</h1>
-  <div class="prose prose-invert max-w-none text-gray-400">
-    <p class="mb-6">At KidsDev Academy, we take your privacy seriously. This policy explains how we handle any information collected on our website.</p>
     
-    <h3 class="text-xl font-bold text-white mt-8 mb-4">1. Information We Collect</h3>
-    <p>We do not require account creation to access our learning materials. When you use our contact form or submit a challenge, we collect your name and email address solely to reply to your inquiry.</p>
+    <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white border-b shadow-lg p-4 space-y-3 z-50">
+       <a href="index.html" class="block py-2 text-slate-600">Home</a>
+       <a href="about.html" class="block py-2 text-slate-600">About</a>
+       <a href="courses.html" class="block py-2 text-slate-600">Courses</a>
+       <div class="pl-4 space-y-2 border-l-2 border-slate-100 ml-2">
+          <a href="courses.html?category=Programming" class="block text-sm text-slate-500">Programming</a>
+          <a href="courses.html?category=Web Dev" class="block text-sm text-slate-500">Web Dev</a>
+          <a href="courses.html?category=Networking" class="block text-sm text-slate-500">Networking</a>
+       </div>
+       <a href="daily.html" class="block py-2 text-slate-600">Daily Tips</a>
+       <a href="challenges.html" class="block py-2 text-slate-600">Challenges</a>
+       <a href="contact.html" class="block py-2 text-slate-600">Contact</a>
+       <div class="pt-3 border-t grid grid-cols-2 gap-3">
+         <a href="login.html" class="text-center py-2 border rounded-lg font-bold">Log In</a>
+         <a href="register.html" class="text-center py-2 bg-[#F97316] text-white rounded-lg font-bold">Sign Up</a>
+       </div>
+    </div>
+  </header>
 
-    <h3 class="text-xl font-bold text-white mt-8 mb-4">2. Cookies</h3>
-    <p>We use local storage to save your preferences (like Dark Mode) but do not use invasive tracking cookies.</p>
+  <section class="bg-slate-50 border-b border-slate-200 py-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="inline-block p-3 bg-white rounded-2xl shadow-sm border border-slate-100 mb-6">
+        <i data-lucide="shield" class="w-8 h-8 text-[#F97316]"></i>
+      </div>
+      <h1 class="text-4xl font-extrabold text-[#0F172A] mb-4">Privacy Policy</h1>
+      <p class="text-slate-500">Last Updated: January 13, 2026</p>
+    </div>
+  </section>
 
-    <h3 class="text-xl font-bold text-white mt-8 mb-4">3. External Links</h3>
-    <p>Our courses may link to external tools like GitHub, Replit, or CodePen. We are not responsible for the privacy practices of these third-party sites.</p>
+  <main class="max-w-3xl mx-auto px-4 py-16 flex-1 policy-content">
+    <p class="text-lg text-slate-600 font-medium mb-8">
+      At KidsDev Academy, we prioritize the privacy and safety of our students above all else. This policy outlines exactly what information we collect, how we use it, and how we keep it safe.
+    </p>
 
-    <h3 class="text-xl font-bold text-white mt-8 mb-4">4. Contact Us</h3>
-    <p>If you have questions about this policy, please email us at <a href="mailto:hello@kidsdev.com" class="text-[#4CC9F0] hover:underline">hello@kidsdev.com</a>.</p>
+    <h2>1. Information We Collect</h2>
+    <p>To provide our educational services, we collect the following limited information:</p>
+    <ul>
+      <li><strong>Account Information:</strong> Name, Email Address, and encrypted Password (for login purposes).</li>
+      <li><strong>Progress Data:</strong> Course completion status, XP points, and badges earned to track learning.</li>
+      <li><strong>Technical Data:</strong> Browser type and device type to ensure our website works correctly on your screen.</li>
+    </ul>
+
+    <h2>2. How We Use Data</h2>
+    <p>We do not sell your data. We use your information solely to:</p>
+    <ul>
+      <li>Create and manage your personal dashboard.</li>
+      <li>Save your progress so you can resume courses where you left off.</li>
+      <li>Send important updates regarding the platform (e.g., password resets).</li>
+    </ul>
+
+    <h2>3. Children's Safety & COPPA</h2>
+    <p>Since our audience includes children, we take extra precautions:</p>
+    <ul>
+      <li><strong>No Direct Messaging:</strong> Students cannot send private messages to each other.</li>
+      <li><strong>No Personal Ads:</strong> We do not display third-party advertisements based on user behavior.</li>
+      <li><strong>Profile Privacy:</strong> User profiles are not public and cannot be indexed by search engines.</li>
+    </ul>
+
+    <h2>4. Third-Party Services</h2>
+    <p>We use trusted third-party services to run our platform:</p>
+    <ul>
+      <li><strong>Google Firebase:</strong> For secure authentication and database hosting.</li>
+      <li><strong>Netlify:</strong> For hosting our website files.</li>
+    </ul>
+
+    <h2>5. Contact Us</h2>
+    <p>If you have any questions or concerns about this policy, please contact our team directly:</p>
+    <a href="contact.html" class="inline-flex items-center gap-2 text-[#F97316] font-bold hover:text-orange-700 transition mt-2">
+      <i data-lucide="mail" class="w-4 h-4"></i> Contact Support
+    </a>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4">
+      <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden reveal-up active">
+          <div class="p-4 border-b border-slate-100 flex items-center gap-4">
+              <i data-lucide="search" class="text-slate-400"></i>
+              <input type="text" id="searchInput" placeholder="Search courses, tips, challenges..." class="flex-1 outline-none text-lg font-bold text-[#0F172A] placeholder:text-slate-300">
+              <button id="closeSearch" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
+          </div>
+          <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+               <div class="text-center text-slate-400 py-10">Start typing to search...</div>
+          </div>
+      </div>
   </div>
-</section>
 
-<footer class="bg-[#0b1021] border-t border-gray-800 text-gray-300 pt-16 pb-8 mt-auto">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center text-sm text-gray-500">
-    <p>© 2026 KidsDev Academy. Made with ❤️ by Nath.</p>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    if(window.lucide) lucide.createIcons();
+  </script>
 </body>
 </html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Project: Data Science | KidsDev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .code-box { font-family: 'Fira Code', monospace; background: #1e293b; color: #a5b3ce; padding: 1.5rem; border-radius: 0.5rem; margin: 1rem 0; overflow-x: auto; }
+    .locked-blur { filter: blur(8px); user-select: none; pointer-events: none; opacity: 0.4; }
+    .lock-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; display: flex; flex-direction: column; align-items: center; padding-top: 80px; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 25%, rgba(255,255,255,1) 100%); }
+    .step-card { border-left: 4px solid #EAB308; background: #FEFCE8; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 2rem; }
+    /* Simulate a terminal output for data */
+    .terminal-output { font-family: 'Fira Code', monospace; background: #000; color: #0f0; padding: 1rem; border-radius: 0.5rem; font-size: 0.8rem; white-space: pre; }
+  </style>
+</head>
+<body class="bg-white text-slate-800 font-[Poppins]">
+
+  <div class="h-16 border-b flex items-center px-6 sticky top-0 bg-white/90 z-50">
+    <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-yellow-600">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Python Map
+    </a>
+  </div>
+
+  <main class="max-w-4xl mx-auto px-4 py-12">
+    <div class="mb-10 text-center">
+        <span class="text-xs font-bold uppercase text-yellow-600 bg-yellow-100 px-3 py-1 rounded-full">Final Project 3</span>
+        <h1 class="text-4xl font-extrabold mt-4 mb-6">Intro to Data Science</h1>
+        <p class="text-lg leading-relaxed text-slate-600 mb-6 max-w-2xl mx-auto">
+            Forget games for a moment. Let's use Python for its real-world superpower: analyzing massive amounts of data using a library called <strong>Pandas</strong>.
+        </p>
+    </div>
+
+    <div class="relative">
+        <div id="protectedContent" class="space-y-12">
+            
+            <section class="step-card">
+                <h2 class="text-2xl font-bold mb-4 text-yellow-900">Phase 1: The Setup (Pandas)</h2>
+                <p class="text-slate-700 mb-4">Unlike Pygame, Pandas is used in the terminal. First, we need to install it and import it. We usually nickname it `pd`.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="code-box text-xs">
+# In your terminal first:
+# pip install pandas
+
+# In your Python file:
+import pandas as pd
+
+# Create some fake data
+data = {
+  'Student': ['Tola', 'David', 'Sarah', 'Chris'],
+  'Score': [85, 92, 78, 95],
+  'Hours_Studied': [5, 8, 3, 9]
+}
+                    </div>
+                    <div>
+                        <strong class="block mb-2 text-sm text-slate-500">The Goal:</strong>
+                        <p class="text-sm text-slate-600">We are creating a "Dictionary" of data that looks like a spreadsheet, ready to be loaded into Pandas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="step-card">
+                <h2 class="text-2xl font-bold mb-4 text-yellow-900">Phase 2: The DataFrame</h2>
+                <p class="text-slate-700 mb-4">The core of Pandas is the <strong>DataFrame</strong>. It converts our dictionary into a neat table that Python understands.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="code-box text-xs">
+# Load data into a DataFrame
+df = pd.DataFrame(data)
+
+# Print the whole table
+print(df)
+                    </div>
+                    <div>
+                        <strong class="block mb-2 text-sm text-slate-500">Terminal Output:</strong>
+                        <div class="terminal-output">
+   Student  Score  Hours_Studied
+0     Tola     85              5
+1    David     92              8
+2    Sarah     78              3
+3    Chris     95              9
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <section class="step-card">
+                <h2 class="text-2xl font-bold mb-4 text-yellow-900">Phase 3: Analyzing the Data</h2>
+                <p class="text-slate-700 mb-4">Now for the magic. We can ask Python questions about the data instantly, without counting manually.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="code-box text-xs">
+# Calculate the Average Score
+avg_score = df['Score'].mean()
+print(f"Average Score: {avg_score}")
+
+# Find the Highest Score
+max_score = df['Score'].max()
+print(f"Highest Score: {max_score}")
+
+# Filter: Who studied more than 6 hours?
+hard_workers = df[df['Hours_Studied'] > 6]
+print("\nHard Workers:\n", hard_workers)
+                    </div>
+                    <div>
+                        <strong class="block mb-2 text-sm text-slate-500">Terminal Output:</strong>
+                        <div class="terminal-output">
+Average Score: 87.5
+Highest Score: 95
+
+Hard Workers:
+   Student  Score  Hours_Studied
+1    David     92              8
+3    Chris     95              9
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="bg-yellow-50 border border-yellow-200 p-6 rounded-2xl text-center">
+                <h3 class="font-bold text-2xl text-yellow-900 mb-2">🎉 Congratulations, Innovator!</h3>
+                <p class="text-lg text-yellow-700 mb-6">You have completed the Python Masterclass timeline. You know the basics, game development, and data science.</p>
+                <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-4 px-10 rounded-full shadow-xl shadow-yellow-200 transition transform hover:-translate-y-1">Claim Your Certificate</button>
+            </div>
+        </div>
+
+        <div id="lockOverlay" class="hidden lock-overlay">
+            <div class="bg-white p-8 rounded-2xl shadow-2xl border border-slate-100 text-center max-w-sm mx-4 transform translate-y-4">
+                <div class="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="lock" class="w-7 h-7"></i></div>
+                <h3 class="text-xl font-bold mb-2 text-[#0F172A]">Login Required</h3>
+                <p class="text-slate-500 text-sm mb-6">Log in to unlock the final projects.</p>
+                <a href="../../login.html" class="block w-full bg-[#0F172A] text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition">Log In</a>
+            </div>
+        </div>
+    </div>
+  </main>
+  <script>
+    lucide.createIcons();
+    const user = localStorage.getItem("user");
+    if (!user) { document.getElementById("protectedContent").classList.add("locked-blur"); document.getElementById("lockOverlay").classList.remove("hidden"); } 
+    else { document.getElementById("protectedContent").classList.remove("locked-blur"); document.getElementById("lockOverlay").classList.add("hidden"); }
+  </script>
+</body>
+</html>

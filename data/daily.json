@@ -1,0 +1,79 @@
+[
+  {
+    "id": 307,
+    "type": "daily",
+    "title": "VS Code Magic Shortcuts",
+    "desc": "Stop using your mouse! Learn the 3 keyboard shortcuts that will double your coding speed today.",
+    "image": "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=800&q=80",
+    "category": "Tools",
+    "url": "daily/vscode-shortcuts.html",
+    "date": "2026-02-20",
+    "colorClass": "text-blue-500"
+  },
+  {
+    "id": 306,
+    "type": "daily",
+    "title": "What exactly is an API?",
+    "desc": "Think of an API like a waiter in a restaurant. Here is the simplest explanation of how apps talk to each other.",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80",
+    "category": "Concepts",
+    "url": "daily/what-is-api.html",
+    "date": "2026-02-19",
+    "colorClass": "text-green-500"
+  },
+  {
+    "id": 305,
+    "type": "daily",
+    "title": "The Rubber Duck Method",
+    "desc": "Stuck on a bug? Try explaining your code to a rubber duck. Seriously, it works! Here is why.",
+    "image": "https://images.unsplash.com/photo-1555861496-0666c8981751?auto=format&fit=crop&w=800&q=80",
+    "category": "Debugging",
+    "url": "daily/rubber-duck.html",
+    "date": "2026-02-18",
+    "colorClass": "text-yellow-500"
+  },
+  {
+    "id": 304,
+    "type": "daily",
+    "title": "Python List Tricks",
+    "desc": "Did you know you can reverse a list in Python with just `[::-1]`? Let's look at list slicing.",
+    "image": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=800&q=80",
+    "category": "Python",
+    "url": "daily/python-lists.html",
+    "date": "2026-02-17",
+    "colorClass": "text-[#FFE66D]"
+  },
+  {
+    "id": 303,
+    "type": "daily",
+    "title": "Don't Use 'div' for Everything",
+    "desc": "HTML5 has semantic tags like <main>, <article>, and <section>. Using them makes your site better for SEO.",
+    "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=800&q=80",
+    "category": "HTML Tips",
+    "url": "daily/semantic-html.html",
+    "date": "2026-02-16",
+    "colorClass": "text-[#E94560]"
+  },
+  {
+    "id": 302,
+    "type": "daily",
+    "title": "How Passwords Are Stored",
+    "desc": "Websites don't actually save your password (or they shouldn't!). They save a 'Hash'. Learn how hashing works.",
+    "image": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80",
+    "category": "Security",
+    "url": "daily/hashing-explained.html",
+    "date": "2026-02-15",
+    "colorClass": "text-purple-500"
+  },
+  {
+    "id": 301,
+    "type": "daily",
+    "title": "Flexbox vs Grid",
+    "desc": "Confused about when to use CSS Grid and when to use Flexbox? Here is the golden rule.",
+    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=800&q=80",
+    "category": "CSS",
+    "url": "daily/flex-vs-grid.html",
+    "date": "2026-02-14",
+    "colorClass": "text-pink-500"
+  }
+]

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How Passwords Work | KidsDev</title>
+  <link rel="icon" type="image/png" href="../image/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-white font-[Poppins]">
+
+  <header class="sticky top-0 bg-white/90 backdrop-blur border-b h-20 flex items-center px-6 justify-between z-50">
+     <a href="../index.html" class="font-bold text-xl">KidsDev</a>
+     <button id="searchBtn"><i data-lucide="search"></i></button>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    <a href="../daily.html" class="text-slate-400 hover:text-purple-500 font-bold mb-4 block">&larr; Back</a>
+    <h1 class="text-4xl font-extrabold mb-6">How Passwords are <span class="text-purple-500">Stored</span></h1>
+
+    <p class="text-slate-600 mb-6">If a website saves your password as plain text (like "Secret123"), it is very bad! Instead, they turn it into a <strong>Hash</strong>.</p>
+
+    
+
+    <div class="bg-slate-900 text-white p-6 rounded-xl my-6 font-mono text-sm">
+      <p>Input: "Pizza"</p>
+      <p class="text-green-400">Hash: 8d969eef6ecad3c29a3a629280e686cf</p>
+      <br>
+      <p>Input: "Pizza!" (Just one change)</p>
+      <p class="text-red-400">Hash: 50f683e892c44234f9a727282121775a</p>
+    </div>
+
+    <p class="text-slate-600">A hash is a one-way street. You can turn "Pizza" into code, but you can't turn the code back into "Pizza". This keeps you safe!</p>
+  </main>
+
+  <footer id="main-footer"></footer>
+  <div id="searchModal" class="hidden fixed inset-0 bg-black/80 z-50"></div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

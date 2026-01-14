@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Networking 101 | KidsDev Academy</title>
+  
+  <meta name="description" content="Learn how the internet works. Master IP addresses, DNS, and Cyber Security.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  
+  <style>
+    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
+    
+    /* Level Card Styling */
+    .level-card { border-left: 4px solid transparent; transition: all 0.3s ease; }
+    .level-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    
+    /* Theme Colors (Purple) */
+    .level-1:hover { border-left-color: #A855F7; } /* Purple */
+    .level-2:hover { border-left-color: #3B82F6; } /* Blue */
+    
+    .gradient-text { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(to right, #A855F7, #3B82F6); }
+    
+    .module-link:hover .icon-box { background-color: #F3E8FF; color: #7E22CE; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <a href="../../courses.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-[#0F172A] transition">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Catalog
+        </a>
+      </div>
+      <div class="hidden md:flex items-center gap-4">
+         <a href="../../login.html" class="text-sm font-bold hover:text-black">Log In</a>
+         <a href="../../register.html" class="bg-[#0F172A] text-white px-5 py-2 rounded-full text-sm font-bold shadow-md hover:bg-slate-800 transition">Join Free</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative pt-20 pb-24 overflow-hidden bg-[#0F172A] text-white">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-[url('https://images.unsplash.com/photo-1544197150-b99a580bbcbf?auto=format&fit=crop&w=1200&q=80')] bg-cover opacity-10 mix-blend-overlay"></div>
+    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-600 rounded-full blur-[100px] opacity-20"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-bold uppercase tracking-wide mb-6">
+          <i data-lucide="shield-check" class="w-4 h-4"></i> Future Skill
+        </div>
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+          Master the <br><span class="gradient-text">Invisible World</span>
+        </h1>
+        <p class="text-slate-300 text-lg mb-8 leading-relaxed max-w-lg">
+          The internet isn't magic—it's engineering. Learn how data travels underwater, what IP addresses are, and how to become a Cyber Hero.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#curriculum" class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-purple-500/30 transition transform hover:-translate-y-1">
+            Start Level 1
+          </a>
+        </div>
+      </div>
+      
+      <div class="hidden lg:block justify-self-end">
+        <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl w-80 transform rotate-3 hover:rotate-0 transition duration-500">
+            <h3 class="font-bold text-lg mb-4 flex items-center gap-2"><i data-lucide="server" class="text-purple-400"></i> Course Stats</h3>
+            <ul class="space-y-4 text-sm text-slate-300">
+                <li class="flex justify-between border-b border-white/10 pb-2">
+                    <span>Modules</span> <span class="text-white font-bold">3 Lessons</span>
+                </li>
+                <li class="flex justify-between border-b border-white/10 pb-2">
+                    <span>Focus</span> <span class="text-white font-bold">Security & Hardware</span>
+                </li>
+                <li class="flex justify-between border-b border-white/10 pb-2">
+                    <span>Difficulty</span> <span class="text-white font-bold">Intermediate</span>
+                </li>
+                <li class="flex justify-between">
+                    <span>Career</span> <span class="text-white font-bold">Cyber Security</span>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white border-b border-slate-100">
+     <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+           <div class="p-6">
+              <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4"><i data-lucide="globe" class="w-6 h-6"></i></div>
+              <h3 class="font-bold text-lg mb-2">How WiFi Works</h3>
+              <p class="text-sm text-slate-500">Understand the signals flying through the air right now.</p>
+           </div>
+           <div class="p-6">
+              <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4"><i data-lucide="lock" class="w-6 h-6"></i></div>
+              <h3 class="font-bold text-lg mb-2">Stay Safe Online</h3>
+              <p class="text-sm text-slate-500">Learn to spot hackers, phishers, and bad links instantly.</p>
+           </div>
+           <div class="p-6">
+              <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mx-auto mb-4"><i data-lucide="cpu" class="w-6 h-6"></i></div>
+              <h3 class="font-bold text-lg mb-2">The Cloud</h3>
+              <p class="text-sm text-slate-500">What is a Server? Where do Netflix movies actually live?</p>
+           </div>
+        </div>
+     </div>
+  </section>
+
+  <section id="curriculum" class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-6">
+      
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-[#0F172A]">Course Curriculum</h2>
+        <p class="text-slate-500 mt-2">From the cables in the ocean to the password on your phone.</p>
+      </div>
+
+      <div class="space-y-8">
+        
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 level-card level-1 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-4 opacity-10"><i data-lucide="network" class="w-24 h-24 text-purple-500"></i></div>
+          
+          <div class="flex items-center gap-4 mb-6 border-b border-slate-100 pb-4 relative z-10">
+            <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-xl">01</div>
+            <div>
+              <h3 class="font-bold text-xl text-[#0F172A]">The Hardware</h3>
+              <p class="text-xs text-purple-600 font-bold uppercase tracking-wider">Infrastructure • Module 1</p>
+            </div>
+          </div>
+          
+          <div class="grid gap-3 relative z-10">
+            <a href="module1.html" class="module-link flex items-center justify-between p-4 bg-purple-50 border border-purple-100 rounded-xl hover:bg-purple-100 transition group cursor-pointer">
+              <div class="flex items-center gap-3">
+                 <i data-lucide="play-circle" class="w-5 h-5 text-purple-600 icon-box transition"></i>
+                 <div>
+                    <span class="block text-sm font-bold text-[#0F172A] transition">How the Internet Works</span>
+                    <span class="text-xs text-slate-500">The Big Wire, Clients & Servers</span>
+                 </div>
+              </div>
+              <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded font-bold">Free</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 level-card level-2 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-4 opacity-10"><i data-lucide="shield-check" class="w-24 h-24 text-blue-500"></i></div>
+
+          <div class="flex items-center gap-4 mb-6 border-b border-slate-100 pb-4 relative z-10">
+            <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xl">02</div>
+            <div>
+              <h3 class="font-bold text-xl text-[#0F172A]">Cyber Hero</h3>
+              <p class="text-xs text-blue-600 font-bold uppercase tracking-wider">Safety & Data • Modules 2-3</p>
+            </div>
+          </div>
+          
+          <div class="grid gap-3 relative z-10">
+             <a href="module2.html" class="module-link flex items-center justify-between p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-400 hover:shadow-md transition group cursor-pointer">
+              <div class="flex items-center gap-3">
+                 <i data-lucide="play-circle" class="w-5 h-5 text-slate-400 group-hover:text-blue-500 icon-box transition"></i>
+                 <div>
+                    <span class="block text-sm font-bold text-slate-700 transition">IP Addresses & DNS</span>
+                    <span class="text-xs text-slate-500">The phonebook of the internet</span>
+                 </div>
+              </div>
+            </a>
+            
+            <a href="module3.html" class="module-link flex items-center justify-between p-4 bg-white border border-slate-200 rounded-xl hover:border-blue-400 hover:shadow-md transition group cursor-pointer">
+              <div class="flex items-center gap-3">
+                 <i data-lucide="play-circle" class="w-5 h-5 text-slate-400 group-hover:text-blue-500 icon-box transition"></i>
+                 <div>
+                    <span class="block text-sm font-bold text-slate-700 transition">Cyber Security</span>
+                    <span class="text-xs text-slate-500">Passwords, Phishing & Safety</span>
+                 </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#0F172A] py-20 text-center text-white">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-4">Protect the future.</h2>
+      <p class="text-slate-400 mb-8">Join the academy to become a certified Cyber Hero.</p>
+      <a href="module1.html" class="inline-block bg-purple-600 hover:bg-purple-700 text-white px-12 py-4 rounded-full font-bold shadow-lg shadow-purple-500/30 transition transform hover:-translate-y-1">
+        Start Lesson 1
+      </a>
+    </div>
+  </section>
+
+  <footer class="bg-[#0b1021] text-white py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8 mb-8">
+       <div class="col-span-1 md:col-span-2">
+         <div class="flex items-center gap-2 mb-4">
+           <img src="../../image/logo.png" class="h-8 w-auto grayscale brightness-200">
+           <span class="font-bold text-xl">KidsDev</span>
+         </div>
+         <p class="text-slate-500 text-sm">Empowering the next generation of innovators.</p>
+       </div>
+       <div>
+         <h4 class="font-bold text-sm uppercase mb-4 text-slate-300">Courses</h4>
+         <ul class="space-y-2 text-sm text-slate-500">
+           <li><a href="#" class="hover:text-white">Python</a></li>
+           <li><a href="#" class="hover:text-white">Web Dev</a></li>
+           <li><a href="#" class="hover:text-white">Networking</a></li>
+         </ul>
+       </div>
+       <div>
+         <h4 class="font-bold text-sm uppercase mb-4 text-slate-300">Academy</h4>
+         <ul class="space-y-2 text-sm text-slate-500">
+           <li><a href="../../about.html" class="hover:text-white">About Us</a></li>
+           <li><a href="../../contact.html" class="hover:text-white">Contact</a></li>
+           <li><a href="../../login.html" class="hover:text-white">Log In</a></li>
+         </ul>
+       </div>
+    </div>
+    <div class="text-center text-xs text-slate-600">
+      © 2026 KidsDev Academy. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

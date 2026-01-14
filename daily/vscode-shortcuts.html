@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VS Code Magic Shortcuts | KidsDev Daily</title>
+  <meta name="description" content="Stop using your mouse! Learn the 3 keyboard shortcuts that will double your coding speed immediately.">
+  
+  <meta property="og:title" content="3 VS Code Shortcuts to Code Like a Pro ⚡">
+  <meta property="og:image" content="../image/social-preview.png">
+  <meta property="og:type" content="article">
+
+  <link rel="icon" type="image/png" href="../image/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
+    .kbd { background: #f1f5f9; border: 1px solid #cbd5e1; border-bottom: 3px solid #cbd5e1; border-radius: 6px; padding: 2px 8px; font-family: 'Fira Code', monospace; font-size: 0.85rem; font-weight: bold; color: #334155; }
+    #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
+    @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
+  </style>
+</head>
+<body class="bg-white text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="flex items-center gap-2">
+          <img src="../image/logo.png" alt="KidsDev" class="h-10 w-auto">
+          <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+        </a>
+        <button id="searchBtn" class="p-2 text-slate-400 hover:text-[#F97316] transition rounded-full"><i data-lucide="search" class="w-5 h-5"></i></button>
+      </div>
+      <nav class="hidden md:flex gap-6 font-medium text-sm text-slate-600">
+        <a href="../index.html" class="hover:text-[#F97316]">Home</a>
+        <a href="../courses.html" class="hover:text-[#F97316]">Courses</a>
+        <a href="../daily.html" class="text-[#F97316] font-bold">Daily</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    <a href="../daily.html" class="inline-flex items-center text-slate-400 hover:text-[#F97316] text-sm font-bold mb-6"><i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back</a>
+    
+    <h1 class="text-4xl font-extrabold mb-6">VS Code <span class="text-blue-500">Magic Shortcuts</span></h1>
+    
+    <div class="prose prose-lg text-slate-600">
+      <p>Real programmers try not to touch the mouse. Why? Because moving your hand back and forth takes time! Here are 3 magic tricks for VS Code.</p>
+
+      <div class="my-8 p-6 bg-slate-50 border border-slate-200 rounded-xl">
+        <h3 class="font-bold text-[#0F172A] flex items-center gap-2 mb-2"><i data-lucide="copy" class="w-5 h-5 text-blue-500"></i> 1. The Multi-Cursor</h3>
+        <p class="text-sm mb-4">Type in multiple places at once!</p>
+        <div class="flex gap-2 items-center">
+          <span class="kbd">Alt</span> + <span class="kbd">Click</span>
+        </div>
+      </div>
+
+      <div class="my-8 p-6 bg-slate-50 border border-slate-200 rounded-xl">
+        <h3 class="font-bold text-[#0F172A] flex items-center gap-2 mb-2"><i data-lucide="move" class="w-5 h-5 text-green-500"></i> 2. Move Line Up/Down</h3>
+        <p class="text-sm mb-4">Don't cut and paste. Just move the whole line.</p>
+        <div class="flex gap-2 items-center">
+          <span class="kbd">Alt</span> + <span class="kbd">⬆</span> / <span class="kbd">⬇</span>
+        </div>
+      </div>
+
+      <div class="my-8 p-6 bg-slate-50 border border-slate-200 rounded-xl">
+        <h3 class="font-bold text-[#0F172A] flex items-center gap-2 mb-2"><i data-lucide="search" class="w-5 h-5 text-purple-500"></i> 3. Find Anything</h3>
+        <p class="text-sm mb-4">Open any file instantly without looking at the sidebar.</p>
+        <div class="flex gap-2 items-center">
+          <span class="kbd">Ctrl</span> + <span class="kbd">P</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+  
+  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4">
+      <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl p-4">
+          <div class="flex items-center gap-4 border-b pb-4">
+              <i data-lucide="search" class="text-slate-400"></i>
+              <input type="text" id="searchInput" placeholder="Search..." class="flex-1 outline-none text-lg font-bold">
+              <button id="closeSearch"><i data-lucide="x"></i></button>
+          </div>
+          <div id="searchResults" class="py-10 text-center text-slate-400">Start typing...</div>
+      </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

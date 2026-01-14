@@ -1,103 +1,46 @@
 [
   {
     "id": 1,
-    "type": "course",
-    "title": "Python Masterclass",
-    "desc": "The ultimate guide for kids to learn Python. Build a text-adventure game and a calculator app.",
-    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-    "category": "Programming",
-    "level": "Beginner",
-    "duration": "4 Weeks",
-    "status": "New",
-    "url": "courses/python.html",
-    "colorClass": "text-[#FFE66D]"
-  },
-  {
-    "id": 2,
-    "type": "course",
-    "title": "Web Creator",
-    "desc": "Learn HTML & CSS by building your own superhero portfolio website from scratch.",
-    "image": "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80",
-    "category": "Web Dev",
-    "level": "Intermediate",
-    "duration": "6 Weeks",
-    "status": "Popular",
-    "url": "courses/web.html",
-    "colorClass": "text-[#4CC9F0]"
-  },
-  {
-    "id": 3,
-    "type": "course",
-    "title": "Game Lab 2D",
-    "desc": "Create your first playable arcade game using Pygame. Graphics, sound, and physics!",
-    "image": "https://images.unsplash.com/photo-1556438064-2d7646166914?auto=format&fit=crop&w=800&q=80",
-    "category": "Game Dev",
-    "level": "Advanced",
-    "duration": "8 Weeks",
-    "status": "Coming Soon",
-    "url": "#",
-    "colorClass": "text-[#E94560]"
-  },
-  {
-    "id": 101,
     "type": "post",
     "title": "Build a Snake Game",
     "desc": "Learn how arrays work by building the classic Snake game in Python.",
     "image": "https://images.unsplash.com/photo-1614741118881-1e4fe860b313?auto=format&fit=crop&w=800&q=80",
     "category": "Python",
     "url": "posts/snake-game.html",
-    "colorClass": "bg-[#FFE66D] text-black"
+    "date": "2025-10-24",
+    "colorClass": "text-yellow-600"
   },
   {
-    "id": 102,
+    "id": 2,
     "type": "post",
-    "title": "HTML Tags Explained",
-    "desc": "What is a <div>? What is an <h1>? A cheat sheet for young web developers.",
-    "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=800&q=80",
-    "category": "Web",
-    "url": "#",
-    "colorClass": "bg-[#4CC9F0] text-black"
+    "title": "Design a Superhero Card",
+    "desc": "Learn how to style a superhero card using HTML and CSS.",
+    "image": "https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?auto=format&fit=crop&w=800&q=80",
+    "category": "CSS",
+    "url": "posts/superhero.html",
+    "date": "2025-10-25",
+    "colorClass": "text-blue-600"
   },
   {
-    "id": 103,
+    "id": 3,
     "type": "post",
-    "title": "Physics in Games",
-    "desc": "How do Mario jumps work? Understanding gravity in code.",
-    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80",
-    "category": "Game",
-    "url": "#",
-    "colorClass": "bg-[#E94560] text-white"
+    "title": "Hacker vs Defender",
+    "desc": "Build a password checker logic system using Python conditionals.",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+    "category": "Logic",
+    "url": "posts/hacker-vs-defender.html",
+    "date": "2025-10-26",
+    "colorClass": "text-red-500"
   },
   {
-    "id": 104,
+    "id": 4,
     "type": "post",
-    "title": "What is a Variable?",
-    "desc": "Think of a variable like a lunchbox. You can put data inside it!",
-    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80",
-    "category": "Concept",
-    "url": "#",
-    "colorClass": "bg-purple-500 text-white"
-  },
-  {
-    "id": 201,
-    "type": "challenge",
-    "title": "The Digital Clock",
-    "desc": "Create a website that shows the current time in Hours, Minutes, and Seconds. It must update every second!",
-    "difficulty": "Easy",
-    "deadline": "Sunday, Jan 12",
-    "tech": "HTML, CSS, JS",
-    "status": "active",
-    "colorClass": "text-[#A66CFF]"
-  },
-  {
-    "id": 202,
-    "type": "challenge",
-    "title": "Neon Glow Button",
-    "desc": "Create a button that glows with a neon effect when you hover over it using CSS box-shadow.",
-    "difficulty": "Beginner",
-    "deadline": "Ended",
-    "tech": "HTML, CSS",
-    "status": "past",
-    "colorClass": "text-[#E94560]"
+    "title": "Build a Discord Bot",
+    "desc": "Watch our video tutorial on connecting Python to the Discord API.",
+    "image": "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&w=800&q=80",
+    "category": "Video",
+    "url": "posts/my-video-tutorial.html",
+    "date": "2025-10-27",
+    "colorClass": "text-purple-500"
   }
 ]

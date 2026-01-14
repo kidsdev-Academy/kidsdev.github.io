@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Rubber Duck Method | KidsDev</title>
+  <link rel="icon" type="image/png" href="../image/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-white font-[Poppins]">
+  
+  <header class="sticky top-0 bg-white/90 backdrop-blur border-b h-20 flex items-center px-6 justify-between z-50">
+     <a href="../index.html" class="font-bold text-xl">KidsDev</a>
+     <button id="searchBtn"><i data-lucide="search"></i></button>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-12">
+    <a href="../daily.html" class="text-slate-400 hover:text-yellow-500 font-bold mb-4 block">&larr; Back</a>
+    <h1 class="text-4xl font-extrabold mb-4">The <span class="text-yellow-500">Rubber Duck</span> Method 🦆</h1>
+    
+    <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100 mb-8 text-center">
+        <i data-lucide="message-circle" class="w-12 h-12 text-yellow-500 mx-auto mb-2"></i>
+        <p class="font-bold text-yellow-700">"Explain your code line-by-line to a duck."</p>
+    </div>
+
+    <p class="text-slate-600 leading-relaxed mb-6">
+      Have you ever been stuck on a bug for hours, then you ask a friend for help, and while explaining the problem, you suddenly realize the answer yourself?
+    </p>
+    <p class="text-slate-600 leading-relaxed">
+      That is <strong>Rubber Ducking</strong>. By forcing yourself to explain the logic out loud, your brain slows down and finds the mistake. You don't need a real person—a toy duck works perfectly!
+    </p>
+  </main>
+
+  <footer id="main-footer"></footer>
+  <div id="searchModal" class="hidden fixed inset-0 bg-black/80 z-50"></div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

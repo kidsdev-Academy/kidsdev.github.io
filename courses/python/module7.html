@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Module 7: Lists | KidsDev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .code-box { font-family: 'Fira Code', monospace; background: #1e293b; color: #a5b3ce; padding: 1.5rem; border-radius: 0.5rem; margin: 1rem 0; overflow-x: auto; }
+    .locked-blur { filter: blur(8px); user-select: none; pointer-events: none; opacity: 0.4; }
+    .lock-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; display: flex; flex-direction: column; align-items: center; padding-top: 80px; background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 25%, rgba(255,255,255,1) 100%); }
+  </style>
+</head>
+<body class="bg-white text-slate-800 font-[Poppins]">
+
+  <div class="h-16 border-b flex items-center px-6 sticky top-0 bg-white/90 z-50">
+    <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-red-600">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Python Map
+    </a>
+  </div>
+
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    <div class="mb-10">
+        <span class="text-xs font-bold uppercase text-red-600 bg-red-100 px-3 py-1 rounded-full">Module 7</span>
+        <h1 class="text-4xl font-extrabold mt-4 mb-6">Python Lists</h1>
+        <p class="text-lg leading-relaxed text-slate-600 mb-6">
+            Imagine creating a variable for every student in your class: <code>student1</code>, <code>student2</code>, <code>student3</code>... that would be exhausting!
+        </p>
+        <p class="text-lg leading-relaxed text-slate-600">
+            Instead, we use a <strong>List</strong>. It's one single variable that holds many items, like a shopping bag.
+        </p>
+    </div>
+
+    <div class="relative">
+        <div id="protectedContent" class="space-y-8">
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-[#0F172A]">Creating a List</h2>
+                <p class="text-slate-600 mb-4">We use square brackets <code>[]</code> to make a list.</p>
+                <div class="code-box">
+# A list of strings
+backpack = ["Sword", "Potion", "Map"]
+
+# A list of numbers
+scores = [10, 50, 100, 25]
+
+print(backpack)
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-[#0F172A]">The Index (Position)</h2>
+                <div class="bg-red-50 p-4 rounded-xl border border-red-100 mb-4">
+                    <strong class="text-red-800 block mb-2">⚠️ Computers Start at 0</strong>
+                    <p class="text-sm text-slate-600">The first item is always at index 0. The second item is at index 1.</p>
+                </div>
+                <div class="code-box">
+items = ["Apple", "Banana", "Cherry"]
+
+print(items[0])  # Prints "Apple"
+print(items[1])  # Prints "Banana"
+                </div>
+            </section>
+
+            <div class="bg-red-50 border border-red-200 p-6 rounded-2xl">
+                <h3 class="font-bold text-lg text-red-800 mb-2">⚡ Mission: Inventory</h3>
+                <p class="text-sm text-red-700 mb-4">Create a list called <code>inventory</code> with 3 items. Then, print the <strong>second</strong> item in the list.</p>
+                <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg shadow-red-200 transition">Submit Code</button>
+            </div>
+        </div>
+
+        <div id="lockOverlay" class="hidden lock-overlay">
+            <div class="bg-white p-8 rounded-2xl shadow-2xl border border-slate-100 text-center max-w-sm mx-4 transform translate-y-4">
+                <div class="w-14 h-14 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="lock" class="w-7 h-7"></i></div>
+                <h3 class="text-xl font-bold mb-2 text-[#0F172A]">Login Required</h3>
+                <p class="text-slate-500 text-sm mb-6">Log in to unlock Level 3.</p>
+                <a href="../../login.html" class="block w-full bg-[#0F172A] text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition">Log In</a>
+            </div>
+        </div>
+    </div>
+  </main>
+  <script>
+    lucide.createIcons();
+    const user = localStorage.getItem("user");
+    if (!user) { document.getElementById("protectedContent").classList.add("locked-blur"); document.getElementById("lockOverlay").classList.remove("hidden"); } 
+    else { document.getElementById("protectedContent").classList.remove("locked-blur"); document.getElementById("lockOverlay").classList.add("hidden"); }
+  </script>
+</body>
+</html>

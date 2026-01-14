@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Don't Use DIV for Everything | KidsDev</title>
+  <link rel="icon" type="image/png" href="../image/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-white font-[Poppins]">
+
+  <header class="sticky top-0 bg-white/90 backdrop-blur border-b h-20 flex items-center px-6 justify-between z-50">
+     <a href="../index.html" class="font-bold text-xl">KidsDev</a>
+     <button id="searchBtn"><i data-lucide="search"></i></button>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    <a href="../daily.html" class="text-slate-400 hover:text-red-500 font-bold mb-4 block">&larr; Back</a>
+    <h1 class="text-4xl font-extrabold mb-6">Stop Using <span class="text-red-500">&lt;div&gt;</span> for Everything</h1>
+
+    <p class="text-slate-600 mb-6">HTML5 introduced "Semantic Tags". These tags tell the browser (and Google) what your content actually is.</p>
+
+    
+
+    <div class="grid md:grid-cols-2 gap-4 mt-8">
+      <div class="p-4 border rounded-xl bg-red-50">
+        <h3 class="font-bold text-red-600 mb-2">❌ Bad Practice</h3>
+        <code class="text-sm bg-white p-2 rounded block">
+          &lt;div id="header"&gt;<br>
+          &lt;div id="footer"&gt;
+        </code>
+      </div>
+      <div class="p-4 border rounded-xl bg-green-50">
+        <h3 class="font-bold text-green-600 mb-2">✅ Good Practice</h3>
+        <code class="text-sm bg-white p-2 rounded block">
+          &lt;header&gt;<br>
+          &lt;footer&gt;
+        </code>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+  <div id="searchModal" class="hidden fixed inset-0 bg-black/80 z-50"></div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

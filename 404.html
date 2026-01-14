@@ -3,43 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 - Bug in the System! | KidsDev</title>
-  
-  <meta name="description" content="Oops! The page you are looking for does not exist.">
-  <meta name="robots" content="noindex, follow">
+  <title>Page Not Found | KidsDev Academy</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
+    
+    /* 404 Animations */
+    @keyframes float-404 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .floating-error { animation: float-404 4s ease-in-out infinite; }
+  </style>
 </head>
 
-<body class="flex flex-col min-h-screen justify-center items-center text-center p-4 bg-[#1A1A2E]">
+<body class="bg-white text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
 
-  <div class="absolute top-10 left-10 text-[#2C2C54] animate-bounce"><i data-lucide="binary" class="w-24 h-24"></i></div>
-  <div class="absolute bottom-10 right-10 text-[#2C2C54] animate-pulse"><i data-lucide="bug" class="w-32 h-32"></i></div>
-
-  <div class="relative z-10 max-w-lg">
-    <div class="text-[#E94560] mb-6">
-      <i data-lucide="alert-triangle" class="w-24 h-24 mx-auto"></i>
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="flex items-center gap-2 cursor-pointer group">
+          <img src="image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
+          <div class="flex flex-col leading-none">
+            <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+            <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
+          </div>
+        </a>
+      </div>
+      
+      <a href="index.html" class="text-sm font-bold text-[#F97316] hover:text-orange-700 transition flex items-center gap-2">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back Home
+      </a>
     </div>
+  </header>
+
+  <main class="flex-1 flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
     
-    <h1 class="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFE66D] to-[#E94560] mb-4">404</h1>
-    <h2 class="text-2xl font-bold text-white mb-4">Oops! We found a bug.</h2>
-    <p class="text-gray-400 mb-8 text-lg">
-      The page you are looking for seems to have vanished into cyberspace.
+    <div class="absolute top-20 left-10 w-32 h-32 bg-orange-100 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute bottom-20 right-10 w-48 h-48 bg-blue-100 rounded-full blur-3xl -z-10"></div>
+
+    <div class="floating-error mb-8 relative">
+      <h1 class="text-9xl font-extrabold text-[#0F172A] opacity-10 select-none">404</h1>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <i data-lucide="ghost" class="w-32 h-32 text-[#F97316]"></i>
+      </div>
+    </div>
+
+    <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-4">You've Gone Off Script!</h2>
+    <p class="text-slate-500 max-w-md mx-auto mb-8 text-lg">
+      The page you are looking for seems to have drifted into a black hole. Or maybe there's a bug in the code? 🐛
     </p>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="index.html" class="btn btn-primary">
-        <i data-lucide="home" class="w-5 h-5 mr-2"></i> Go Home
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="index.html" class="bg-[#0F172A] hover:bg-slate-800 text-white px-8 py-3 rounded-xl font-bold shadow-lg transition transform hover:-translate-y-1 flex items-center gap-2 justify-center">
+        Return to Base 🚀
       </a>
-      <a href="contact.html" class="btn btn-outline">
-        Report Issue
+      <a href="contact.html" class="bg-white border border-slate-300 text-[#0F172A] hover:border-[#F97316] hover:text-[#F97316] px-8 py-3 rounded-xl font-bold transition flex items-center gap-2 justify-center">
+        Report Bug <i data-lucide="bug" class="w-4 h-4"></i>
       </a>
     </div>
-  </div>
+
+    <div class="mt-12 p-4 bg-slate-50 rounded-lg border border-slate-200 font-mono text-sm text-slate-400">
+      Error: PAGE_NOT_FOUND_EXCEPTION at line 404
+    </div>
+
+  </main>
+
+  <footer id="main-footer"></footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // Initialize icons immediately
+    if(window.lucide) lucide.createIcons();
+  </script>
 </body>
 </html>

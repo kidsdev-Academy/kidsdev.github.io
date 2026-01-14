@@ -1,0 +1,108 @@
+[
+  {
+    "id": 208,
+    "type": "challenge",
+    "title": "Emoji Picker",
+    "desc": "Build a simple page with 3 buttons. Clicking a button should show a different emoji (😀, 😎, 🚀) in a box.",
+    "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80",
+    "category": "JavaScript",
+    "url": "challenges/emoji-picker.html", 
+    "date": "2026-02-15",
+    "colorClass": "text-yellow-500"
+  },
+  {
+    "id": 207,
+    "type": "challenge",
+    "title": "Simple Calculator",
+    "desc": "Create a Python script that asks for two numbers and adds them together. (Hint: Use input() and int()).",
+    "image": "https://images.unsplash.com/photo-1587145820266-a5951ee1f620?auto=format&fit=crop&w=800&q=80",
+    "category": "Python Logic",
+    "url": "challenges/simple-calculator.html",
+    "date": "2026-02-10",
+    "colorClass": "text-blue-500"
+  },
+  {
+    "id": 206,
+    "type": "challenge",
+    "title": "Center the Box",
+    "desc": "The ultimate CSS test! Can you create a red square and place it perfectly in the center of the screen?",
+    "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+    "category": "CSS Layout",
+    "url": "challenges/center-box.html",
+    "date": "2026-02-05",
+    "colorClass": "text-pink-500"
+  },
+  {
+    "id": 205,
+    "type": "challenge",
+    "title": "The 'Hello' Button",
+    "desc": "Create an HTML button. When you click it, an alert box should pop up saying 'Hello World!'.",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    "category": "JS Basics",
+    "url": "challenges/hello-button.html",
+    "date": "2026-02-03",
+    "colorClass": "text-green-500"
+  },
+  {
+    "id": 204,
+    "type": "challenge",
+    "title": "Color Flipper",
+    "desc": "Make a website background change color from white to blue when you click a button.",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+    "category": "DOM Manipulation",
+    "url": "challenges/color-flipper.html",
+    "date": "2026-02-02",
+    "colorClass": "text-indigo-500"
+  },
+  {
+    "id": 203,
+    "type": "challenge",
+    "title": "CSS Art: Cloud",
+    "desc": "Draw a fluffy cloud using only HTML divs and CSS border-radius.",
+    "image": "https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?auto=format&fit=crop&w=800&q=80",
+    "category": "CSS Art",
+    "url": "challenges/cloud-challenge.html",
+    "date": "2026-02-01",
+    "colorClass": "text-purple-600"
+  },
+  {
+    "id": 202,
+    "type": "challenge",
+    "title": "Neon Glow Button",
+    "desc": "Create a button that glows with a neon effect when you hover over it using CSS box-shadow.",
+    "image": "https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?auto=format&fit=crop&w=800&q=80",
+    "category": "CSS Effects",
+    "url": "#",
+    "date": "2025-10-30",
+    "colorClass": "text-[#E94560]"
+  },
+  {
+    "id": 201,
+    "type": "challenge",
+    "title": "The Digital Clock",
+    "desc": "Create a website that shows the current time in Hours, Minutes, and Seconds. It must update every second!",
+    "image": "https://images.unsplash.com/photo-1508962914670-32992875d3d5?auto=format&fit=crop&w=800&q=80",
+    "category": "JS Logic",
+    "url": "#",
+    "date": "2025-09-20",
+    "colorClass": "text-[#A66CFF]"
+  },
+{
+    "id": 202,
+    "type": "challenge",
+    "title": "Neon Glow Button",
+    "desc": "Create a button that glows...",
+    "url": "challenges/neon-button.html", 
+    "date": "2025-10-30",
+    "colorClass": "text-[#E94560]"
+  },
+  {
+    "id": 201,
+    "type": "challenge",
+    "title": "The Digital Clock",
+    "desc": "Create a website that shows...",
+    "url": "challenges/digital-clock.html",
+    "date": "2025-09-20",
+    "colorClass": "text-[#A66CFF]"
+  }
+]

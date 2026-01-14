@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What is an API? | KidsDev Daily</title>
+  <meta name="description" content="Think of an API like a waiter in a restaurant. The simplest explanation of how apps talk to each other.">
+  
+  <meta property="og:title" content="APIs Explained for Kids 🍔">
+  <meta property="og:image" content="../image/social-preview.png">
+
+  <link rel="icon" type="image/png" href="../image/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
+    #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
+    @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
+  </style>
+</head>
+<body class="bg-white text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+      <a href="../index.html" class="flex items-center gap-2"><img src="../image/logo.png" class="h-10"> <span class="font-bold text-xl">KidsDev</span></a>
+      <button id="searchBtn"><i data-lucide="search"></i></button>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    <a href="../daily.html" class="inline-flex items-center text-slate-400 hover:text-[#F97316] text-sm font-bold mb-6"><i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back</a>
+    
+    <h1 class="text-4xl font-extrabold mb-6">What exactly is an <span class="text-green-500">API</span>?</h1>
+    
+    <div class="prose prose-lg text-slate-600">
+      <p>API stands for <strong>Application Programming Interface</strong>. That sounds boring, right? Let's use an analogy.</p>
+      
+      <h3 class="font-bold text-[#0F172A] text-2xl mt-8">The Restaurant Analogy</h3>
+      <p>Imagine you are at a restaurant. You are the <strong>User</strong>. The kitchen is the <strong>Server</strong> (System).</p>
+      
+      
+
+      <ul class="list-disc pl-5 space-y-2 my-6">
+        <li>You cannot go into the kitchen and cook yourself (Security risk!).</li>
+        <li>You need a messenger to take your order and bring the food.</li>
+        <li>That messenger is the <strong>Waiter</strong>. The Waiter is the <strong>API</strong>.</li>
+      </ul>
+
+      <p>In code, when you use an app like Instagram, your phone (User) sends a request to the API (Waiter), which gets the photo from the Database (Kitchen) and brings it back to you!</p>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden flex items-center justify-center"><div class="bg-white p-4 rounded">Search...</div></div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

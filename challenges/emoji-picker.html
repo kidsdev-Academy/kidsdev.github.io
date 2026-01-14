@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solution: Emoji Picker | KidsDev</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
+    .code-block { background-color: #1E293B; border-radius: 0.75rem; overflow: hidden; margin: 1.5rem 0; font-family: 'Fira Code', monospace; }
+    .code-header { background: #0F172A; color: #94a3b8; padding: 0.5rem 1rem; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid #334155; }
+    .code-content { padding: 1.5rem; overflow-x: auto; color: #e2e8f0; font-size: 0.9rem; }
+    .step-number { background: #F97316; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 10px; flex-shrink: 0; }
+    
+    /* Form & File Styles */
+    .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label { top: -10px; left: 10px; font-size: 0.75rem; background-color: white; padding: 0 5px; color: #F97316; font-weight: 600; }
+    .file-drop-area { border: 2px dashed #cbd5e1; transition: all 0.3s; }
+    .file-drop-area:hover { border-color: #F97316; background-color: #fff7ed; }
+  </style>
+</head>
+<body class="bg-white text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <a href="../index.html" class="flex items-center gap-2"><img src="../image/logo.png" class="h-10 w-auto object-contain"><span class="font-extrabold text-2xl text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span></a>
+      <a href="../challenges.html" class="text-sm font-bold text-[#F97316] hover:text-orange-700 flex items-center gap-2"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back</a>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-12 flex-1">
+    <div class="mb-10">
+      <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-xs font-bold uppercase">JavaScript</span>
+      <h1 class="text-4xl font-extrabold mt-4 mb-2 text-[#0F172A]">Solution: Emoji Picker</h1>
+      <p class="text-slate-500">Learn how to update the screen when a button is clicked.</p>
+    </div>
+
+    <div class="mb-12">
+      <div class="flex items-center mb-4"><div class="step-number">1</div> <h2 class="text-xl font-bold">The HTML</h2></div>
+      <p class="text-slate-600 mb-4">Create 3 buttons and a display box.</p>
+      <div class="code-block">
+        <div class="code-header">index.html</div>
+        <div class="code-content text-blue-300">
+&lt;button onclick="pickEmoji('😀')"&gt;Happy&lt;/button&gt;<br>
+&lt;button onclick="pickEmoji('🚀')"&gt;Rocket&lt;/button&gt;<br>
+&lt;button onclick="pickEmoji('🍕')"&gt;Pizza&lt;/button&gt;<br><br>
+&lt;div id="screen"&gt;...&lt;/div&gt;
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <div class="flex items-center mb-4"><div class="step-number">2</div> <h2 class="text-xl font-bold">The Script</h2></div>
+      <p class="text-slate-600 mb-4">Grab the div and change its text.</p>
+      <div class="code-block">
+        <div class="code-header">script.js</div>
+        <div class="code-content text-yellow-300">
+function pickEmoji(selected) {<br>
+&nbsp;&nbsp;document.getElementById("screen").innerText = selected;<br>
+}
+        </div>
+      </div>
+    </div>
+
+    <section id="submit-section" class="mt-20 max-w-xl mx-auto">
+      <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+        <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+        <div class="text-center mb-8">
+          <h3 class="font-extrabold text-2xl text-[#0F172A] mb-2">🚀 Submit Solution</h3>
+          <p class="text-slate-500 text-sm">Upload a screenshot or paste your code.</p>
+        </div>
+        <form action="https://formspree.io/f/xqeavjnl" method="POST" enctype="multipart/form-data" class="space-y-5">
+          <input type="hidden" name="_subject" value="Challenge: Emoji Picker">
+          <div class="relative">
+            <input type="text" name="name" id="name" required class="peer w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-[#0F172A] focus:border-[#F97316] outline-none" placeholder="Name">
+            <label for="name" class="absolute left-4 top-3 text-slate-400 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-focus:top-[-10px] peer-focus:text-xs peer-focus:text-[#F97316] peer-focus:bg-white px-1 pointer-events-none">Cadet Name</label>
+          </div>
+          <div class="relative">
+            <input type="email" name="email" id="email" required class="peer w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-[#0F172A] focus:border-[#F97316] outline-none" placeholder="Email">
+            <label for="email" class="absolute left-4 top-3 text-slate-400 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-slate-400 peer-focus:top-[-10px] peer-focus:text-xs peer-focus:text-[#F97316] peer-focus:bg-white px-1 pointer-events-none">Email</label>
+          </div>
+          <div class="space-y-4">
+            <input type="url" name="project_link" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:border-[#F97316] outline-none" placeholder="Paste Replit/GitHub Link...">
+            <textarea name="code_snippet" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-sm focus:border-[#F97316] outline-none font-mono" placeholder="Or paste code here..."></textarea>
+            <div class="file-drop-area relative flex flex-col items-center justify-center p-6 rounded-xl cursor-pointer">
+                <input type="file" name="attachment" id="fileUpload" accept="image/*,.pdf,.doc" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                <i data-lucide="upload-cloud" class="w-8 h-8 text-slate-400 mb-2"></i>
+                <p class="text-xs text-slate-500 font-medium">Upload Screenshot (Max 2MB)</p>
+                <p id="fileName" class="text-xs text-[#F97316] font-bold mt-2 hidden"></p>
+            </div>
+            <p id="fileError" class="text-xs text-red-500 hidden text-center font-bold">⚠️ File too big!</p>
+          </div>
+          <button type="submit" class="w-full bg-[#0F172A] hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2"><i data-lucide="send" class="w-4 h-4"></i> Send</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="mt-16 max-w-3xl mx-auto pb-24">
+      <div class="flex items-center gap-4 mb-8">
+        <h3 class="font-bold text-2xl text-[#0F172A]">Discussion</h3>
+        <div class="h-px bg-slate-200 flex-1"></div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-10">
+        <form id="comment-form" class="flex flex-col gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <input type="text" id="comment-name" required placeholder="Name" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-[#F97316] outline-none md:col-span-1">
+            <input type="text" id="comment-msg" required placeholder="Share a tip..." class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-[#F97316] outline-none md:col-span-2">
+          </div>
+          <button type="submit" class="bg-[#F97316] hover:bg-orange-600 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2"><i data-lucide="message-circle" class="w-4 h-4"></i> Post</button>
+        </form>
+      </div>
+      <div id="comments-list" class="space-y-4"></div>
+    </section>
+
+  </main>
+
+  <script src="../js/main.js"></script>
+  <script type="module" src="../js/comments.js"></script>
+  <script>
+    const fileInput=document.getElementById('fileUpload'),fileName=document.getElementById('fileName'),fileError=document.getElementById('fileError');
+    fileInput.addEventListener('change',function(){if(this.files.length>0){if(this.files[0].size>2097152){fileError.classList.remove('hidden');fileName.classList.add('hidden');this.value=""}else{fileError.classList.add('hidden');fileName.textContent="Selected: "+this.files[0].name;fileName.classList.remove('hidden')}}});
+  </script>
+</body>
+</html>

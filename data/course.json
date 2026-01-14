@@ -1,0 +1,54 @@
+[
+  {
+    "id": "py-1",
+    "type": "course",
+    "category": "Programming",
+    "title": "Python Masterclass",
+    "desc": "From your first variable to building Snake and Space Invaders.",
+    "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+    "level": "5 Levels",
+    "topics": ["Variables", "Game Dev", "AI Basics", "Logic"], 
+    "url": "courses/python/index.html",
+    "date": "2026-01-01",
+    "colorClass": "text-yellow-500"
+  },
+  {
+    "id": "web-1",
+    "type": "course",
+    "category": "Web Dev",
+    "title": "Web Creator",
+    "desc": "Build and publish your own professional portfolio website.",
+    "image": "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80",
+    "level": "6 Modules",
+    "topics": ["HTML5", "CSS3", "Hosting", "Design"],
+    "url": "courses/web/index.html",
+    "date": "2026-01-15",
+    "colorClass": "text-blue-500"
+  },
+  {
+    "id": "net-1",
+    "type": "course",
+    "category": "Networking",
+    "title": "Networking 101",
+    "desc": "Understand how the internet actually works and how to stay safe.",
+    "image": "https://images.unsplash.com/photo-1544197150-b99a580bbcbf?auto=format&fit=crop&w=800&q=80",
+    "level": "3 Modules",
+    "topics": ["IP Addresses", "WiFi", "Cyber Security", "DNS"],
+    "url": "courses/networking/index.html",
+    "date": "2026-02-10",
+    "colorClass": "text-purple-500"
+  },
+  {
+    "id": "logic-1",
+    "type": "course",
+    "category": "Logic",
+    "title": "Algorithms & Logic",
+    "desc": "Learn to think like a computer engineer using flowcharts.",
+    "image": "https://images.unsplash.com/photo-1556438064-2d7646166914?auto=format&fit=crop&w=800&q=80",
+    "level": "2 Modules",
+    "topics": ["Flowcharts", "If/Else", "Problem Solving"],
+    "url": "courses/logic/index.html",
+    "date": "2026-02-01",
+    "colorClass": "text-pink-500"
+  }
+]

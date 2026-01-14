@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python List Tricks | KidsDev</title>
+  <link rel="icon" type="image/png" href="../image/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Fira+Code&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-white font-[Poppins]">
+
+  <header class="sticky top-0 bg-white/90 backdrop-blur border-b h-20 flex items-center px-6 justify-between z-50">
+     <a href="../index.html" class="font-bold text-xl">KidsDev</a>
+     <button id="searchBtn"><i data-lucide="search"></i></button>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    <a href="../daily.html" class="text-slate-400 hover:text-yellow-500 font-bold mb-4 block">&larr; Back</a>
+    <h1 class="text-4xl font-extrabold mb-6">Python List <span class="text-[#FFE66D]">Magic</span></h1>
+
+    
+
+    <div class="space-y-6">
+      <div class="bg-[#0F172A] rounded-xl p-6 text-white font-mono text-sm shadow-xl">
+        <p class="text-slate-400"># 1. The Reverse Trick</p>
+        <p>numbers = [1, 2, 3, 4, 5]</p>
+        <p>print(numbers[<span class="text-yellow-400">::-1</span>])</p>
+        <p class="text-green-400 mt-2">>>> [5, 4, 3, 2, 1]</p>
+      </div>
+
+      <p class="text-slate-600">
+        In Python, list slicing works like this: <code>[start : stop : step]</code>. 
+        By setting the step to <strong>-1</strong>, Python walks backwards through the list!
+      </p>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+  <div id="searchModal" class="hidden fixed inset-0 bg-black/80 z-50"></div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

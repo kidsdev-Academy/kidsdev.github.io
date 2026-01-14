@@ -3,23 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hacker vs Defender | KidsDev Tutorial</title>
   
-  <meta name="description" content="Learn password logic in Python. Understand if/else statements by building a simple security system.">
+  <title>Hacker vs Defender: Python Logic | KidsDev Academy</title>
+  <meta name="description" content="Learn how to build a Password Security System using Python. Master If/Else statements in 5 minutes. Perfect for young coders.">
+  <meta name="keywords" content="python for kids, coding tutorial, if else logic, password checker python, kidsdev blog">
+  <meta name="author" content="Tolani Agbeyangi">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://thekidsdev.netlify.app/posts/hacker-vs-defender.html">
-
+  
+  <meta property="og:title" content="Build a Password Defender in Python 🐍">
+  <meta property="og:description" content="A simple tutorial to master Logic & Security. Read now on KidsDev.">
+  <meta property="og:image" content="../image/social-preview.png">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://thekidsdev.netlify.app/posts/hacker-vs-defender.html">
-  <meta property="og:title" content="Hacker vs Defender: Python Logic">
-  <meta property="og:description" content="Build a password checker using Python conditionals.">
-  <meta property="og:image" content="https://thekidsdev.netlify.app/image/social-preview.png">
-
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://thekidsdev.netlify.app/posts/hacker-vs-defender.html">
-  <meta property="twitter:title" content="Hacker vs Defender: Python Logic">
-  <meta property="twitter:description" content="Build a password checker using Python conditionals.">
-  <meta property="twitter:image" content="https://thekidsdev.netlify.app/image/social-preview.png">
 
   <link rel="icon" type="image/png" href="../image/logo.png">
 
@@ -30,140 +25,203 @@
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
-    .code-block { background-color: #0F172A; border: 1px solid #334155; border-radius: 0.75rem; overflow: hidden; margin: 1.5rem 0; font-family: 'Fira Code', monospace; }
-    .code-header { background-color: #1E293B; padding: 0.5rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; }
-    .code-content { padding: 1.5rem; overflow-x: auto; color: #e2e8f0; font-size: 0.9rem; line-height: 1.6; }
-    .k { color: #E94560; } .f { color: #FFE66D; } .s { color: #4CC9F0; } .c { color: #64748b; font-style: italic; } .n { color: #A5B4FC; }
+    /* Professional Header & Layout */
+    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
+    
+    /* Code Blocks */
+    .code-block { background-color: #0F172A; border: 1px solid #334155; border-radius: 0.75rem; overflow: hidden; margin: 1.5rem 0; font-family: 'Fira Code', monospace; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
+    .code-header { background-color: #1E293B; padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; }
+    .code-content { padding: 1.5rem; overflow-x: auto; color: #e2e8f0; font-size: 0.9rem; line-height: 1.7; }
+    
+    /* Syntax Highlighting */
+    .k { color: #F472B6; font-weight: bold; } /* Keywords (pink) */
+    .f { color: #FACC15; } /* Functions (yellow) */
+    .s { color: #4ADE80; } /* Strings (green) */
+    .c { color: #64748b; font-style: italic; } /* Comments */
+    .n { color: #A5B4FC; } /* Numbers */
+
+    /* Animations */
+    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    .reveal-up.active { opacity: 1; transform: translateY(0); }
+    
+    /* Dropdown & Modal */
+    .group:hover .group-hover\:block { display: block; animation: fadeIn 0.2s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px) translateX(-50%); } to { opacity: 1; transform: translateY(0) translateX(-50%); } }
+    #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
+    @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
   </style>
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="bg-slate-50 text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
 
-<header class="navbar">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-    <a href="../index.html" class="flex items-center gap-3 cursor-pointer">
-      <img src="../image/logo.png" alt="KidsDev Logo" class="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform">
-    </a>
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="flex items-center gap-2 cursor-pointer group">
+          <img src="../image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
+          <div class="flex flex-col leading-none">
+            <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+            <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
+          </div>
+        </a>
+        
+        <button id="searchBtn" class="p-2 text-slate-400 hover:text-[#F97316] hover:bg-orange-50 rounded-full transition ml-2 border border-transparent hover:border-orange-100 group">
+             <i data-lucide="search" class="w-5 h-5 group-hover:scale-110 transition"></i>
+        </button>
+      </div>
 
-    <nav class="hidden md:flex gap-6 items-center">
-      <a href="../index.html" class="nav-link">Home</a>
-      <a href="../about.html" class="nav-link">About</a> 
-      <a href="../courses.html" class="nav-link">Courses</a>
-      <a href="../daily.html" class="nav-link active">Daily</a>
-      <a href="../challenges.html" class="nav-link text-[#A66CFF] hover:text-[#A66CFF]">Challenges</a>
-      <a href="../contact.html" class="nav-link">Contact</a>
-      <div class="h-5 w-px bg-gray-700 mx-2"></div>
-      <button id="openSearchBtn" class="text-gray-400 hover:text-[#FFE66D] transition" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
-    </nav>
-    <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
-  </div>
-  
-  <div id="mobileMenu" class="mobile-menu md:hidden">
-    <div class="px-6 py-4 space-y-3 border-t border-gray-700">
-      <a href="../about.html" class="block text-gray-300 hover:text-[#FFE66D]">About Us</a>
-      <a href="../courses.html" class="block text-gray-300 hover:text-[#FFE66D]">Courses</a>
-      <a href="../daily.html" class="block text-[#FFE66D] hover:text-[#FFE66D]">Daily</a>
-      <a href="../challenges.html" class="block text-[#A66CFF]">Challenges</a>
-      <a href="../contact.html" class="block text-gray-300 hover:text-[#FFE66D]">Contact</a>
-    </div>
-  </div>
-</header>
+      <div class="flex items-center gap-6">
+        <nav class="hidden md:flex gap-6 font-medium text-sm text-slate-600 items-center h-full">
+          <a href="../index.html" class="hover:text-[#F97316] transition">Home</a>
+          <a href="../about.html" class="hover:text-[#F97316] transition">About</a>
+          
+          <div class="relative group h-full flex items-center">
+            <a href="../courses.html" class="hover:text-[#F97316] flex items-center gap-1 cursor-pointer py-6">
+              Courses <i data-lucide="chevron-down" class="w-3 h-3"></i>
+            </a>
+            <div class="absolute top-[80%] left-1/2 -translate-x-1/2 w-60 bg-white border border-slate-100 shadow-xl rounded-2xl p-2 hidden group-hover:block transition-all z-50">
+              <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-slate-100 transform rotate-45"></div>
+              <div class="relative bg-white rounded-xl overflow-hidden">
+                <a href="../courses.html?category=Programming" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="code" class="w-4 h-4 text-yellow-500"></i> Coding</a>
+                <a href="../courses.html?category=Web Dev" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="globe" class="w-4 h-4 text-blue-500"></i> Web Dev</a>
+                <a href="../courses.html?category=Networking" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="network" class="w-4 h-4 text-purple-500"></i> Networking</a>
+              </div>
+            </div>
+          </div>
 
-<article class="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-20">
-  <div class="flex items-center gap-2 text-sm text-gray-400 mb-6">
-    <a href="../daily.html" class="hover:text-white">Daily</a>
-    <span>/</span>
-    <span class="text-[#FFE66D]">Security</span>
-  </div>
-
-  <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Hacker vs. Defender: <br><span class="text-[#E94560]">Password Logic</span></h1>
-
-  <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-700">
-    <div class="w-10 h-10 rounded-full bg-gray-700 overflow-hidden"><img src="https://ui-avatars.com/api/?name=Nath&background=4CC9F0&color=fff" alt="Nath"></div>
-    <div><p class="text-sm font-bold text-white">By Nath</p><p class="text-xs text-gray-400">Oct 24, 2025 • 5 min read</p></div>
-  </div>
-
-  <div class="rounded-xl overflow-hidden mb-12 border border-gray-700 shadow-2xl relative group">
-    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Security Code" class="w-full h-auto">
-    <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] to-transparent opacity-60"></div>
-  </div>
-
-  <div class="prose prose-invert prose-lg max-w-none text-gray-300">
-    <p>How do websites know if your password is "Strong" or "Weak"? They use logic! Today, we are going to write a Python script that acts like a security guard (The Defender).</p>
-
-    <h2 class="text-2xl font-bold text-white mt-8 mb-4">The Logic</h2>
-    <p>We will use an <code>if/else</code> statement. Think of it like a fork in the road:</p>
-    <ul class="list-disc pl-5 space-y-2 mb-6 text-gray-400"><li><strong>IF</strong> the password is too short &rarr; Reject it ❌</li><li><strong>ELSE</strong> &rarr; Accept it ✅</li></ul>
-
-    <h2 class="text-2xl font-bold text-white mt-8 mb-4">The Code</h2>
-    <p>Open your code editor and type this out. We will use the <code>len()</code> function to count the letters.</p>
-
-    <div class="code-block">
-      <div class="code-header"><span class="text-xs text-gray-400">security.py</span><button class="text-xs text-[#4CC9F0] hover:text-white transition">Copy</button></div>
-      <div class="code-content">
-        <span class="k">print</span>(<span class="s">"--- SECURITY SYSTEM ---"</span>)<br><br>
-        <span class="c"># 1. Ask the user for a password</span><br>password = <span class="f">input</span>(<span class="s">"Create a new password: "</span>)<br><br>
-        <span class="c"># 2. Check the length</span><br>length = <span class="f">len</span>(password)<br><br>
-        <span class="k">if</span> length < <span class="n">8</span>:<br>&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"❌ Too weak! Needs 8 characters."</span>)<br>
-        <span class="k">else</span>:<br>&nbsp;&nbsp;<span class="f">print</span>(<span class="s">"✅ Password Accepted! Good job."</span>)<br><br>
-        <span class="f">print</span>(<span class="s">"System closing..."</span>)
+          <a href="../daily.html" class="text-[#F97316] font-bold">Daily</a>
+          <a href="../challenges.html" class="hover:text-[#F97316] transition">Challenges</a>
+        </nav>
+        
+        <div class="hidden md:flex items-center gap-3 pl-6 border-l border-slate-200" id="authArea">
+           <a href="../login.html" class="text-sm font-bold hover:text-black">Log In</a>
+           <a href="../register.html" class="bg-[#F97316] hover:bg-orange-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md transition">Sign Up</a>
+        </div>
+        
+        <button id="menuBtn" class="md:hidden p-2"><i data-lucide="menu"></i></button>
       </div>
     </div>
-
-    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Level Up Challenge 🚀</h2>
-    <p>Can you make the defender smarter? Try adding an <code>elif</code> (else if) to check if the password is "password123".</p>
-    <div class="bg-[#16213E] border border-gray-700 p-6 my-8 rounded-lg">
-      <h3 class="font-bold text-white mb-2">Hint:</h3>
-      <div class="font-mono text-sm text-[#FFE66D]">if password == "password123":<br>&nbsp;&nbsp;print("That is too easy to guess!")</div>
+    
+    <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white border-b shadow-lg p-4 space-y-3 z-50">
+       <a href="../index.html" class="block py-2 text-slate-600">Home</a>
+       <a href="../courses.html" class="block py-2 text-slate-600">Courses</a>
+       <a href="../daily.html" class="block py-2 font-bold text-[#F97316]">Daily Tips</a>
+       <a href="../challenges.html" class="block py-2 text-slate-600">Challenges</a>
+       <div class="pt-3 border-t grid grid-cols-2 gap-3">
+         <a href="../login.html" class="text-center py-2 border rounded-lg font-bold">Log In</a>
+         <a href="../register.html" class="text-center py-2 bg-[#F97316] text-white rounded-lg font-bold">Sign Up</a>
+       </div>
     </div>
-  </div>
+  </header>
 
-  <div class="mt-16 p-8 bg-gradient-to-br from-[#E94560]/20 to-[#16213E] rounded-2xl border border-[#E94560]/30 text-center">
-    <h3 class="text-2xl font-bold mb-4">Become a Cybersecurity Pro</h3>
-    <p class="text-gray-400 mb-6">Our Python Masterclass covers variables, loops, and security logic in depth.</p>
-    <a href="../courses/python.html" class="btn btn-primary">Start Learning for Free <i data-lucide="chevron-right" class="ml-2 w-4 h-4"></i></a>
-  </div>
-</article>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-20">
+    
+    <div class="flex items-center gap-2 text-sm text-slate-400 mb-6 font-semibold">
+      <a href="../daily.html" class="hover:text-[#F97316] transition">Daily Tips</a>
+      <i data-lucide="chevron-right" class="w-4 h-4"></i>
+      <span class="text-[#F97316]">Security</span>
+    </div>
 
-<footer class="bg-[#0b1021] border-t border-gray-800 text-gray-300 pt-16 pb-8 mt-auto">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-      <div class="space-y-6">
-        <a href="../index.html" class="flex items-center gap-3"><img src="../image/logo.png" alt="KidsDev" class="h-10 w-auto object-contain"><span class="text-2xl font-bold text-white tracking-tight">KidsDev</span></a>
-        <p class="text-sm text-gray-500">Empowering the next generation.</p>
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-[#0F172A] reveal-up">
+      Hacker vs. Defender: <br><span class="text-[#F97316]">Password Logic</span>
+    </h1>
+
+    <div class="flex items-center gap-4 mb-8 pb-8 border-b border-slate-200 reveal-up">
+      <div class="w-12 h-12 rounded-full bg-slate-100 overflow-hidden border border-slate-200">
+        <img src="../image/tola.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Tolani+Agbeyangi&background=F97316&color=fff'" alt="Author" class="w-full h-full object-cover">
       </div>
       <div>
-        <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Explore</h4>
-        <ul class="space-y-3 text-sm font-medium text-gray-400">
-          <li><a href="../courses.html" class="hover:text-white transition">All Courses</a></li>
-          <li><a href="../daily.html" class="hover:text-white transition">Daily Challenges</a></li>
-          <li><a href="../challenges.html" class="hover:text-[#A66CFF] transition">Weekly Battles</a></li>
-        </ul>
+        <p class="text-sm font-bold text-[#0F172A]">By Tolani Agbeyangi</p>
+        <p class="text-xs text-slate-500">Oct 24, 2025 • 5 min read</p>
       </div>
-      <div>
-        <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Support</h4>
-        <ul class="space-y-3 text-sm font-medium text-gray-400">
-          <li><a href="../contact.html" class="hover:text-white transition">Contact Us</a></li>
-          <li><a href="../privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
-        </ul>
+    </div>
+
+    <div class="rounded-2xl overflow-hidden mb-12 border border-slate-200 shadow-xl relative group reveal-up">
+      <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Security Code" class="w-full h-auto transform group-hover:scale-105 transition duration-700">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] to-transparent opacity-30"></div>
+    </div>
+
+    <div class="prose prose-lg max-w-none text-slate-600 leading-relaxed reveal-up">
+      <p class="mb-6">How do websites know if your password is "Strong" or "Weak"? They use <strong>Logic</strong>! Today, we are going to write a Python script that acts like a security guard (The Defender).</p>
+
+      <h2 class="text-2xl font-bold text-[#0F172A] mt-10 mb-4">The Logic</h2>
+      <p>We will use an <code>if/else</code> statement. Think of it like a fork in the road:</p>
+      
+      
+
+      <ul class="list-disc pl-5 space-y-2 mb-8 bg-slate-50 p-6 rounded-xl border border-slate-200">
+        <li><strong>IF</strong> the password is too short &rarr; Reject it ❌</li>
+        <li><strong>ELSE</strong> &rarr; Accept it ✅</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-[#0F172A] mt-10 mb-4">The Code</h2>
+      <p>Open your code editor (like VS Code) and type this out. We will use the <code>len()</code> function to count the letters.</p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="text-xs text-slate-400 font-mono flex items-center gap-2"><i data-lucide="file-code" class="w-3 h-3"></i> security.py</span>
+          <button class="text-xs text-slate-400 hover:text-white transition font-bold uppercase tracking-wider">Copy Code</button>
+        </div>
+        <div class="code-content">
+          <span class="k">print</span>(<span class="s">"--- SECURITY SYSTEM ---"</span>)<br><br>
+          <span class="c"># 1. Ask the user for a password</span><br>
+          password = <span class="f">input</span>(<span class="s">"Create a new password: "</span>)<br><br>
+          <span class="c"># 2. Check the length</span><br>
+          length = <span class="f">len</span>(password)<br><br>
+          <span class="k">if</span> length < <span class="n">8</span>:<br>
+          &nbsp;&nbsp;<span class="f">print</span>(<span class="s">"❌ Too weak! Needs 8 characters."</span>)<br>
+          <span class="k">else</span>:<br>
+          &nbsp;&nbsp;<span class="f">print</span>(<span class="s">"✅ Password Accepted! Good job."</span>)<br><br>
+          <span class="f">print</span>(<span class="s">"System closing..."</span>)
+        </div>
       </div>
-      <div>
-        <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Follow Us</h4>
-        <div class="flex gap-4">
-          <a href="https://github.com/kidsdev-Academy" target="_blank" class="social-icon-btn github"><i data-lucide="github" class="w-5 h-5"></i></a>
-          <a href="https://instagram.com/thekidsdev" target="_blank" class="social-icon-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-          <a href="https://facebook.com/thekidsdev" target="_blank" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-          <a href="https://tiktok.com/@the_kidsdev" target="_blank" class="social-icon-btn tiktok">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-            </svg>
-          </a>
+
+      <h2 class="text-2xl font-bold text-[#0F172A] mt-10 mb-4">Level Up Challenge 🚀</h2>
+      <p>Can you make the defender smarter? Try adding an <code>elif</code> (else if) to check if the password is "password123".</p>
+      
+      <div class="bg-yellow-50 border border-yellow-100 p-6 my-8 rounded-xl flex gap-4">
+        <i data-lucide="lightbulb" class="w-6 h-6 text-yellow-500 shrink-0"></i>
+        <div>
+          <h3 class="font-bold text-[#0F172A] mb-2 text-sm uppercase tracking-wide">Hint:</h3>
+          <div class="font-mono text-sm text-slate-700 bg-white p-3 rounded border border-yellow-200">
+            if password == "password123":<br>
+            &nbsp;&nbsp;print("That is too easy to guess!")
+          </div>
         </div>
       </div>
     </div>
-    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500"><p>© 2026 KidsDev Academy. Made with ❤️ by Nath.</p></div>
+
+    <div class="mt-16 p-8 bg-[#0F172A] rounded-2xl shadow-xl text-center relative overflow-hidden reveal-up">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-[#F97316] rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
+      <h3 class="text-2xl font-bold mb-4 text-white">Become a Cybersecurity Pro</h3>
+      <p class="text-slate-400 mb-8 max-w-lg mx-auto">Our Python Masterclass covers variables, loops, and security logic in depth. Ready to hack the planet (ethically)?</p>
+      <a href="../courses.html" class="inline-flex items-center gap-2 bg-[#F97316] hover:bg-orange-600 text-white px-8 py-3 rounded-full font-bold transition shadow-lg transform hover:-translate-y-1">
+        Start Learning for Free <i data-lucide="chevron-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+  </article>
+
+  <footer id="main-footer"></footer>
+
+  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4">
+      <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden reveal-up active">
+          <div class="p-4 border-b border-slate-100 flex items-center gap-4">
+              <i data-lucide="search" class="text-slate-400"></i>
+              <input type="text" id="searchInput" placeholder="Search courses, tips, challenges..." class="flex-1 outline-none text-lg font-bold text-[#0F172A] placeholder:text-slate-300">
+              <button id="closeSearch" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
+          </div>
+          <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+               <div class="text-center text-slate-400 py-10">Start typing to search...</div>
+          </div>
+      </div>
   </div>
-</footer>
-<script src="../js/main.js"></script>
+
+  <script src="../js/auth.js"></script>
+  <script src="../js/main.js"></script>
+  
+  <script>
+    if(window.lucide) lucide.createIcons();
+  </script>
 </body>
 </html>

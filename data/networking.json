@@ -1,0 +1,26 @@
+[
+  {
+    "id": "net-001",
+    "type": "networking-course",
+    "title": "Module 1: Introduction to Networking",
+    "desc": "The foundation of the internet. Learn what a network is, how it started, and why it changed the world.",
+    "level": "Beginner",
+    "duration": "15 Mins",
+    "date": "2026-02-10",
+    "image": "https://images.unsplash.com/photo-1544197150-b99a580bbcbf?auto=format&fit=crop&w=800&q=80",
+    "url": "courses/networking/module1.html", 
+    "locked": true
+  },
+  {
+    "id": "net-002",
+    "type": "networking-course",
+    "title": "Module 2: IP Addresses & DNS",
+    "desc": "Every computer has an address. Learn how IP addresses work and why we need DNS.",
+    "level": "Intermediate",
+    "duration": "20 Mins",
+    "date": "2026-02-12",
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
+    "url": "#",
+    "locked": true
+  }
+]

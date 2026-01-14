@@ -3,121 +3,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Courses | KidsDev</title>
   
-  <meta name="description" content="Explore our free coding curriculum for kids. From Python Masterclass to Web Design, start your learning journey today.">
-  <meta name="keywords" content="kids coding courses, free python course, web development for kids, game design curriculum">
+  <title>Full Coding Curriculum | KidsDev Academy</title>
+  <meta name="description" content="Access the complete free coding roadmap for kids. Master Python, Game Development, Web Design, and Cyber Security. 100% Free. Start today.">
+  <meta name="keywords" content="coding curriculum for kids, python course free, learn web development, networking for beginners, stem education nigeria, coding roadmap">
+  <meta name="author" content="Tolani Agbeyangi">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://thekidsdev.netlify.app/courses.html">
-
+  
+  <meta property="og:title" content="The Ultimate Free Coding Roadmap for Kids">
+  <meta property="og:description" content="Don't just play games, build them. Master Python, Web Dev, and Logic for free.">
+  <meta property="og:image" content="image/logo.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thekidsdev.netlify.app/courses.html">
-  <meta property="og:title" content="Free Coding Courses for Kids">
-  <meta property="og:description" content="Start learning Python, Web Design, or Game Development for free.">
-  <meta property="og:image" content="https://thekidsdev.netlify.app/image/social-preview.png">
 
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://thekidsdev.netlify.app/courses.html">
-  <meta property="twitter:title" content="Free Coding Courses for Kids">
-  <meta property="twitter:description" content="Start learning Python, Web Design, or Game Development for free.">
-  <meta property="twitter:image" content="https://thekidsdev.netlify.app/image/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Coding Courses for the Next Gen">
+  <meta name="twitter:description" content="Start your journey from Rookie to Innovator.">
+  <meta name="twitter:image" content="image/logo.png">
 
   <link rel="icon" type="image/png" href="image/logo.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
+    
+    /* Dropdown & Modal Animations */
+    .group:hover .group-hover\:block { display: block; animation: fadeIn 0.2s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px) translateX(-50%); } to { opacity: 1; transform: translateY(0) translateX(-50%); } }
+    #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
+    @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Filter Button Styles */
+    .filter-btn { transition: all 0.3s ease; border: 1px solid #e2e8f0; font-weight: 600; padding: 0.5rem 1.5rem; border-radius: 9999px; font-size: 0.875rem; cursor: pointer; }
+    .filter-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border-color: #cbd5e1; }
+    .filter-btn.active { background-color: #0F172A; color: white; border-color: #0F172A; }
+    
+    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    .reveal-up.active { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="bg-slate-50 text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
 
-<header class="navbar">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-    <a href="index.html" class="flex items-center gap-3 cursor-pointer">
-      <img src="image/logo.png" alt="KidsDev Logo" class="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform">
-    </a>
-
-    <nav class="hidden md:flex gap-6 items-center">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a> 
-      <a href="courses.html" class="nav-link active">Courses</a>
-      <a href="daily.html" class="nav-link">Daily</a>
-      <a href="challenges.html" class="nav-link text-[#A66CFF] hover:text-[#A66CFF]">Challenges</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <div class="h-5 w-px bg-gray-700 mx-2"></div>
-      <button id="openSearchBtn" class="text-gray-400 hover:text-[#FFE66D] transition" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
-    </nav>
-    <button id="menuBtn" class="md:hidden text-gray-300 hover:text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
-  </div>
-  
-  <div id="mobileMenu" class="mobile-menu md:hidden">
-    <div class="px-6 py-4 space-y-3 border-t border-gray-700">
-      <a href="about.html" class="block text-gray-300 hover:text-[#FFE66D]">About Us</a>
-      <a href="courses.html" class="block text-[#FFE66D]">Courses</a>
-      <a href="daily.html" class="block text-gray-300">Daily</a>
-      <a href="challenges.html" class="block text-[#A66CFF]">Challenges</a>
-      <a href="contact.html" class="block text-gray-300">Contact</a>
-    </div>
-  </div>
-</header>
-
-<section class="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-12 text-center reveal-up">
-  <div class="hero-badge mb-6"><span class="w-2 h-2 rounded-full bg-[#E94560]"></span> Future-Proof Skills</div>
-  <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">Learning Paths for <br> <span class="hero-text-gradient">Future Makers</span></h1>
-  <p class="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed">Structured courses designed to take you from "Hello World" to building your own real-world apps and games.</p>
-</section>
-
-<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
-  <div id="courses-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-    <div class="col-span-full text-center py-12">
-      <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-[#FFE66D] border-t-transparent"></div>
-      <p class="text-gray-400 mt-4">Loading courses...</p>
-    </div>
-  </div>
-</section>
-
-<footer class="bg-[#0b1021] border-t border-gray-800 text-gray-300 pt-16 pb-8 mt-auto">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-      <div class="space-y-6">
-        <a href="index.html" class="flex items-center gap-3"><img src="image/logo.png" alt="KidsDev" class="h-10 w-auto object-contain"><span class="text-2xl font-bold text-white tracking-tight">KidsDev</span></a>
-        <p class="text-sm text-gray-500">Empowering the next generation.</p>
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="flex items-center gap-2 cursor-pointer group">
+          <img src="image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
+          <div class="flex flex-col leading-none">
+            <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+            <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
+          </div>
+        </a>
+        
+        <button id="searchBtn" class="p-2 text-slate-400 hover:text-[#F97316] hover:bg-orange-50 rounded-full transition ml-2 border border-transparent hover:border-orange-100 group">
+             <i data-lucide="search" class="w-5 h-5 group-hover:scale-110 transition"></i>
+        </button>
       </div>
-      <div>
-        <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Explore</h4>
-        <ul class="space-y-3 text-sm font-medium text-gray-400">
-          <li><a href="courses.html" class="hover:text-white transition">All Courses</a></li>
-          <li><a href="daily.html" class="hover:text-white transition">Daily Challenges</a></li>
-          <li><a href="challenges.html" class="hover:text-[#A66CFF] transition">Weekly Battles</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Support</h4>
-        <ul class="space-y-3 text-sm font-medium text-gray-400">
-          <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
-          <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-xs">Follow Us</h4>
-        <div class="flex gap-4">
-          <a href="https://github.com/kidsdev-Academy" target="_blank" class="social-icon-btn github"><i data-lucide="github" class="w-5 h-5"></i></a>
-          <a href="https://instagram.com/thekidsdev" target="_blank" class="social-icon-btn instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-          <a href="https://facebook.com/thekidsdev" target="_blank" class="social-icon-btn facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-          <a href="https://tiktok.com/@the_kidsdev" target="_blank" class="social-icon-btn tiktok">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-            </svg>
-          </a>
+
+      <div class="flex items-center gap-6">
+        <nav class="hidden md:flex gap-6 font-medium text-sm text-slate-600 items-center h-full">
+          <a href="index.html" class="hover:text-[#F97316] transition">Home</a>
+          <a href="about.html" class="hover:text-[#F97316] transition">About</a>
+          
+          <div class="relative group h-full flex items-center">
+            <a href="courses.html" class="text-[#F97316] font-bold flex items-center gap-1 cursor-pointer py-6">
+              Courses <i data-lucide="chevron-down" class="w-3 h-3"></i>
+            </a>
+            <div class="absolute top-[80%] left-1/2 -translate-x-1/2 w-60 bg-white border border-slate-100 shadow-xl rounded-2xl p-2 hidden group-hover:block transition-all z-50">
+              <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-slate-100 transform rotate-45"></div>
+              <div class="relative bg-white rounded-xl overflow-hidden">
+                <a href="courses.html?category=Programming" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="code" class="w-4 h-4 text-yellow-500"></i> Coding</a>
+                <a href="courses.html?category=Web Dev" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="globe" class="w-4 h-4 text-blue-500"></i> Web Dev</a>
+                <a href="courses.html?category=Networking" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="network" class="w-4 h-4 text-purple-500"></i> Networking</a>
+                <a href="courses.html?category=Logic" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="cpu" class="w-4 h-4 text-pink-500"></i> Logic</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="daily.html" class="hover:text-[#F97316] transition">Daily</a>
+          <a href="challenges.html" class="hover:text-[#F97316] transition">Challenges</a>
+          <a href="contact.html" class="hover:text-[#F97316] transition">Contact</a>
+        </nav>
+        
+        <div class="hidden md:flex items-center gap-3 pl-6 border-l border-slate-200" id="authArea">
+           <a href="login.html" class="text-sm font-bold hover:text-black">Log In</a>
+           <a href="register.html" class="bg-[#F97316] hover:bg-orange-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md transition">Sign Up</a>
         </div>
+        
+        <button id="menuBtn" class="md:hidden p-2"><i data-lucide="menu"></i></button>
       </div>
     </div>
-    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-      <p>© 2026 KidsDev Academy. Made with ❤️ by Nath.</p>
+    
+    <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white border-b shadow-lg p-4 space-y-3 z-50">
+       <a href="index.html" class="block py-2 text-slate-600">Home</a>
+       <a href="about.html" class="block py-2 text-slate-600">About</a>
+       <a href="courses.html" class="block py-2 font-bold text-[#F97316]">Courses</a>
+       <div class="pl-4 space-y-2 border-l-2 border-slate-100 ml-2">
+          <a href="courses.html?category=Programming" class="block text-sm text-slate-500">Programming</a>
+          <a href="courses.html?category=Web Dev" class="block text-sm text-slate-500">Web Dev</a>
+          <a href="courses.html?category=Networking" class="block text-sm text-slate-500">Networking</a>
+       </div>
+       <a href="daily.html" class="block py-2 text-slate-600">Daily Tips</a>
+       <a href="challenges.html" class="block py-2 text-slate-600">Challenges</a>
+       <a href="contact.html" class="block py-2 text-slate-600">Contact</a>
+       <div class="pt-3 border-t grid grid-cols-2 gap-3">
+         <a href="login.html" class="text-center py-2 border rounded-lg font-bold">Log In</a>
+         <a href="register.html" class="text-center py-2 bg-[#F97316] text-white rounded-lg font-bold">Sign Up</a>
+       </div>
     </div>
+  </header>
+
+  <section class="bg-white pt-16 pb-12 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 text-center reveal-up">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wide mb-6">
+        <i data-lucide="library" class="w-3 h-3"></i> Full Catalog
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-[#0F172A]">Explore Our <span class="text-[#F97316]">Courses</span></h1>
+      <p class="text-slate-500 max-w-2xl mx-auto mb-10 text-lg">Master new skills. From Python programming to Cybersecurity.</p>
+      
+      <div class="flex flex-wrap justify-center gap-3">
+        <button onclick="filterPage('all', this)" class="filter-btn active bg-[#0F172A] text-white">All Courses</button>
+        <button onclick="filterPage('Programming', this)" class="filter-btn bg-white text-slate-600">Coding</button>
+        <button onclick="filterPage('Web Dev', this)" class="filter-btn bg-white text-slate-600">Web Dev</button>
+        <button onclick="filterPage('Networking', this)" class="filter-btn bg-white text-slate-600">Networking</button>
+        <button onclick="filterPage('Logic', this)" class="filter-btn bg-white text-slate-600">Logic</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-7xl mx-auto px-4 py-16 flex-1">
+    <div id="courses-grid" class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+       <div class="col-span-full py-20 text-center text-slate-400">Loading courses...</div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4">
+      <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden reveal-up active">
+          <div class="p-4 border-b border-slate-100 flex items-center gap-4">
+              <i data-lucide="search" class="text-slate-400"></i>
+              <input type="text" id="searchInput" placeholder="Search courses, tips, challenges..." class="flex-1 outline-none text-lg font-bold text-[#0F172A] placeholder:text-slate-300">
+              <button id="closeSearch" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
+          </div>
+          <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+               <div class="text-center text-slate-400 py-10">Start typing to search...</div>
+          </div>
+      </div>
   </div>
-</footer>
-<script src="js/main.js"></script>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    if(window.lucide) lucide.createIcons();
+  </script>
 </body>
 </html>
