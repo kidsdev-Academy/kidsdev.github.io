@@ -95,7 +95,7 @@ const UI = {
   detectPathDepth() {
       const path = window.location.pathname;
       // Heuristic: If we are deep in courses/python/, go back 2 levels
-      if (path.includes('/courses/') || path.includes('/daily/')) {
+      if (path.includes('/courses/') || path.includes('/daily/') || path.includes('/posts/')) {
           this.prefix = (path.split('/').length > 3) ? '../../' : '../';
       } else {
           this.prefix = '';

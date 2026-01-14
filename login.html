@@ -4,22 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <title>Log In to Your Future | KidsDev Academy</title>
-  <meta name="description" content="Welcome back, Cadet. Log in to resume your coding missions, track your XP, and unlock new badges.">
-  <meta name="keywords" content="kidsdev login, student portal, coding for kids, learn python, student dashboard">
-  <meta name="author" content="Tolani Agbeyangi">
+  <title>Log In | KidsDev Academy</title>
+  <meta name="description" content="Welcome back, Cadet. Log in to resume your coding missions.">
   <meta name="robots" content="index, follow">
   
-  <meta property="og:title" content="KidsDev Student Portal">
-  <meta property="og:description" content="Resume your learning journey. The future is waiting.">
-  <meta property="og:image" content="image/logo.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thekidsdev.netlify.app/login.html">
-
   <link rel="icon" type="image/png" href="image/logo.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/style.css">
 
@@ -137,7 +129,7 @@
       errorMsg.classList.add('hidden');
 
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => { window.location.href = "dashboard.html"; })
+        .then(() => { window.location.href = "profile.html"; }) // REDIRECT TO PROFILE
         .catch((error) => {
           btn.innerHTML = "Sign In";
           btn.disabled = false;
@@ -155,7 +147,7 @@
       try {
         const result = await signInWithPopup(auth, provider);
         await checkAndCreateUser(result.user);
-        window.location.href = "dashboard.html";
+        window.location.href = "profile.html"; // REDIRECT TO PROFILE
       } catch (error) {
         console.error(error);
         errorMsg.innerText = "Google sign in failed.";
@@ -163,7 +155,7 @@
       }
     };
 
-    // DB HELPER (Ensures user exists in Firestore)
+    // DB HELPER
     async function checkAndCreateUser(user) {
       const userRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(userRef);

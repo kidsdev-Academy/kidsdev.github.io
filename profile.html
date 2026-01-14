@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>My Profile | KidsDev Academy</title>
+  <meta name="robots" content="noindex, nofollow"> <link rel="icon" type="image/png" href="image/logo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Professional Header */
+    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
+    
+    /* Profile Card */
+    .profile-card { background: white; border: 1px solid #E2E8F0; border-radius: 20px; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); overflow: hidden; }
+    
+    /* Stats Box */
+    .stat-box { background: #F8FAFC; border-radius: 12px; padding: 16px; text-align: center; border: 1px solid #F1F5F9; transition: transform 0.2s; }
+    .stat-box:hover { transform: translateY(-2px); border-color: #F97316; }
+
+    /* Animations */
+    .reveal-up { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.6s forwards; }
+    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    
+    /* Mobile Menu */
+    #mobileMenu.hidden { display: none; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <img src="image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
+          <div class="flex flex-col leading-none">
+            <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+            <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <nav class="hidden md:flex gap-6 font-medium text-sm text-slate-600 items-center">
+          <a href="courses.html" class="hover:text-[#F97316] transition">Courses</a>
+          <a href="daily.html" class="hover:text-[#F97316] transition">Daily Tips</a>
+          <a href="challenges.html" class="hover:text-[#F97316] transition">Challenges</a>
+        </nav>
+        
+        <div class="relative group">
+           <button class="flex items-center gap-2 focus:outline-none">
+             <img id="headerAvatar" src="https://ui-avatars.com/api/?name=User&background=F97316&color=fff" class="w-9 h-9 rounded-full border border-slate-200">
+             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+           </button>
+           <div class="absolute right-0 top-full mt-2 w-48 bg-white border border-slate-100 rounded-xl shadow-xl hidden group-hover:block transition-all z-50 overflow-hidden">
+             <a href="profile.html" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316] font-bold">My Profile</a>
+             <button id="logoutBtn" class="w-full text-left px-4 py-3 text-sm text-red-500 hover:bg-red-50 font-bold border-t border-slate-100">Log Out</button>
+           </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 flex-1 w-full">
+    
+    <div class="mb-10 reveal-up">
+      <h1 class="text-3xl font-extrabold text-[#0F172A]">My Profile</h1>
+      <p class="text-slate-500">Welcome back! Manage your account and track your progress.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <div class="lg:col-span-1 reveal-up" style="animation-delay: 0.1s;">
+        <div class="profile-card p-8 text-center relative">
+          <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-orange-100 to-blue-100"></div>
+          
+          <div class="relative z-10 w-24 h-24 mx-auto bg-white rounded-full p-1 shadow-md mb-4">
+            <img id="profileAvatar" src="https://ui-avatars.com/api/?name=User&background=0F172A&color=fff" class="w-full h-full rounded-full object-cover">
+          </div>
+          
+          <h2 id="profileName" class="text-xl font-bold text-[#0F172A]">Loading...</h2>
+          <p id="profileEmail" class="text-xs text-slate-400 font-mono mb-6">user@example.com</p>
+          
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-green-50 text-green-600 rounded-full text-xs font-bold uppercase tracking-wide border border-green-100">
+            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Online
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 space-y-8 reveal-up" style="animation-delay: 0.2s;">
+        
+        <div class="profile-card p-8">
+          <h3 class="font-bold text-[#0F172A] mb-6 flex items-center gap-2">
+            <i data-lucide="bar-chart-2" class="w-5 h-5 text-[#F97316]"></i> Your Progress
+          </h3>
+          <div class="grid grid-cols-3 gap-4">
+            <div class="stat-box">
+              <p class="text-3xl font-extrabold text-[#0F172A]" id="xpDisplay">0</p>
+              <p class="text-xs text-slate-400 font-bold uppercase mt-1">Total XP</p>
+            </div>
+            <div class="stat-box">
+              <p class="text-3xl font-extrabold text-[#0F172A]" id="badgeDisplay">0</p>
+              <p class="text-xs text-slate-400 font-bold uppercase mt-1">Badges</p>
+            </div>
+            <div class="stat-box">
+              <p class="text-3xl font-extrabold text-[#0F172A]">Novice</p>
+              <p class="text-xs text-slate-400 font-bold uppercase mt-1">Current Rank</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-card p-8">
+          <h3 class="font-bold text-[#0F172A] mb-6 flex items-center gap-2">
+            <i data-lucide="zap" class="w-5 h-5 text-[#F97316]"></i> Quick Actions
+          </h3>
+          <div class="space-y-4">
+            <a href="courses.html" class="flex items-center justify-between p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition group border border-slate-100">
+              <div class="flex items-center gap-4">
+                <div class="bg-blue-100 p-2 rounded-lg text-blue-600"><i data-lucide="play-circle" class="w-5 h-5"></i></div>
+                <div>
+                  <h4 class="font-bold text-[#0F172A] text-sm">Resume Learning</h4>
+                  <p class="text-xs text-slate-500">Continue your python course</p>
+                </div>
+              </div>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 group-hover:text-[#F97316]"></i>
+            </a>
+
+            <button id="mainLogoutBtn" class="w-full flex items-center justify-between p-4 bg-red-50 rounded-xl hover:bg-red-100 transition group border border-red-100">
+              <div class="flex items-center gap-4">
+                <div class="bg-white p-2 rounded-lg text-red-500"><i data-lucide="log-out" class="w-5 h-5"></i></div>
+                <div>
+                  <h4 class="font-bold text-red-600 text-sm">Sign Out</h4>
+                  <p class="text-xs text-red-400">Log out of your account</p>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+
+  <script src="js/main.js"></script>
+  
+  <script>
+    if(window.lucide) lucide.createIcons();
+  </script>
+
+  <script type="module">
+    import { auth, db } from "./js/firebase.js";
+    import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    // 1. Check Auth State & Load Data
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        // User is logged in
+        const userRef = doc(db, "users", user.uid);
+        
+        try {
+          const docSnap = await getDoc(userRef);
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            
+            // Update UI with real data
+            const name = data.name || "Cadet";
+            document.getElementById('profileName').innerText = name;
+            document.getElementById('profileEmail').innerText = user.email;
+            document.getElementById('xpDisplay').innerText = data.xp || 0;
+            document.getElementById('badgeDisplay').innerText = data.badges || 0;
+            
+            // Update Avatars
+            const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=F97316&color=fff`;
+            document.getElementById('profileAvatar').src = avatarUrl;
+            document.getElementById('headerAvatar').src = avatarUrl;
+          }
+        } catch(e) {
+          console.error("Error fetching user data:", e);
+        }
+      } else {
+        // Not logged in? Redirect to login
+        window.location.href = "login.html";
+      }
+    });
+
+    // 2. Logout Functionality
+    const handleLogout = async () => {
+      try {
+        await signOut(auth);
+        window.location.href = "index.html"; // Go back home after logout
+      } catch (error) {
+        alert("Error signing out.");
+      }
+    };
+
+    document.getElementById('logoutBtn')?.addEventListener('click', handleLogout);
+    document.getElementById('mainLogoutBtn')?.addEventListener('click', handleLogout);
+  </script>
+</body>
+</html>

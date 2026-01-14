@@ -5,17 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <title>Create Your Free Account | KidsDev Academy</title>
-  <meta name="description" content="Join the #1 coding academy for kids. Create a free account to access Python courses, web development projects, and daily challenges.">
-  <meta name="keywords" content="sign up kidsdev, free coding account, learn python nigeria, kids programming registration, stem education signup">
-  <meta name="author" content="Tolani Agbeyangi">
+  <meta name="description" content="Join the #1 coding academy for kids. Create a free account to access Python courses.">
   <meta name="robots" content="index, follow">
   
-  <meta property="og:title" content="Join KidsDev - Start Coding Today">
-  <meta property="og:description" content="Create a free account and start building real apps and games.">
-  <meta property="og:image" content="image/logo.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thekidsdev.netlify.app/register.html">
-
   <link rel="icon" type="image/png" href="image/logo.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -138,7 +130,7 @@
     </div>
 
     <div class="text-center text-xs text-slate-400 mt-8 font-medium">
-      &copy; 2026 KidsDev Academy. <a href="privacy.html" class="hover:text-[#F97316] transition">Privacy</a> &bull; <a href="#" class="hover:text-[#F97316] transition">Terms</a>
+      &copy; 2026 KidsDev Academy. <a href="privacy.html" class="hover:text-[#F97316] transition">Privacy</a>
     </div>
 
   </div>
@@ -179,7 +171,7 @@
       try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
         await saveUser(userCredential.user, first + " " + last);
-        window.location.href = "dashboard.html";
+        window.location.href = "profile.html"; // REDIRECT TO PROFILE
       } catch (error) {
         resetBtn();
         let msg = "Error creating account.";
@@ -193,16 +185,15 @@
       const provider = new GoogleAuthProvider();
       try {
         const result = await signInWithPopup(auth, provider);
-        // Check if user already exists before overwriting
         await saveUser(result.user, result.user.displayName, true); 
-        window.location.href = "dashboard.html";
+        window.location.href = "profile.html"; // REDIRECT TO PROFILE
       } catch (error) {
         console.error(error);
         showError("Google sign in failed.");
       }
     };
 
-    // Helper: Save User to Firestore
+    // Helper: Save User
     async function saveUser(user, fullName, checkExists = false) {
       const userRef = doc(db, "users", user.uid);
       

@@ -1,50 +1,64 @@
-/* =========================================
-   GLOBAL AUTHENTICATION HANDLER
-   Path: js/auth.js
-   Description: Manages Header buttons (Login vs Dashboard) and Logout.
-========================================== */
-
-import { auth } from "./firebase.js";
+import { auth, db } from "./firebase.js";
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const authArea = document.getElementById("authArea");
+const authArea = document.getElementById("authArea"); // The div containing Login/Signup
+const mobileMenu = document.getElementById("mobileMenu");
 
-// 1. Listen for Login State Changes
-if (authArea) {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is LOGGED IN: Show Dashboard Button
-      // We use the Orange (#F97316) color for the text/icon to match your theme
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    // 1. USER IS LOGGED IN
+    
+    // Get user name from Database
+    let username = "Cadet";
+    try {
+      const docSnap = await getDoc(doc(db, "users", user.uid));
+      if (docSnap.exists()) {
+        username = docSnap.data().name.split(" ")[0]; // Get first name
+      }
+    } catch(e) { console.log(e); }
+
+    // Generate Avatar URL
+    const avatar = `https://ui-avatars.com/api/?name=${username}&background=F97316&color=fff`;
+
+    // REPLACE "Login/Signup" with "Profile Dropdown" in Desktop Header
+    if (authArea) {
       authArea.innerHTML = `
-        <a href="dashboard.html" class="flex items-center gap-2 text-sm font-bold text-[#F97316] hover:text-orange-700 transition">
-           <i data-lucide="user" class="w-4 h-4"></i> Dashboard
-        </a>
+        <div class="relative group">
+           <button class="flex items-center gap-2 focus:outline-none">
+             <img src="${avatar}" class="w-8 h-8 rounded-full border border-slate-200">
+             <span class="text-sm font-bold text-[#0F172A] hidden lg:block">${username}</span>
+             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400"></i>
+           </button>
+           <div class="absolute right-0 top-full mt-2 w-48 bg-white border border-slate-100 rounded-xl shadow-xl hidden group-hover:block transition-all z-50 overflow-hidden">
+             <a href="profile.html" class="block px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-[#F97316] font-bold">My Profile</a>
+             <button id="globalLogout" class="w-full text-left px-4 py-3 text-sm text-red-500 hover:bg-red-50 font-bold border-t border-slate-100">Log Out</button>
+           </div>
+        </div>
       `;
       
-      // Re-render icons since we injected new HTML
-      if (window.lucide) lucide.createIcons();
+      // Re-initialize icons for the new HTML
+      if(window.lucide) lucide.createIcons();
       
-    } else {
-      // User is LOGGED OUT: The default HTML (Login/Signup buttons) stays.
-      // If you needed to force reset it, you would do it here, but usually unnecessary.
+      // Attach Logout Listener
+      document.getElementById("globalLogout")?.addEventListener("click", () => {
+          signOut(auth).then(() => window.location.href = "index.html");
+      });
     }
-  });
-}
 
-// 2. Global Logout Function
-// You can call this function from anywhere using onclick="logout()"
-window.logout = async () => {
-  try {
-    await signOut(auth);
-    console.log("User signed out.");
-    window.location.href = "index.html";
-  } catch (error) {
-    console.error("Logout Error:", error);
+    // UPDATE Mobile Menu
+    if (mobileMenu) {
+        const loginBtns = mobileMenu.querySelector('.grid'); // The login/signup buttons container
+        if(loginBtns) {
+            loginBtns.innerHTML = `
+                <a href="profile.html" class="col-span-2 text-center py-3 rounded-lg bg-[#0F172A] text-white font-bold flex items-center justify-center gap-2">
+                    <img src="${avatar}" class="w-5 h-5 rounded-full"> My Profile
+                </a>
+            `;
+        }
+    }
+
+  } else {
+    // 2. USER IS LOGGED OUT (Do nothing, default HTML is correct)
   }
-};
-// Example Simulation inside login.html script
-function handleLogin() {
-   // ... verify inputs ...
-   localStorage.setItem("user", JSON.stringify({ name: "Student", loggedIn: true }));
-   window.location.href = "index.html";
-}
+});
