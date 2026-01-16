@@ -1,126 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <title>Web Creator Course | KidsDev Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Creator Track | KidsDev Tech Group</title>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../../css/style.css">
+  
   <style>
-    .glass-header { background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); }
-    .module-item:hover { border-color: #3B82F6; transform: translateX(5px); }
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    .glass-header { background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226, 232, 240, 0.7); }
+    
+    .module-card { transition: all 0.3s ease; border: 1px solid #E2E8F0; cursor: pointer; }
+    .module-card:hover { transform: translateX(5px); border-color: #F97316; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
   </style>
 </head>
-<body class="bg-slate-50 text-[#0F172A] font-[Poppins]">
 
-  <div class="h-16 border-b flex items-center px-6 sticky top-0 glass-header z-50">
+<body class="selection:bg-[#0F172A] selection:text-white">
+
+  <div class="h-16 border-b flex items-center px-6 sticky top-0 glass-header z-50 justify-between">
     <a href="../../courses.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-[#0F172A] transition">
-      <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Catalog
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Tracks
     </a>
+    <span class="text-xs font-bold uppercase tracking-wider text-[#F97316]">Web Development Track</span>
   </div>
 
   <header class="bg-[#0F172A] text-white pt-16 pb-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+    <div class="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-blue-900/20 to-transparent"></div>
+
     <div class="max-w-4xl mx-auto px-6 relative z-10">
-      <span class="inline-block py-1 px-3 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 text-xs font-bold uppercase tracking-wide mb-4">
-        Most Popular
+      <span class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-orange-500/20 text-orange-300 border border-orange-500/30 text-xs font-bold uppercase tracking-wide mb-6">
+        <i data-lucide="unlock" class="w-3 h-3"></i> 100% Free Access
       </span>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Web Creator Masterclass</h1>
-      <p class="text-slate-300 text-lg max-w-2xl mb-8">
-        Don't just browse the web—build it. Learn HTML, CSS, and how to publish your own Superhero Portfolio to the real internet.
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+        Web Creator <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500">Masterclass</span>
+      </h1>
+      <p class="text-slate-300 text-lg max-w-2xl mb-10 leading-relaxed">
+        Don't just browse the web—build it. Master HTML structure, CSS styling, and publish your own Superhero Portfolio to the real internet.
       </p>
       
-      <div class="flex items-center gap-6 text-sm font-medium text-slate-400">
-        <span class="flex items-center gap-2"><i data-lucide="layers" class="w-4 h-4"></i> 6 Modules</span>
-        <span class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i> 6 Weeks</span>
-        <span class="flex items-center gap-2"><i data-lucide="star" class="w-4 h-4"></i> 4.9/5 Rating</span>
+      <div class="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-400 border-t border-white/10 pt-6">
+        <span class="flex items-center gap-2"><i data-lucide="layers" class="w-4 h-4 text-orange-400"></i> 6 Modules</span>
+        <span class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-blue-400"></i> 6 Weeks</span>
+        <span class="flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-green-400"></i> 1.2k Students</span>
       </div>
     </div>
-    
-    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=800&q=80" class="absolute right-0 top-0 h-full w-1/3 object-cover opacity-20">
   </header>
 
-  <main class="max-w-4xl mx-auto px-6 -mt-16 relative z-20 pb-20">
+  <main class="max-w-5xl mx-auto px-6 -mt-16 relative z-20 pb-24">
     <div class="grid md:grid-cols-3 gap-8">
       
       <div class="md:col-span-2 space-y-8">
         
-        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-          <h2 class="text-xl font-bold mb-4">Skills you will unlock</h2>
+        <div class="bg-white p-8 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100">
+          <h2 class="text-xl font-bold mb-6 text-[#0F172A]">What you will master</h2>
           <ul class="grid sm:grid-cols-2 gap-4">
-            <li class="flex items-start gap-2 text-sm text-slate-600">
-              <i data-lucide="check-circle" class="w-4 h-4 text-blue-500 mt-0.5"></i> HTML Structures
+            <li class="flex items-start gap-3 text-sm text-slate-600 font-medium">
+              <div class="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></div>
+              HTML5 Semantic Structure
             </li>
-            <li class="flex items-start gap-2 text-sm text-slate-600">
-              <i data-lucide="check-circle" class="w-4 h-4 text-blue-500 mt-0.5"></i> CSS Styling & Colors
+            <li class="flex items-start gap-3 text-sm text-slate-600 font-medium">
+              <div class="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></div>
+              CSS3 Styling & Flexbox
             </li>
-            <li class="flex items-start gap-2 text-sm text-slate-600">
-              <i data-lucide="check-circle" class="w-4 h-4 text-blue-500 mt-0.5"></i> Responsive Design
+            <li class="flex items-start gap-3 text-sm text-slate-600 font-medium">
+              <div class="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></div>
+              Responsive Design
             </li>
-            <li class="flex items-start gap-2 text-sm text-slate-600">
-              <i data-lucide="check-circle" class="w-4 h-4 text-blue-500 mt-0.5"></i> Hosting Websites
+            <li class="flex items-start gap-3 text-sm text-slate-600 font-medium">
+              <div class="w-5 h-5 rounded-full bg-green-100 text-green-600 flex items-center justify-center mt-0.5"><i data-lucide="check" class="w-3 h-3"></i></div>
+              Deploying to Netlify
             </li>
           </ul>
         </div>
 
         <div>
-          <h3 class="font-bold text-xl mb-4 text-[#0F172A]">Course Curriculum</h3>
-          <div class="space-y-3">
+          <h3 class="font-bold text-lg mb-4 text-slate-400 uppercase tracking-wider text-xs">Course Modules</h3>
+          <div class="space-y-4">
             
-            <a href="module1.html" class="module-item block bg-white p-5 rounded-xl border border-slate-200 transition-all shadow-sm group">
+            <a href="module1.html" class="module-card block bg-white p-6 rounded-xl group relative overflow-hidden">
+              <div class="absolute left-0 top-0 w-1 h-full bg-[#F97316]"></div>
               <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                  <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm">01</div>
+                <div class="flex items-center gap-5">
+                  <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold text-lg shadow-sm">01</div>
                   <div>
-                    <h4 class="font-bold text-slate-800 group-hover:text-blue-600 transition">HTML Basics</h4>
-                    <p class="text-xs text-slate-500">Tags, Elements, and the Skeleton.</p>
+                    <h4 class="font-bold text-[#0F172A] text-lg group-hover:text-[#F97316] transition">HTML Basics</h4>
+                    <p class="text-sm text-slate-500">Tags, Elements, and the Skeleton.</p>
                   </div>
                 </div>
-                <i data-lucide="play-circle" class="w-5 h-5 text-slate-300 group-hover:text-blue-500"></i>
+                <div class="bg-slate-50 p-2 rounded-full group-hover:bg-orange-50 transition">
+                    <i data-lucide="play" class="w-5 h-5 text-slate-400 group-hover:text-orange-500 fill-current"></i>
+                </div>
               </div>
             </a>
 
-            <div class="module-item block bg-white p-5 rounded-xl border border-slate-200 opacity-60 cursor-not-allowed">
+            <a href="#" class="module-card block bg-white p-6 rounded-xl group relative overflow-hidden">
               <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                  <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center font-bold text-sm">02</div>
+                <div class="flex items-center gap-5">
+                  <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg shadow-sm">02</div>
                   <div>
-                    <h4 class="font-bold text-slate-500">CSS Styling</h4>
-                    <p class="text-xs text-slate-400">Making it look beautiful.</p>
+                    <h4 class="font-bold text-[#0F172A] text-lg group-hover:text-blue-600 transition">CSS Styling</h4>
+                    <p class="text-sm text-slate-500">Colors, Fonts, and Layouts.</p>
                   </div>
                 </div>
-                <i data-lucide="lock" class="w-4 h-4 text-slate-300"></i>
+                <div class="bg-slate-50 p-2 rounded-full group-hover:bg-blue-50 transition">
+                    <i data-lucide="play" class="w-5 h-5 text-slate-400 group-hover:text-blue-500 fill-current"></i>
+                </div>
               </div>
-            </div>
+            </a>
 
-            <div class="module-item block bg-white p-5 rounded-xl border border-slate-200 opacity-60 cursor-not-allowed">
+            <a href="#" class="module-card block bg-white p-6 rounded-xl group relative overflow-hidden">
               <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                  <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center font-bold text-sm">03</div>
+                <div class="flex items-center gap-5">
+                  <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg shadow-sm">03</div>
                   <div>
-                    <h4 class="font-bold text-slate-500">Final Project</h4>
-                    <p class="text-xs text-slate-400">Building the Portfolio.</p>
+                    <h4 class="font-bold text-[#0F172A] text-lg group-hover:text-purple-600 transition">Final Project</h4>
+                    <p class="text-sm text-slate-500">Building your Portfolio.</p>
                   </div>
                 </div>
-                <i data-lucide="lock" class="w-4 h-4 text-slate-300"></i>
+                <div class="bg-slate-50 p-2 rounded-full group-hover:bg-purple-50 transition">
+                    <i data-lucide="play" class="w-5 h-5 text-slate-400 group-hover:text-purple-500 fill-current"></i>
+                </div>
               </div>
-            </div>
+            </a>
 
           </div>
         </div>
       </div>
 
       <div class="md:col-span-1">
-        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 sticky top-24">
-          <div class="text-3xl font-extrabold text-[#0F172A] mb-2">Free</div>
-          <p class="text-sm text-slate-500 mb-6">Start building today.</p>
+        <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 sticky top-24">
+          <div class="flex items-center justify-between mb-4">
+              <span class="text-sm text-slate-500 font-bold uppercase">Price</span>
+              <span class="text-3xl font-extrabold text-[#0F172A]">Free</span>
+          </div>
           
-          <a href="module1.html" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-center shadow-lg shadow-blue-200 transition mb-4">
-            Start First Lesson
+          <a href="module1.html" class="block w-full bg-[#0F172A] hover:bg-slate-800 text-white font-bold py-4 rounded-xl text-center shadow-lg transition transform hover:-translate-y-1 mb-4 flex items-center justify-center gap-2">
+            Start Learning <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
           
-          <div class="text-xs text-slate-400 text-center">
-            Log in to save your code snippets.
+          <div class="flex items-center justify-center gap-2 text-xs text-slate-400">
+            <i data-lucide="shield-check" class="w-3 h-3"></i> No Sign-Up Required
           </div>
         </div>
       </div>

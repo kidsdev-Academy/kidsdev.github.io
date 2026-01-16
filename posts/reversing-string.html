@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <title>Python Tip: Reverse Strings Instantly | KidsDev Tech Group</title>
+  <meta name="description" content="Learn the Pythonic way to reverse a string using slicing. No loops required. A quick tip for beginner coders.">
+  
+  <meta property="og:title" content="Reversing a String in Python 🐍">
+  <meta property="og:image" content="../image/logo.png">
+  <link rel="icon" type="image/png" href="../image/logo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    .bg-grid-pattern { background-size: 60px 60px; background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px); }
+    .pro-header { background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226, 232, 240, 0.7); }
+    
+    .code-window { background: #1E293B; border-radius: 12px; overflow: hidden; font-family: 'Fira Code', monospace; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3); margin: 2rem 0; border: 1px solid #334155; }
+    .code-header { background: #0F172A; padding: 12px 16px; display: flex; gap: 8px; align-items: center; border-bottom: 1px solid #334155; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .code-body { padding: 24px; color: #E2E8F0; overflow-x: auto; font-size: 0.9rem; line-height: 1.7; }
+  </style>
+</head>
+
+<body class="selection:bg-blue-500 selection:text-white">
+
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="flex items-center gap-2 cursor-pointer group">
+          <img src="../image/logo.png" alt="KidsDev Logo" class="h-9 w-auto object-contain">
+          <div class="flex flex-col leading-none">
+            <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+            <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Tech Group</span>
+          </div>
+        </a>
+      </div>
+      <div class="flex items-center gap-8">
+        <nav class="hidden md:flex gap-8 font-medium text-sm text-slate-600 items-center">
+          <a href="../index.html" class="hover:text-[#F97316] transition">Home</a>
+          <a href="../daily.html" class="text-[#F97316] font-bold">Daily Tips</a>
+          <a href="../challenges.html" class="hover:text-[#F97316] transition">Challenges</a>
+        </nav>
+        <div class="hidden md:flex pl-8 border-l border-slate-200">
+           <a href="../contact.html" class="bg-[#0F172A] hover:bg-slate-800 text-white px-6 py-2.5 rounded-full text-xs font-bold shadow-lg transition">Join Community</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative max-w-3xl mx-auto px-4 sm:px-6 pt-16 pb-24">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 -z-10"></div>
+    
+    <a href="../daily.html" class="inline-flex items-center text-slate-400 hover:text-blue-600 mb-8 transition text-xs font-bold uppercase tracking-wider">
+      <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Feed
+    </a>
+
+    <span class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase mb-4">Python Tip</span>
+    
+    <h1 class="text-3xl md:text-5xl font-extrabold text-[#0F172A] mb-6 leading-tight">
+      Reversing a String <span class="text-blue-600">Instantly</span>
+    </h1>
+
+    <div class="flex items-center gap-4 mb-8 pb-8 border-b border-slate-200">
+      <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+        <img src="../image/tola.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Tolani+Agbeyangi&background=F97316&color=fff'" class="w-full h-full object-cover">
+      </div>
+      <div>
+        <p class="text-sm font-bold text-[#0F172A]">By Tolani Agbeyangi</p>
+        <p class="text-xs text-slate-500">Today • 2 min read</p>
+      </div>
+    </div>
+
+    <div class="prose prose-lg max-w-none text-slate-600 leading-relaxed">
+      <p>In many languages (like Java or C++), reversing a word requires writing a complex loop. In Python, we have a superpower called <strong>Slicing</strong>.</p>
+
+      <h3 class="font-bold text-[#0F172A] text-xl mt-8">The Magic Syntax</h3>
+      <p>You can use square brackets <code>[start:stop:step]</code> to slice text. If you set the <em>step</em> to <code>-1</code>, Python walks backwards through the string.</p>
+
+      <div class="code-window">
+        <div class="code-header">
+          <div class="dot bg-red-500"></div><div class="dot bg-yellow-500"></div><div class="dot bg-green-500"></div>
+          <span class="text-xs text-slate-400 ml-2 font-mono">python_magic.py</span>
+        </div>
+        <div class="code-body">
+          word = <span class="text-green-400">"KidsDev"</span><br><br>
+          <span class="text-slate-500"># The [::-1] means "start at end, go to start"</span><br>
+          reversed_word = word[<span class="text-orange-400">::-1</span>]<br><br>
+          <span class="text-blue-400">print</span>(reversed_word)<br>
+          <span class="text-slate-500"># Output: veDsdiK</span>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 border border-blue-100 p-6 rounded-xl flex gap-4 mt-8">
+        <i data-lucide="info" class="w-6 h-6 text-blue-600 shrink-0"></i>
+        <div>
+          <h4 class="text-[#0F172A] font-bold mb-1">Did you know?</h4>
+          <p class="text-sm text-slate-600">This works on Lists too! <code>[1, 2, 3][::-1]</code> becomes <code>[3, 2, 1]</code>.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="main-footer"></footer>
+  <script src="../js/main.js"></script>
+  <script>if(window.lucide) lucide.createIcons();</script>
+</body>
+</html>

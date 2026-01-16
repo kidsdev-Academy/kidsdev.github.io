@@ -3,98 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Solution: CSS Cloud | KidsDev</title>
+  <title>Challenge: CSS Cloud | KidsDev Academy</title>
+  <meta name="description" content="CSS Challenge: Draw a cloud using only code. Master border-radius and positioning.">
+  <link rel="icon" type="image/png" href="/image/logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    /* ... Same Styles ... */
     .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
-    .code-block { background-color: #1E293B; border-radius: 0.75rem; overflow: hidden; margin: 1.5rem 0; font-family: 'Fira Code', monospace; }
-    .code-content { padding: 1.5rem; overflow-x: auto; color: #e2e8f0; font-size: 0.9rem; }
-    .step-number { background: #A855F7; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 10px; flex-shrink: 0; }
-    .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label { top: -10px; left: 10px; font-size: 0.75rem; background-color: white; padding: 0 5px; color: #F97316; font-weight: 600; }
-    .file-drop-area { border: 2px dashed #cbd5e1; transition: all 0.3s; }
-    .file-drop-area:hover { border-color: #F97316; background-color: #fff7ed; }
+    .code-input { background: #1E293B; color: #E879F9; font-family: 'Fira Code', monospace; width: 100%; padding: 1rem; border-radius: 0.75rem; outline: none; border: 2px solid #334155; }
+    
+    /* Cloud Preview Stage */
+    #preview-stage { 
+        background: linear-gradient(to bottom, #60A5FA, #3B82F6); 
+        height: 250px; 
+        border-radius: 1rem; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        overflow: hidden;
+    }
+    .cloud { width: 100px; height: 40px; background: white; transition: all 0.5s ease; position: relative; }
   </style>
+  <style id="dynamic-style"></style>
 </head>
-<body class="bg-white text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+<body class="bg-white text-[#0F172A] font-[Poppins]">
 
   <header class="pro-header sticky top-0 z-[100]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
       <a href="../index.html" class="flex items-center gap-2"><img src="../image/logo.png" class="h-10 w-auto object-contain"><span class="font-extrabold text-2xl text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span></a>
-      <a href="../challenges.html" class="text-sm font-bold text-[#F97316] hover:text-orange-700 flex items-center gap-2"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back</a>
+      <a href="../challenges.html" class="text-sm font-bold text-[#F97316] flex items-center gap-2"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back</a>
     </div>
   </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-12 flex-1">
-    <div class="mb-10">
-      <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-bold uppercase">CSS Art</span>
-      <h1 class="text-4xl font-extrabold mt-4 mb-2 text-[#0F172A]">Solution: Draw a Cloud</h1>
-      <p class="text-slate-500">Can you make a fluffy cloud using only code?</p>
-    </div>
+  <main class="max-w-5xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-2 gap-12">
+        
+        <div>
+            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-bold uppercase">CSS Art</span>
+            <h1 class="text-3xl font-extrabold mt-4 mb-4">Draw a Cloud</h1>
+            <p class="text-slate-500 mb-6">Clouds are just rounded rectangles! Use <code>border-radius</code> to soften the edges.</p>
+            
+            <div class="bg-slate-900 rounded-xl p-4 shadow-xl">
+                <p class="text-slate-400 text-xs mb-1 font-mono">.cloud {</p>
+                <textarea id="code-input" rows="5" class="code-input bg-transparent border-none p-0 text-sm" placeholder="  background: white;&#10;  border-radius: 0px;&#10;  box-shadow: 0 10px 20px rgba(0,0,0,0.1);"></textarea>
+                <p class="text-slate-400 text-xs mt-1 font-mono">}</p>
+            </div>
 
-    <div class="mb-12">
-      <div class="flex items-center mb-4"><div class="step-number">1</div> <h2 class="text-xl font-bold">Border Radius</h2></div>
-      <p class="text-slate-600 mb-4">Use `border-radius: 50%` to make circles.</p>
-      <div class="code-block">
-        <div class="bg-gray-900 px-4 py-2 text-xs font-bold text-gray-400 border-b border-gray-700">style.css</div>
-        <div class="code-content text-purple-300">
-.cloud {<br>
-&nbsp;&nbsp;background: white;<br>
-&nbsp;&nbsp;border-radius: 50px;<br>
-}
+            <div class="flex gap-4 mt-6 items-center">
+                <button onclick="Interactive.runCSS('preview-stage', ['border-radius', 'background'])" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-xl transition shadow-lg shadow-purple-200">Render Cloud</button>
+                <div id="css-feedback" class="text-sm font-bold"></div>
+            </div>
         </div>
-      </div>
+
+        <div class="sticky top-24">
+            <div class="bg-white p-2 rounded-3xl shadow-xl border border-slate-100">
+                <div class="bg-white px-4 py-3 border-b border-slate-100 mb-2">
+                    <span class="text-xs font-bold text-slate-400 uppercase">Sky Preview</span>
+                </div>
+                <div id="preview-stage">
+                    <div class="cloud"></div>
+                </div>
+            </div>
+            
+            <div id="solution-box" class="hidden mt-6 bg-purple-50 border border-purple-200 rounded-xl p-4 reveal-up">
+                <h4 class="font-bold text-purple-800 text-sm mb-2">☁️ Fluffy Logic:</h4>
+                <p class="text-xs text-slate-600">High <code>border-radius</code> (like 50px) makes rectangular divs look like pills or circles.</p>
+            </div>
+        </div>
     </div>
-
-    <section id="submit-section" class="mt-20 max-w-xl mx-auto">
-      <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full blur-3xl opacity-50 -z-10"></div>
-        <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
-        <div class="text-center mb-8"><h3 class="font-extrabold text-2xl text-[#0F172A] mb-2">🚀 Submit Solution</h3></div>
-        <form action="https://formspree.io/f/xqeavjnl" method="POST" enctype="multipart/form-data" class="space-y-5">
-          <input type="hidden" name="_subject" value="Challenge: Cloud">
-          <div class="relative"><input type="text" name="name" required class="peer w-full bg-white border border-slate-300 rounded-xl px-4 py-3 outline-none" placeholder="Name"><label class="absolute left-4 top-3 text-slate-400 text-sm peer-focus:top-[-10px] peer-focus:bg-white px-1">Name</label></div>
-          <div class="relative"><input type="email" name="email" required class="peer w-full bg-white border border-slate-300 rounded-xl px-4 py-3 outline-none" placeholder="Email"><label class="absolute left-4 top-3 text-slate-400 text-sm peer-focus:top-[-10px] peer-focus:bg-white px-1">Email</label></div>
-          <div class="space-y-4">
-             <input type="url" name="project_link" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-sm outline-none" placeholder="Link...">
-             <textarea name="code_snippet" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-sm outline-none font-mono" placeholder="Code..."></textarea>
-             <div class="file-drop-area relative flex flex-col items-center justify-center p-6 rounded-xl cursor-pointer">
-                <input type="file" name="attachment" id="fileUpload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                <i data-lucide="upload-cloud" class="w-8 h-8 text-slate-400 mb-2"></i>
-                <p class="text-xs text-slate-500 font-medium">Screenshot (Max 2MB)</p>
-                <p id="fileName" class="text-xs text-[#F97316] font-bold mt-2 hidden"></p>
-             </div>
-             <p id="fileError" class="text-xs text-red-500 hidden text-center font-bold">⚠️ File too big!</p>
-          </div>
-          <button type="submit" class="w-full bg-[#0F172A] hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2"><i data-lucide="send" class="w-4 h-4"></i> Send</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="mt-16 max-w-3xl mx-auto pb-24">
-      <div class="flex items-center gap-4 mb-8"><h3 class="font-bold text-2xl text-[#0F172A]">Discussion</h3><div class="h-px bg-slate-200 flex-1"></div></div>
-      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-10">
-        <form id="comment-form" class="flex flex-col gap-4">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <input type="text" id="comment-name" required placeholder="Name" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none md:col-span-1">
-            <input type="text" id="comment-msg" required placeholder="Message..." class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none md:col-span-2">
-          </div>
-          <button type="submit" class="bg-[#F97316] hover:bg-orange-600 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2"><i data-lucide="message-circle" class="w-4 h-4"></i> Post</button>
-        </form>
-      </div>
-      <div id="comments-list" class="space-y-4"></div>
-    </section>
   </main>
 
-  <script src="../js/main.js"></script>
-  <script type="module" src="../js/comments.js"></script>
-  <script>
-    const fileInput=document.getElementById('fileUpload'),fileName=document.getElementById('fileName'),fileError=document.getElementById('fileError');
-    fileInput.addEventListener('change',function(){if(this.files.length>0){if(this.files[0].size>2097152){fileError.classList.remove('hidden');fileName.classList.add('hidden');this.value=""}else{fileError.classList.add('hidden');fileName.textContent="Selected: "+this.files[0].name;fileName.classList.remove('hidden')}}});
-  </script>
+  <script src="../js/interactive.js"></script>
+  <script>if(window.lucide) lucide.createIcons();</script>
 </body>
 </html>

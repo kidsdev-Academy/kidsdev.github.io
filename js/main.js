@@ -1,88 +1,295 @@
-/* =========================================
-   MAIN JAVASCRIPT CONTROLLER
-   - Handles Global Footer
-   - Powers Search, Filtering & Animations
-   - Uses ABSOLUTE PATHS to fix Subfolder issues
-========================================== */
+/* ==========================================================================
+   KIDSDEV ACADEMY - MAIN CONTROLLER
+   --------------------------------------------------------------------------
+   - Handles Data Fetching (Daily, Courses, Challenges)
+   - Manages UI Rendering & Routing
+   - Controls Search & Mobile Menu
+========================================================================== */
 
 const UI = {
   data: [],
+  rootPath: '', 
 
   async init() {
+    this.calculateRootPath();
     this.cacheElements();
     this.setupMobileMenu(); 
-    this.initTypewriter();
-    
-    // 1. SETUP SEARCH (Powers the magnifying glass)
     this.setupSearch();
-    
-    // 2. RENDER GLOBAL FOOTER (Syncs across all pages)
-    this.renderFooter();
 
-    // 3. FETCH DATA (Loads JSON from the root /data/ folder)
+    // 1. FETCH DATA
     await this.fetchData();
     
-    // 4. ROUTER: Detect current page and render content
-
-    // A. HOME PAGE (index.html)
-    if (this.homeContainer) {
-        this.renderHomeGrid('all');
+    // 2. ROUTING & RENDERING
+    // Detect which page we are on and render accordingly
+    
+    // -> Home Page
+    if (this.homeDailyContainer || this.homeResourcesContainer) { 
+        this.renderHomeFeeds('all'); 
     }
 
-    // B. COURSES PAGE (courses.html)
-    if (this.coursesContainer) {
+    // -> Courses Page
+    if (this.coursesGrid) {
         const urlParams = new URLSearchParams(window.location.search);
         const category = urlParams.get('category') || 'all';
-        
-        // Set active button visual state
-        if(category !== 'all') {
-            const btn = document.querySelector(`button[onclick*="${category}"]`);
-            if(btn) this.filterPageButtons(btn);
-        }
-        this.filterPage(category);
+        this.updateFilterButtons(category); 
+        this.renderGrid(this.coursesGrid, 'course', category);
     }
 
-    // C. DAILY PAGE (daily.html)
-    if (this.dailyContainer) {
-        this.filterPage('all', document.querySelector('.category-pill.active'));
+    // -> Daily Tips Page
+    if (this.dailyGrid) {
+        this.renderGrid(this.dailyGrid, 'daily', 'all');
     }
 
-    // D. CHALLENGES PAGE (challenges.html)
-    if (this.challengesContainer) {
-        this.renderPageGrid('challenge', this.challengesContainer);
+    // -> Challenges Page
+    if (this.challengesGrid) {
+        this.renderGrid(this.challengesGrid, 'challenge', 'all');
     }
 
-    // E. NETWORKING FEED (For internal pages)
-    if (this.networkingContainer) {
-        this.renderTopicHub('Networking', this.networkingContainer);
-    }
-
-    // Initialize Icons & Animations
+    // 3. UI EFFECTS
     if (window.lucide) lucide.createIcons();
     this.setupScrollReveal();
     
-    // 5. EXPOSE FUNCTIONS GLOBALLY (For HTML onClick attributes)
+    // 4. GLOBAL EXPORTS (For HTML onclick events)
     window.filterHome = (type, btn) => this.filterHome(type, btn);
-    window.filterPage = (category, btn) => {
-        this.filterPageButtons(btn);
-        this.filterPage(category);
-    };
+    window.filterPage = (category, btn) => this.handlePageFilter(category, btn);
+  },
+
+  // --- PATH & DATA LOGIC ---
+  calculateRootPath() {
+      // Handles subfolder navigation if necessary
+      const path = window.location.pathname;
+      if (path.includes('/courses/') || path.includes('/posts/') || path.includes('/daily/') || path.includes('/challenges/')) {
+          const depth = path.split('/').filter(p => p.length > 0).length - 1; 
+          this.rootPath = '../'.repeat(depth) || './';
+      } else {
+          this.rootPath = ''; 
+      }
+  },
+
+  async fetchData() {
+    try {
+      const prefix = this.rootPath;
+      const files = ['data/daily.json', 'data/courses.json', 'data/challenges.json'];
+      
+      const responses = await Promise.allSettled(files.map(f => fetch(prefix + f)));
+      const unpack = async (res) => (res.status === 'fulfilled' && res.value.ok) ? await res.value.json() : [];
+
+      const dailyTips = await unpack(responses[0]);
+      const courses = await unpack(responses[1]);
+      const challenges = await unpack(responses[2]);
+
+      // Merge all data into one searchable array
+      this.data = [
+          ...(Array.isArray(dailyTips) ? dailyTips.map(p => ({...p, type: 'daily'})) : []), 
+          ...(Array.isArray(courses) ? courses.map(c => ({...c, type: 'course'})) : []), 
+          ...(Array.isArray(challenges) ? challenges.map(c => ({...c, type: 'challenge'})) : [])
+      ];
+
+      // Sort by ID (Newest First)
+      this.data.sort((a, b) => (b.id || 0) - (a.id || 0));
+
+    } catch (error) {
+      console.error("Error loading data:", error);
+      this.data = []; 
+    }
+  },
+
+  // --- HOME PAGE LOGIC ---
+  filterHome(filterType, btn) {
+      this.updateFilterButtons(null, btn);
+      this.renderHomeFeeds(filterType);
+  },
+
+  renderHomeFeeds(filterType) {
+    // 1. Daily Tech Feed (Google News Style)
+    if (this.homeDailyContainer) {
+        let items = this.data.filter(i => i.type === 'daily');
+        
+        if (filterType !== 'all') {
+           items = items.filter(item => 
+               (item.category && item.category.includes(filterType)) || 
+               item.type === filterType.toLowerCase()
+           );
+        }
+        
+        const displayItems = items.slice(0, 4); // Show max 4
+        
+        if (displayItems.length === 0) {
+            this.homeDailyContainer.innerHTML = this.getEmptyState("No updates found.");
+        } else {
+            // Render using the News Card style
+            this.homeDailyContainer.innerHTML = displayItems.map(item => this.createNewsCard(item)).join('');
+        }
+    }
+
+    // 2. Fresh Resources (Compact Style)
+    if (this.homeResourcesContainer) {
+        const resources = this.data.filter(i => i.type === 'course' || i.type === 'challenge');
+        const freshResources = resources.slice(0, 3); // Show max 3
+        
+        if (freshResources.length === 0) {
+            this.homeResourcesContainer.innerHTML = this.getEmptyState("Loading resources...");
+        } else {
+            this.homeResourcesContainer.innerHTML = freshResources.map(item => this.createProfessionalCard(item)).join('');
+        }
+    }
+    
+    this.refreshUI();
+  },
+
+  // --- INNER PAGES LOGIC ---
+  handlePageFilter(category, btn) {
+      this.updateFilterButtons(category, btn);
+      
+      if (this.coursesGrid) this.renderGrid(this.coursesGrid, 'course', category);
+      else if (this.dailyGrid) this.renderGrid(this.dailyGrid, 'daily', category);
+      else if (this.challengesGrid) this.renderGrid(this.challengesGrid, 'challenge', category);
+  },
+
+  renderGrid(container, type, category) {
+      if (!container) return;
+      
+      let items = this.data.filter(i => i.type === type);
+      
+      if (category && category !== 'all') {
+          items = items.filter(i => 
+              i.category && i.category.toLowerCase().includes(category.toLowerCase())
+          );
+      }
+
+      if (items.length === 0) {
+          container.innerHTML = this.getEmptyState("No content found.");
+      } else {
+          // Use appropriate card style based on page type
+          if(type === 'daily') {
+              container.innerHTML = items.map(item => this.createNewsCard(item)).join('');
+          } else {
+              container.innerHTML = items.map(item => this.createProfessionalCard(item)).join('');
+          }
+      }
+      this.refreshUI();
+  },
+
+  // --- CARD GENERATORS ---
+
+  // 1. News Style Card (For Daily Feed)
+  createNewsCard(item) {
+    const linkUrl = this.fixLink(item.url);
+    const imgUrl = this.fixLink(item.image) || 'https://placehold.co/600x400/f8fafc/94a3b8?text=KidsDev';
+    
+    // Logic for "Try It" vs "Read More"
+    const isChallenge = (item.category && item.category.includes("Challenge"));
+    const btnText = isChallenge ? "Try It" : "Read More";
+    const btnColor = isChallenge ? "text-purple-600 hover:text-purple-700" : "text-blue-600 hover:text-blue-700";
+
+    return `
+    <article class="feed-card group reveal-up">
+        <a href="${linkUrl}" class="feed-image-container">
+            <img src="${imgUrl}" alt="${item.title}" class="feed-image">
+            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#0F172A] text-[10px] font-bold px-2 py-1 rounded shadow-sm uppercase tracking-wide">
+                ${item.category || 'News'}
+            </span>
+        </a>
+        <div class="p-5 flex-1 flex flex-col">
+            <div class="flex items-center gap-2 mb-3">
+                <div class="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center text-[10px]">🚀</div>
+                <span class="text-[10px] font-bold text-slate-400 uppercase">KidsDev • ${item.date || 'Today'}</span>
+            </div>
+            <a href="${linkUrl}" class="text-lg font-bold text-[#0F172A] leading-tight mb-2 group-hover:text-[#F97316] transition cursor-pointer">
+                ${item.title}
+            </a>
+            <p class="text-slate-500 text-sm line-clamp-2 mb-4 flex-1">
+                ${item.desc}
+            </p>
+            <div class="mt-auto border-t border-slate-100 pt-4 flex items-center justify-between">
+                <div class="flex gap-3">
+                    <button class="text-slate-400 hover:text-red-500 transition flex items-center gap-1 text-xs font-bold"><i data-lucide="heart" class="w-4 h-4"></i></button>
+                    <button class="text-slate-400 hover:text-blue-500 transition flex items-center gap-1 text-xs font-bold"><i data-lucide="share-2" class="w-4 h-4"></i></button>
+                </div>
+                <a href="${linkUrl}" class="text-xs font-bold ${btnColor} flex items-center gap-1">
+                    ${btnText} <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </a>
+            </div>
+        </div>
+    </article>
+    `;
+  },
+
+  // 2. Professional Style Card (For Courses & Resources)
+  createProfessionalCard(item) {
+    const linkUrl = this.fixLink(item.url);
+    const imgUrl = this.fixLink(item.image) || 'https://placehold.co/600x400/0F172A/FFF?text=Course';
+
+    let badgeClass = "bg-slate-100 text-slate-600";
+    let btnText = "Start Now";
+    let btnColor = "text-[#F97316]";
+
+    if (item.level === 'Beginner') badgeClass = "bg-green-50 text-green-700";
+    if (item.level === 'Advanced') badgeClass = "bg-red-50 text-red-700";
+
+    return `
+      <article class="course-card group flex flex-col h-full reveal-up">
+        <div class="relative h-48 bg-slate-100 overflow-hidden">
+            <img src="${imgUrl}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="${item.title}">
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-xs font-bold px-3 py-1 rounded-full shadow-sm ${badgeClass}">
+                ${item.level || 'Course'}
+            </div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+            <div class="flex justify-between items-center mb-4 text-xs text-slate-400 font-bold uppercase tracking-wider">
+                <span>${item.category}</span>
+                <span>Module</span>
+            </div>
+            <h3 class="text-xl font-bold text-[#0F172A] mb-2 group-hover:text-[#F97316] transition">
+                ${item.title}
+            </h3>
+            <p class="text-slate-500 text-sm leading-relaxed line-clamp-2 flex-1 mb-4">${item.desc}</p>
+            <div class="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
+                <span class="text-xs font-bold text-slate-400">Join Class</span>
+                <a href="${linkUrl}" class="text-sm font-bold ${btnColor} flex items-center gap-1">
+                    ${btnText} <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+      </article>
+    `;
+  },
+
+  // --- HELPERS ---
+  fixLink(url) {
+      if (!url) return '#';
+      if (!url.startsWith('http') && !url.startsWith('/')) return this.rootPath + url;
+      return url;
+  },
+
+  getEmptyState(msg) {
+      return `<div class="col-span-full text-center py-20 text-slate-400"><p>${msg}</p></div>`;
+  },
+
+  updateFilterButtons(category, btn) {
+    // Updates styling for filter pills
+    if (btn) {
+        const container = btn.parentElement;
+        container.querySelectorAll('.filter-btn').forEach(b => {
+            b.classList.remove('active', 'bg-[#0F172A]', 'text-white');
+            b.classList.add('bg-white', 'text-slate-600');
+        });
+        btn.classList.remove('bg-white', 'text-slate-600');
+        btn.classList.add('active', 'bg-[#0F172A]', 'text-white');
+    }
   },
 
   cacheElements() {
-    // Navigation
     this.menuBtn = document.getElementById("menuBtn");
     this.mobileMenu = document.getElementById("mobileMenu");
     
-    // Grids & Containers
-    this.homeContainer = document.getElementById("home-content");
-    this.coursesContainer = document.getElementById("courses-grid");
-    this.dailyContainer = document.getElementById("daily-grid");
-    this.challengesContainer = document.getElementById("challenges-grid");
-    this.networkingContainer = document.getElementById("networking-feed");
-    this.viewAllContainer = document.getElementById("view-all-container");
+    this.homeDailyContainer = document.getElementById("home-daily-feed");
+    this.homeResourcesContainer = document.getElementById("home-resources-feed");
     
-    // Search Elements
+    this.coursesGrid = document.getElementById("courses-grid");
+    this.dailyGrid = document.getElementById("daily-grid");
+    this.challengesGrid = document.getElementById("challenges-grid");
+    
     this.searchBtn = document.getElementById("searchBtn");
     this.searchModal = document.getElementById("searchModal");
     this.closeSearch = document.getElementById("closeSearch");
@@ -90,417 +297,47 @@ const UI = {
     this.searchResults = document.getElementById("searchResults");
   },
 
-  /* ------------------------------------------------
-     GLOBAL FOOTER RENDERER (Absolute Paths)
-  ------------------------------------------------ */
-  renderFooter() {
-      const footer = document.getElementById('main-footer');
-      if (!footer) return;
-
-      // Ensure footer styles match the theme
-      footer.className = "bg-[#0b1021] text-white pt-16 pb-8 border-t border-slate-800 font-[Poppins] mt-auto";
-
-      footer.innerHTML = `
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="grid md:grid-cols-4 gap-12 mb-12">
-            
-            <div class="col-span-1 md:col-span-2 space-y-4">
-              <a href="/index.html" class="flex items-center gap-2 group">
-                 <img src="/image/logo.png" class="h-8 w-auto object-contain transition transform group-hover:scale-105" onerror="this.style.display='none'"> 
-                 <span class="font-extrabold text-2xl tracking-tighter">Kids<span class="text-[#F97316]">Dev</span></span>
-              </a>
-              <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
-                Empowering the next generation of innovators with free coding education.
-              </p>
-            </div>
-
-            <div>
-              <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Support</h3>
-              <ul class="space-y-4 text-sm text-slate-400">
-                <li><a href="/contact.html" class="hover:text-white transition">Contact Us</a></li>
-                <li><a href="/privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
-                <li><a href="/about.html" class="hover:text-white transition">About Us</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Follow Us</h3>
-              <div class="flex gap-5">
-                <a href="#" class="text-slate-400 hover:text-white transition transform hover:scale-110"><i data-lucide="github" class="w-5 h-5"></i></a>
-                <a href="#" class="text-slate-400 hover:text-pink-500 transition transform hover:scale-110"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                <a href="#" class="text-slate-400 hover:text-blue-500 transition transform hover:scale-110"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-right">
-            <div class="hidden md:block"></div>
-            <p class="text-slate-500 text-sm">
-              Made with <span class="text-red-500 animate-pulse">❤️</span> by <span class="text-white font-bold">Tola Agbeyangi</span>
-            </p>
-          </div>
-        </div>
-      `;
-  },
-
-  /* ------------------------------------------------
-     SEARCH FUNCTIONALITY
-  ------------------------------------------------ */
   setupSearch() {
       if (!this.searchBtn || !this.searchModal) return;
+      const toggle = (show) => {
+          this.searchModal.classList.toggle('hidden', !show);
+          if(show) setTimeout(() => this.searchInput.focus(), 100);
+      };
+      this.searchBtn.addEventListener('click', (e) => { e.preventDefault(); toggle(true); });
+      if(this.closeSearch) this.closeSearch.addEventListener('click', () => toggle(false));
+      this.searchModal.addEventListener('click', (e) => { if (e.target === this.searchModal) toggle(false); });
 
-      // Open Modal
-      this.searchBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          this.searchModal.classList.remove('hidden');
-          setTimeout(() => this.searchInput.focus(), 100);
-      });
-
-      // Close Modal (Button)
-      if(this.closeSearch) {
-          this.closeSearch.addEventListener('click', () => this.searchModal.classList.add('hidden'));
-      }
-
-      // Close Modal (Click Outside)
-      this.searchModal.addEventListener('click', (e) => {
-          if (e.target === this.searchModal) this.searchModal.classList.add('hidden');
-      });
-
-      // Type to Search
       if(this.searchInput) {
           this.searchInput.addEventListener('input', (e) => {
-              const query = e.target.value.toLowerCase();
-              
-              if (query.length < 2) {
-                  this.searchResults.innerHTML = '<div class="text-center text-slate-400 py-10">Start typing to search...</div>';
-                  return;
-              }
-
-              const results = this.data.filter(item => 
-                  (item.title && item.title.toLowerCase().includes(query)) ||
-                  (item.desc && item.desc.toLowerCase().includes(query)) ||
-                  (item.category && item.category.toLowerCase().includes(query))
-              );
-
-              this.renderSearchResults(results);
+              const q = e.target.value.toLowerCase();
+              if (q.length < 2) return (this.searchResults.innerHTML = '<div class="text-center text-slate-400 py-10">Start typing...</div>');
+              const res = this.data.filter(i => (i.title+i.desc+i.category).toLowerCase().includes(q));
+              this.searchResults.innerHTML = res.length ? res.map(i => `
+                <a href="${this.fixLink(i.url)}" class="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-xl transition group">
+                    <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 shrink-0 group-hover:bg-[#0F172A] group-hover:text-white transition"><i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                    <div><h4 class="font-bold text-sm text-[#0F172A] group-hover:text-blue-600 line-clamp-1">${i.title}</h4><span class="text-xs text-slate-500 uppercase font-bold">${i.category || i.type}</span></div>
+                </a>`).join('') : '<div class="text-center text-slate-400 py-10">No results found.</div>';
+              if (window.lucide) lucide.createIcons();
           });
       }
-  },
-
-  renderSearchResults(results) {
-      if (results.length === 0) {
-          this.searchResults.innerHTML = '<div class="text-center text-slate-400 py-10">No results found.</div>';
-          return;
-      }
-      
-      this.searchResults.innerHTML = results.map(item => {
-          // Normalize Path
-          const url = item.url.startsWith('/') ? item.url : '/' + item.url;
-          const img = item.image.startsWith('http') ? item.image : '/' + item.image;
-
-          return `
-            <a href="${url}" class="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-xl transition border border-transparent hover:border-slate-100 group">
-                <div class="w-12 h-12 rounded-lg bg-slate-100 overflow-hidden shrink-0">
-                    <img src="${img}" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h4 class="font-bold text-sm text-[#0F172A] group-hover:text-[#F97316]">${item.title}</h4>
-                    <span class="text-xs text-slate-500 uppercase font-bold bg-slate-100 px-2 py-0.5 rounded">${item.category || item.type}</span>
-                </div>
-                <i data-lucide="arrow-right" class="w-4 h-4 text-slate-300 ml-auto group-hover:text-[#F97316]"></i>
-            </a>
-          `;
-      }).join('');
-      
-      if (window.lucide) lucide.createIcons();
-  },
-
-  /* ------------------------------------------------
-     DATA FETCHING (Absolute Paths)
-  ------------------------------------------------ */
-  async fetchData() {
-    try {
-      // Use "/" to force loading from root domain
-      const paths = [
-        '/data/posts.json', 
-        '/data/courses.json', 
-        '/data/challenges.json', 
-        '/data/daily.json', 
-        '/data/networking.json'
-      ];
-      
-      const responses = await Promise.allSettled(paths.map(p => fetch(p)));
-
-      const unpack = async (res) => (res.status === 'fulfilled' && res.value.ok) ? await res.value.json() : [];
-
-      const posts = await unpack(responses[0]);
-      const courses = await unpack(responses[1]);
-      const challenges = await unpack(responses[2]);
-      const daily = await unpack(responses[3]);
-      let networking = await unpack(responses[4]);
-
-      // NORMALIZE NETWORKING
-      const netCourses = networking.map(item => ({ 
-          ...item, 
-          type: 'networking-course',
-          category: 'Networking',
-          // Ensure URL is absolute
-          url: item.url.startsWith('/') ? item.url : '/' + item.url 
-      }));
-
-      // MERGE EVERYTHING
-      this.data = [...(Array.isArray(posts)?posts:[posts]), ...courses, ...challenges, ...daily, ...netCourses];
-
-    } catch (error) {
-      console.error("Error loading data:", error);
-    }
-  },
-
-  /* ------------------------------------------------
-     HOME PAGE GRID
-  ------------------------------------------------ */
-  filterHome(filterType, btn) {
-      if(btn) {
-          document.querySelectorAll('.filter-btn').forEach(b => {
-             b.classList.remove('active', 'bg-[#0F172A]', 'text-white');
-             b.classList.add('bg-white', 'text-slate-600');
-          });
-          btn.classList.remove('bg-white', 'text-slate-600');
-          btn.classList.add('active', 'bg-[#0F172A]', 'text-white');
-      }
-      this.renderHomeGrid(filterType);
-  },
-
-  renderHomeGrid(filterType) {
-    if (!this.homeContainer) return;
-    
-    // Sort Newest
-    let items = [...this.data].sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    // Filter
-    if (filterType !== 'all') {
-      if (filterType === 'course') {
-         items = items.filter(item => item.type === 'course' || item.type === 'networking-course');
-      } else {
-         items = items.filter(item => item.type === filterType);
-      }
-    }
-
-    const displayItems = items.slice(0, 6); 
-    this.homeContainer.innerHTML = displayItems.map(item => this.createCard(item)).join('');
-    this.updateViewAllButton(filterType);
-    if (window.lucide) lucide.createIcons();
-    this.refreshAnimations();
-  },
-
-  /* ------------------------------------------------
-     COURSES / DAILY PAGE LOGIC
-  ------------------------------------------------ */
-  filterPage(category) {
-    // 1. COURSES PAGE
-    if (this.coursesContainer) {
-        let items = this.data.filter(item => 
-            item.type === 'course' || 
-            item.type === 'networking-course' || 
-            item.type === 'post'
-        );
-        
-        if (category !== 'all') {
-            const target = category.toLowerCase();
-            items = items.filter(item => {
-                const itemCat = (item.category || "").toLowerCase();
-                
-                // Smart Matching
-                if (target === 'programming') {
-                    return itemCat.includes('programming') || itemCat.includes('python') || itemCat.includes('logic') || itemCat.includes('code');
-                }
-                if (target === 'web dev') {
-                    return itemCat.includes('web') || itemCat.includes('html');
-                }
-                if (target === 'networking') {
-                     return itemCat.includes('network') || itemCat.includes('cyber') || item.type === 'networking-course';
-                }
-                return itemCat.includes(target);
-            });
-        }
-        this.renderGridItems(items, this.coursesContainer);
-    }
-
-    // 2. DAILY PAGE
-    if (this.dailyContainer) {
-        let items = this.data.filter(item => item.type === 'daily');
-        if (category !== 'all') {
-            items = items.filter(item => item.category && item.category.toLowerCase().includes(category.toLowerCase()));
-        }
-        this.renderGridItems(items, this.dailyContainer);
-    }
-  },
-
-  filterPageButtons(btn) {
-    if(!btn) return;
-    document.querySelectorAll('.category-pill, .filter-btn').forEach(b => {
-        b.classList.remove('active', 'bg-[#0F172A]', 'text-white');
-        b.classList.add('bg-white', 'text-slate-600');
-    });
-    btn.classList.remove('bg-white', 'text-slate-600');
-    btn.classList.add('active', 'bg-[#0F172A]', 'text-white');
-  },
-
-  renderGridItems(items, container) {
-    if (!container) return;
-    if (items.length === 0) {
-      container.innerHTML = `<div class="col-span-full text-center py-20 text-slate-400">Loading content...</div>`;
-    } else {
-      container.innerHTML = items.map(item => this.createCard(item)).join('');
-    }
-    if (window.lucide) lucide.createIcons();
-    this.refreshAnimations();
-  },
-  
-  renderPageGrid(filterType, container) {
-    let items = this.data.filter(item => item.type === filterType);
-    items.sort((a, b) => new Date(b.date) - new Date(a.date));
-    this.renderGridItems(items, container);
-  },
-
-  renderTopicHub(topic, container) {
-      let items = this.data.filter(item => 
-          (item.category && item.category.toLowerCase().includes(topic.toLowerCase())) ||
-          (topic === 'Networking' && item.type === 'networking-course')
-      );
-      items.sort((a, b) => new Date(b.date) - new Date(a.date));
-      this.renderGridItems(items, container);
-  },
-
-  /* ------------------------------------------------
-     CARD GENERATOR (Normalize Paths)
-  ------------------------------------------------ */
-  createCard(item) {
-    let badgeClass = "bg-slate-100 text-slate-600";
-    let icon = "file-text";
-    let btnText = "Read";
-    
-    // NORMALIZE PATHS (Crucial Fix)
-    const linkUrl = item.url.startsWith('/') ? item.url : '/' + item.url;
-    const imgUrl = item.image.startsWith('http') ? item.image : '/' + item.image;
-    
-    let topicsHtml = ""; 
-
-    if (item.type === 'course') {
-        badgeClass = item.colorClass ? `bg-opacity-10 ${item.colorClass.replace('text-', 'bg-')} ${item.colorClass}` : "bg-blue-50 text-blue-600";
-        if(item.category === 'Web Dev') icon="globe";
-        if(item.category === 'Programming') icon="code";
-        if(item.category === 'Logic') icon="cpu";
-        if(item.category === 'Networking') icon="network";
-
-        btnText = "View Course";
-        
-        if (item.topics && Array.isArray(item.topics)) {
-            topicsHtml = `<div class="flex flex-wrap gap-2 mb-4">
-                ${item.topics.map(t => `<span class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-slate-100 text-slate-500 border border-slate-200">${t}</span>`).join('')}
-            </div>`;
-        }
-    }
-    else if (item.type === 'networking-course') {
-        badgeClass = "bg-purple-100 text-purple-600";
-        icon = "shield";
-        btnText = "Start Lesson";
-    }
-    else if (item.type === 'post') {
-        badgeClass = "bg-orange-50 text-orange-600 border-orange-100";
-        icon = "zap";
-        btnText = "Read Tutorial";
-    }
-    else if (item.type === 'daily') {
-        badgeClass = "bg-green-50 text-green-600 border-green-100";
-        icon = "coffee";
-        btnText = "Read Tip";
-    }
-    else if (item.type === 'challenge') {
-        badgeClass = "bg-purple-50 text-purple-600 border-purple-100";
-        icon = "trophy";
-        btnText = "Accept Challenge";
-    }
-
-    const dateStr = item.date ? new Date(item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : "";
-
-    return `
-      <a href="${linkUrl}" class="dynamic-card bg-white rounded-2xl overflow-hidden border border-slate-200 block h-full reveal-up group flex flex-col hover:border-slate-300 transition-all shadow-sm hover:shadow-lg">
-        <div class="h-48 relative overflow-hidden bg-slate-50 shrink-0">
-          <img src="${imgUrl}" alt="${item.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
-          
-          <div class="absolute top-3 left-3 px-3 py-1 rounded-lg text-xs font-bold uppercase border ${badgeClass} shadow-sm flex items-center gap-1 bg-white/95 backdrop-blur-sm">
-            <i data-lucide="${icon}" class="w-3 h-3"></i> ${item.category || item.type}
-          </div>
-          
-          ${item.level ? `<div class="absolute bottom-3 right-3 px-2 py-1 rounded bg-black/60 text-white text-[10px] font-bold backdrop-blur-md border border-white/20">${item.level}</div>` : ''}
-        </div>
-        
-        <div class="p-6 flex flex-col flex-1">
-          <h3 class="text-xl font-bold text-[#0F172A] mb-2 group-hover:text-[#F97316] transition line-clamp-1">${item.title}</h3>
-          
-          <p class="text-slate-500 text-sm line-clamp-2 leading-relaxed mb-4">${item.desc}</p>
-          
-          ${topicsHtml}
-
-          <div class="flex items-center justify-between border-t border-slate-100 pt-4 mt-auto">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide flex items-center gap-1">${dateStr ? `<i data-lucide="calendar" class="w-3 h-3"></i> ${dateStr}` : ''}</span>
-            <span class="text-[#F97316] text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition">${btnText} <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
-          </div>
-        </div>
-      </a>
-    `;
-  },
-  
-  /* ------------------------------------------------
-     UI HELPERS
-  ------------------------------------------------ */
-  updateViewAllButton(type) {
-    if(!this.viewAllContainer) return;
-    let text = "View All Content", url = "/courses.html";
-    
-    if (type === 'course') { text = "View All Courses"; url = "/courses.html"; }
-    else if (type === 'daily') { text = "View All Tips"; url = "/daily.html"; }
-    else if (type === 'challenge') { text = "View All Challenges"; url = "/challenges.html"; }
-    
-    this.viewAllContainer.innerHTML = `<a href="${url}" class="inline-flex items-center gap-2 bg-white border border-slate-300 hover:border-[#F97316] hover:text-[#F97316] text-[#0F172A] px-8 py-3 rounded-full font-bold transition shadow-sm">${text} <i data-lucide="arrow-right" class="w-4 h-4"></i></a>`;
-    if (window.lucide) lucide.createIcons();
   },
 
   setupMobileMenu() {
-    if (!this.menuBtn || !this.mobileMenu) return;
-    this.menuBtn.addEventListener("click", () => this.mobileMenu.classList.toggle("hidden"));
-  },
-
-  initTypewriter() {
-    const el = document.getElementById('typewriter-text');
-    if (!el) return;
-    const words = ["Potential", "Creativity", "Future"];
-    let i = 0, j = 0, isDeleting = false;
-    const type = () => {
-      const word = words[i];
-      if (isDeleting) {
-        el.innerText = word.substring(0, j - 1); j--;
-        if (j === 0) { isDeleting = false; i = (i + 1) % words.length; }
-      } else {
-        el.innerText = word.substring(0, j + 1); j++;
-        if (j === word.length) { isDeleting = true; setTimeout(type, 2000); return; }
-      }
-      setTimeout(type, isDeleting ? 50 : 100);
-    };
-    type();
+    if (this.menuBtn) this.menuBtn.addEventListener("click", () => this.mobileMenu.classList.toggle("hidden"));
   },
 
   setupScrollReveal() {
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }});
+      entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('active'); observer.unobserve(e.target); }});
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
   },
 
-  refreshAnimations() {
-    setTimeout(() => { document.querySelectorAll(".reveal-up:not(.active)").forEach(el => el.classList.add('active')); }, 50);
+  refreshUI() {
+    if (window.lucide) lucide.createIcons();
+    setTimeout(() => document.querySelectorAll(".reveal-up:not(.active)").forEach(el => el.classList.add('active')), 50);
   }
 };
 
+// Start App
 document.addEventListener("DOMContentLoaded", () => { UI.init(); });

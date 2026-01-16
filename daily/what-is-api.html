@@ -3,47 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>What is an API? | KidsDev Daily</title>
-  <meta name="description" content="Think of an API like a waiter in a restaurant. The simplest explanation of how apps talk to each other.">
-  
-  <meta property="og:title" content="APIs Explained for Kids 🍔">
-  <meta property="og:image" content="../image/social-preview.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');</script>
 
+  <title>What is an API? | KidsDev Tech Group</title>
+  <meta property="og:title" content="APIs Explained for Kids 🍔">
+  <meta property="og:image" content="../image/logo.png">
   <link rel="icon" type="image/png" href="../image/logo.png">
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../css/style.css">
-  
+
   <style>
-    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
-    #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
-    @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    .bg-grid-pattern { background-size: 60px 60px; background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px); }
   </style>
 </head>
-<body class="bg-white text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
 
-  <header class="pro-header sticky top-0 z-[100]">
-    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-      <a href="../index.html" class="flex items-center gap-2"><img src="../image/logo.png" class="h-10"> <span class="font-bold text-xl">KidsDev</span></a>
-      <button id="searchBtn"><i data-lucide="search"></i></button>
+<body class="selection:bg-green-500 selection:text-white pb-20">
+
+  <main class="relative max-w-3xl mx-auto px-6 pt-16">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 -z-10 pointer-events-none"></div>
+
+    <div class="flex items-center justify-between mb-8">
+      <a href="../daily.html" class="inline-flex items-center text-slate-500 hover:text-green-600 font-bold transition text-sm group">
+          <i data-lucide="arrow-left" class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition"></i> Back to Tips
+      </a>
+      <span class="inline-block px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase">Core Concept</span>
     </div>
-  </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-12">
-    <a href="../daily.html" class="inline-flex items-center text-slate-400 hover:text-[#F97316] text-sm font-bold mb-6"><i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back</a>
-    
-    <h1 class="text-4xl font-extrabold mb-6">What exactly is an <span class="text-green-500">API</span>?</h1>
-    
-    <div class="prose prose-lg text-slate-600">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-6 leading-tight">
+      What exactly is an <span class="text-green-500">API</span>?
+    </h1>
+
+    <div class="prose prose-lg max-w-none text-slate-600 leading-relaxed">
       <p>API stands for <strong>Application Programming Interface</strong>. That sounds boring, right? Let's use an analogy.</p>
       
-      <h3 class="font-bold text-[#0F172A] text-2xl mt-8">The Restaurant Analogy</h3>
-      <p>Imagine you are at a restaurant. You are the <strong>User</strong>. The kitchen is the <strong>Server</strong> (System).</p>
+      <h3 class="font-bold text-[#0F172A] text-2xl mt-10 mb-4">The Restaurant Analogy</h3>
+      <p>Imagine you are at a restaurant. You are the <strong>User</strong>. The kitchen is the <strong>Server</strong> (Database).</p>
       
-      
+      <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 my-8 flex flex-col md:flex-row items-center gap-8">
+          <div class="text-center">
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 text-3xl">😋</div>
+              <p class="font-bold text-xs uppercase tracking-widest text-slate-400">You</p>
+          </div>
+          <div class="flex-1 border-t-2 border-dashed border-slate-300 relative h-0">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-2 text-xs font-bold text-slate-400">ORDER</div>
+          </div>
+          <div class="text-center">
+              <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold shadow-lg">API</div>
+              <p class="font-bold text-xs uppercase tracking-widest text-green-600">Waiter</p>
+          </div>
+          <div class="flex-1 border-t-2 border-dashed border-slate-300 relative h-0">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-2 text-xs font-bold text-slate-400">FOOD</div>
+          </div>
+          <div class="text-center">
+              <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2 text-3xl">👨‍🍳</div>
+              <p class="font-bold text-xs uppercase tracking-widest text-slate-400">Kitchen</p>
+          </div>
+      </div>
 
-      <ul class="list-disc pl-5 space-y-2 my-6">
+      <ul class="list-disc pl-5 space-y-2 mb-6">
         <li>You cannot go into the kitchen and cook yourself (Security risk!).</li>
         <li>You need a messenger to take your order and bring the food.</li>
         <li>That messenger is the <strong>Waiter</strong>. The Waiter is the <strong>API</strong>.</li>
@@ -53,8 +75,8 @@
     </div>
   </main>
 
-  <footer id="main-footer"></footer>
-  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden flex items-center justify-center"><div class="bg-white p-4 rounded">Search...</div></div>
+  <footer id="main-footer" class="mt-24"></footer>
   <script src="../js/main.js"></script>
+  <script>if(window.lucide) lucide.createIcons();</script>
 </body>
 </html>

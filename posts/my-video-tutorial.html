@@ -4,17 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <title>How to Build a Discord Bot (Python) | KidsDev Tutorial</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <title>Build a Discord Bot (Python) | KidsDev Tech Group</title>
   <meta name="description" content="Watch this step-by-step video tutorial on building your first Discord Bot using Python. Learn API basics and async programming.">
-  <meta name="keywords" content="discord bot python, python tutorial for kids, coding video tutorial, learn discord.py, kidsdev academy">
-  <meta name="author" content="Tolani Agbeyangi">
+  <meta name="keywords" content="discord bot python, python tutorial, coding video tutorial, kidsdev academy">
+  <meta name="author" content="KidsDev Tech Group">
   <meta name="robots" content="index, follow">
   
   <meta property="og:title" content="Build a Discord Bot in 10 Minutes 🤖">
-  <meta property="og:description" content="Watch our latest Python tutorial. Perfect for beginners.">
-  <meta property="og:image" content="../image/social-preview.png">
+  <meta property="og:image" content="../image/logo.png">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://thekidsdev.netlify.app/posts/my-video-tutorial.html">
 
   <link rel="icon" type="image/png" href="../image/logo.png">
 
@@ -25,166 +31,105 @@
   <link rel="stylesheet" href="../css/style.css">
   
   <style>
-    /* Professional Header */
-    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
-    
-    /* Code Blocks */
-    .code-window { background: #1E293B; border-radius: 12px; overflow: hidden; font-family: 'Fira Code', monospace; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3); margin: 2rem 0; }
-    .code-header { background: #0F172A; padding: 10px 16px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid #334155; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .code-body { padding: 20px; color: #E2E8F0; overflow-x: auto; font-size: 0.9rem; line-height: 1.6; }
-    
-    /* Animations */
-    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    .bg-grid-pattern { background-size: 60px 60px; background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px); }
+    .pro-header { background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226, 232, 240, 0.7); }
+    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
     .reveal-up.active { opacity: 1; transform: translateY(0); }
-    
-    /* Dropdown */
-    .group:hover .group-hover\:block { display: block; animation: fadeIn 0.2s ease-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px) translateX(-50%); } to { opacity: 1; transform: translateY(0) translateX(-50%); } }
-    #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
-    @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Code Window */
+    .code-window { background: #1E293B; border-radius: 12px; overflow: hidden; font-family: 'Fira Code', monospace; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3); margin: 2rem 0; border: 1px solid #334155; }
+    .code-header { background: #0F172A; padding: 12px 16px; display: flex; gap: 8px; align-items: center; border-bottom: 1px solid #334155; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .code-body { padding: 24px; color: #E2E8F0; overflow-x: auto; font-size: 0.9rem; line-height: 1.7; }
   </style>
 </head>
 
-<body class="bg-slate-50 text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+<body class="selection:bg-[#0F172A] selection:text-white">
 
   <header class="pro-header sticky top-0 z-[100]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
       <div class="flex items-center gap-4">
         <a href="../index.html" class="flex items-center gap-2 cursor-pointer group">
-          <img src="../image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
+          <img src="../image/logo.png" alt="KidsDev Logo" class="h-9 w-auto object-contain">
           <div class="flex flex-col leading-none">
             <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
-            <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
+            <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Tech Group</span>
           </div>
         </a>
-        <button id="searchBtn" class="p-2 text-slate-400 hover:text-[#F97316] hover:bg-orange-50 rounded-full transition ml-2 border border-transparent hover:border-orange-100 group">
-             <i data-lucide="search" class="w-5 h-5 group-hover:scale-110 transition"></i>
-        </button>
       </div>
-
-      <div class="flex items-center gap-6">
-        <nav class="hidden md:flex gap-6 font-medium text-sm text-slate-600 items-center h-full">
+      <div class="flex items-center gap-8">
+        <nav class="hidden md:flex gap-8 font-medium text-sm text-slate-600 items-center">
           <a href="../index.html" class="hover:text-[#F97316] transition">Home</a>
-          
-          <div class="relative group h-full flex items-center">
-            <a href="../courses.html" class="hover:text-[#F97316] flex items-center gap-1 cursor-pointer py-6">
-              Courses <i data-lucide="chevron-down" class="w-3 h-3"></i>
-            </a>
-            <div class="absolute top-[80%] left-1/2 -translate-x-1/2 w-60 bg-white border border-slate-100 shadow-xl rounded-2xl p-2 hidden group-hover:block transition-all z-50">
-              <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-t border-l border-slate-100 transform rotate-45"></div>
-              <div class="relative bg-white rounded-xl overflow-hidden">
-                <a href="../courses.html?category=Programming" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="code" class="w-4 h-4 text-yellow-500"></i> Coding</a>
-                <a href="../courses.html?category=Web Dev" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="globe" class="w-4 h-4 text-blue-500"></i> Web Dev</a>
-                <a href="../courses.html?category=Networking" class="flex items-center gap-3 px-4 py-3 text-sm text-slate-600 hover:bg-orange-50 hover:text-[#F97316] transition rounded-lg"><i data-lucide="network" class="w-4 h-4 text-purple-500"></i> Networking</a>
-              </div>
-            </div>
-          </div>
-
-          <a href="../daily.html" class="text-[#F97316] font-bold">Daily</a>
+          <a href="../daily.html" class="text-[#F97316] font-bold">Daily Tips</a>
           <a href="../challenges.html" class="hover:text-[#F97316] transition">Challenges</a>
         </nav>
-        
-        <div class="hidden md:flex items-center gap-3 pl-6 border-l border-slate-200" id="authArea">
-           <a href="../login.html" class="text-sm font-bold hover:text-black">Log In</a>
-           <a href="../register.html" class="bg-[#F97316] hover:bg-orange-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md transition">Sign Up</a>
+        <div class="hidden md:flex pl-8 border-l border-slate-200">
+           <a href="../contact.html" class="bg-[#0F172A] hover:bg-slate-800 text-white px-6 py-2.5 rounded-full text-xs font-bold shadow-lg transition">Join Community</a>
         </div>
-        
-        <button id="menuBtn" class="md:hidden p-2"><i data-lucide="menu"></i></button>
       </div>
-    </div>
-    
-    <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white border-b shadow-lg p-4 space-y-3 z-50">
-       <a href="../index.html" class="block py-2 text-slate-600">Home</a>
-       <a href="../courses.html" class="block py-2 text-slate-600">Courses</a>
-       <a href="../daily.html" class="block py-2 font-bold text-[#F97316]">Daily</a>
-       <div class="pt-3 border-t grid grid-cols-2 gap-3">
-         <a href="../login.html" class="text-center py-2 border rounded-lg font-bold">Log In</a>
-         <a href="../register.html" class="text-center py-2 bg-[#F97316] text-white rounded-lg font-bold">Sign Up</a>
-       </div>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 pb-24">
+  <main class="relative max-w-4xl mx-auto px-4 sm:px-6 pt-16 pb-24 overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 -z-10"></div>
     
-    <a href="../daily.html" class="inline-flex items-center text-slate-400 hover:text-[#F97316] mb-6 transition text-sm font-bold">
-      <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Daily Tips
+    <a href="../daily.html" class="inline-flex items-center text-slate-400 hover:text-[#F97316] mb-8 transition text-xs font-bold uppercase tracking-wider">
+      <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Feed
     </a>
 
-    <h1 class="text-3xl md:text-5xl font-extrabold text-[#0F172A] mb-6 reveal-up">
+    <h1 class="text-3xl md:text-5xl font-extrabold text-[#0F172A] mb-8 reveal-up leading-tight">
       How to Build a <span class="text-[#F97316]">Discord Bot</span>
     </h1>
 
-    <div class="relative w-full overflow-hidden rounded-2xl border border-slate-200 shadow-2xl bg-black mb-12 reveal-up" style="padding-top: 56.25%;">
+    <div class="relative w-full overflow-hidden rounded-2xl border border-slate-200 shadow-2xl bg-black mb-12 reveal-up group" style="padding-top: 56.25%;">
       <iframe class="absolute top-0 left-0 bottom-0 right-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 
     <div class="prose prose-lg max-w-none text-slate-600 leading-relaxed reveal-up">
       <p class="text-xl text-slate-500 font-medium mb-8">In this video, we explore how to connect Python to the Discord API. By the end, you'll have a bot that replies to your messages!</p>
 
-      
-
       <h2 class="text-[#0F172A] font-bold text-2xl mt-12 mb-4">1. Setting up the Environment</h2>
-      <p>First, you need to install the library. Open your terminal (Command Prompt) and type:</p>
+      <p>First, install the library using your terminal:</p>
       
       <div class="code-window">
         <div class="code-header">
           <div class="dot bg-red-500"></div><div class="dot bg-yellow-500"></div><div class="dot bg-green-500"></div>
-          <span class="text-xs text-slate-400 ml-2">Terminal</span>
+          <span class="text-xs text-slate-400 ml-2 font-mono">Terminal</span>
         </div>
-        <div class="code-body text-[#F97316]">
-          pip install discord.py
-        </div>
+        <div class="code-body text-[#F97316]">pip install discord.py</div>
       </div>
 
-      <h2 class="text-[#0F172A] font-bold text-2xl mt-12 mb-4">2. Writing the Code</h2>
-      <p>Here is the basic code structure we used in the video. Copy this into your <code>main.py</code> file.</p>
+      <h2 class="text-[#0F172A] font-bold text-2xl mt-12 mb-4">2. The Code</h2>
+      <p>Copy this into your <code>main.py</code> file:</p>
       
       <div class="code-window">
         <div class="code-header">
           <div class="dot bg-red-500"></div><div class="dot bg-yellow-500"></div><div class="dot bg-green-500"></div>
-          <span class="text-xs text-slate-400 ml-2">main.py</span>
+          <span class="text-xs text-slate-400 ml-2 font-mono">main.py</span>
         </div>
         <div class="code-body">
           <span class="text-purple-400">import</span> discord<br><br>
           client = discord.Client()<br><br>
           <span class="text-purple-400">@client.event</span><br>
           <span class="text-blue-400">async def</span> <span class="text-yellow-400">on_ready</span>():<br>
-          &nbsp;&nbsp;<span class="text-blue-400">print</span>(f<span class="text-green-400">'We have logged in as {client.user}'</span>)<br><br>
+          &nbsp;&nbsp;<span class="text-blue-400">print</span>(f<span class="text-green-400">'Logged in as {client.user}'</span>)<br><br>
           client.run(<span class="text-green-400">'YOUR_TOKEN_HERE'</span>)
         </div>
       </div>
 
-      <div class="mt-12 p-6 bg-yellow-50 rounded-xl border-l-4 border-yellow-400 flex gap-4">
+      <div class="mt-12 p-6 bg-yellow-50 rounded-xl border border-yellow-100 flex gap-4 shadow-sm">
         <i data-lucide="alert-triangle" class="w-6 h-6 text-yellow-600 shrink-0"></i>
         <div>
           <h4 class="text-[#0F172A] font-bold mb-1">Security Warning</h4>
-          <p class="text-sm text-slate-600">Never share your bot token with anyone! If you accidentally show it in a video, regenerate it immediately on the Discord Developer Portal.</p>
+          <p class="text-sm text-slate-600">Never share your bot token! If leaked, regenerate it immediately.</p>
         </div>
       </div>
     </div>
   </main>
 
   <footer id="main-footer"></footer>
-
-  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4">
-      <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden reveal-up active">
-          <div class="p-4 border-b border-slate-100 flex items-center gap-4">
-              <i data-lucide="search" class="text-slate-400"></i>
-              <input type="text" id="searchInput" placeholder="Search courses, tips, challenges..." class="flex-1 outline-none text-lg font-bold text-[#0F172A] placeholder:text-slate-300">
-              <button id="closeSearch" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
-          </div>
-          <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
-               <div class="text-center text-slate-400 py-10">Start typing to search...</div>
-          </div>
-      </div>
-  </div>
-
-  <script src="../js/auth.js"></script>
   <script src="../js/main.js"></script>
-  
-  <script>
-    if(window.lucide) lucide.createIcons();
-  </script>
+  <script>if(window.lucide) lucide.createIcons();</script>
 </body>
 </html>

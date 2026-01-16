@@ -1,5 +1,38 @@
 [
   {
+    "id": 310,
+    "type": "daily",
+    "title": "The FizzBuzz Test",
+    "desc": "Print numbers 1 to 100. Multiples of 3 = 'Fizz', 5 = 'Buzz'. Can you solve this classic interview question?",
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80",
+    "category": "Challenge",
+    "url": "posts/fizzbuzz.html",
+    "date": "2026-02-23",
+    "colorClass": "text-purple-600"
+  },
+  {
+    "id": 309,
+    "type": "daily",
+    "title": "Center Anything",
+    "desc": "Stop struggling with margins. Just use CSS Grid and 'place-items: center'. It works like magic! 🪄",
+    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=800&q=80",
+    "category": "CSS Trick",
+    "url": "posts/center-anything.html",
+    "date": "2026-02-22",
+    "colorClass": "text-orange-600"
+  },
+  {
+    "id": 308,
+    "type": "daily",
+    "title": "Reversing a String",
+    "desc": "In Python, you can reverse a string using simple slicing: text[::-1]. No complex loops needed!",
+    "image": "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=800&q=80",
+    "category": "Python Tip",
+    "url": "posts/reversing-string.html",
+    "date": "2026-02-21",
+    "colorClass": "text-blue-600"
+  },
+  {
     "id": 307,
     "type": "daily",
     "title": "VS Code Magic Shortcuts",

@@ -1,49 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <title>Don't Use DIV for Everything | KidsDev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');</script>
+
+  <title>Don't Use DIV for Everything | KidsDev Tech Group</title>
+  <meta property="og:title" content="Semantic HTML Explained 🧱">
+  <meta property="og:image" content="../image/logo.png">
   <link rel="icon" type="image/png" href="../image/logo.png">
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    .bg-grid-pattern { background-size: 60px 60px; background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px); }
+  </style>
 </head>
-<body class="bg-white font-[Poppins]">
 
-  <header class="sticky top-0 bg-white/90 backdrop-blur border-b h-20 flex items-center px-6 justify-between z-50">
-     <a href="../index.html" class="font-bold text-xl">KidsDev</a>
-     <button id="searchBtn"><i data-lucide="search"></i></button>
-  </header>
+<body class="selection:bg-blue-500 selection:text-white pb-20">
 
-  <main class="max-w-3xl mx-auto px-4 py-12">
-    <a href="../daily.html" class="text-slate-400 hover:text-red-500 font-bold mb-4 block">&larr; Back</a>
-    <h1 class="text-4xl font-extrabold mb-6">Stop Using <span class="text-red-500">&lt;div&gt;</span> for Everything</h1>
+  <main class="relative max-w-3xl mx-auto px-6 pt-16">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 -z-10 pointer-events-none"></div>
 
-    <p class="text-slate-600 mb-6">HTML5 introduced "Semantic Tags". These tags tell the browser (and Google) what your content actually is.</p>
+    <div class="flex items-center justify-between mb-8">
+      <a href="../daily.html" class="inline-flex items-center text-slate-500 hover:text-blue-600 font-bold transition text-sm group">
+          <i data-lucide="arrow-left" class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition"></i> Back to Tips
+      </a>
+      <span class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase">HTML Best Practices</span>
+    </div>
 
-    
+    <h1 class="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-6 leading-tight">
+      Stop Using <span class="text-red-500">&lt;div&gt;</span> for Everything
+    </h1>
 
-    <div class="grid md:grid-cols-2 gap-4 mt-8">
-      <div class="p-4 border rounded-xl bg-red-50">
-        <h3 class="font-bold text-red-600 mb-2">❌ Bad Practice</h3>
-        <code class="text-sm bg-white p-2 rounded block">
-          &lt;div id="header"&gt;<br>
-          &lt;div id="footer"&gt;
-        </code>
-      </div>
-      <div class="p-4 border rounded-xl bg-green-50">
-        <h3 class="font-bold text-green-600 mb-2">✅ Good Practice</h3>
-        <code class="text-sm bg-white p-2 rounded block">
-          &lt;header&gt;<br>
-          &lt;footer&gt;
-        </code>
+    <div class="prose prose-lg max-w-none text-slate-600 leading-relaxed">
+      <p>A <code>&lt;div&gt;</code> tells the browser "This is a box". It doesn't say if it's a header, a footer, or an article. This is bad for Google (SEO) and bad for blind users (Screen Readers).</p>
+      
+      <p>Use <strong>Semantic Tags</strong> instead. They give meaning to your code.</p>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-10">
+        <div class="p-6 border rounded-2xl bg-red-50 border-red-100">
+          <h3 class="font-bold text-red-600 mb-4 flex items-center gap-2"><i data-lucide="x-circle" class="w-5 h-5"></i> Bad Practice</h3>
+          <div class="bg-white p-4 rounded-xl border border-red-100 font-mono text-xs text-slate-500 shadow-sm">
+            &lt;div id="header"&gt;<br>
+            &lt;div id="nav"&gt;<br>
+            &lt;div id="footer"&gt;
+          </div>
+        </div>
+
+        <div class="p-6 border rounded-2xl bg-green-50 border-green-100">
+          <h3 class="font-bold text-green-600 mb-4 flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5"></i> Good Practice</h3>
+          <div class="bg-white p-4 rounded-xl border border-green-100 font-mono text-xs text-slate-500 shadow-sm">
+            &lt;header&gt;<br>
+            &lt;nav&gt;<br>
+            &lt;footer&gt;
+          </div>
+        </div>
       </div>
     </div>
   </main>
 
-  <footer id="main-footer"></footer>
-  <div id="searchModal" class="hidden fixed inset-0 bg-black/80 z-50"></div>
+  <footer id="main-footer" class="mt-24"></footer>
   <script src="../js/main.js"></script>
+  <script>if(window.lucide) lucide.createIcons();</script>
 </body>
 </html>

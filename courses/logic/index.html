@@ -1,114 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <title>Logic & Algorithms | KidsDev Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Logic & Algorithms | KidsDev Tech Group</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../../css/style.css">
+  
   <style>
-    .glass-header { background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); }
-    .module-item:hover { border-color: #db2777; transform: translateX(5px); }
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    .glass-header { background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226, 232, 240, 0.7); }
+    .module-card { transition: all 0.3s ease; border: 1px solid #E2E8F0; }
+    .module-card:hover { transform: translateX(5px); border-color: #A855F7; box-shadow: 0 4px 6px -1px rgba(168, 85, 247, 0.1); }
   </style>
 </head>
-<body class="bg-slate-50 text-[#0F172A] font-[Poppins]">
 
-  <div class="h-16 border-b flex items-center px-6 sticky top-0 glass-header z-50">
-    <a href="../../courses.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-[#0F172A] transition">
-      <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Catalog
+<body class="selection:bg-purple-500 selection:text-white">
+
+  <div class="h-16 border-b flex items-center px-6 sticky top-0 glass-header z-50 justify-between">
+    <a href="../../courses.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-purple-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Tracks
     </a>
+    <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Logic Track</span>
   </div>
 
   <header class="bg-[#0F172A] text-white pt-16 pb-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+    <div class="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-purple-900/40 to-transparent"></div>
+
     <div class="max-w-4xl mx-auto px-6 relative z-10">
-      <span class="inline-block py-1 px-3 rounded-full bg-pink-500/20 text-pink-300 border border-pink-500/30 text-xs font-bold uppercase tracking-wide mb-4">
-        Brain Power
+      <span class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-bold uppercase tracking-wide mb-6">
+        <i data-lucide="brain-circuit" class="w-3 h-3"></i> Pre-Coding Skills
       </span>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Logic & Algorithms</h1>
-      <p class="text-slate-300 text-lg max-w-2xl mb-8">
-        Learn how to think like a computer. Master flowcharts, decision trees, and the logic that powers Artificial Intelligence.
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+        Logic & <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Algorithms</span>
+      </h1>
+      <p class="text-slate-300 text-lg max-w-2xl mb-10 leading-relaxed">
+        Before you type code, you must learn how to think like a computer. Use visual blocks (Scratch) to solve puzzles and build animations.
       </p>
-      
-      <div class="flex items-center gap-6 text-sm font-medium text-slate-400">
-        <span class="flex items-center gap-2"><i data-lucide="git-branch" class="w-4 h-4"></i> 2 Modules</span>
-        <span class="flex items-center gap-2"><i data-lucide="brain" class="w-4 h-4"></i> Critical Thinking</span>
-        <span class="flex items-center gap-2"><i data-lucide="cpu" class="w-4 h-4"></i> Computer Science</span>
-      </div>
     </div>
-    
-    <img src="https://images.unsplash.com/photo-1556438064-2d7646166914?auto=format&fit=crop&w=800&q=80" class="absolute right-0 top-0 h-full w-1/3 object-cover opacity-20">
   </header>
 
-  <main class="max-w-4xl mx-auto px-6 -mt-16 relative z-20 pb-20">
+  <main class="max-w-5xl mx-auto px-6 -mt-16 relative z-20 pb-24">
     <div class="grid md:grid-cols-3 gap-8">
       
       <div class="md:col-span-2 space-y-8">
-        
-        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-          <h2 class="text-xl font-bold mb-4">What you'll learn</h2>
-          <ul class="grid sm:grid-cols-2 gap-4">
-            <li class="flex items-start gap-2 text-sm text-slate-600">
-              <i data-lucide="check-circle" class="w-4 h-4 text-pink-500 mt-0.5"></i> If/Else Statements
-            </li>
-            <li class="flex items-start gap-2 text-sm text-slate-600">
-              <i data-lucide="check-circle" class="w-4 h-4 text-pink-500 mt-0.5"></i> Boolean Logic (True/False)
-            </li>
-            <li class="flex items-start gap-2 text-sm text-slate-600">
-              <i data-lucide="check-circle" class="w-4 h-4 text-pink-500 mt-0.5"></i> Flowcharts
-            </li>
-            <li class="flex items-start gap-2 text-sm text-slate-600">
-              <i data-lucide="check-circle" class="w-4 h-4 text-pink-500 mt-0.5"></i> Debugging Code
-            </li>
-          </ul>
-        </div>
-
         <div>
-          <h3 class="font-bold text-xl mb-4 text-[#0F172A]">Course Curriculum</h3>
-          <div class="space-y-3">
+          <h3 class="font-bold text-lg mb-4 text-slate-400 uppercase tracking-wider text-xs">Curriculum</h3>
+          <div class="space-y-4">
             
-            <a href="module1.html" class="module-item block bg-white p-5 rounded-xl border border-slate-200 transition-all shadow-sm group">
+            <a href="#" class="module-card block bg-white p-6 rounded-xl group relative overflow-hidden">
+              <div class="absolute left-0 top-0 w-1 h-full bg-purple-500"></div>
               <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                  <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-sm">01</div>
+                <div class="flex items-center gap-5">
+                  <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg">01</div>
                   <div>
-                    <h4 class="font-bold text-slate-800 group-hover:text-pink-600 transition">Thinking Like a Machine</h4>
-                    <p class="text-xs text-slate-500">Conditionals and Decision Trees.</p>
+                    <h4 class="font-bold text-[#0F172A] text-lg group-hover:text-purple-600 transition">What is an Algorithm?</h4>
+                    <p class="text-sm text-slate-500">Instructions, Flowcharts, and Sandwiches.</p>
                   </div>
                 </div>
-                <i data-lucide="play-circle" class="w-5 h-5 text-slate-300 group-hover:text-pink-500"></i>
+                <div class="bg-slate-50 p-2 rounded-full group-hover:bg-purple-50 transition"><i data-lucide="play" class="w-5 h-5 text-slate-400 group-hover:text-purple-500 fill-current"></i></div>
               </div>
             </a>
 
-            <div class="module-item block bg-white p-5 rounded-xl border border-slate-200 opacity-60 cursor-not-allowed">
+            <a href="#" class="module-card block bg-white p-6 rounded-xl group relative overflow-hidden">
               <div class="flex justify-between items-center">
-                <div class="flex items-center gap-4">
-                  <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center font-bold text-sm">02</div>
+                <div class="flex items-center gap-5">
+                  <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold text-lg">02</div>
                   <div>
-                    <h4 class="font-bold text-slate-500">Loops & Repetition</h4>
-                    <p class="text-xs text-slate-400">Doing things over and over.</p>
+                    <h4 class="font-bold text-[#0F172A] text-lg group-hover:text-orange-600 transition">Scratch Basics</h4>
+                    <p class="text-sm text-slate-500">Sprites, Motion, and Events.</p>
                   </div>
                 </div>
-                <i data-lucide="lock" class="w-4 h-4 text-slate-300"></i>
+                <div class="bg-slate-50 p-2 rounded-full group-hover:bg-orange-50 transition"><i data-lucide="play" class="w-5 h-5 text-slate-400 group-hover:text-orange-500 fill-current"></i></div>
               </div>
-            </div>
+            </a>
+
+            <a href="#" class="module-card block bg-white p-6 rounded-xl group relative overflow-hidden">
+              <div class="flex justify-between items-center">
+                <div class="flex items-center gap-5">
+                  <div class="w-12 h-12 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center font-bold text-lg">03</div>
+                  <div>
+                    <h4 class="font-bold text-[#0F172A] text-lg group-hover:text-pink-600 transition">Loops & Variables</h4>
+                    <p class="text-sm text-slate-500">Building a Score Counter.</p>
+                  </div>
+                </div>
+                <div class="bg-slate-50 p-2 rounded-full group-hover:bg-pink-50 transition"><i data-lucide="play" class="w-5 h-5 text-slate-400 group-hover:text-pink-500 fill-current"></i></div>
+              </div>
+            </a>
 
           </div>
         </div>
       </div>
 
       <div class="md:col-span-1">
-        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 sticky top-24">
-          <div class="text-3xl font-extrabold text-[#0F172A] mb-2">Free</div>
-          <p class="text-sm text-slate-500 mb-6">Boost your problem solving.</p>
-          
-          <a href="module1.html" class="block w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 rounded-xl text-center shadow-lg shadow-pink-200 transition mb-4">
-            Start First Lesson
-          </a>
-          
-          <div class="text-xs text-slate-400 text-center">
-            Login required for full access.
+        <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 sticky top-24">
+          <div class="flex items-center justify-between mb-4">
+              <span class="text-sm text-slate-500 font-bold uppercase">Status</span>
+              <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded">Open Access</span>
           </div>
+          <a href="#" class="block w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 rounded-xl text-center shadow-lg transition mb-4">Start Thinking</a>
+          <div class="text-xs text-slate-400 text-center">Perfect for ages 7-12.</div>
         </div>
       </div>
 

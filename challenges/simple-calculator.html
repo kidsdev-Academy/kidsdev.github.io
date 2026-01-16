@@ -3,99 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Solution: Calculator | KidsDev</title>
+  <title>Challenge: Simple Calculator | KidsDev Academy</title>
+  <meta name="description" content="Python Challenge: Build a simple script to add two numbers. Learn inputs and variables.">
+  <link rel="icon" type="image/png" href="/image/logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    /* ... Same Styles as Above ... */
     .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
-    .code-block { background-color: #1E293B; border-radius: 0.75rem; overflow: hidden; margin: 1.5rem 0; font-family: 'Fira Code', monospace; }
-    .code-content { padding: 1.5rem; overflow-x: auto; color: #e2e8f0; font-size: 0.9rem; }
-    .step-number { background: #3B82F6; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 10px; flex-shrink: 0; }
-    .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label { top: -10px; left: 10px; font-size: 0.75rem; background-color: white; padding: 0 5px; color: #F97316; font-weight: 600; }
-    .file-drop-area { border: 2px dashed #cbd5e1; transition: all 0.3s; }
-    .file-drop-area:hover { border-color: #F97316; background-color: #fff7ed; }
+    .code-input { background: #1E293B; color: #A5B4FC; font-family: 'Fira Code', monospace; width: 100%; padding: 1rem; border-radius: 0.75rem; outline: none; border: 2px solid #334155; }
   </style>
 </head>
-<body class="bg-white text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+<body class="bg-white text-[#0F172A] font-[Poppins]">
 
   <header class="pro-header sticky top-0 z-[100]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
       <a href="../index.html" class="flex items-center gap-2"><img src="../image/logo.png" class="h-10 w-auto object-contain"><span class="font-extrabold text-2xl text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span></a>
-      <a href="../challenges.html" class="text-sm font-bold text-[#F97316] hover:text-orange-700 flex items-center gap-2"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back</a>
+      <a href="../challenges.html" class="text-sm font-bold text-[#F97316] flex items-center gap-2"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back</a>
     </div>
   </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-12 flex-1">
+  <main class="max-w-3xl mx-auto px-4 py-12">
     <div class="mb-10">
-      <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase">Python</span>
-      <h1 class="text-4xl font-extrabold mt-4 mb-2 text-[#0F172A]">Solution: Simple Calculator</h1>
-      <p class="text-slate-500">How to handle numbers in Python.</p>
+      <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase">Python Basics</span>
+      <h1 class="text-4xl font-extrabold mt-4 mb-2">Simple Calculator</h1>
+      <p class="text-slate-500">Write a Python script that takes two inputs and adds them.</p>
     </div>
 
-    <div class="mb-12">
-      <div class="flex items-center mb-4"><div class="step-number">1</div> <h2 class="text-xl font-bold">The Trick: Inputs are Strings!</h2></div>
-      <p class="text-slate-600 mb-4">When you use <code>input()</code>, Python thinks it's text. We must convert it to a number using <code>int()</code>.</p>
-      <div class="code-block">
-        <div class="bg-gray-900 px-4 py-2 text-xs font-bold text-gray-400 border-b border-gray-700">calc.py</div>
-        <div class="code-content text-green-300">
-num1 = input("Enter first number: ")<br>
-num2 = input("Enter second number: ")<br>
-total = int(num1) + int(num2)<br>
-print(f"The answer is: {total}")
-        </div>
-      </div>
-    </div>
-
-    <section id="submit-section" class="mt-20 max-w-xl mx-auto">
-      <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full blur-3xl opacity-50 -z-10"></div>
-        <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
-        <div class="text-center mb-8"><h3 class="font-extrabold text-2xl text-[#0F172A] mb-2">🚀 Submit Solution</h3></div>
+    <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-sm mb-12">
+        <h3 class="font-bold text-xl mb-4 flex items-center gap-2"><i data-lucide="terminal" class="w-5 h-5 text-blue-500"></i> Python Terminal</h3>
         
-        <form action="https://formspree.io/f/xqeavjnl" method="POST" enctype="multipart/form-data" class="space-y-5">
-          <input type="hidden" name="_subject" value="Challenge: Calculator">
-          <div class="relative"><input type="text" name="name" required class="peer w-full bg-white border border-slate-300 rounded-xl px-4 py-3 outline-none" placeholder="Name"><label class="absolute left-4 top-3 text-slate-400 text-sm peer-focus:top-[-10px] peer-focus:bg-white px-1">Cadet Name</label></div>
-          <div class="relative"><input type="email" name="email" required class="peer w-full bg-white border border-slate-300 rounded-xl px-4 py-3 outline-none" placeholder="Email"><label class="absolute left-4 top-3 text-slate-400 text-sm peer-focus:top-[-10px] peer-focus:bg-white px-1">Email</label></div>
-          <div class="space-y-4">
-             <input type="url" name="project_link" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-sm outline-none" placeholder="Replit/GitHub Link...">
-             <textarea name="code_snippet" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-sm outline-none font-mono" placeholder="Or paste code..."></textarea>
-             <div class="file-drop-area relative flex flex-col items-center justify-center p-6 rounded-xl cursor-pointer">
-                <input type="file" name="attachment" id="fileUpload" accept="image/*,.pdf,.doc" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                <i data-lucide="upload-cloud" class="w-8 h-8 text-slate-400 mb-2"></i>
-                <p class="text-xs text-slate-500 font-medium">Upload Screenshot (Max 2MB)</p>
-                <p id="fileName" class="text-xs text-[#F97316] font-bold mt-2 hidden"></p>
-             </div>
-             <p id="fileError" class="text-xs text-red-500 hidden text-center font-bold">⚠️ File too big!</p>
-          </div>
-          <button type="submit" class="w-full bg-[#0F172A] hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2"><i data-lucide="send" class="w-4 h-4"></i> Send</button>
-        </form>
-      </div>
-    </section>
+        <textarea id="code-input" rows="6" class="code-input" placeholder="# Get inputs&#10;a = input('Num 1:')&#10;b = input('Num 2:')&#10;# Convert & add"></textarea>
+        
+        <div class="flex gap-4 mt-4">
+            <button onclick="Interactive.runPython('calc', ['input', 'int', 'print'], '>> 10 + 5 = 15')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-xl transition shadow-lg shadow-blue-200">Run Script ▶</button>
+        </div>
 
-    <section class="mt-16 max-w-3xl mx-auto pb-24">
-      <div class="flex items-center gap-4 mb-8"><h3 class="font-bold text-2xl text-[#0F172A]">Discussion</h3><div class="h-px bg-slate-200 flex-1"></div></div>
-      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-10">
-        <form id="comment-form" class="flex flex-col gap-4">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <input type="text" id="comment-name" required placeholder="Name" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none md:col-span-1">
-            <input type="text" id="comment-msg" required placeholder="Question or tip..." class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none md:col-span-2">
-          </div>
-          <button type="submit" class="bg-[#F97316] hover:bg-orange-600 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2"><i data-lucide="message-circle" class="w-4 h-4"></i> Post</button>
-        </form>
-      </div>
-      <div id="comments-list" class="space-y-4"></div>
-    </section>
+        <div class="mt-6 bg-black rounded-xl p-4 font-mono text-sm text-green-400 min-h-[100px]" id="output-console">
+            user@kidsdev:~$ python3 calc.py<br>_
+        </div>
+    </div>
+
+    <div id="solution-box" class="hidden reveal-up">
+        <div class="bg-blue-50 border border-blue-100 rounded-2xl p-6">
+            <h2 class="text-xl font-bold text-blue-900 mb-2">Key Concept:</h2>
+            <p class="text-sm text-blue-700 mb-4"><code>input()</code> returns a string (text). You must wrap it in <code>int()</code> to do math.</p>
+            <div class="bg-[#1E293B] rounded-xl p-4 font-mono text-sm text-blue-200">
+num1 = int(input("First: "))<br>
+num2 = int(input("Second: "))<br>
+print(num1 + num2)
+            </div>
+        </div>
+    </div>
+
   </main>
-
-  <script src="../js/main.js"></script>
-  <script type="module" src="../js/comments.js"></script>
-  <script>
-    const fileInput=document.getElementById('fileUpload'),fileName=document.getElementById('fileName'),fileError=document.getElementById('fileError');
-    fileInput.addEventListener('change',function(){if(this.files.length>0){if(this.files[0].size>2097152){fileError.classList.remove('hidden');fileName.classList.add('hidden');this.value=""}else{fileError.classList.add('hidden');fileName.textContent="Selected: "+this.files[0].name;fileName.classList.remove('hidden')}}});
-  </script>
+  <script src="../js/interactive.js"></script>
+  <script>if(window.lucide) lucide.createIcons();</script>
 </body>
 </html>

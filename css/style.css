@@ -1,156 +1,280 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap');
 
 /* =========================================
-   BASE STYLES
-========================================== */
+   1. CORE SETTINGS & TYPOGRAPHY
+========================================= */
 body {
-  font-family: 'Poppins', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: white;
-  color: #0F172A; /* Navy Blue Text */
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAFAFA;
+    color: #0F172A;
+    overflow-x: hidden; /* Prevents scrollbar from floating animations */
+}
+
+/* Smooth Scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Selection Color (Orange Brand) */
+::selection {
+    background: #F97316;
+    color: white;
 }
 
 /* =========================================
-   HEADER & GLASSMORPHISM
-========================================== */
+   2. GLASSMORPHISM HEADER
+========================================= */
 .pro-header {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid #f1f5f9;
-  transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    transition: all 0.3s ease;
 }
 
 /* =========================================
-   CARDS & CONTAINERS
-========================================== */
-.pro-card, .story-card {
-  background: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+   3. ANIMATIONS & TRANSITIONS
+========================================= */
 
-.pro-card:hover, .story-card:hover {
-  border-color: #F97316; /* Orange Hover */
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Category/Topic Pills */
-.topic-card {
-  transition: all 0.3s ease;
-  background-color: #F8FAFC; /* Slate-50 */
-  border: 1px solid #E2E8F0;
-}
-
-.topic-card:hover {
-  background-color: #0F172A; /* Navy Background */
-  color: white;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
-  border-color: #0F172A;
-}
-
-.topic-card:hover i, 
-.topic-card:hover h3, 
-.topic-card:hover p {
-  color: white; 
-}
-.topic-card:hover i {
-  color: #F97316; /* Orange Icon on Navy Background */
-}
-
-/* =========================================
-   ANIMATIONS
-========================================== */
+/* Reveal Up (Slide in from bottom) */
 .reveal-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal-up.active {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Floating Ship Animation */
-@keyframes float-ship {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(2deg); }
-}
-.ship-anim {
-  animation: float-ship 4s ease-in-out infinite;
+/* Floating Animation (for Icons/Backgrounds) */
+.icon-float {
+    animation: float 4s ease-in-out infinite;
 }
 
-/* Cursor Blink for Code */
-.typing-effect::after {
-  content: '|';
-  animation: blink 1s infinite;
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+/* Pulse Animation (for Background Blobs) */
+@keyframes pulse-blob {
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(1.1); opacity: 0.6; }
+}
+
+/* Fade In Overlay (Search Modal) */
+@keyframes fadeOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =========================================
+   4. CARD STYLES (Superpowers Section)
+========================================= */
+
+/* Base Super Card */
+.super-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #F1F5F9;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Hover Lift Effect */
+.super-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+}
+
+/* Specific Category Gradients */
+.bg-gradient-scratch {
+    background: linear-gradient(135deg, #FFFBEB 0%, #FFF7ED 100%);
+    border-color: #FEF3C7;
+}
+
+.bg-gradient-web {
+    background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+    border-color: #E0F2FE;
+}
+
+.bg-gradient-python {
+    background: linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 100%);
+    border-color: #D1FAE5;
+}
+
+.bg-gradient-linux {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    border-color: #334155;
+    color: white;
+}
+
+/* Project Cards (Images) */
+.project-card {
+    transition: all 0.3s ease;
+    border: 1px solid #E2E8F0;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: #F97316;
 }
 
 /* =========================================
-   SOCIAL ICONS (Brand Colors)
-========================================== */
-.social-link {
-  color: #94a3b8; /* Slate-400 Default */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+   5. CODE & TECH VISUALS
+========================================= */
+
+/* Fake VS Code Snippet Box */
+.code-box {
+    background: #1E1E1E;
+    border-radius: 12px;
+    padding: 16px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: #D4D4D4;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.social-link:hover.github { color: #ffffff; transform: scale(1.2); }
-.social-link:hover.instagram { color: #E1306C; transform: scale(1.2); }
-.social-link:hover.facebook { color: #1877F2; transform: scale(1.2); }
-.social-link:hover.tiktok { color: #00f2ea; transform: scale(1.2); text-shadow: 2px 2px #ff0050; }
+/* Tech Pills (Small tags like "Python", "Linux") */
+.tech-pill {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    padding: 6px 12px;
+    border-radius: 99px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: -0.02em;
+    transition: transform 0.2s;
+}
+
+.tech-pill:hover {
+    transform: scale(1.05);
+}
+
+/* Scratch Block Visuals (Looks like puzzle pieces) */
+.scratch-block {
+    background: #FFBF00;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.7rem;
+    box-shadow: 0 2px 0 #D9A300;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    border: 1px solid #D9A300;
+    position: relative;
+    cursor: default;
+}
+
+/* The little "notch" on scratch blocks */
+.scratch-block:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 10px;
+    width: 10px;
+    height: 4px;
+    background: inherit;
+    border-radius: 2px 2px 0 0;
+}
+
+.scratch-block.blue {
+    background: #4C97FF;
+    border-color: #3373CC;
+    box-shadow: 0 2px 0 #3373CC;
+}
 
 /* =========================================
-   UTILITIES
-========================================== */
-/* Mobile Menu Transition */
-.mobile-menu {
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  transform-origin: top;
-}
-.mobile-menu.hidden {
-  display: none;
-  opacity: 0;
-  transform: scaleY(0);
+   6. ROADMAP & AMBIENCE
+========================================= */
+
+/* Moving Gradient Line for Roadmap */
+.roadmap-line {
+    background: linear-gradient(90deg, #eff6ff 0%, #dbeafe 50%, #eff6ff 100%);
+    background-size: 200% 100%;
+    animation: gradientMove 3s linear infinite;
+    height: 4px;
+    border-radius: 4px;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f8fafc;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #F97316; /* Orange Thumb */
+@keyframes gradientMove {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
 }
 
-/* Filter Pill (Daily Page) */
-.category-pill {
-  transition: all 0.3s;
-  border: 1px solid #e2e8f0;
-  background: white;
-  color: #64748b;
+/* Background Ambient Blobs */
+.blob {
+    position: absolute;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+    animation: pulse-blob 10s infinite alternate;
+    pointer-events: none;
 }
-.category-pill:hover, .category-pill.active {
-  background: #0F172A;
-  color: white;
-  border-color: #0F172A;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+
+.blob-1 {
+    top: -10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: #bfdbfe; /* Light Blue */
+}
+
+.blob-2 {
+    bottom: 10%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: #fef08a; /* Light Yellow */
+}
+
+/* =========================================
+   7. UI COMPONENTS
+========================================= */
+
+/* Filter Buttons */
+.filter-btn {
+    transition: all 0.3s ease;
+    border: 1px solid #E2E8F0;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+    border-color: #CBD5E1;
+}
+
+.filter-btn.active {
+    background-color: #0F172A;
+    color: white;
+    border-color: #0F172A;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
+}
+
+/* Search Modal */
+#searchModal:not(.hidden) {
+    animation: fadeOverlay 0.2s forwards;
+}
+
+/* Dynamic Card (Used in JS) */
+.dynamic-card:hover img {
+    transform: scale(1.05);
 }

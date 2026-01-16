@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Styling | Web Module 2</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../../css/style.css">
+  
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    
+    .code-box { 
+        font-family: 'Fira Code', monospace; 
+        background: #1e293b; 
+        color: #e2e8f0; 
+        padding: 1.5rem; 
+        border-radius: 0.75rem; 
+        margin: 1.5rem 0; 
+        overflow-x: auto; 
+        border: 1px solid #334155;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+  <div class="h-16 border-b flex items-center px-6 sticky top-0 bg-white/95 backdrop-blur-sm z-50 justify-between">
+    <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-[#0F172A] transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Course Overview
+    </a>
+    <div class="flex items-center gap-2">
+        <span class="text-xs font-bold bg-blue-100 text-blue-600 px-2 py-1 rounded">CSS</span>
+        <span class="text-xs font-bold text-slate-400">Module 2/6</span>
+    </div>
+  </div>
+
+  <main class="max-w-3xl mx-auto px-4 py-12 relative min-h-screen">
+    
+    <div class="mb-12 border-b border-slate-100 pb-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-[#0F172A] tracking-tight">The Costume Party 🎨</h1>
+        <p class="text-lg leading-relaxed text-slate-600 mb-4">
+            If HTML is the <strong>Skeleton</strong>, then CSS (Cascading Style Sheets) is the <strong>Costume</strong>. 
+        </p>
+        <p class="text-lg leading-relaxed text-slate-600">
+            Without CSS, every website would look like a boring Word document. CSS handles colors, fonts, spacing, and layout.
+        </p>
+    </div>
+
+    <div class="space-y-12 pb-24">
+        
+        <section>
+            <h2 class="text-2xl font-bold mb-4 text-[#0F172A] flex items-center gap-2">
+                <i data-lucide="paintbrush" class="w-6 h-6 text-pink-500"></i> How it Works
+            </h2>
+            <p class="text-slate-600 mb-4">CSS works by "Selecting" an HTML tag and then applying "Rules" to it.</p>
+            
+            <div class="code-box">
+<span class="text-slate-500">/* This selects ALL &lt;h1&gt; tags */</span>
+<span class="text-yellow-400">h1</span> {
+  <span class="text-blue-300">color</span>: <span class="text-orange-400">red</span>;
+  <span class="text-blue-300">font-size</span>: <span class="text-orange-400">50px</span>;
+  <span class="text-blue-300">text-align</span>: <span class="text-orange-400">center</span>;
+}
+
+<span class="text-slate-500">/* This selects ALL &lt;p&gt; tags */</span>
+<span class="text-yellow-400">p</span> {
+  <span class="text-blue-300">color</span>: <span class="text-orange-400">blue</span>;
+}
+            </div>
+        </section>
+
+        <section>
+            <h2 class="text-2xl font-bold mb-6 text-[#0F172A]">Essential Properties</h2>
+            <div class="grid gap-4">
+                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <div class="bg-purple-100 px-3 py-1 rounded text-purple-700 font-mono text-sm font-bold">color</div>
+                    <p class="text-sm text-slate-600 pt-1">Changes the text color. (e.g., <code>red</code>, <code>#000000</code>)</p>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <div class="bg-purple-100 px-3 py-1 rounded text-purple-700 font-mono text-sm font-bold">background-color</div>
+                    <p class="text-sm text-slate-600 pt-1">Changes the background color behind the text.</p>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <div class="bg-purple-100 px-3 py-1 rounded text-purple-700 font-mono text-sm font-bold">padding</div>
+                    <p class="text-sm text-slate-600 pt-1">Adds breathing room inside a box.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="bg-[#0F172A] text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
+            <div class="relative z-10">
+                <h3 class="font-bold text-xl mb-2 flex items-center gap-2 text-[#F97316]">
+                    <i data-lucide="zap" class="w-5 h-5"></i> Challenge: Style Your Hero
+                </h3>
+                <p class="text-slate-300 mb-6 text-sm leading-relaxed">
+                    Take your HTML file from Module 1. Create a <code>style.css</code> file. Make the background black and the text yellow (like Batman)!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-[#F97316] hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition text-sm">
+                        I Did It! (Mark Complete)
+                    </button>
+                    <a href="module3.html" class="bg-white/10 hover:bg-white/20 text-white font-bold py-3 px-6 rounded-lg transition text-sm border border-white/20 text-center">
+                        Next Lesson &rarr;
+                    </a>
+                </div>
+            </div>
+            <div class="absolute right-0 top-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
+        </div>
+    </div>
+
+  </main>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

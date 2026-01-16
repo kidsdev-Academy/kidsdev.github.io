@@ -1,100 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Solution: Color Flipper | KidsDev</title>
+  
+  <title>Challenge: Color Flipper | KidsDev Academy</title>
+  <meta name="description" content="JavaScript Challenge: Write a function to change the background color of the page. Learn DOM manipulation and event handling.">
+  <meta name="keywords" content="javascript challenge for kids, dom manipulation, coding tutorial, color flipper project, learn js interactive">
+  <meta name="author" content="KidsDev Academy">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thekidsdev.netlify.app/color-flipper.html">
+  
+  <meta property="og:title" content="Can you flip the color? 🎨">
+  <meta property="og:description" content="Write your first JavaScript function to change the screen color. Try it now on KidsDev.">
+  <meta property="og:image" content="https://thekidsdev.netlify.app/image/logo.png">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://thekidsdev.netlify.app/color-flipper.html">
+
+  <link rel="icon" type="image/png" href="/image/logo.png">
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
+  
   <style>
-    /* ... Same Styles ... */
-    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
-    .code-block { background-color: #1E293B; border-radius: 0.75rem; overflow: hidden; margin: 1.5rem 0; font-family: 'Fira Code', monospace; }
-    .code-content { padding: 1.5rem; overflow-x: auto; color: #e2e8f0; font-size: 0.9rem; }
-    .step-number { background: #6366F1; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 10px; flex-shrink: 0; }
-    .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label { top: -10px; left: 10px; font-size: 0.75rem; background-color: white; padding: 0 5px; color: #F97316; font-weight: 600; }
-    .file-drop-area { border: 2px dashed #cbd5e1; transition: all 0.3s; }
-    .file-drop-area:hover { border-color: #F97316; background-color: #fff7ed; }
+    body { font-family: 'Poppins', sans-serif; background-color: #F8FAFC; color: #0F172A; transition: background-color 0.5s ease; min-height: 100vh; display: flex; flex-direction: column; }
+    .pro-header { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226, 232, 240, 0.7); }
+    
+    /* Code Editor */
+    .code-input {
+        background: #1E293B; 
+        color: #A5B4FC; /* Purple/Blue for JS */
+        font-family: 'Fira Code', monospace; 
+        width: 100%; 
+        padding: 1rem; 
+        border-radius: 0.75rem; 
+        outline: none; 
+        border: 2px solid #334155; 
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    .code-input:focus { border-color: #6366F1; } /* Indigo border on focus */
+
+    .reveal-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+    .reveal-up.active { opacity: 1; transform: translateY(0); }
+    
+    #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
+    @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
   </style>
 </head>
-<body class="bg-white text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+
+<body class="selection:bg-[#0F172A] selection:text-white" id="main-body">
 
   <header class="pro-header sticky top-0 z-[100]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
-      <a href="../index.html" class="flex items-center gap-2"><img src="../image/logo.png" class="h-10 w-auto object-contain"><span class="font-extrabold text-2xl text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span></a>
-      <a href="../challenges.html" class="text-sm font-bold text-[#F97316] hover:text-orange-700 flex items-center gap-2"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back</a>
+      <div class="flex items-center gap-4">
+        <a href="/index.html" class="flex items-center gap-2 cursor-pointer group">
+          <img src="/image/logo.png" alt="KidsDev Logo" class="h-9 w-auto object-contain drop-shadow-sm">
+          <div class="flex flex-col leading-none">
+            <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+            <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-8">
+        <a href="/challenges.html" class="text-sm font-bold text-slate-400 hover:text-[#0F172A] flex gap-2 transition items-center">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Challenges
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-12 flex-1">
-    <div class="mb-10">
-      <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-bold uppercase">DOM Manipulation</span>
-      <h1 class="text-4xl font-extrabold mt-4 mb-2 text-[#0F172A]">Solution: Color Flipper</h1>
-      <p class="text-slate-500">Change the background color with a single click.</p>
+  <main class="max-w-4xl mx-auto px-4 py-12 flex-grow">
+    
+    <div class="text-center mb-10 reveal-up">
+        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-bold uppercase tracking-wider">JavaScript DOM</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold mt-4 mb-3 text-[#0F172A]">Color Flipper</h1>
+        <p class="text-slate-500 text-lg leading-relaxed max-w-2xl mx-auto">
+            Write a JavaScript function that selects the <code>&lt;body&gt;</code> and changes its background color to something cool.
+        </p>
     </div>
 
-    <div class="mb-12">
-      <div class="flex items-center mb-4"><div class="step-number">1</div> <h2 class="text-xl font-bold">Accessing the Body</h2></div>
-      <p class="text-slate-600 mb-4">Use `document.body.style`.</p>
-      <div class="code-block">
-        <div class="bg-gray-900 px-4 py-2 text-xs font-bold text-gray-400 border-b border-gray-700">script.js</div>
-        <div class="code-content text-indigo-300">
-function flipColor() {<br>
-&nbsp;&nbsp;const randomColor = Math.floor(Math.random()*16777215).toString(16);<br>
-&nbsp;&nbsp;document.body.style.backgroundColor = "#" + randomColor;<br>
-}
+    <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-xl reveal-up">
+        
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-lg text-[#0F172A] flex items-center gap-2">
+                <i data-lucide="code-2" class="w-5 h-5 text-indigo-600"></i> script.js
+            </h3>
+            <span class="text-xs text-slate-400 font-mono">Write your code below</span>
         </div>
-      </div>
+
+        <div class="relative">
+            <textarea id="code-input" rows="6" class="code-input" placeholder="// Write a function to change the color&#10;function changeColor() {&#10;  document.body.style.backgroundColor = 'purple';&#10;}"></textarea>
+            
+            <div class="absolute top-4 right-4 group">
+                <div class="bg-slate-800 text-white p-2 rounded-lg shadow-lg cursor-help">
+                    <i data-lucide="help-circle" class="w-4 h-4"></i>
+                </div>
+                <div class="absolute right-0 top-10 w-64 bg-slate-900 text-slate-300 text-xs p-3 rounded-xl shadow-xl hidden group-hover:block z-10">
+                    Use <code>document.body.style.backgroundColor</code> to change the color.
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 mt-6 items-center justify-between">
+            <div class="flex gap-4 w-full sm:w-auto">
+                <button onclick="Interactive.runJS(verifyColor)" 
+                        class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl transition shadow-lg shadow-indigo-200 flex items-center gap-2 w-full sm:w-auto justify-center">
+                    <i data-lucide="play" class="w-4 h-4 fill-current"></i> Run Code
+                </button>
+            </div>
+            
+            <div id="js-feedback" class="text-sm font-bold animate-pulse"></div>
+        </div>
+
+        <div class="mt-6 bg-slate-50 border border-slate-100 rounded-xl p-4 text-center">
+            <p class="text-sm text-slate-500">
+                <i data-lucide="info" class="w-4 h-4 inline-block mr-1 align-text-bottom"></i>
+                Clicking "Run Code" will execute your function immediately.
+            </p>
+        </div>
     </div>
 
-    <section id="submit-section" class="mt-20 max-w-xl mx-auto">
-      <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full blur-3xl opacity-50 -z-10"></div>
-        <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
-        <div class="text-center mb-8"><h3 class="font-extrabold text-2xl text-[#0F172A] mb-2">🚀 Submit Solution</h3></div>
-        <form action="https://formspree.io/f/xqeavjnl" method="POST" enctype="multipart/form-data" class="space-y-5">
-          <input type="hidden" name="_subject" value="Challenge: Color Flipper">
-          <div class="relative"><input type="text" name="name" required class="peer w-full bg-white border border-slate-300 rounded-xl px-4 py-3 outline-none" placeholder="Name"><label class="absolute left-4 top-3 text-slate-400 text-sm peer-focus:top-[-10px] peer-focus:bg-white px-1">Name</label></div>
-          <div class="relative"><input type="email" name="email" required class="peer w-full bg-white border border-slate-300 rounded-xl px-4 py-3 outline-none" placeholder="Email"><label class="absolute left-4 top-3 text-slate-400 text-sm peer-focus:top-[-10px] peer-focus:bg-white px-1">Email</label></div>
-          <div class="space-y-4">
-             <input type="url" name="project_link" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-sm outline-none" placeholder="Link...">
-             <textarea name="code_snippet" rows="3" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-sm outline-none font-mono" placeholder="Code..."></textarea>
-             <div class="file-drop-area relative flex flex-col items-center justify-center p-6 rounded-xl cursor-pointer">
-                <input type="file" name="attachment" id="fileUpload" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                <i data-lucide="upload-cloud" class="w-8 h-8 text-slate-400 mb-2"></i>
-                <p class="text-xs text-slate-500 font-medium">Screenshot (Max 2MB)</p>
-                <p id="fileName" class="text-xs text-[#F97316] font-bold mt-2 hidden"></p>
-             </div>
-             <p id="fileError" class="text-xs text-red-500 hidden text-center font-bold">⚠️ File too big!</p>
-          </div>
-          <button type="submit" class="w-full bg-[#0F172A] hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2"><i data-lucide="send" class="w-4 h-4"></i> Send</button>
-        </form>
-      </div>
-    </section>
+    <div id="solution-box" class="hidden mt-12 reveal-up">
+        <div class="bg-green-50 border border-green-200 rounded-3xl p-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-green-200 rounded-full blur-3xl opacity-50 -z-0"></div>
+            
+            <div class="flex items-center gap-3 mb-6 relative z-10">
+                <div class="w-12 h-12 rounded-2xl bg-green-100 flex items-center justify-center text-green-600 border border-green-200 shadow-sm">
+                    <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-green-900">Success!</h2>
+                    <p class="text-sm text-green-700">You manipulated the DOM perfectly.</p>
+                </div>
+            </div>
 
-    <section class="mt-16 max-w-3xl mx-auto pb-24">
-      <div class="flex items-center gap-4 mb-8"><h3 class="font-bold text-2xl text-[#0F172A]">Discussion</h3><div class="h-px bg-slate-200 flex-1"></div></div>
-      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-10">
-        <form id="comment-form" class="flex flex-col gap-4">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <input type="text" id="comment-name" required placeholder="Name" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none md:col-span-1">
-            <input type="text" id="comment-msg" required placeholder="Message..." class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none md:col-span-2">
-          </div>
-          <button type="submit" class="bg-[#F97316] hover:bg-orange-600 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2"><i data-lucide="message-circle" class="w-4 h-4"></i> Post</button>
-        </form>
-      </div>
-      <div id="comments-list" class="space-y-4"></div>
-    </section>
+            <div class="bg-[#1E293B] rounded-xl p-6 font-mono text-sm text-indigo-300 shadow-inner border border-slate-700 relative z-10 overflow-x-auto">
+// Random Color Generator
+function changeColor() {
+  const randomColor = Math.floor(Math.random()*16777215).toString(16);
+  document.body.style.backgroundColor = "#" + randomColor;
+}
+            </div>
+            
+            <div class="mt-6 text-right relative z-10">
+                <a href="/challenges.html" class="inline-flex items-center gap-2 text-sm font-bold text-green-800 hover:text-green-950 transition">
+                    Next Challenge <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
   </main>
 
-  <script src="../js/main.js"></script>
-  <script type="module" src="../js/comments.js"></script>
+  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4">
+      <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden reveal-up active">
+          <div class="p-4 border-b border-slate-100 flex items-center gap-4">
+              <i data-lucide="search" class="text-slate-400"></i>
+              <input type="text" id="searchInput" placeholder="Search..." class="flex-1 outline-none text-lg font-bold text-[#0F172A]">
+              <button id="closeSearch" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
+          </div>
+          <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+               <div class="text-center text-slate-400 py-10">Start typing to search...</div>
+          </div>
+      </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/interactive.js"></script>
   <script>
-    const fileInput=document.getElementById('fileUpload'),fileName=document.getElementById('fileName'),fileError=document.getElementById('fileError');
-    fileInput.addEventListener('change',function(){if(this.files.length>0){if(this.files[0].size>2097152){fileError.classList.remove('hidden');fileName.classList.add('hidden');this.value=""}else{fileError.classList.add('hidden');fileName.textContent="Selected: "+this.files[0].name;fileName.classList.remove('hidden')}}});
+    if(window.lucide) lucide.createIcons();
+    
+    // Page-Specific Validation Logic
+    function verifyColor() {
+        // Try to call user's function
+        if (typeof changeColor === "function") {
+            // Execute user code
+            changeColor();
+            
+            // Check if color actually changed from default
+            const bg = document.body.style.backgroundColor;
+            
+            // Basic check: is inline style set and not default?
+            if (bg && bg !== '' && bg !== 'white' && bg !== 'rgb(248, 250, 252)') {
+                return true;
+            }
+        }
+        return false;
+    }
   </script>
 </body>
 </html>

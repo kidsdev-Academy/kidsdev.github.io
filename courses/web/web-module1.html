@@ -2,116 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Web Module 1: HTML | KidsDev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML Basics | Web Module 1</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../../css/style.css">
   
   <style>
-    .code-box { font-family: 'Fira Code', monospace; background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 0.5rem; margin: 1rem 0; overflow-x: auto; }
-    .locked-blur { filter: blur(8px); user-select: none; pointer-events: none; opacity: 0.4; }
-    .lock-overlay { 
-        position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; 
-        display: flex; flex-direction: column; align-items: center; padding-top: 80px;
-        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 25%, rgba(255,255,255,1) 100%);
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    
+    .code-box { 
+        font-family: 'Fira Code', monospace; 
+        background: #1e293b; 
+        color: #e2e8f0; 
+        padding: 1.5rem; 
+        border-radius: 0.75rem; 
+        margin: 1.5rem 0; 
+        overflow-x: auto; 
+        border: 1px solid #334155;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
-<body class="bg-white text-slate-800 font-[Poppins]">
+<body class="bg-white">
 
-  <div class="h-16 border-b flex items-center px-6 sticky top-0 bg-white/90 z-50">
-    <a href="../../courses.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-blue-600">
-      <i data-lucide="arrow-left" class="w-4 h-4"></i> Return to Catalog
+  <div class="h-16 border-b flex items-center px-6 sticky top-0 bg-white/95 backdrop-blur-sm z-50 justify-between">
+    <a href="index.html" class="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-[#0F172A] transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i> Course Overview
     </a>
+    <div class="flex items-center gap-2">
+        <span class="text-xs font-bold bg-orange-100 text-orange-600 px-2 py-1 rounded">HTML</span>
+        <span class="text-xs font-bold text-slate-400">Module 1/6</span>
+    </div>
   </div>
 
-  <main class="max-w-3xl mx-auto px-4 py-12">
+  <main class="max-w-3xl mx-auto px-4 py-12 relative min-h-screen">
     
-    <div class="mb-10">
-        <span class="text-xs font-bold uppercase text-blue-600 bg-blue-100 px-3 py-1 rounded-full">HTML • Level 1</span>
-        <h1 class="text-4xl font-extrabold mt-4 mb-6">Building Skeletons</h1>
-        
-        <p class="text-lg leading-relaxed text-slate-600 mb-6">
+    <div class="mb-12 border-b border-slate-100 pb-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-[#0F172A] tracking-tight">Building Skeletons 💀</h1>
+        <p class="text-lg leading-relaxed text-slate-600 mb-4">
             Every website you visit—YouTube, Roblox, Google—is built using a language called <strong>HTML</strong> (HyperText Markup Language).
         </p>
         <p class="text-lg leading-relaxed text-slate-600">
-            Think of HTML as the <strong>Skeleton</strong> of a website. It doesn't handle the colors (that's CSS) or the movement (that's JS), but it provides the structure that holds everything together.
+            Think of HTML as the <strong>Skeleton</strong>. It doesn't handle the style (that's CSS) or the brains (that's JS), but it holds everything together.
         </p>
     </div>
 
-    <div class="relative">
+    <div class="space-y-12 pb-24">
         
-        <div id="protectedContent" class="space-y-8">
+        <section>
+            <h2 class="text-2xl font-bold mb-4 text-[#0F172A] flex items-center gap-2">
+                <i data-lucide="tag" class="w-6 h-6 text-blue-500"></i> Tags: The Bricks
+            </h2>
+            <p class="text-slate-600 mb-4">HTML uses "Tags" to tell the browser what to show. A tag usually has an opening <code>&lt;tag&gt;</code> and a closing <code>&lt;/tag&gt;</code>.</p>
             
-            <section>
-                <h2 class="text-2xl font-bold mb-4 text-[#0F172A]">Tags: The Bricks of the Web</h2>
-                <p class="text-slate-600 mb-4">HTML uses "Tags" to tell the browser what to show. A tag usually has an opening <code>&lt;tag&gt;</code> and a closing <code>&lt;/tag&gt;</code>.</p>
-                
-                <div class="code-box">
-&lt;!-- This is a Heading --&gt;
-&lt;h1&gt;My Super Hero Page&lt;/h1&gt;
+            <div class="code-box">
+<span class="text-slate-500">&lt;!-- This is a Heading --&gt;</span>
+<span class="text-pink-400">&lt;h1&gt;</span>My Super Hero Page<span class="text-pink-400">&lt;/h1&gt;</span>
 
-&lt;!-- This is a Paragraph --&gt;
-&lt;p&gt;Welcome to my fan club.&lt;/p&gt;
+<span class="text-slate-500">&lt;!-- This is a Paragraph --&gt;</span>
+<span class="text-pink-400">&lt;p&gt;</span>Welcome to my fan club.<span class="text-pink-400">&lt;/p&gt;</span>
 
-&lt;!-- This is a Button --&gt;
-&lt;button&gt;Join Now&lt;/button&gt;
-                </div>
-            </section>
-
-            <section>
-                <h2 class="text-2xl font-bold mb-4 text-[#0F172A]">Essential Tags to Memorize</h2>
-                <ul class="space-y-4">
-                    <li class="flex items-start gap-3">
-                        <div class="bg-blue-100 p-2 rounded text-blue-700 font-mono text-xs font-bold">&lt;h1&gt;</div>
-                        <p class="text-sm text-slate-600">The biggest title on the page. Use only one per page!</p>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <div class="bg-blue-100 p-2 rounded text-blue-700 font-mono text-xs font-bold">&lt;img&gt;</div>
-                        <p class="text-sm text-slate-600">Shows a picture. It creates a window for an image file.</p>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <div class="bg-blue-100 p-2 rounded text-blue-700 font-mono text-xs font-bold">&lt;a&gt;</div>
-                        <p class="text-sm text-slate-600">The "Anchor" tag. This creates a link to another website.</p>
-                    </li>
-                </ul>
-            </section>
-
-            <div class="bg-blue-50 border border-blue-200 p-6 rounded-2xl">
-                <h3 class="font-bold text-lg text-blue-800 mb-2">⚡ Challenge: My First Page</h3>
-                <p class="text-sm text-blue-700 mb-4">Create a file named <code>index.html</code> on your computer. Add a big title with your superhero name and a paragraph describing your superpowers.</p>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg shadow-blue-200 transition">Upload HTML File</button>
+<span class="text-slate-500">&lt;!-- This is a Button --&gt;</span>
+<span class="text-pink-400">&lt;button&gt;</span>Join Now<span class="text-pink-400">&lt;/button&gt;</span>
             </div>
-        </div>
+        </section>
 
-        <div id="lockOverlay" class="hidden lock-overlay">
-            <div class="bg-white p-8 rounded-2xl shadow-2xl border border-slate-100 text-center max-w-sm mx-4 transform translate-y-4">
-                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i data-lucide="lock" class="w-7 h-7"></i>
+        <section>
+            <h2 class="text-2xl font-bold mb-6 text-[#0F172A]">Essential Tags to Memorize</h2>
+            <div class="grid gap-4">
+                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <div class="bg-blue-100 px-3 py-1 rounded text-blue-700 font-mono text-sm font-bold">&lt;h1&gt;</div>
+                    <p class="text-sm text-slate-600 pt-1">The biggest title. Only use one per page!</p>
                 </div>
-                <h3 class="text-xl font-bold mb-2 text-[#0F172A]">Start Building</h3>
-                <p class="text-slate-500 text-sm mb-6">Create a free account to upload your projects and get feedback.</p>
-                <div class="flex flex-col gap-3">
-                    <a href="../../register.html" class="bg-[#0F172A] text-white py-3 rounded-xl font-bold hover:bg-slate-800 transition">Create Account</a>
-                    <a href="../../login.html" class="text-slate-500 text-sm font-bold hover:text-slate-800">Log In</a>
+                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <div class="bg-blue-100 px-3 py-1 rounded text-blue-700 font-mono text-sm font-bold">&lt;img&gt;</div>
+                    <p class="text-sm text-slate-600 pt-1">Shows a picture. It needs a <code>src</code> link.</p>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <div class="bg-blue-100 px-3 py-1 rounded text-blue-700 font-mono text-sm font-bold">&lt;a&gt;</div>
+                    <p class="text-sm text-slate-600 pt-1">Anchor tag. Creates a link to another site.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
+        <div class="bg-[#0F172A] text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
+            <div class="relative z-10">
+                <h3 class="font-bold text-xl mb-2 flex items-center gap-2 text-[#F97316]">
+                    <i data-lucide="zap" class="w-5 h-5"></i> Challenge: First File
+                </h3>
+                <p class="text-slate-300 mb-6 text-sm leading-relaxed">
+                    Create a file named <code>index.html</code> on your computer. Add a big title with your superhero name and a paragraph about your powers.
+                </p>
+                <button class="bg-[#F97316] hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition text-sm">
+                    I Did It! (Mark Complete)
+                </button>
+            </div>
+            <div class="absolute right-0 top-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -mr-10 -mt-10"></div>
+        </div>
     </div>
+
   </main>
 
-  <script>
-    lucide.createIcons();
-    const user = localStorage.getItem("user");
-    if (!user) {
-        document.getElementById("protectedContent").classList.add("locked-blur");
-        document.getElementById("lockOverlay").classList.remove("hidden");
-    } else {
-        document.getElementById("protectedContent").classList.remove("locked-blur");
-        document.getElementById("lockOverlay").classList.add("hidden");
-    }
-  </script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

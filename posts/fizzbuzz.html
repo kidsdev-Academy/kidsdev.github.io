@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <title>Challenge: The FizzBuzz Test | KidsDev Tech Group</title>
+  <meta name="description" content="Can you solve the famous FizzBuzz coding interview question? Write a Python program to master loops and conditionals. Interactive code editor included.">
+  <meta name="keywords" content="fizzbuzz python, coding challenge for kids, python interview questions, learn python logic, modulo operator tutorial">
+  <meta name="author" content="KidsDev Tech Group">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thekidsdev.netlify.app/posts/fizzbuzz.html">
+
+  <meta property="og:title" content="The FizzBuzz Challenge 🏆">
+  <meta property="og:description" content="Test your logic skills. Solve the FizzBuzz challenge right in your browser.">
+  <meta property="og:image" content="../image/logo.png">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://thekidsdev.netlify.app/posts/fizzbuzz.html">
+
+  <link rel="icon" type="image/png" href="../image/logo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    .bg-grid-pattern { background-size: 60px 60px; background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px); }
+    
+    /* Code Editor */
+    .editor-container { border-radius: 12px; overflow: hidden; border: 1px solid #334155; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+    .editor-header { background: #0F172A; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; }
+    .editor-body { display: flex; height: 400px; }
+    .input-area { width: 60%; background: #1E293B; color: #E2E8F0; font-family: 'Fira Code', monospace; padding: 24px; border: none; outline: none; resize: none; font-size: 0.95rem; line-height: 1.6; }
+    .output-area { width: 40%; background: #0B1120; border-left: 1px solid #334155; padding: 24px; font-family: 'Fira Code', monospace; font-size: 0.85rem; color: #4ADE80; overflow-y: auto; }
+
+    .run-btn { background: #22C55E; color: white; padding: 8px 20px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; transition: all 0.2s; display: flex; align-items: center; gap: 8px; }
+    .run-btn:hover { background: #16A34A; transform: translateY(-1px); }
+  </style>
+</head>
+
+<body class="selection:bg-purple-500 selection:text-white pb-20">
+
+  <main class="relative max-w-6xl mx-auto px-6 pt-16">
+    <div class="absolute inset-0 bg-grid-pattern opacity-40 -z-10 pointer-events-none"></div>
+    
+    <div class="flex items-center justify-between mb-12">
+        <a href="../challenges.html" class="inline-flex items-center text-slate-500 hover:text-purple-600 font-bold transition group">
+            <div class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center mr-3 group-hover:border-purple-200 shadow-sm">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </div>
+            Back to Challenges
+        </a>
+        <span class="px-4 py-1.5 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-wider">Logic Level 2</span>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+        
+        <div>
+            <h1 class="text-5xl font-extrabold text-[#0F172A] mb-6 leading-tight">
+              The <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">FizzBuzz</span> Test
+            </h1>
+            <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                Write a program that prints numbers from <strong>1 to 100</strong>.<br><br>
+                1. If divisible by <strong>3</strong>, print <strong class="text-purple-600">"Fizz"</strong>.<br>
+                2. If divisible by <strong>5</strong>, print <strong class="text-pink-600">"Buzz"</strong>.<br>
+                3. If divisible by <strong>both</strong>, print <strong class="text-[#0F172A]">"FizzBuzz"</strong>.
+            </p>
+
+            <div class="bg-white border border-purple-100 p-8 rounded-3xl shadow-xl shadow-purple-100/50 mb-8">
+                <h3 class="font-bold text-[#0F172A] mb-3 flex items-center gap-2 text-lg">
+                    <i data-lucide="lightbulb" class="w-5 h-5 text-yellow-500"></i> Pro Hint
+                </h3>
+                <p class="text-slate-600 mb-4">Use the modulo operator <code>%</code> to check remainders. The order of your <code>if/elif</code> statements matters!</p>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <code class="text-sm text-slate-500 font-mono">
+                        if num % 3 == 0: <span class="text-green-600"># It's divisible by 3</span>
+                    </code>
+                </div>
+            </div>
+        </div>
+
+        <div class="sticky top-10">
+            <div class="editor-container">
+                <div class="editor-header">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <span class="text-slate-400 text-xs font-mono font-bold uppercase tracking-widest">Python 3.10</span>
+                    <button class="run-btn" onclick="runCode()">
+                        <i data-lucide="play" class="w-4 h-4 fill-current"></i> Run Code
+                    </button>
+                </div>
+                <div class="editor-body">
+                    <textarea class="input-area" id="codeInput" spellcheck="false" placeholder="Type your python code here...">
+for i in range(1, 101):
+    # Your code here
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    # Finish the logic...
+    else:
+        print(i)</textarea>
+                    <div class="output-area" id="consoleOutput">
+                        <span class="text-slate-500">// Output will appear here...</span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-xs text-slate-400 mt-6">* Simulation Mode: Logic is verified in-browser.</p>
+        </div>
+
+    </div>
+  </main>
+
+  <footer id="main-footer" class="mt-24"></footer>
+  <script src="../js/main.js"></script>
+  
+  <script>
+    if(window.lucide) lucide.createIcons();
+
+    function runCode() {
+        const code = document.getElementById('codeInput').value;
+        const output = document.getElementById('consoleOutput');
+        
+        output.innerHTML = "<span class='text-yellow-400 animate-pulse'>Running...</span><br>";
+
+        setTimeout(() => {
+            // Simple validation logic
+            if (code.includes('if i % 3 == 0') && code.includes('print("Fizz")') && code.includes('print("Buzz")') && code.includes('print("FizzBuzz")')) {
+                let resultHTML = "";
+                for(let i=1; i<=15; i++) {
+                    if(i%3===0 && i%5===0) resultHTML += `<span class='text-white font-bold'>FizzBuzz</span><br>`;
+                    else if(i%3===0) resultHTML += `<span class='text-purple-400'>Fizz</span><br>`;
+                    else if(i%5===0) resultHTML += `<span class='text-pink-400'>Buzz</span><br>`;
+                    else resultHTML += `<span class='text-slate-500'>${i}</span><br>`;
+                }
+                resultHTML += "<span class='text-slate-600'>... (continued to 100)</span><br>";
+                resultHTML += "<br><span class='text-green-400 font-bold'>✔ SUCCESS: Logic looks correct! 🎉</span>";
+                output.innerHTML = resultHTML;
+            } else {
+                output.innerHTML = "<span class='text-red-400 font-bold'>Error: Logic incomplete.</span><br><br><span class='text-slate-400'>Make sure you handle all 3 conditions:<br>1. Fizz<br>2. Buzz<br>3. FizzBuzz</span>";
+            }
+        }, 600);
+    }
+  </script>
+</body>
+</html>

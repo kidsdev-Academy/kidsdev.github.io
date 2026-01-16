@@ -1,41 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <title>Flexbox vs Grid | KidsDev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <title>Flexbox vs Grid: The Golden Rule | KidsDev Tech Group</title>
+  <meta name="description" content="Confused between CSS Flexbox and Grid? Learn the golden rule: 1D vs 2D layouts. Simple visual guide for beginners.">
+  <meta name="keywords" content="css flexbox vs grid, css layout tutorial, learn css grid, web design for kids, frontend development">
+  <meta name="author" content="KidsDev Tech Group">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thekidsdev.netlify.app/posts/flex-vs-grid.html">
+
+  <meta property="og:title" content="Flexbox vs Grid: Which one to use? 🤔">
+  <meta property="og:description" content="The ultimate guide to CSS layouts. Stop guessing and start building.">
+  <meta property="og:image" content="../image/logo.png">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://thekidsdev.netlify.app/posts/flex-vs-grid.html">
+
   <link rel="icon" type="image/png" href="../image/logo.png">
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../css/style.css">
-</head>
-<body class="bg-white font-[Poppins]">
 
-  <header class="sticky top-0 bg-white/90 backdrop-blur border-b h-20 flex items-center px-6 justify-between z-50">
-     <a href="../index.html" class="font-bold text-xl">KidsDev</a>
-     <button id="searchBtn"><i data-lucide="search"></i></button>
-  </header>
-
-  <main class="max-w-3xl mx-auto px-4 py-12">
-    <a href="../daily.html" class="text-slate-400 hover:text-pink-500 font-bold mb-4 block">&larr; Back</a>
-    <h1 class="text-4xl font-extrabold mb-6">Flexbox vs <span class="text-pink-500">Grid</span></h1>
-
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    .bg-grid-pattern { background-size: 60px 60px; background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px); }
     
+    /* Code Blocks */
+    .code-block { background-color: #0F172A; border: 1px solid #334155; border-radius: 12px; overflow: hidden; font-family: 'Fira Code', monospace; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3); }
+    .code-header { background-color: #1E293B; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; }
+    .code-content { padding: 20px; overflow-x: auto; color: #e2e8f0; font-size: 0.85rem; line-height: 1.7; }
+    
+    .prop { color: #60A5FA; } .val { color: #F97316; } .sel { color: #FACC15; }
+    
+    /* Visual Demo */
+    .demo-box { background: white; border: 1px solid #E2E8F0; border-radius: 12px; height: 160px; padding: 10px; overflow: hidden; }
+    .item { background: #3B82F6; color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem; }
+    .item-grid { background: #EC4899; }
+  </style>
+</head>
 
-    <div class="grid md:grid-cols-2 gap-8 mt-8">
-      <div>
-        <h3 class="font-bold text-xl mb-2 text-blue-500">Flexbox (1D)</h3>
-        <p class="text-slate-600 text-sm">Use this when you want items in a single row OR a single column. Perfect for Navigation bars.</p>
-      </div>
-      <div>
-        <h3 class="font-bold text-xl mb-2 text-pink-500">Grid (2D)</h3>
-        <p class="text-slate-600 text-sm">Use this when you want items in rows AND columns at the same time. Perfect for Photo Galleries.</p>
-      </div>
+<body class="selection:bg-pink-500 selection:text-white pb-20">
+
+  <main class="relative max-w-5xl mx-auto px-6 pt-16">
+    <div class="absolute inset-0 bg-grid-pattern opacity-40 -z-10 pointer-events-none"></div>
+    
+    <div class="flex items-center justify-between mb-12">
+        <a href="../daily.html" class="inline-flex items-center text-slate-500 hover:text-pink-600 font-bold transition group">
+            <div class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center mr-3 group-hover:border-pink-200 shadow-sm">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </div>
+            Back to Tips
+        </a>
+        <span class="px-4 py-1.5 rounded-full bg-pink-100 text-pink-700 text-xs font-bold uppercase tracking-wider">CSS Layouts</span>
     </div>
+
+    <div class="text-center max-w-3xl mx-auto mb-16">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-[#0F172A] mb-6 leading-tight">
+          Flexbox vs. <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Grid</span>
+        </h1>
+        <p class="text-lg text-slate-500 leading-relaxed">
+            The eternal battle. When should you use which? The answer is simpler than you think: <strong>1 Dimension vs 2 Dimensions</strong>.
+        </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+        
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl relative overflow-hidden group hover:border-blue-300 transition">
+            <div class="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-blue-100 rounded-lg text-blue-600"><i data-lucide="align-horizontal-distribute-center" class="w-6 h-6"></i></div>
+                <h2 class="text-2xl font-bold text-[#0F172A]">Flexbox</h2>
+            </div>
+            
+            <p class="text-slate-600 mb-6 text-sm leading-relaxed">
+                <strong>One Direction Only.</strong> Use Flexbox when you want to align items in a single row OR a single column.
+            </p>
+
+            <div class="demo-box flex gap-2 items-center justify-center mb-6 bg-slate-50">
+                <div class="item w-12 h-12">1</div>
+                <div class="item w-12 h-12">2</div>
+                <div class="item w-12 h-12">3</div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header text-xs text-blue-400 font-bold">style.css</div>
+                <div class="code-content">
+                    <span class="sel">.navbar</span> {<br>
+                    &nbsp;&nbsp;<span class="prop">display</span>: <span class="val">flex</span>;<br>
+                    &nbsp;&nbsp;<span class="prop">gap</span>: <span class="val">1rem</span>;<br>
+                    }
+                </div>
+            </div>
+            
+            <div class="mt-6 flex gap-2 flex-wrap">
+                <span class="text-xs font-bold bg-slate-100 text-slate-500 px-3 py-1 rounded-full">Navigation Bars</span>
+                <span class="text-xs font-bold bg-slate-100 text-slate-500 px-3 py-1 rounded-full">Buttons</span>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl relative overflow-hidden group hover:border-pink-300 transition">
+            <div class="absolute top-0 left-0 w-full h-1 bg-pink-500"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-pink-100 rounded-lg text-pink-600"><i data-lucide="grid" class="w-6 h-6"></i></div>
+                <h2 class="text-2xl font-bold text-[#0F172A]">CSS Grid</h2>
+            </div>
+            
+            <p class="text-slate-600 mb-6 text-sm leading-relaxed">
+                <strong>Two Dimensions.</strong> Use Grid when you need to control rows AND columns at the same time.
+            </p>
+
+            <div class="demo-box grid grid-cols-2 gap-2 p-4 bg-slate-50">
+                <div class="item item-grid h-full">1</div>
+                <div class="item item-grid h-full">2</div>
+                <div class="item item-grid h-full col-span-2">3</div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header text-xs text-pink-400 font-bold">style.css</div>
+                <div class="code-content">
+                    <span class="sel">.gallery</span> {<br>
+                    &nbsp;&nbsp;<span class="prop">display</span>: <span class="val">grid</span>;<br>
+                    &nbsp;&nbsp;<span class="prop">grid-template-columns</span>: <span class="val">1fr 1fr</span>;<br>
+                    }
+                </div>
+            </div>
+
+            <div class="mt-6 flex gap-2 flex-wrap">
+                <span class="text-xs font-bold bg-slate-100 text-slate-500 px-3 py-1 rounded-full">Photo Gallery</span>
+                <span class="text-xs font-bold bg-slate-100 text-slate-500 px-3 py-1 rounded-full">Page Layout</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-16 bg-[#0F172A] text-white p-10 rounded-3xl text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="relative z-10">
+            <h3 class="text-2xl font-bold mb-4">The Verdict?</h3>
+            <p class="text-slate-300 max-w-lg mx-auto mb-8">
+                Use <strong>Flexbox</strong> for components (like buttons inside a menu).<br>
+                Use <strong>Grid</strong> for the main page structure.
+            </p>
+            <a href="../courses.html" class="inline-flex items-center gap-2 bg-white text-[#0F172A] px-8 py-3 rounded-xl font-bold hover:bg-slate-100 transition shadow-lg">
+                Master Both in our Web Course <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </div>
+
   </main>
 
-  <footer id="main-footer"></footer>
-  <div id="searchModal" class="hidden fixed inset-0 bg-black/80 z-50"></div>
+  <footer id="main-footer" class="mt-24"></footer>
   <script src="../js/main.js"></script>
+  <script>if(window.lucide) lucide.createIcons();</script>
 </body>
 </html>
