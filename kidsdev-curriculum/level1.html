@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 1: Scratch Star Certification | KidsDev Academy</title>
+  
+  <meta name="description" content="The official Scratch Star Coding Course. 48 Sessions of animations, game design, and logic for kids 7-10. STEM Accredited.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> 
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    /* Reveal Animation */
+    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
+    
+    /* Background Elements */
+    .bg-grid-slate {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    }
+    .blob { position: absolute; filter: blur(60px); opacity: 0.6; z-index: 0; }
+    
+    /* Gradient Text */
+    .text-gradient { background: linear-gradient(135deg, #ea580c 0%, #d946ef 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+
+<body class="bg-white text-[#0F172A] antialiased selection:bg-orange-100 selection:text-orange-900">
+
+  <header class="fixed top-0 w-full bg-white/90 backdrop-blur-xl border-b border-slate-200/60 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <a href="curriculum.html" class="group flex items-center gap-3 text-slate-500 hover:text-orange-600 transition duration-300 font-semibold text-sm">
+          <span class="p-2 rounded-full bg-slate-100 group-hover:bg-orange-50 transition"><i data-lucide="arrow-left" class="w-4 h-4"></i></span>
+          Back to Roadmap
+      </a>
+      <a href="index.html" class="flex items-center gap-2">
+          <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-orange-600">Dev</span></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="relative pt-32 pb-24 px-4 overflow-hidden bg-[#FFF7ED]">
+      <div class="blob bg-orange-200 w-96 h-96 top-0 right-0 rounded-full mix-blend-multiply"></div>
+      <div class="blob bg-purple-200 w-96 h-96 bottom-0 left-0 rounded-full mix-blend-multiply"></div>
+      <div class="absolute inset-0 bg-grid-slate"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <div class="reveal-up">
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-orange-100 rounded-full mb-8 shadow-sm">
+                 <i class="fas fa-certificate text-yellow-500"></i>
+                 <span class="text-xs font-bold text-slate-600 uppercase tracking-widest">STEM Accredited • Level 1</span>
+              </div>
+              
+              <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1] text-slate-900 tracking-tight">
+                  Become a <br>
+                  <span class="text-gradient">Scratch Star</span>
+              </h1>
+              
+              <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+                  The perfect starting point for ages 7-10. We transform screen time into creative power. Your child will build <strong>10+ Games & Animations</strong> while mastering the logic that powers the digital world.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="index.html#contact" class="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-full font-bold transition shadow-xl shadow-orange-500/20 flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                      Contact Admissions <i class="fas fa-arrow-right"></i>
+                  </a>
+                  <a href="#curriculum" class="px-8 py-4 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-full font-bold transition flex items-center justify-center gap-2">
+                      View Syllabus
+                  </a>
+              </div>
+
+              <div class="mt-10 flex items-center gap-6 text-sm font-bold text-slate-400">
+                  <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> No Experience Needed</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Live Mentorship</span>
+              </div>
+          </div>
+
+          <div class="relative reveal-up" style="transition-delay: 200ms;">
+              <div class="relative rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl rotate-3 hover:rotate-0 transition duration-700">
+                  <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop" alt="Happy kid coding" class="w-full h-auto object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div class="absolute bottom-8 left-8 text-white">
+                      <p class="text-xs font-bold uppercase tracking-widest mb-1 text-orange-400">Current Project</p>
+                      <p class="text-2xl font-bold">Space Shooter Game</p>
+                  </div>
+              </div>
+              
+              <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
+                  <div class="flex items-center gap-4">
+                      <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-2xl font-bold">
+                          48
+                      </div>
+                      <div>
+                          <p class="text-xs text-slate-400 uppercase font-bold">Total Sessions</p>
+                          <p class="text-lg font-bold text-slate-800">Complete Course</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <section class="py-20 bg-white border-b border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+          <h2 class="text-3xl font-extrabold text-[#0F172A] mb-12">The Path to Mastery</h2>
+          
+          <div class="flex flex-col md:flex-row justify-center items-center gap-8 relative">
+              <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-100 -z-10 transform -translate-y-1/2"></div>
+
+              <div class="bg-orange-50 border-2 border-orange-500 p-6 rounded-2xl relative w-full md:w-1/3 shadow-lg transform scale-105 z-10">
+                  <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">YOU ARE HERE</div>
+                  <div class="w-16 h-16 mx-auto bg-orange-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      ⭐
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Scratch Star</h3>
+                  <p class="text-xs text-slate-500 mt-2">Sessions 1-48</p>
+                  <p class="text-sm font-medium text-orange-700 mt-2">Basics & Logic</p>
+              </div>
+
+              <div class="bg-white border border-slate-200 p-6 rounded-2xl relative w-full md:w-1/3 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
+                  <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      🌟
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Scratch Superstar</h3>
+                  <p class="text-xs text-slate-500 mt-2">Sessions 49-96</p>
+                  <p class="text-sm font-medium text-slate-700 mt-2">Advanced Concepts</p>
+              </div>
+
+              <div class="bg-white border border-slate-200 p-6 rounded-2xl relative w-full md:w-1/3 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
+                  <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      🏆
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Scratch Master</h3>
+                  <p class="text-xs text-slate-500 mt-2">Sessions 97-144</p>
+                  <p class="text-sm font-medium text-slate-700 mt-2">Expert & AI Games</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-24 bg-white" id="curriculum">
+      <div class="max-w-6xl mx-auto px-4">
+          <div class="text-center mb-16 reveal-up">
+              <span class="text-orange-600 font-bold tracking-wider text-sm uppercase">Detailed Syllabus</span>
+              <h2 class="text-4xl font-extrabold text-slate-900 mt-2 mb-4">48 Sessions to Success</h2>
+              <p class="text-slate-500 max-w-2xl mx-auto">Our curriculum is broken down into 4 expertly crafted modules, taking students from basics to complex game design.</p>
+          </div>
+
+          <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-200">
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-orange-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">1</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Introduction to Coding</h3>
+                          <span class="bg-orange-50 text-orange-700 text-xs font-bold px-3 py-1 rounded-full">Sessions 1-16</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6">We lay the foundation. Students learn to navigate the Scratch interface and understand that computers follow sequential instructions.</p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-play text-orange-500"></i> Basics of Programming
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-layer-group text-orange-500"></i> Sequential Logic
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-film text-orange-500"></i> Animating Objects
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-blue-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">2</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Logic Fundamentals</h3>
+                          <span class="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">Sessions 17-26</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6">Introduction to "Event-Driven" programming. Students learn how to make their code respond to keys, clicks, and messages.</p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-random text-blue-500"></i> Parallelism (Multi-tasking)
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-clone text-blue-500"></i> Cloning (Duplication)
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-keyboard text-blue-500"></i> Event Triggers
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-purple-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">3</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Control Flow</h3>
+                          <span class="bg-purple-50 text-purple-700 text-xs font-bold px-3 py-1 rounded-full">Sessions 27-34</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6">The brain of the code. We teach computers how to make decisions and repeat tasks efficiently.</p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-sync text-purple-500"></i> Loops & Iterations
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-code-branch text-purple-500"></i> Conditional (If-Else)
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-eye text-purple-500"></i> Sensing & Detection
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-green-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">4</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Interactive Game Design</h3>
+                          <span class="bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Sessions 35-48</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6">The Capstone Phase. Students combine all skills to build polished, playable games with scores and levels.</p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-gamepad text-green-500"></i> Interaction Logic
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-calculator text-green-500"></i> Local Variables (Score)
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-paint-brush text-green-500"></i> Game UI Design
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-slate-900 text-white overflow-hidden relative">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600 rounded-full blur-[120px] opacity-20"></div>
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600 rounded-full blur-[120px] opacity-20"></div>
+
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+          <div class="text-center mb-16 reveal-up">
+              <h2 class="text-3xl md:text-4xl font-extrabold mb-4">More Than Just Coding</h2>
+              <p class="text-slate-400">We develop critical STEM and Cognitive skills that help in school and beyond.</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12">
+              <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm reveal-up">
+                  <div class="flex items-center gap-4 mb-8">
+                      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-2xl font-bold">
+                          <i class="fas fa-atom"></i>
+                      </div>
+                      <h3 class="text-2xl font-bold">STEM Skills</h3>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-drafting-compass text-yellow-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Geometry</h4>
+                          <p class="text-xs text-slate-400">Angles & Shapes</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-map-marker-alt text-yellow-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Coordinates</h4>
+                          <p class="text-xs text-slate-400">X-Y Cartesian System</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-wind text-yellow-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Visuals</h4>
+                          <p class="text-xs text-slate-400">Particle Effects</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-compass text-yellow-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Physics</h4>
+                          <p class="text-xs text-slate-400">Direction & Motion</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm reveal-up" style="transition-delay: 100ms;">
+                  <div class="flex items-center gap-4 mb-8">
+                      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-2xl font-bold">
+                          <i class="fas fa-brain"></i>
+                      </div>
+                      <h3 class="text-2xl font-bold">Cognitive Skills</h3>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-project-diagram text-blue-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Logic</h4>
+                          <p class="text-xs text-slate-400">Logical Thinking</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-sort-numeric-down text-blue-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Order</h4>
+                          <p class="text-xs text-slate-400">Sequential Thinking</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-paint-brush text-blue-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Creativity</h4>
+                          <p class="text-xs text-slate-400">Creative Design</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-eye text-blue-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Processing</h4>
+                          <p class="text-xs text-slate-400">Visual Processing</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-[#F8FAFC]">
+      <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-16 reveal-up">
+              <h2 class="text-3xl font-extrabold text-[#0F172A] mb-4">What Will You Create?</h2>
+              <p class="text-slate-500">Students build 10+ professional-grade Scratch projects.</p>
+          </div>
+
+          <div class="grid md:grid-cols-4 gap-6">
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up">
+                  <div class="h-40 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1614294148960-9aa740632364?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Pong Game</h4>
+                      <p class="text-xs text-slate-500 mb-4">Classic arcade physics with paddle control and bouncing mechanics.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Physics</span>
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Motion</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up" style="transition-delay: 100ms;">
+                  <div class="h-40 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Clicker Game</h4>
+                      <p class="text-xs text-slate-500 mb-4">Test reflexes with timers, variables, and high-score tracking.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Variables</span>
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Data</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up" style="transition-delay: 200ms;">
+                  <div class="h-40 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Shooter Game</h4>
+                      <p class="text-xs text-slate-500 mb-4">Advanced cloning logic to create infinite enemy waves.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Cloning</span>
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Events</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up" style="transition-delay: 300ms;">
+                  <div class="h-40 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Arcade Adventure</h4>
+                      <p class="text-xs text-slate-500 mb-4">A multi-level adventure with winning and losing states.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Design</span>
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Logic</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-white border-t border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+          <div class="bg-orange-50 border border-orange-100 rounded-[3rem] p-12 reveal-up">
+              <i class="fas fa-award text-5xl text-orange-500 mb-6"></i>
+              <h2 class="text-3xl font-extrabold text-[#0F172A] mb-6">The KidsDev Promise</h2>
+              <p class="text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                  Upon completion of the 48 sessions, your child becomes a certified <strong>Scratch Star</strong>. We guarantee not just coding skills, but a transformation in how they think.
+              </p>
+              
+              <div class="grid md:grid-cols-4 gap-6 text-left">
+                  <div class="p-4 bg-white rounded-xl shadow-sm">
+                      <div class="text-orange-500 mb-2"><i class="fas fa-lightbulb"></i></div>
+                      <h5 class="font-bold text-slate-800 text-sm">Enhanced Creativity</h5>
+                      <p class="text-xs text-slate-500 mt-1">Creators, not just consumers.</p>
+                  </div>
+                  <div class="p-4 bg-white rounded-xl shadow-sm">
+                      <div class="text-blue-500 mb-2"><i class="fas fa-puzzle-piece"></i></div>
+                      <h5 class="font-bold text-slate-800 text-sm">Improved Logic</h5>
+                      <p class="text-xs text-slate-500 mt-1">Structured problem solving.</p>
+                  </div>
+                  <div class="p-4 bg-white rounded-xl shadow-sm">
+                      <div class="text-green-500 mb-2"><i class="fas fa-calculator"></i></div>
+                      <h5 class="font-bold text-slate-800 text-sm">Better at Math</h5>
+                      <p class="text-xs text-slate-500 mt-1">Practical application of geometry.</p>
+                  </div>
+                  <div class="p-4 bg-white rounded-xl shadow-sm">
+                      <div class="text-purple-500 mb-2"><i class="fas fa-comments"></i></div>
+                      <h5 class="font-bold text-slate-800 text-sm">Confidence</h5>
+                      <p class="text-xs text-slate-500 mt-1">In communication & presentation.</p>
+                  </div>
+              </div>
+
+              <div class="mt-12 flex flex-wrap justify-center gap-6 text-xs font-bold text-slate-500">
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Lifetime Access to Content</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Flexible Payment Options</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 100% Refund Policy (15 Days)</span>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <div class="fixed bottom-0 w-full bg-white border-t border-slate-200 p-4 md:hidden z-50 flex items-center justify-between shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+      <div>
+          <p class="text-xs text-slate-500 uppercase font-bold">Total Fee</p>
+          <p class="text-xl font-bold text-orange-600">₦50,000</p>
+      </div>
+      <a href="index.html#contact" class="px-6 py-3 bg-orange-600 text-white font-bold rounded-full shadow-lg">Contact Us</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

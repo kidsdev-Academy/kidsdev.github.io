@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 2: Web Architecture | KidsDev Academy</title>
+  
+  <meta name="description" content="Level 2 Coding Course: Web Architecture. Master HTML5, CSS3, and deploy live websites. Professional web development for kids 10-13.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2064&auto=format&fit=crop">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> 
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    /* Animation Utilities */
+    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
+    
+    /* Background Elements */
+    .bg-grid-slate {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    }
+    .blob { position: absolute; filter: blur(60px); opacity: 0.6; z-index: 0; }
+    
+    /* Gradient Text */
+    .text-gradient { background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+
+<body class="bg-white text-[#0F172A] antialiased selection:bg-blue-100 selection:text-blue-900">
+
+  <header class="fixed top-0 w-full bg-white/90 backdrop-blur-xl border-b border-slate-200/60 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <a href="curriculum.html" class="group flex items-center gap-3 text-slate-500 hover:text-blue-600 transition duration-300 font-semibold text-sm">
+          <span class="p-2 rounded-full bg-slate-100 group-hover:bg-blue-50 transition"><i data-lucide="arrow-left" class="w-4 h-4"></i></span>
+          Back to Roadmap
+      </a>
+      <a href="index.html" class="flex items-center gap-2">
+          <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-orange-600">Dev</span></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="relative pt-32 pb-24 px-4 overflow-hidden bg-[#F0F9FF]">
+      <div class="blob bg-blue-200 w-96 h-96 top-0 right-0 rounded-full mix-blend-multiply"></div>
+      <div class="blob bg-cyan-200 w-96 h-96 bottom-0 left-0 rounded-full mix-blend-multiply"></div>
+      <div class="absolute inset-0 bg-grid-slate"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <div class="reveal-up">
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-blue-100 rounded-full mb-8 shadow-sm">
+                 <i class="fas fa-layer-group text-blue-500"></i>
+                 <span class="text-xs font-bold text-slate-600 uppercase tracking-widest">Level 2 • Intermediate</span>
+              </div>
+              
+              <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1] text-slate-900 tracking-tight">
+                  Master Web <br>
+                  <span class="text-gradient">Architecture</span>
+              </h1>
+              
+              <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+                  This is where "real typing" begins. We move beyond blocks to professional text-based coding. Your child will write <strong>HTML5 & CSS3</strong> to build beautiful, live websites from scratch.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="index.html#contact" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition shadow-xl shadow-blue-500/20 flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                      Contact Admissions <i class="fas fa-arrow-right"></i>
+                  </a>
+                  <a href="#curriculum" class="px-8 py-4 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-full font-bold transition flex items-center justify-center gap-2">
+                      View Syllabus
+                  </a>
+              </div>
+
+              <div class="mt-10 flex items-center gap-6 text-sm font-bold text-slate-400">
+                  <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Industry Tools (VS Code)</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Live Deployment</span>
+              </div>
+          </div>
+
+          <div class="relative reveal-up" style="transition-delay: 200ms;">
+              <div class="relative rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl rotate-2 hover:rotate-0 transition duration-700">
+                  <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2064&auto=format&fit=crop" alt="Web Development Code" class="w-full h-auto object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  <div class="absolute bottom-8 left-8 text-white">
+                      <p class="text-xs font-bold uppercase tracking-widest mb-1 text-blue-400">Capstone Project</p>
+                      <p class="text-2xl font-bold">Personal Portfolio Site</p>
+                  </div>
+              </div>
+              
+              <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
+                  <div class="flex items-center gap-4">
+                      <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl font-bold">
+                          12
+                      </div>
+                      <div>
+                          <p class="text-xs text-slate-400 uppercase font-bold">Weeks Duration</p>
+                          <p class="text-lg font-bold text-slate-800">HTML & CSS Mastery</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <section class="py-20 bg-white border-b border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+          <h2 class="text-3xl font-extrabold text-[#0F172A] mb-12">The Path to Mastery</h2>
+          
+          <div class="flex flex-col md:flex-row justify-center items-center gap-8 relative">
+              <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-100 -z-10 transform -translate-y-1/2"></div>
+
+              <div class="bg-white border border-slate-200 p-6 rounded-2xl relative w-full md:w-1/3 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
+                  <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      ⭐
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Scratch Star</h3>
+                  <p class="text-xs text-slate-500 mt-2">Level 1 (Completed)</p>
+              </div>
+
+              <div class="bg-blue-50 border-2 border-blue-500 p-6 rounded-2xl relative w-full md:w-1/3 shadow-lg transform scale-105 z-10">
+                  <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">YOU ARE HERE</div>
+                  <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      🌐
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Web Architect</h3>
+                  <p class="text-xs text-slate-500 mt-2">Level 2 (12 Weeks)</p>
+                  <p class="text-sm font-medium text-blue-700 mt-2">HTML5 & CSS3</p>
+              </div>
+
+              <div class="bg-white border border-slate-200 p-6 rounded-2xl relative w-full md:w-1/3 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
+                  <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      🐍
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Python Core</h3>
+                  <p class="text-xs text-slate-500 mt-2">Level 3 (Next Step)</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-24 bg-white" id="curriculum">
+      <div class="max-w-6xl mx-auto px-4">
+          <div class="text-center mb-16 reveal-up">
+              <span class="text-blue-600 font-bold tracking-wider text-sm uppercase">Detailed Syllabus</span>
+              <h2 class="text-4xl font-extrabold text-slate-900 mt-2 mb-4">From Blank Page to Live Site</h2>
+              <p class="text-slate-500 max-w-2xl mx-auto">We teach the exact tools used by professionals at Google and Facebook, adapted for young learners.</p>
+          </div>
+
+          <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-200">
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-blue-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">1</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">The Structure (HTML5)</h3>
+                          <span class="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 1-3</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          Students learn that a website is like a house, and HTML is the frame. We focus on writing "Semantic HTML"—code that is meaningful, accessible to screen readers, and structured correctly for search engines (SEO).
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fab fa-html5 text-orange-500"></i> <strong>Semantic Tags:</strong> Using &lt;header&gt;, &lt;nav&gt;, and &lt;main&gt; instead of just div.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-server text-blue-500"></i> <strong>Client vs Server:</strong> How browsers render code from a remote server.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-photo-video text-purple-500"></i> <strong>Rich Media:</strong> Embedding Audio, Video, and Iframes correctly.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-teal-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">2</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">The Style (CSS3)</h3>
+                          <span class="bg-teal-50 text-teal-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 4-6</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          Coding meets Art. We introduce the "Cascading Style Sheets" language. Students learn how to select HTML elements and apply design rules, understanding inheritance and specificity (why some rules override others).
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fab fa-css3-alt text-blue-600"></i> <strong>Advanced Selectors:</strong> Targeting specific classes, IDs, and states (:hover).
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-palette text-pink-500"></i> <strong>Visual Design:</strong> Working with Google Fonts, Hex Codes, and Gradients.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-border-style text-teal-500"></i> <strong>The Cascade:</strong> Understanding how style rules flow down to elements.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-indigo-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">3</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Advanced Layouts</h3>
+                          <span class="bg-indigo-50 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 7-9</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          Moving elements around the page is the hardest part of web design. We master the <strong>Box Model</strong> (Margins vs Padding) and use modern systems like <strong>Flexbox</strong> to create layouts that work on Phones, Tablets, and Laptops.
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-box-open text-indigo-500"></i> <strong>Box Model:</strong> The physics of web layout (Margin, Border, Padding).
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-columns text-indigo-500"></i> <strong>Flexbox:</strong> Creating flexible rows and columns for navigation bars.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-mobile-alt text-indigo-500"></i> <strong>Responsiveness:</strong> Using Media Queries to adapt sites for mobile screens.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-green-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">4</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Capstone & Deployment</h3>
+                          <span class="bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 10-12</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          A website isn't finished until it's online. Students learn the professional workflow: cleaning up code, optimizing images for speed, and deploying via <strong>GitHub Pages</strong>. They finish with a live URL they can share.
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-cloud-upload-alt text-green-500"></i> <strong>GitHub Deployment:</strong> Publishing code to a live server.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-envelope-open-text text-green-500"></i> <strong>Forms:</strong> Building working "Contact Me" sections.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-check-double text-green-500"></i> <strong>Debugging:</strong> Using Chrome DevTools to fix layout issues.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-slate-900 text-white overflow-hidden relative">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600 rounded-full blur-[120px] opacity-20"></div>
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-600 rounded-full blur-[120px] opacity-20"></div>
+
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+          <div class="text-center mb-16 reveal-up">
+              <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Professional Skills Acquired</h2>
+              <p class="text-slate-400">This isn't just a class; it's a career head-start.</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12">
+              <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm reveal-up">
+                  <div class="flex items-center gap-4 mb-8">
+                      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center text-2xl font-bold">
+                          <i class="fas fa-code"></i>
+                      </div>
+                      <h3 class="text-2xl font-bold">Technical Stack</h3>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fab fa-html5 text-orange-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Semantic HTML</h4>
+                          <p class="text-xs text-slate-400">Web Standards</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fab fa-css3-alt text-blue-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">CSS Styling</h4>
+                          <p class="text-xs text-slate-400">Visual Design</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-laptop-code text-green-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">VS Code</h4>
+                          <p class="text-xs text-slate-400">IDE Management</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fab fa-github text-white mb-2"></i>
+                          <h4 class="font-bold text-sm">Deployment</h4>
+                          <p class="text-xs text-slate-400">Hosting & Git</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm reveal-up" style="transition-delay: 100ms;">
+                  <div class="flex items-center gap-4 mb-8">
+                      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-2xl font-bold">
+                          <i class="fas fa-pen-nib"></i>
+                      </div>
+                      <h3 class="text-2xl font-bold">Design Thinking</h3>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-swatchbook text-pink-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Color Theory</h4>
+                          <p class="text-xs text-slate-400">Visual Harmony</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-text-height text-purple-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Typography</h4>
+                          <p class="text-xs text-slate-400">Font Pairings</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-th-large text-cyan-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Layouts</h4>
+                          <p class="text-xs text-slate-400">Grid Systems</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-mobile text-yellow-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Responsiveness</h4>
+                          <p class="text-xs text-slate-400">Mobile-First</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-[#F8FAFC]">
+      <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-16 reveal-up">
+              <h2 class="text-3xl font-extrabold text-[#0F172A] mb-4">What Will You Build?</h2>
+              <p class="text-slate-500">Real, live websites. Not simulations.</p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up">
+                  <div class="h-48 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Hobby Landing Page</h4>
+                      <p class="text-xs text-slate-500 mb-4">A single-page website dedicated to a student's favorite topic (Sports, Music, Art) using semantic HTML.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Structure</span>
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Media</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up" style="transition-delay: 100ms;">
+                  <div class="h-48 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1466978913421-dad938661248?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Recipe Blog</h4>
+                      <p class="text-xs text-slate-500 mb-4">A multi-page food blog with ingredients lists, stylized typography, and colorful backgrounds.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">CSS Styling</span>
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Layouts</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up" style="transition-delay: 200ms;">
+                  <div class="h-48 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Live Portfolio (Capstone)</h4>
+                      <p class="text-xs text-slate-500 mb-4">A complete personal brand website featuring a "Contact Me" form and links to other projects. Hosted live.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Deploy</span>
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Professional</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-white border-t border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+          <div class="bg-blue-50 border border-blue-100 rounded-[3rem] p-12 reveal-up">
+              <i class="fas fa-laptop-code text-5xl text-blue-500 mb-6"></i>
+              <h2 class="text-3xl font-extrabold text-[#0F172A] mb-6">The Web Architect Guarantee</h2>
+              <p class="text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                  By the end of these 12 weeks, your child won't just "know" HTML. They will have a live URL they can send to friends and family, proving they built something real.
+              </p>
+              
+              <div class="mt-12 flex flex-wrap justify-center gap-6 text-xs font-bold text-slate-500">
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Lifetime Access to Content</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Flexible Payment Options</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Small Class Sizes (Max 8)</span>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <div class="fixed bottom-0 w-full bg-white border-t border-slate-200 p-4 md:hidden z-50 flex items-center justify-between shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+      <div>
+          <p class="text-xs text-slate-500 uppercase font-bold">Total Fee</p>
+          <p class="text-xl font-bold text-blue-600">₦55,000</p>
+      </div>
+      <a href="index.html#contact" class="px-6 py-3 bg-blue-600 text-white font-bold rounded-full shadow-lg">Contact Us</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -127,6 +127,18 @@
     "category": "Logic",
     "level": "Hard",
     "url": "challenges/guess.html",
-    "date": "2026-01-24"
+    "date": "2026-01-16"
+  },
+
+   {
+    "id": 204,
+    "type": "challenge",
+    "title": "Matrix Generator",
+    "desc": "Create a program that generates a 5x5 matrix filled with random numbers.",
+    "image": "https://media.istockphoto.com/id/1096900992/photo/led-screen.webp?a=1&b=1&s=612x612&w=0&k=20&c=-ps36B1GH7YIJ37CEn0OSjadeQPvFeqviqpIAwT8ctA=",
+    "category": "Python Logic",
+    "level": "Hard",
+    "url": "challenges/matrix.html",
+    "date": "2026-01-17"
   }
 ]

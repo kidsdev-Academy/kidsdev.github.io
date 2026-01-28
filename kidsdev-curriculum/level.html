@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KidsDev Academy | Level Details</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">KidsDev Academy</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="curriculum.html">Curriculum</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact" class="btn">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- LEVEL HERO -->
+  <section class="hero">
+    <div class="hero-text fade-in">
+      <h1 id="level-title">Level</h1>
+      <p id="level-description"></p>
+      <p class="age" id="level-age"></p>
+    </div>
+    <div class="hero-img slide-in">
+      <img id="level-image" src="" alt="Level illustration">
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section class="levels-preview">
+    <h2 class="section-title">Modules in this Level</h2>
+    <div class="modules-grid" id="modules-container">
+      <!-- JS injects modules -->
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="parent-value">
+    <div class="value-text">
+      <h2>Projects Your Child Will Build</h2>
+      <ul id="projects-list"></ul>
+    </div>
+    <div class="value-img">
+      <img src="assets/illustrations/projects.svg" alt="Projects">
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="levels-preview">
+    <h2 class="section-title">Skills Gained</h2>
+    <div class="skills-grid" id="skills-container">
+      <!-- JS injects skills -->
+    </div>
+  </section>
+
+  <!-- CERTIFICATE -->
+  <section class="cta">
+    <h2>Certificate of Completion</h2>
+    <p>
+      After completing this level, your child receives
+      an official KidsDev Academy certificate.
+    </p>
+    <img src="assets/illustrations/certificate.svg" style="max-width:300px;margin-top:20px;">
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 KidsDev Academy. Building Africa’s Future.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/level.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tutorial: Matrix Rain Effect | KidsDev Academy</title>
+  <meta name="description" content="Learn to create the famous Matrix digital rain effect using JavaScript and HTML5 Canvas.">
+  
+  <meta property="og:title" content="Code the Matrix Rain 🟢">
+  <meta property="og:description" content="Create the ultimate hacker visual effect in 10 minutes.">
+  <meta property="og:image" content="../image/logo.png">
+  <meta property="og:type" content="article">
+
+  <link rel="icon" type="image/png" href="../image/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
+    
+    .code-block { background-color: #1E293B; color: #E2E8F0; padding: 1.5rem; border-radius: 1rem; font-family: 'Fira Code', monospace; font-size: 0.85rem; overflow-x: auto; border: 1px solid #334155; margin: 1rem 0; }
+    .comment { color: #64748B; font-style: italic; }
+    .keyword { color: #C084FC; }
+    .str { color: #4ADE80; }
+    
+    .quiz-btn { width: 100%; text-align: left; padding: 12px 16px; margin-bottom: 8px; border-radius: 12px; border: 1px solid #E2E8F0; background: white; transition: all 0.2s; font-size: 0.9rem; font-weight: 500; color: #64748B; }
+    .quiz-btn:hover { background: #F8FAFC; border-color: #94A3B8; color: #0F172A; }
+    .feedback { font-size: 0.9rem; font-weight: 700; margin-top: 12px; min-height: 24px; }
+  </style>
+</head>
+<body class="bg-[#FAFAFA] text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+
+  <header class="pro-header sticky top-0 z-[100]">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+      <a href="../index.html" class="flex items-center gap-2">
+        <img src="../image/logo.png" class="h-10 w-auto object-contain">
+        <span class="font-extrabold text-2xl text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+      </a>
+      <a href="../challenges.html" class="text-sm font-bold text-[#F97316] hover:text-orange-700 flex items-center gap-2">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Challenges
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-12 flex-grow">
+    
+    <div class="text-center mb-16">
+        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold uppercase tracking-wider">Cyber Security</span>
+        <h1 class="text-4xl font-extrabold mt-4 mb-4 text-[#0F172A]">The Matrix Rain Effect</h1>
+        <p class="text-slate-500 max-w-2xl mx-auto">Create the iconic "Digital Rain" using JavaScript. This is the perfect introduction to creative coding.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+        
+        <div class="space-y-12">
+            
+            <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm group hover:shadow-lg transition-all relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1.5 h-full bg-green-500"></div>
+                <h2 class="text-2xl font-bold flex items-center gap-3 mb-4"><span class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-sm font-bold">1</span> The Concept</h2>
+                <p class="text-slate-600 mb-4 text-sm">We treat the screen as a grid of columns. Each column has a "drop" falling down it.</p>
+                <div class="code-block">
+<span class="keyword">const</span> columns = canvas.width / fontSize;<br>
+<span class="keyword">const</span> drops = []; <span class="comment">// Stores y-position of each drop</span><br>
+<br>
+<span class="comment">// Start all drops at y=1</span><br>
+<span class="keyword">for</span>(let i=0; i&lt;columns; i++) {<br>
+&nbsp;&nbsp;drops[i] = 1;<br>
+}
+                </div>
+                <div class="bg-slate-50 rounded-xl p-5 border border-slate-100">
+                    <h4 class="font-bold text-xs text-slate-500 uppercase tracking-widest mb-3">Quiz: What is an Array?</h4>
+                    <div class="quiz">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">A) A list of data items</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">B) A single number</button>
+                        <div class="feedback"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm group hover:shadow-lg transition-all relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1.5 h-full bg-black"></div>
+                <h2 class="text-2xl font-bold flex items-center gap-3 mb-4"><span class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-sm font-bold">2</span> The Fade Effect</h2>
+                <p class="text-slate-600 mb-4 text-sm">To make the trails fade, we don't clear the screen completely. We draw a semi-transparent black box over it.</p>
+                <div class="code-block">
+ctx.fillStyle = <span class="str">"rgba(0, 0, 0, 0.05)"</span>;<br>
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+                </div>
+                <div class="bg-slate-50 rounded-xl p-5 border border-slate-100">
+                    <h4 class="font-bold text-xs text-slate-500 uppercase tracking-widest mb-3">Quiz: What does 0.05 mean?</h4>
+                    <div class="quiz">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false)">A) 5% Red Color</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true)">B) Very low opacity (transparent)</button>
+                        <div class="feedback"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="lg:sticky lg:top-24 space-y-8">
+            <div class="bg-black p-2 rounded-3xl shadow-2xl border border-slate-800">
+                <div class="bg-black px-4 py-3 flex justify-between items-center mb-1">
+                    <span class="text-xs font-bold text-green-500 uppercase flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div> System Active</span>
+                </div>
+                <canvas id="matrixCanvas" class="w-full bg-black rounded-xl"></canvas>
+            </div>
+
+            <div class="bg-[#0F172A] rounded-3xl p-8 shadow-xl text-white">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold">🚀 Hacker Code</h2>
+                    <button onclick="navigator.clipboard.writeText(document.getElementById('fullCode').value); alert('Copied!')" class="text-xs bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition flex items-center gap-2">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy
+                    </button>
+                </div>
+                <textarea id="fullCode" class="w-full h-48 bg-[#1E293B] text-green-400 font-mono text-xs p-4 rounded-xl border border-slate-700 focus:outline-none resize-none" spellcheck="false">
+<!DOCTYPE html>
+<html>
+<body style="margin:0; overflow:hidden; background:black;">
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = [];
+
+for(let i=0; i<columns; i++) drops[i] = 1;
+
+function draw() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.fillStyle = "#0F0";
+    ctx.font = fontSize + "px monospace";
+
+    for(let i=0; i<drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random()*letters.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975)
+            drops[i] = 0;
+        
+        drops[i]++;
+    }
+}
+setInterval(draw, 33);
+</script>
+</body>
+</html>
+                </textarea>
+            </div>
+        </div>
+    </div>
+  </main>
+
+  <footer class="bg-[#0b1021] text-white pt-16 pb-8 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div class="col-span-1 md:col-span-2 space-y-4">
+          <a href="../index.html" class="flex items-center gap-2 group">
+             <img src="../image/logo.png" class="h-8 w-auto object-contain transition transform group-hover:scale-105" alt="KidsDev Logo"> 
+             <span class="font-extrabold text-2xl tracking-tighter">Kids<span class="text-[#F97316]">Dev</span></span>
+          </a>
+          <p class="text-slate-400 text-sm leading-relaxed max-w-xs">Empowering the next generation.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Learn</h3>
+          <ul class="space-y-4 text-sm text-slate-400">
+            <li><a href="../courses.html" class="hover:text-white">Curriculum</a></li>
+            <li><a href="../challenges.html" class="hover:text-white">Challenges</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-500">&copy; 2026 KidsDev Academy.</div>
+    </div>
+  </footer>
+
+  <script>
+    if(window.lucide) lucide.createIcons();
+
+    function checkAnswer(button, isCorrect) {
+      const feedback = button.parentElement.querySelector(".feedback");
+      const allBtns = button.parentElement.querySelectorAll(".quiz-btn");
+      allBtns.forEach(btn => { btn.style.background = "white"; btn.style.borderColor = "#E2E8F0"; btn.style.color = "#64748B"; });
+
+      if (isCorrect) {
+        button.style.background = "#F0FDF4"; button.style.borderColor = "#86EFAC"; button.style.color = "#166534";
+        feedback.innerHTML = "<span class='flex items-center gap-2 text-green-600'><i data-lucide='check-circle' class='w-4 h-4'></i> Access Granted!</span>";
+      } else {
+        button.style.background = "#FEF2F2"; button.style.borderColor = "#FECACA"; button.style.color = "#991B1B";
+        feedback.innerHTML = "<span class='flex items-center gap-2 text-red-600'><i data-lucide='x-circle' class='w-4 h-4'></i> Access Denied.</span>";
+      }
+      if(window.lucide) lucide.createIcons();
+    }
+
+    // --- MATRIX EFFECT SCRIPT ---
+    (function() {
+        const canvas = document.getElementById("matrixCanvas");
+        const ctx = canvas.getContext("2d");
+        
+        canvas.height = 400;
+        canvas.width = canvas.offsetWidth;
+
+        const letters = "010101 KIDSDEV HACK LINUX PYTHON";
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for(let i=0; i<columns; i++) drops[i] = 1;
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = "#22c55e"; // Tailwind Green-500
+            ctx.font = fontSize + "px monospace";
+
+            for(let i=0; i<drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random()*letters.length));
+                ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+                
+                if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 4: Advanced Game Development | KidsDev Academy</title>
+  
+  <meta name="description" content="Level 4 Coding Course: Advanced Game Development. Master Object-Oriented Programming (OOP) with Python and Pygame. Build professional arcade games.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> 
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    /* Animation Utilities */
+    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
+    
+    /* Background Elements */
+    .bg-grid-slate {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    }
+    .blob { position: absolute; filter: blur(60px); opacity: 0.6; z-index: 0; }
+    
+    /* Gradient Text */
+    .text-gradient { background: linear-gradient(135deg, #db2777 0%, #be185d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+
+<body class="bg-white text-[#0F172A] antialiased selection:bg-pink-100 selection:text-pink-900">
+
+  <header class="fixed top-0 w-full bg-white/90 backdrop-blur-xl border-b border-slate-200/60 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <a href="curriculum.html" class="group flex items-center gap-3 text-slate-500 hover:text-pink-600 transition duration-300 font-semibold text-sm">
+          <span class="p-2 rounded-full bg-slate-100 group-hover:bg-pink-50 transition"><i data-lucide="arrow-left" class="w-4 h-4"></i></span>
+          Back to Roadmap
+      </a>
+      <a href="index.html" class="flex items-center gap-2">
+          <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-orange-600">Dev</span></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="relative pt-32 pb-24 px-4 overflow-hidden bg-[#FDF2F8]">
+      <div class="blob bg-pink-200 w-96 h-96 top-0 right-0 rounded-full mix-blend-multiply"></div>
+      <div class="blob bg-rose-200 w-96 h-96 bottom-0 left-0 rounded-full mix-blend-multiply"></div>
+      <div class="absolute inset-0 bg-grid-slate"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <div class="reveal-up">
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-pink-100 rounded-full mb-8 shadow-sm">
+                 <i class="fas fa-ghost text-pink-600"></i>
+                 <span class="text-xs font-bold text-slate-600 uppercase tracking-widest">Level 4 • Pro Track</span>
+              </div>
+              
+              <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1] text-slate-900 tracking-tight">
+                  Build Professional <br>
+                  <span class="text-gradient">2D Games</span>
+              </h1>
+              
+              <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+                  We take Python to the next level. Students master <strong>Object-Oriented Programming (OOP)</strong> and <strong>Physics Engines</strong> by building complex, polished arcade games using the professional Pygame library.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="index.html#contact" class="px-8 py-4 bg-pink-600 hover:bg-pink-700 text-white rounded-full font-bold transition shadow-xl shadow-pink-500/20 flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                      Contact Admissions <i class="fas fa-arrow-right"></i>
+                  </a>
+                  <a href="#curriculum" class="px-8 py-4 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-full font-bold transition flex items-center justify-center gap-2">
+                      View Syllabus
+                  </a>
+              </div>
+
+              <div class="mt-10 flex items-center gap-6 text-sm font-bold text-slate-400">
+                  <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Advanced Python</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Portfolio Projects</span>
+              </div>
+          </div>
+
+          <div class="relative reveal-up" style="transition-delay: 200ms;">
+              <div class="relative rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl rotate-2 hover:rotate-0 transition duration-700">
+                  <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070&auto=format&fit=crop" alt="Game Development Code" class="w-full h-auto object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                  <div class="absolute bottom-8 left-8 text-white">
+                      <p class="text-xs font-bold uppercase tracking-widest mb-1 text-pink-400">Capstone Project</p>
+                      <p class="text-2xl font-bold">Alien Shooter Arcade</p>
+                  </div>
+              </div>
+              
+              <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
+                  <div class="flex items-center gap-4">
+                      <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 text-2xl font-bold">
+                          14
+                      </div>
+                      <div>
+                          <p class="text-xs text-slate-400 uppercase font-bold">Weeks Duration</p>
+                          <p class="text-lg font-bold text-slate-800">Software Architecture</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <section class="py-20 bg-white border-b border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+          <h2 class="text-3xl font-extrabold text-[#0F172A] mb-12">The Path to Mastery</h2>
+          
+          <div class="flex flex-col md:flex-row justify-center items-center gap-8 relative">
+              <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-100 -z-10 transform -translate-y-1/2"></div>
+
+              <div class="bg-white border border-slate-200 p-6 rounded-2xl relative w-full md:w-1/3 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
+                  <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      🐍
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Python Core</h3>
+                  <p class="text-xs text-slate-500 mt-2">Level 3 (Completed)</p>
+              </div>
+
+              <div class="bg-pink-50 border-2 border-pink-500 p-6 rounded-2xl relative w-full md:w-1/3 shadow-lg transform scale-105 z-10">
+                  <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-full">YOU ARE HERE</div>
+                  <div class="w-16 h-16 mx-auto bg-pink-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      🚀
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Advanced Game Dev</h3>
+                  <p class="text-xs text-slate-500 mt-2">Level 4 (14 Weeks)</p>
+                  <p class="text-sm font-medium text-pink-700 mt-2">Pygame & OOP</p>
+              </div>
+
+              <div class="bg-white border border-slate-200 p-6 rounded-2xl relative w-full md:w-1/3 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
+                  <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      💻
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Full Stack Web</h3>
+                  <p class="text-xs text-slate-500 mt-2">Level 5 (Next Step)</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-24 bg-white" id="curriculum">
+      <div class="max-w-6xl mx-auto px-4">
+          <div class="text-center mb-16 reveal-up">
+              <span class="text-pink-600 font-bold tracking-wider text-sm uppercase">Detailed Syllabus</span>
+              <h2 class="text-4xl font-extrabold text-slate-900 mt-2 mb-4">Software Architecture via Games</h2>
+              <p class="text-slate-500 max-w-2xl mx-auto">Games are complex software. By building them, students learn how to structure large codebases using Classes, Objects, and Inheritance.</p>
+          </div>
+
+          <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-200">
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-pink-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">1</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">The Game Engine (Pygame)</h3>
+                          <span class="bg-pink-50 text-pink-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 1-4</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          We peel back the layers of how software renders graphics. Students learn about the "Game Loop"—the infinite cycle that updates logic and draws frames 60 times per second.
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-sync text-orange-500"></i> <strong>The Game Loop:</strong> Event handling, Updating, and Drawing.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-vector-square text-pink-500"></i> <strong>Coordinate Systems:</strong> X/Y axes and Screen Surfaces.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-keyboard text-purple-500"></i> <strong>Input Handling:</strong> Managing complex keyboard and mouse states.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-rose-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">2</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Object-Oriented Programming (OOP)</h3>
+                          <span class="bg-rose-50 text-rose-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 5-8</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          The most critical skill for modern software engineers. Instead of messy code, we use <strong>Classes</strong> to create blueprints for Players, Enemies, and Bullets, making code scalable and reusable.
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-cube text-rose-600"></i> <strong>Classes & Objects:</strong> Instantiating multiple enemies from one blueprint.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-sitemap text-rose-600"></i> <strong>Inheritance:</strong> Creating a "Boss Enemy" that inherits traits from a normal "Enemy".
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-layer-group text-rose-600"></i> <strong>Sprite Groups:</strong> Managing hundreds of objects efficiently.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-indigo-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">3</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Physics & Mechanics</h3>
+                          <span class="bg-indigo-50 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 9-11</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          Making it feel real. We apply math (Vectors) to simulate gravity, friction, and movement. We also implement <strong>Collision Detection</strong>—the math behind knowing when a laser hits an alien.
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-compress-arrows-alt text-indigo-500"></i> <strong>Collision Logic:</strong> Hitboxes (Rects) and overlap testing.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-wind text-indigo-500"></i> <strong>Physics:</strong> Velocity, Acceleration, and Friction.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-volume-up text-indigo-500"></i> <strong>Sound Engines:</strong> Triggering effects and background music.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-green-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">4</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Capstone & Polish</h3>
+                          <span class="bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 12-14</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          The difference between a demo and a product. Students implement Game States (Start Menu, Pause, Game Over), High Score persistence using files, and compile their game into an executable (.exe).
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-list-alt text-green-500"></i> <strong>Game States:</strong> Finite State Machines for menu logic.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-save text-green-500"></i> <strong>File I/O:</strong> Saving and loading High Scores.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-file-export text-green-500"></i> <strong>Exporting:</strong> Converting Python scripts to standalone Apps.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-slate-900 text-white overflow-hidden relative">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-600 rounded-full blur-[120px] opacity-20"></div>
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600 rounded-full blur-[120px] opacity-20"></div>
+
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+          <div class="text-center mb-16 reveal-up">
+              <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Engineering Skills Acquired</h2>
+              <p class="text-slate-400">We don't just play games; we engineer systems.</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12">
+              <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm reveal-up">
+                  <div class="flex items-center gap-4 mb-8">
+                      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-2xl font-bold">
+                          <i class="fas fa-code"></i>
+                      </div>
+                      <h3 class="text-2xl font-bold">Core Concepts</h3>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fab fa-python text-green-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">OOP</h4>
+                          <p class="text-xs text-slate-400">Class Architecture</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-project-diagram text-blue-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">State Management</h4>
+                          <p class="text-xs text-slate-400">Logic Flow</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-calculator text-orange-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Vector Math</h4>
+                          <p class="text-xs text-slate-400">Movement Physics</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-images text-white mb-2"></i>
+                          <h4 class="font-bold text-sm">Asset Pipeline</h4>
+                          <p class="text-xs text-slate-400">Loading Resources</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm reveal-up" style="transition-delay: 100ms;">
+                  <div class="flex items-center gap-4 mb-8">
+                      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-400 to-indigo-500 flex items-center justify-center text-2xl font-bold">
+                          <i class="fas fa-gamepad"></i>
+                      </div>
+                      <h3 class="text-2xl font-bold">Game Design</h3>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-user-check text-pink-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">UX Design</h4>
+                          <p class="text-xs text-slate-400">Player Experience</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-bug text-yellow-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Balancing</h4>
+                          <p class="text-xs text-slate-400">Difficulty Curves</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-paint-brush text-cyan-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">UI Design</h4>
+                          <p class="text-xs text-slate-400">Menus & HUDs</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-check-double text-green-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Testing</h4>
+                          <p class="text-xs text-slate-400">Quality Assurance</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-[#F8FAFC]">
+      <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-16 reveal-up">
+              <h2 class="text-3xl font-extrabold text-[#0F172A] mb-4">Capstone Projects</h2>
+              <p class="text-slate-500">From code to playable product.</p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up">
+                  <div class="h-48 overflow-hidden bg-black flex items-center justify-center relative">
+                      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800')] bg-cover opacity-50"></div>
+                      <i class="fas fa-space-shuttle text-4xl text-white relative z-10 animate-bounce"></i>
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Space Invaders Clone</h4>
+                      <p class="text-xs text-slate-500 mb-4">A complete recreation of the classic using Sprite Groups, enemy AI, and laser projectiles.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Sprites</span>
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">AI</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up" style="transition-delay: 100ms;">
+                  <div class="h-48 overflow-hidden bg-slate-900 flex items-center justify-center relative">
+                      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800')] bg-cover opacity-50"></div>
+                      <i class="fas fa-layer-group text-4xl text-white relative z-10"></i>
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">2D Platformer</h4>
+                      <p class="text-xs text-slate-500 mb-4">A side-scrolling adventure featuring gravity, jumping physics, and platform collision logic.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Physics</span>
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Gravity</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up" style="transition-delay: 200ms;">
+                  <div class="h-48 overflow-hidden bg-green-900 flex items-center justify-center relative">
+                      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1628277613967-6ab5814525b9?q=80&w=800')] bg-cover opacity-50"></div>
+                      <i class="fas fa-square text-4xl text-white relative z-10"></i>
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Snake (Data Structures)</h4>
+                      <p class="text-xs text-slate-500 mb-4">Using Arrays/Lists to manage the growing tail of a snake. A masterclass in data handling.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Arrays</span>
+                          <span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500">Logic</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-white border-t border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+          <div class="bg-pink-50 border border-pink-100 rounded-[3rem] p-12 reveal-up">
+              <i class="fas fa-award text-5xl text-pink-500 mb-6"></i>
+              <h2 class="text-3xl font-extrabold text-[#0F172A] mb-6">The Developer Guarantee</h2>
+              <p class="text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                  Completing this course means your child understands <strong>Object-Oriented Programming</strong>—the standard for software engineering at major tech companies.
+              </p>
+              
+              <div class="mt-12 flex flex-wrap justify-center gap-6 text-xs font-bold text-slate-500">
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Lifetime Access to Content</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Flexible Payment Options</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Small Class Sizes (Max 8)</span>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <div class="fixed bottom-0 w-full bg-white border-t border-slate-200 p-4 md:hidden z-50 flex items-center justify-between shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+      <div>
+          <p class="text-xs text-slate-500 uppercase font-bold">Total Fee</p>
+          <p class="text-xl font-bold text-pink-600">₦65,000</p>
+      </div>
+      <a href="index.html#contact" class="px-6 py-3 bg-pink-600 text-white font-bold rounded-full shadow-lg">Contact Us</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

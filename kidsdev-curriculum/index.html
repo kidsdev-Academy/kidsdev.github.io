@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RS03NGLD1K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RS03NGLD1K');
+    </script>
+
+    <title>KidsDev Academy | Best Coding & AI School for Kids (Ages 7-18)</title>
+    <meta name="description" content="Unlock your child's potential with KidsDev Academy. Small classes, affordable pricing, and expert tutors teaching Python, Web Dev, and AI to kids 7-18.">
+    <meta name="keywords" content="coding for kids, python for kids, scratch programming, affordable coding classes, small class size coding, stem education nigeria, kidsdev academy">
+    <meta name="author" content="KidsDev Tech Group">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://thekidsdev.netlify.app/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thekidsdev.netlify.app/">
+    <meta property="og:title" content="KidsDev Academy | Turn Screen Time into Superpowers 🚀">
+    <meta property="og:description" content="Don't just play games—build them! Small classes, big results. Master Python and Web Dev today.">
+    <meta property="og:image" content="https://thekidsdev.netlify.app/image/logo.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://thekidsdev.netlify.app/">
+    <meta property="twitter:title" content="KidsDev Academy | Future Tech Skills">
+    <meta property="twitter:description" content="Safe, affordable, and structured coding education for the next generation.">
+    <meta property="twitter:image" content="https://thekidsdev.netlify.app/image/logo.png">
+
+    <link rel="icon" type="image/png" href="/image/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+                              linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        /* Custom Animations */
+        .blob { position: absolute; filter: blur(80px); opacity: 0.6; z-index: 0; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Gradient Text Match */
+        .gradient-text {
+            background: linear-gradient(135deg, #F97316 0%, #db2777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Skill Bar Animation */
+        .skill-fill { width: 0%; }
+        .active .skill-fill { animation: fillBar 1.5s ease-out forwards; }
+        @keyframes fillBar { to { width: var(--target-width); } }
+        
+        /* Reveal Animation */
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+
+<body class="selection:bg-[#0F172A] selection:text-white bg-[#FAFAFA] text-[#0F172A]">
+
+    <header class="fixed top-0 w-full bg-white/90 backdrop-blur-xl border-b border-slate-200/60 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <a href="/index.html" class="flex items-center gap-2 cursor-pointer group">
+                    <img src="/image/logo.png" alt="KidsDev Logo" class="h-9 w-auto object-contain drop-shadow-sm">
+                    <div class="flex flex-col leading-none">
+                        <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+                        <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-8">
+                <nav class="hidden md:flex gap-8 font-medium text-sm text-slate-600 items-center">
+                    <a href="index.html" class="text-[#F97316] font-bold">About</a>
+                    <a href="curriculum.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Curriculum</a>
+                </nav>
+                <div class="hidden md:flex pl-8 border-l border-slate-200">
+                   <a href="enroll.html" class="bg-[#0F172A] hover:bg-slate-800 text-white px-7 py-3 rounded-full text-xs font-bold shadow-xl shadow-slate-200 transition transform hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wide">
+                     Enroll Now <i data-lucide="arrow-right" class="w-4 h-4 text-[#F97316]"></i>
+                   </a>
+                </div>
+                <button id="menuBtn" class="md:hidden p-2" onclick="toggleMobileMenu()"><i data-lucide="menu"></i></button>
+            </div>
+        </div>
+        
+        <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b shadow-lg p-6 space-y-4 z-50">
+           <a href="index.html" class="block py-2 font-bold text-[#F97316]">Home</a>
+           <a href="curriculum.html" class="block py-2 text-slate-600">Curriculum</a>
+           <a href="enroll.html" class="block py-3 bg-[#0F172A] text-white text-center rounded-xl font-bold mt-4 shadow-lg">Enroll Now</a>
+        </div>
+    </header>
+
+    <div class="relative pt-32 pb-24 px-4 overflow-hidden bg-grid-pattern">
+        <div class="blob bg-orange-200 w-96 h-96 top-0 right-0 rounded-full mix-blend-multiply"></div>
+        <div class="blob bg-blue-200 w-96 h-96 bottom-0 left-0 rounded-full mix-blend-multiply"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal-up">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full mb-8 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-xs font-bold text-slate-600 uppercase tracking-widest">Admissions Open for 2026</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1] text-[#0F172A] tracking-tight">
+                    Turn Screen Time <br>
+                    Into <span class="gradient-text">Future Skills</span>
+                </h1>
+                
+                <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-lg">
+                    We guide children from playing games to building them. A structured, safe, and professional coding academy designed to prepare your child for the future.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#tracks" class="px-8 py-4 bg-[#0F172A] hover:bg-slate-800 text-white rounded-full font-bold transition shadow-xl shadow-slate-900/20 flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                        Explore Programs <i class="fas fa-arrow-down"></i>
+                    </a>
+                    <a href="curriculum.html" class="px-8 py-4 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-full font-bold transition flex items-center justify-center gap-2">
+                        View Curriculum
+                    </a>
+                </div>
+
+                <div class="mt-10 flex items-center gap-6 text-sm font-bold text-slate-400">
+                    <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Trusted by 500+ Parents</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> STEM Accredited</span>
+                </div>
+            </div>
+
+            <div class="relative reveal-up" style="transition-delay: 200ms;">
+                <div class="relative rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl rotate-2 hover:rotate-0 transition duration-700">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=2069&auto=format&fit=crop" alt="Happy kid coding" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 text-white">
+                        <p class="text-xs font-bold uppercase tracking-widest mb-1 text-[#F97316]">Next Class</p>
+                        <p class="text-2xl font-bold">Python for Beginners</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-12 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex h-3 w-3 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                </span>
+                <h3 class="text-sm font-bold text-slate-500 uppercase tracking-widest">Academy Pulse: Curriculum Updates</h3>
+            </div>
+
+            <div class="flex gap-6 overflow-x-auto pb-4 no-scrollbar snap-x">
+                <a href="level3.html" class="flex-shrink-0 w-80 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all group snap-center">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-green-100 text-green-600 flex items-center justify-center"><i class="fab fa-python"></i></div>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">New Module</span>
+                    </div>
+                    <h4 class="font-bold text-[#0F172A] mb-1 group-hover:text-[#F97316] transition-colors">Data Structures</h4>
+                    <p class="text-xs text-slate-500">Students now build a "Classroom Analytics" tool using Python dictionaries.</p>
+                </a>
+
+                <a href="level4.html" class="flex-shrink-0 w-80 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all group snap-center">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-pink-100 text-pink-600 flex items-center justify-center"><i class="fas fa-ghost"></i></div>
+                        <span class="text-xs font-bold text-pink-600 bg-pink-50 px-2 py-1 rounded-full">Asset Update</span>
+                    </div>
+                    <h4 class="font-bold text-[#0F172A] mb-1 group-hover:text-[#F97316] transition-colors">Alien Shooter Art</h4>
+                    <p class="text-xs text-slate-500">New high-res sprite packs available for the Pygame Capstone project.</p>
+                </a>
+
+                <a href="level6.html" class="flex-shrink-0 w-80 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all group snap-center">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center"><i class="fas fa-user-secret"></i></div>
+                        <span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-1 rounded-full">CyberOps</span>
+                    </div>
+                    <h4 class="font-bold text-[#0F172A] mb-1 group-hover:text-[#F97316] transition-colors">Kali Linux Lab</h4>
+                    <p class="text-xs text-slate-500">Full Virtual Machine setup guide now included for safe Ethical Hacking.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#0F172A] text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-700">
+                <div class="reveal-up"><p class="text-4xl font-extrabold mb-1">500+</p><p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Active Students</p></div>
+                <div class="reveal-up"><p class="text-4xl font-extrabold mb-1">5k+</p><p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Projects Built</p></div>
+                <div class="reveal-up"><p class="text-4xl font-extrabold mb-1">100%</p><p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Completion Rate</p></div>
+                <div class="reveal-up"><p class="text-4xl font-extrabold mb-1">4.9</p><p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Parent Rating</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 bg-white border-b border-slate-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-center text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Students Learn Professional Tools</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-600"><i class="fa-brands fa-python text-2xl"></i> Python</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-600"><i class="fa-brands fa-js text-2xl"></i> JavaScript</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-600"><i class="fa-brands fa-react text-2xl"></i> React</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-600"><i class="fa-brands fa-html5 text-2xl"></i> HTML5</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-600"><i class="fa-brands fa-git-alt text-2xl"></i> Git</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-slate-600"><i class="fa-solid fa-code text-2xl"></i> VS Code</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="w-full lg:w-1/2 reveal-up">
+                    <span class="text-[#F97316] font-bold tracking-wider uppercase text-sm">Level Up Your Child</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-[#0F172A] mt-2 mb-6">Unlock Their <br><span class="gradient-text">Superpowers</span></h2>
+                    <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                        We don't just teach typing. We develop the core cognitive skills that help children succeed in school and life. Watch their confidence grow as their skills bar fills up.
+                    </p>
+                    <div class="mb-8">
+                        <h4 class="font-bold text-[#0F172A] mb-4 flex items-center gap-2"><i class="fa-solid fa-layer-group text-blue-500"></i> Tech Skills Inventory</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-sm font-bold border border-slate-200">Algorithmic Logic</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-sm font-bold border border-slate-200">Web Architecture</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-sm font-bold border border-slate-200">Game Physics</span>
+                            <span class="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-sm font-bold border border-slate-200">Database Mgmt</span>
+                        </div>
+                    </div>
+                    <a href="curriculum.html" class="inline-flex items-center text-[#F97316] font-bold hover:gap-2 transition-all group">
+                        View Full Skill Breakdown <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <div class="w-full lg:w-1/2 relative reveal-up" style="transition-delay: 200ms;">
+                    <div class="absolute top-10 right-10 w-72 h-72 bg-blue-400 rounded-full blur-[60px] opacity-20"></div>
+                    <div class="bg-[#0F172A] rounded-3xl p-8 text-white shadow-2xl relative z-10 border border-slate-700" id="skill-card">
+                        <div class="flex items-center gap-4 mb-8 border-b border-slate-700 pb-6">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-2xl">🚀</div>
+                            <div>
+                                <h3 class="font-bold text-xl">Future Innovator</h3>
+                                <div class="flex items-center gap-2 text-sm text-slate-400"><span class="w-2 h-2 rounded-full bg-green-500"></span> Level 5 Coder</div>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-2"><span class="text-blue-300">Logic</span><span>85%</span></div>
+                                <div class="h-4 bg-slate-800 rounded-full overflow-hidden border border-slate-700"><div class="h-full bg-blue-500 rounded-full skill-fill" style="--target-width: 85%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-2"><span class="text-purple-300">Creativity</span><span>92%</span></div>
+                                <div class="h-4 bg-slate-800 rounded-full overflow-hidden border border-slate-700"><div class="h-full bg-purple-500 rounded-full skill-fill" style="--target-width: 92%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-2"><span class="text-green-300">Syntax</span><span>78%</span></div>
+                                <div class="h-4 bg-slate-800 rounded-full overflow-hidden border border-slate-700"><div class="h-full bg-green-500 rounded-full skill-fill" style="--target-width: 78%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50" id="tracks">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 reveal-up">
+                <span class="text-[#F97316] font-bold tracking-wider uppercase text-sm">Our Programs</span>
+                <h2 class="text-4xl font-extrabold text-[#0F172A] mt-2 mb-4">A Path for Every Age</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Structured learning paths designed for specific cognitive stages.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all reveal-up">
+                    <div class="w-16 h-16 rounded-2xl bg-orange-50 text-[#F97316] flex items-center justify-center text-3xl mb-6"><i class="fa-solid fa-shapes"></i></div>
+                    <div class="mb-4"><span class="px-3 py-1 rounded-full bg-orange-100 text-orange-800 text-xs font-bold uppercase">Ages 7-10</span></div>
+                    <h3 class="text-2xl font-bold text-[#0F172A] mb-3">Junior Creator</h3>
+                    <p class="text-slate-600 mb-8 text-sm">Visual block-based coding (Scratch) that teaches logic without syntax errors.</p>
+                    <a href="curriculum.html" class="block w-full text-center py-3 rounded-xl border-2 border-slate-100 text-slate-700 font-bold hover:border-[#F97316] hover:text-[#F97316] transition-colors">View Junior Path</a>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 border-2 border-blue-100 shadow-lg relative reveal-up">
+                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl uppercase">POPULAR</div>
+                    <div class="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-3xl mb-6"><i class="fa-brands fa-python"></i></div>
+                    <div class="mb-4"><span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase">Ages 10-14</span></div>
+                    <h3 class="text-2xl font-bold text-[#0F172A] mb-3">Tech Innovator</h3>
+                    <p class="text-slate-600 mb-8 text-sm">Transition to text-based coding with Python and Web Design. Build real apps.</p>
+                    <a href="curriculum.html" class="block w-full text-center py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors">View Python Path</a>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all reveal-up">
+                    <div class="w-16 h-16 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-3xl mb-6"><i class="fa-solid fa-code"></i></div>
+                    <div class="mb-4"><span class="px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-xs font-bold uppercase">Ages 15+</span></div>
+                    <h3 class="text-2xl font-bold text-[#0F172A] mb-3">Full Stack Pro</h3>
+                    <p class="text-slate-600 mb-8 text-sm">Professional skills. Master React, Node.js, and Cyber Security. Career-ready training.</p>
+                    <a href="curriculum.html" class="block w-full text-center py-3 rounded-xl border-2 border-slate-100 text-slate-700 font-bold hover:border-purple-600 hover:text-purple-600 transition-colors">View Pro Path</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12 reveal-up">
+                <h2 class="text-3xl font-extrabold text-[#0F172A]">Why Choose KidsDev?</h2>
+                <p class="text-slate-500 mt-2">We provide a premium education without the premium price tag.</p>
+            </div>
+            
+            <div class="overflow-x-auto reveal-up">
+                <table class="w-full min-w-[700px] bg-white rounded-3xl shadow-lg border-collapse overflow-hidden">
+                    <thead>
+                        <tr class="bg-[#0F172A] text-white">
+                            <th class="p-6 text-left">Features</th>
+                            <th class="p-6 text-center bg-[#F97316]">KidsDev Academy</th>
+                            <th class="p-6 text-center text-slate-400">Expensive Bootcamps</th>
+                            <th class="p-6 text-center text-slate-400">Self-Taught / YouTube</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-700">
+                        <tr class="border-b border-slate-100 hover:bg-slate-50">
+                            <td class="p-6 font-bold">Class Size</td>
+                            <td class="p-6 text-center font-bold text-green-600">Max 8 Students (Personalized)</td>
+                            <td class="p-6 text-center text-slate-500">20-50+ Students (Crowded)</td>
+                            <td class="p-6 text-center text-slate-500">Alone (No Support)</td>
+                        </tr>
+                        <tr class="border-b border-slate-100 hover:bg-slate-50">
+                            <td class="p-6 font-bold">Tuition Cost</td>
+                            <td class="p-6 text-center font-bold text-green-600">Affordable (₦50k - ₦75k)</td>
+                            <td class="p-6 text-center text-red-400">Expensive (₦150k+)</td>
+                            <td class="p-6 text-center text-slate-500">Free (But Unstructured)</td>
+                        </tr>
+                        <tr class="border-b border-slate-100 hover:bg-slate-50">
+                            <td class="p-6 font-bold">Safety & Vetting</td>
+                            <td class="p-6 text-center text-green-600 text-xl"><i class="fa-solid fa-circle-check"></i> <span class="text-sm font-bold block mt-1">Background Checked</span></td>
+                            <td class="p-6 text-center text-slate-500"><i class="fa-solid fa-question"></i> <span class="text-sm font-bold block mt-1">Varies</span></td>
+                            <td class="p-6 text-center text-red-400"><i class="fa-solid fa-circle-xmark"></i> <span class="text-sm font-bold block mt-1">Unknown Creators</span></td>
+                        </tr>
+                        <tr class="border-b border-slate-100 hover:bg-slate-50">
+                            <td class="p-6 font-bold">Missed Classes</td>
+                            <td class="p-6 text-center text-green-600 font-bold">Recorded & Available 24/7</td>
+                            <td class="p-6 text-center text-red-400">Missed it? Gone forever.</td>
+                            <td class="p-6 text-center text-slate-500">N/A</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-6 font-bold">Parent Updates</td>
+                            <td class="p-6 text-center text-green-600 text-xl"><i class="fa-solid fa-circle-check"></i> <span class="text-sm font-bold block mt-1">Weekly Reports</span></td>
+                            <td class="p-6 text-center text-slate-400"><i class="fa-solid fa-minus"></i></td>
+                            <td class="p-6 text-center text-red-400"><i class="fa-solid fa-circle-xmark"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2 reveal-up">
+                    <span class="text-green-600 font-bold tracking-wider uppercase text-sm">Parent Dashboard</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-[#0F172A] mt-2 mb-6">You Are Never In The Dark</h2>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                        Most coding classes leave parents guessing. We don't. You get a dedicated Parent Portal and weekly email summaries tracking your child's exact progress.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center"><i class="fa-solid fa-check"></i></div><span class="font-bold text-slate-700">Weekly Progress Reports</span></li>
+                        <li class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center"><i class="fa-solid fa-eye"></i></div><span class="font-bold text-slate-700">View Their Code & Projects</span></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2 reveal-up">
+                    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl relative">
+                        <div class="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg">Weekly Report</div>
+                        <div class="flex items-center gap-4 mb-6 border-b border-slate-200 pb-4">
+                            <div class="w-12 h-12 bg-slate-200 rounded-full"></div>
+                            <div><div class="font-bold text-slate-900">Sarah's Progress</div><div class="text-xs text-slate-500">Oct 12 - Oct 19</div></div>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 shadow-sm">
+                            <div class="text-xs text-slate-400 uppercase font-bold mb-1">Module Completed</div>
+                            <div class="font-bold text-blue-600">Python Loops & Conditions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-extrabold text-[#0F172A] text-center mb-12 font-heading reveal-up">What Parents Are Saying</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 reveal-up"><div class="text-yellow-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-slate-600 italic mb-6">"My son used to just play Roblox all day. Now he's actually building his own games. The transformation is incredible."</p><div class="font-bold text-[#0F172A]">Sarah O.</div></div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 reveal-up"><div class="text-yellow-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-slate-600 italic mb-6">"I wanted my daughter to have a skill that matters. The Python course is challenging but she loves the logic puzzles."</p><div class="font-bold text-[#0F172A]">David K.</div></div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 reveal-up"><div class="text-yellow-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-slate-600 italic mb-6">"Professional, structured, and worth every penny. The certificate he got really boosted his confidence."</p><div class="font-bold text-[#0F172A]">Anita R.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white border-t border-slate-100" id="contact">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-[#0F172A] rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden text-center reveal-up">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-[100px] opacity-20"></div>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6 relative z-10">Start Your Child's Journey</h2>
+                <p class="text-slate-400 mb-10 relative z-10 max-w-xl mx-auto">Registration is open for the upcoming term. Secure your spot today.</p>
+                <a href="enroll.html" class="inline-block w-full max-w-sm bg-[#F97316] hover:bg-orange-600 text-white font-bold py-4 rounded-xl transition shadow-lg relative z-10">
+                    Go to Enrollment Application
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0b1021] text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="grid md:grid-cols-4 gap-12 mb-12">
+            <div class="col-span-1 md:col-span-2 space-y-4">
+              <a href="index.html" class="flex items-center gap-2 group">
+                 <img src="/image/logo.png" class="h-8 w-auto object-contain transition transform group-hover:scale-105" alt="KidsDev Logo"> 
+                 <span class="font-extrabold text-2xl tracking-tighter">Kids<span class="text-[#F97316]">Dev</span></span>
+                 <span class="text-[10px] font-bold text-white tracking-[0.2em] uppercase opacity-80 mt-1.5">Academy</span>
+              </a>
+              <p class="text-slate-400 text-sm leading-relaxed max-w-xs">A global academy empowering the next generation with professional coding, linux, and creative skills.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Learn</h3>
+              <ul class="space-y-4 text-sm text-slate-400">
+                <li><a href="curriculum.html" class="hover:text-white transition">Python Track</a></li>
+                <li><a href="curriculum.html" class="hover:text-white transition">Web Development</a></li>
+                <li><a href="enroll.html" class="hover:text-white transition">Enroll Now</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Connect</h3>
+              <div class="flex flex-col gap-4 text-sm text-slate-400 mb-6">
+             <a href="https://wa.me/447350154850" class="hover:text-[#25D366] transition flex items-center gap-2">
+               <i class="fa-brands fa-whatsapp w-4"></i> WhatsApp Us
+             </a>
+             <a href="tel:+447350154850" class="hover:text-white transition flex items-center gap-2">
+                <i class="fa-solid fa-phone w-4"></i> +44 735 015 4850
+              </a>
+          </div>
+              <div class="flex gap-5 items-center">
+                <a href="https://github.com/kidsdev-academy" target="_blank" class="text-slate-400 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+                <a href="https://instagram.com/kidsdevacad" target="_blank" class="text-slate-400 hover:text-pink-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="https://facebook.com/kidsdevacad" target="_blank" class="text-slate-400 hover:text-blue-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                <a href="https://tiktok.com/@kidsdevacad" target="_blank" class="text-slate-400 hover:text-white transition group">
+                    <svg class="w-5 h-5 fill-current group-hover:fill-white transition" viewBox="0 0 24 24"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-slate-800 pt-8 text-center flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-slate-500 text-xs">&copy; 2026 KidsDev Academy. All Rights Reserved.</p>
+            <div class="flex gap-6 text-xs text-slate-600"><a href="/privacy.html" class="hover:text-slate-400">Privacy Policy</a><a href="#" class="hover:text-slate-400">Terms of Service</a></div>
+          </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if(window.lucide) lucide.createIcons();
+            
+            // Reveal Animation Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const skillCard = document.getElementById('skill-card');
+            if(skillCard) observer.observe(skillCard);
+            
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+            
+            // Mobile Menu Toggle
+            window.toggleMobileMenu = function() {
+                const menu = document.getElementById('mobileMenu');
+                if (menu) menu.classList.toggle('hidden');
+            };
+        });
+    </script>
+</body>
+</html>

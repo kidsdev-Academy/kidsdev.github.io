@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Level 6: Cyber Security & Ethical Hacking | KidsDev Academy</title>
+  
+  <meta name="description" content="Level 6 Coding Course: Cyber Security. Learn Ethical Hacking, Linux, Network Defense, and Vulnerability Assessment. Professional CyberOps track.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1563206767-5b1d972f9fb7?q=80&w=2070&auto=format&fit=crop">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> 
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    /* Animation Utilities */
+    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+    .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
+    
+    /* Background Elements */
+    .bg-grid-slate {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    }
+    .blob { position: absolute; filter: blur(60px); opacity: 0.6; z-index: 0; }
+    
+    /* Gradient Text */
+    .text-gradient { background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+
+<body class="bg-white text-[#0F172A] antialiased selection:bg-red-100 selection:text-red-900">
+
+  <header class="fixed top-0 w-full bg-white/90 backdrop-blur-xl border-b border-slate-200/60 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      <a href="curriculum.html" class="group flex items-center gap-3 text-slate-500 hover:text-red-600 transition duration-300 font-semibold text-sm">
+          <span class="p-2 rounded-full bg-slate-100 group-hover:bg-red-50 transition"><i data-lucide="arrow-left" class="w-4 h-4"></i></span>
+          Back to Roadmap
+      </a>
+      <a href="index.html" class="flex items-center gap-2">
+          <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-orange-600">Dev</span></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="relative pt-32 pb-24 px-4 overflow-hidden bg-[#FEF2F2]">
+      <div class="blob bg-red-200 w-96 h-96 top-0 right-0 rounded-full mix-blend-multiply"></div>
+      <div class="blob bg-orange-200 w-96 h-96 bottom-0 left-0 rounded-full mix-blend-multiply"></div>
+      <div class="absolute inset-0 bg-grid-slate"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <div class="reveal-up">
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-red-100 rounded-full mb-8 shadow-sm">
+                 <i class="fas fa-shield-alt text-red-600"></i>
+                 <span class="text-xs font-bold text-slate-600 uppercase tracking-widest">Level 6 • Specialist Track</span>
+              </div>
+              
+              <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1] text-slate-900 tracking-tight">
+                  Cyber Security & <br>
+                  <span class="text-gradient">Ethical Hacking</span>
+              </h1>
+              
+              <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+                  To protect a system, you must understand how to break it. Students enter the world of <strong>CyberOps</strong>, learning Linux, Network Defense, and Vulnerability Assessment in a safe, controlled lab environment.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="index.html#contact" class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-full font-bold transition shadow-xl shadow-red-500/20 flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                      Contact Admissions <i class="fas fa-arrow-right"></i>
+                  </a>
+                  <a href="#curriculum" class="px-8 py-4 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-full font-bold transition flex items-center justify-center gap-2">
+                      View Syllabus
+                  </a>
+              </div>
+
+              <div class="mt-10 flex items-center gap-6 text-sm font-bold text-slate-400">
+                  <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Kali Linux</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Network Defense</span>
+              </div>
+          </div>
+
+          <div class="relative reveal-up" style="transition-delay: 200ms;">
+              <div class="relative rounded-[2.5rem] overflow-hidden border-8 border-white shadow-2xl rotate-2 hover:rotate-0 transition duration-700">
+                  <img src="https://images.unsplash.com/photo-1563206767-5b1d972f9fb7?q=80&w=2070&auto=format&fit=crop" alt="Cyber Security Operations" class="w-full h-auto object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                  <div class="absolute bottom-8 left-8 text-white">
+                      <p class="text-xs font-bold uppercase tracking-widest mb-1 text-red-400">Capstone Project</p>
+                      <p class="text-2xl font-bold">Network Security Audit</p>
+                  </div>
+              </div>
+              
+              <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
+                  <div class="flex items-center gap-4">
+                      <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-600 text-2xl font-bold">
+                          12
+                      </div>
+                      <div>
+                          <p class="text-xs text-slate-400 uppercase font-bold">Weeks Duration</p>
+                          <p class="text-lg font-bold text-slate-800">Pro Certification</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <section class="py-20 bg-white border-b border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+          <h2 class="text-3xl font-extrabold text-[#0F172A] mb-12">The Path to Mastery</h2>
+          
+          <div class="flex flex-col md:flex-row justify-center items-center gap-8 relative">
+              <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-100 -z-10 transform -translate-y-1/2"></div>
+
+              <div class="bg-white border border-slate-200 p-6 rounded-2xl relative w-full md:w-1/3 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
+                  <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      💻
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Full Stack Engineer</h3>
+                  <p class="text-xs text-slate-500 mt-2">Level 5 (Completed)</p>
+              </div>
+
+              <div class="bg-red-50 border-2 border-red-500 p-6 rounded-2xl relative w-full md:w-1/3 shadow-lg transform scale-105 z-10">
+                  <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">YOU ARE HERE</div>
+                  <div class="w-16 h-16 mx-auto bg-red-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      🔐
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Cyber Security</h3>
+                  <p class="text-xs text-slate-500 mt-2">Level 6 (12 Weeks)</p>
+                  <p class="text-sm font-medium text-red-700 mt-2">Ethical Hacking</p>
+              </div>
+
+              <div class="bg-white border border-slate-200 p-6 rounded-2xl relative w-full md:w-1/3 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition duration-300">
+                  <div class="w-16 h-16 mx-auto bg-slate-100 rounded-full flex items-center justify-center text-3xl mb-4">
+                      🎓
+                  </div>
+                  <h3 class="font-bold text-lg text-slate-900">Tech Lead / CISO</h3>
+                  <p class="text-xs text-slate-500 mt-2">Career Goal</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-24 bg-white" id="curriculum">
+      <div class="max-w-6xl mx-auto px-4">
+          <div class="text-center mb-16 reveal-up">
+              <span class="text-red-600 font-bold tracking-wider text-sm uppercase">Detailed Syllabus</span>
+              <h2 class="text-4xl font-extrabold text-slate-900 mt-2 mb-4">Red Team vs. Blue Team</h2>
+              <p class="text-slate-500 max-w-2xl mx-auto">We teach a balanced curriculum of Offensive Security (Attacking to find flaws) and Defensive Security (Securing systems).</p>
+          </div>
+
+          <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-200">
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-red-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">1</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">The Hacker's Lab (Linux)</h3>
+                          <span class="bg-red-50 text-red-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 1-3</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          We leave Windows behind. Students learn to install and manage <strong>Kali Linux</strong> in a Virtual Machine. They master the Command Line Interface (CLI), the primary tool of cyber professionals.
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fab fa-linux text-orange-500"></i> <strong>Kali Linux:</strong> The OS of security professionals.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-terminal text-red-500"></i> <strong>BASH Scripting:</strong> Automating security tasks.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-box text-purple-500"></i> <strong>Virtualization:</strong> Safe sandboxing with VirtualBox.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-blue-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">2</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Networking & Reconnaissance</h3>
+                          <span class="bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 4-6</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          You can't hack what you can't find. We deep dive into how the internet works (IPs, Ports, DNS) and learn to map out networks using professional scanning tools.
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-network-wired text-blue-600"></i> <strong>OSI Model:</strong> How data moves (TCP/UDP Handshakes).
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-search-location text-pink-500"></i> <strong>Nmap Scanning:</strong> Finding open ports and devices.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-wifi text-teal-500"></i> <strong>Wireshark:</strong> Analyzing live network traffic packets.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-orange-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">3</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Offensive Security (Web)</h3>
+                          <span class="bg-orange-50 text-orange-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 7-9</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          Ethical Hacking. Students practice on a dedicated "Vulnerable Web App" (DVWA) to understand common flaws like SQL Injection and Cross-Site Scripting (XSS).
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-bug text-orange-500"></i> <strong>OWASP Top 10:</strong> The most critical web vulnerabilities.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-database text-red-500"></i> <strong>SQL Injection:</strong> How databases get compromised.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-user-secret text-slate-700"></i> <strong>Social Engineering:</strong> Understanding phishing and human error.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal-up">
+                  <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-green-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">4</div>
+                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-8 rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/50 hover:-translate-y-1 transition-all">
+                      <div class="flex justify-between items-center mb-4">
+                          <h3 class="font-bold text-xl text-slate-800">Defense & Reporting</h3>
+                          <span class="bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full">Weeks 10-12</span>
+                      </div>
+                      <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                          The goal of an Ethical Hacker is to fix, not break. Students learn to patch vulnerabilities, configure Firewalls, and write professional Security Audit Reports.
+                      </p>
+                      <div class="space-y-3">
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-shield-alt text-green-500"></i> <strong>System Hardening:</strong> Securing Linux servers and ports.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-file-alt text-blue-500"></i> <strong>Reporting:</strong> Writing clear vulnerability assessments.
+                          </div>
+                          <div class="flex items-center gap-3 text-sm font-medium text-slate-700 bg-slate-50 p-2 rounded-lg">
+                              <i class="fas fa-key text-yellow-500"></i> <strong>Cryptography:</strong> Basics of encryption and hashing.
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-slate-900 text-white overflow-hidden relative">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-red-600 rounded-full blur-[120px] opacity-20"></div>
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-slate-700 rounded-full blur-[120px] opacity-20"></div>
+
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+          <div class="text-center mb-16 reveal-up">
+              <h2 class="text-3xl md:text-4xl font-extrabold mb-4">CyberOps Skills Acquired</h2>
+              <p class="text-slate-400">Skills that protect businesses, data, and national infrastructure.</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12">
+              <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm reveal-up">
+                  <div class="flex items-center gap-4 mb-8">
+                      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center text-2xl font-bold">
+                          <i class="fas fa-terminal"></i>
+                      </div>
+                      <h3 class="text-2xl font-bold">Red Team (Offense)</h3>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fab fa-linux text-white mb-2"></i>
+                          <h4 class="font-bold text-sm">Kali Linux</h4>
+                          <p class="text-xs text-slate-400">Pen-testing OS</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-radar text-green-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Nmap</h4>
+                          <p class="text-xs text-slate-400">Network Mapping</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-wave-square text-blue-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Wireshark</h4>
+                          <p class="text-xs text-slate-400">Packet Analysis</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-globe text-orange-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Burp Suite</h4>
+                          <p class="text-xs text-slate-400">Web Analysis</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm reveal-up" style="transition-delay: 100ms;">
+                  <div class="flex items-center gap-4 mb-8">
+                      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-2xl font-bold">
+                          <i class="fas fa-lock"></i>
+                      </div>
+                      <h3 class="text-2xl font-bold">Blue Team (Defense)</h3>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-fire-alt text-red-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Firewalls</h4>
+                          <p class="text-xs text-slate-400">Traffic Filtering</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-file-contract text-yellow-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Auditing</h4>
+                          <p class="text-xs text-slate-400">Risk Assessment</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-user-shield text-green-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">IAM</h4>
+                          <p class="text-xs text-slate-400">Identity Mgmt</p>
+                      </div>
+                      <div class="p-4 rounded-xl bg-white/5 hover:bg-white/10 transition border border-white/5">
+                          <i class="fas fa-server text-purple-400 mb-2"></i>
+                          <h4 class="font-bold text-sm">Hardening</h4>
+                          <p class="text-xs text-slate-400">OS Security</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-[#FEF2F2]">
+      <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-16 reveal-up">
+              <h2 class="text-3xl font-extrabold text-[#0F172A] mb-4">Hands-On Scenarios</h2>
+              <p class="text-slate-500">We don't hack real websites. We simulate real environments.</p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up">
+                  <div class="h-48 overflow-hidden bg-black flex items-center justify-center relative">
+                      <div class="font-mono text-green-500 text-xs p-4">
+                          root@kali:~# nmap -sS -p- 192.168.1.105<br>
+                          Starting Nmap 7.91...<br>
+                          PORT STATE SERVICE<br>
+                          22/tcp open ssh<br>
+                          80/tcp open http
+                      </div>
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Network Reconnaissance</h4>
+                      <p class="text-xs text-slate-500 mb-4">Mapping out a hidden network, identifying all connected devices and their vulnerabilities.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-red-50 text-red-700 px-2 py-1 rounded">Nmap</span>
+                          <span class="text-[10px] bg-red-50 text-red-700 px-2 py-1 rounded">Scanning</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up" style="transition-delay: 100ms;">
+                  <div class="h-48 overflow-hidden bg-slate-900 flex items-center justify-center relative">
+                      <i class="fas fa-flag text-4xl text-red-500"></i>
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Capture The Flag (CTF)</h4>
+                      <p class="text-xs text-slate-500 mb-4">A competitive challenge where students must decrypt messages and find hidden "flags" in a system.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-red-50 text-red-700 px-2 py-1 rounded">Crypto</span>
+                          <span class="text-[10px] bg-red-50 text-red-700 px-2 py-1 rounded">Logic</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 reveal-up" style="transition-delay: 200ms;">
+                  <div class="h-48 overflow-hidden bg-slate-900 flex items-center justify-center relative">
+                      <i class="fas fa-file-contract text-4xl text-blue-400"></i>
+                  </div>
+                  <div class="p-6">
+                      <h4 class="font-bold text-lg text-slate-800 mb-2">Audit Report (Capstone)</h4>
+                      <p class="text-xs text-slate-500 mb-4">The final deliverable. A professional PDF report detailing discovered flaws and recommended fixes.</p>
+                      <div class="flex gap-2">
+                          <span class="text-[10px] bg-red-50 text-red-700 px-2 py-1 rounded">Professional</span>
+                          <span class="text-[10px] bg-red-50 text-red-700 px-2 py-1 rounded">Writing</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="py-20 bg-white border-t border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+          <div class="bg-red-50 border border-red-100 rounded-[3rem] p-12 reveal-up">
+              <i class="fas fa-award text-5xl text-red-600 mb-6"></i>
+              <h2 class="text-3xl font-extrabold text-[#0F172A] mb-6">The Guardian Guarantee</h2>
+              <p class="text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                  We teach <strong>Ethical</strong> Hacking. Students sign a code of conduct. They leave this course not just with powerful skills, but with the responsibility to protect the digital world.
+              </p>
+              
+              <div class="mt-12 flex flex-wrap justify-center gap-6 text-xs font-bold text-slate-500">
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Lifetime Access to Content</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Flexible Payment Options</span>
+                  <span class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Small Class Sizes (Max 8)</span>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <div class="fixed bottom-0 w-full bg-white border-t border-slate-200 p-4 md:hidden z-50 flex items-center justify-between shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+      <div>
+          <p class="text-xs text-slate-500 uppercase font-bold">Total Fee</p>
+          <p class="text-xl font-bold text-red-600">₦75,000</p>
+      </div>
+      <a href="index.html#contact" class="px-6 py-3 bg-red-600 text-white font-bold rounded-full shadow-lg">Contact Us</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
