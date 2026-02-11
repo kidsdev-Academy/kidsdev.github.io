@@ -1,301 +1,352 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RS03NGLD1K"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-RS03NGLD1K');
+    gtag('config', 'G-RS03NGLD1K', { 'anonymize_ip': true });
   </script>
 
-  <title>About KidsDev | The Global Tech Mentorship Group</title>
-  <meta name="description" content="Meet the team behind the #1 Free Tech Academy. Started in Sunderland, we are a global mission empowering kids with Python, Linux, and Cyber Security skills.">
-  <meta name="keywords" content="kidsdev Academy, tolani agbeyangi, coding mentorship, sunderland tech community, free coding classes, stem education mission, tech philanthropy">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#0F172A">
+
+  <title>About Us | Building the Future of Tech Education | KidsDev Academy</title>
+  <meta name="title" content="About Us | Building the Future of Tech Education | KidsDev Academy">
+  <meta name="description" content="KidsDev Academy is a global tech institution empowering children with industry-standard skills in Python, Web Development, and Robotics. Founded in Sunderland, UK.">
+  <meta name="keywords" content="about kidsdev, tech education mission, coding for kids mission, tolani agbeyangi, global tech academy, stem education values">
   <meta name="author" content="KidsDev Academy">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   
-  <meta property="og:title" content="We Are KidsDev. Building the Future. 🚀">
-  <meta property="og:description" content="A global collective of mentors turning screen time into skill time. Meet our founder and join the mission.">
-  <meta property="og:image" content="https://thekidsdev.netlify.app/image/logo.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <link rel="canonical" href="https://thekidsdev.netlify.app/about.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/image/apple-touch-icon.png">
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thekidsdev.netlify.app/about.html">
+  <meta property="og:title" content="We Are KidsDev. Building the Future. 🚀">
+  <meta property="og:description" content="A global collective of mentors turning screen time into skill time. Meet our founder and join the mission.">
+  <meta property="og:image" content="https://thekidsdev.netlify.app/image/og-about.jpg">
+  <meta property="og:site_name" content="KidsDev Academy">
 
-  <link rel="icon" type="image/png" href="/image/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://thekidsdev.netlify.app/about.html">
+  <meta name="twitter:title" content="We Are KidsDev. Building the Future. 🚀">
+  <meta name="twitter:description" content="A global collective of mentors turning screen time into skill time.">
+  <meta name="twitter:image" content="https://thekidsdev.netlify.app/image/og-about.jpg">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
+  
   <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/css/style.css">
   
   <style>
-    /* --- CORE STYLES --- */
-    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; overflow-x: hidden; }
-    
-    /* Background Pattern */
-    .bg-grid-pattern {
-        background-size: 60px 60px;
-        background-image: linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px),
-                          linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px);
-    }
-
-    /* Glass Header */
-    .pro-header { background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226, 232, 240, 0.7); }
-    
-    /* Reveal Animation */
-    .reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
-    .reveal-up.active { opacity: 1; transform: translateY(0); }
-
-    /* Profile Morphing Animation */
+    /* Unique Animation for Profile Picture */
     .profile-blob {
-      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
       overflow: hidden;
       animation: morph 8s ease-in-out infinite;
-      box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
       border: 4px solid white;
     }
     @keyframes morph {
-      0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-      34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
-      67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+      0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
     }
-
-    /* Stats Card */
-    .stat-card {
-        background: white; padding: 2rem; border-radius: 1.5rem; border: 1px solid #f1f5f9;
-        text-align: center; transition: all 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-    }
-    .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05); border-color: #F97316; }
-    
-    #searchModal:not(.hidden) { animation: fadeOverlay 0.2s forwards; }
-    @keyframes fadeOverlay { from { opacity: 0; } to { opacity: 1; } }
   </style>
 </head>
 
-<body class="selection:bg-[#0F172A] selection:text-white">
+<body class="selection:bg-[#F97316] selection:text-white flex flex-col min-h-screen font-['Poppins'] bg-[#FAFAFA]">
 
-  <header class="pro-header sticky top-0 z-[100]">
+  <noscript>
+    <div class="bg-red-600 text-white text-center p-4 font-bold text-sm">
+        Please enable JavaScript to view the full experience of KidsDev Academy.
+    </div>
+  </noscript>
+
+  <header class="pro-header sticky top-0 z-[100] w-full transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      
       <div class="flex items-center gap-4">
-        <a href="/index.html" class="flex items-center gap-2 cursor-pointer group">
-          <img src="/image/logo.png" alt="KidsDev Logo" class="h-9 w-auto object-contain drop-shadow-sm">
+        <a href="/index.html" class="flex items-center gap-2 group" aria-label="KidsDev Academy Home">
+          <img src="/image/logo.png" alt="KidsDev Academy Logo" width="36" height="36" class="h-9 w-auto object-contain drop-shadow-sm group-hover:scale-110 transition">
           <div class="flex flex-col leading-none">
             <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
             <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
           </div>
         </a>
-        <button id="searchBtn" class="p-2.5 text-slate-400 hover:text-[#F97316] hover:bg-orange-50 rounded-full transition ml-2 border border-transparent hover:border-orange-100 group">
-             <i data-lucide="search" class="w-5 h-5 group-hover:scale-110 transition"></i>
-        </button>
       </div>
 
-       <div class="flex items-center gap-8">
+      <div class="flex items-center gap-8">
         <nav class="hidden md:flex gap-8 font-medium text-sm text-slate-600 items-center">
           <a href="/index.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Home</a>
-          <a href="/courses.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Free Courses</a>
-          <a href="/about.html" class="text-[#F97316] font-bold">About</a>
-          <a href="/daily.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Daily Tips</a>
-          <a href="/challenges.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Challenges</a>
-          <a href="/contact.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Contact</a>
+          <a href="/about.html" class="text-[#F97316] font-bold hover:-translate-y-0.5 transition">About Us</a>
+          <a href="/resources.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Resources</a>
+          
+          <div class="relative group">
+            <button class="hover:text-[#F97316] transition hover:-translate-y-0.5 flex items-center gap-1 focus:outline-none py-4">
+              Programs <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 w-64">
+                <div class="bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden p-2 flex flex-col ring-1 ring-black/5">
+                    <a href="/programs/python.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Python Programming</a>
+                    <a href="/programs/scratch.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Scratch & Logic</a>
+                    <a href="/programs/web-dev.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Web Development</a>
+                    <a href="/programs/basics.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Computer Basics</a>
+                </div>
+            </div>
+          </div>
+
+          <a href="/contact.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Contact Us</a>
         </nav>
-        <div class="hidden md:flex pl-8 border-l border-slate-200">
-           <a href="/contact.html" class="bg-[#0F172A] hover:bg-slate-800 text-white px-7 py-3 rounded-full text-xs font-bold shadow-xl shadow-slate-200 transition transform hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wide">
-             Join Community <i data-lucide="arrow-right" class="w-4 h-4 text-[#F97316]"></i>
-           </a>
+
+        <div class="flex items-center gap-4">
+            <button id="searchBtn" aria-label="Search" class="p-2 text-slate-600 hover:text-[#F97316] transition rounded-full hover:bg-slate-100"><i data-lucide="search" class="w-5 h-5"></i></button>
+            
+            <div class="hidden md:flex pl-4 border-l border-slate-200">
+               <a href="/contact.html" class="bg-[#0F172A] hover:bg-[#F97316] text-white px-7 py-3 rounded-full text-xs font-bold shadow-lg shadow-slate-200 transition transform hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wide">
+                 Enroll Now <i data-lucide="rocket" class="w-4 h-4"></i>
+               </a>
+            </div>
+            
+            <button id="menuBtn" aria-label="Open Menu" class="md:hidden p-2 text-slate-600 hover:text-[#F97316] transition"><i data-lucide="menu"></i></button>
         </div>
-        <button id="menuBtn" class="md:hidden p-2"><i data-lucide="menu"></i></button>
       </div>
     </div>
-    
-    <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b shadow-lg p-6 space-y-4 z-50">
-       <a href="/index.html" class="block py-2 font-bold text-[#F97316]">Home</a>
-       <a href="/courses.html" class="block py-2 text-slate-600">Free Courses</a>
-       <a href="/about.html" class="block py-2 text-slate-600">About</a>
-       <a href="/daily.html" class="block py-2 text-slate-600">Daily Tips</a>
-       <a href="/challenges.html" class="block py-2 text-slate-600">Challenges</a>
-       <a href="/contact.html" class="block py-3 bg-[#0F172A] text-white text-center rounded-xl font-bold mt-4 shadow-lg">Join Community</a>
+
+    <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b shadow-lg p-6 space-y-3 z-50 overflow-y-auto max-h-[85vh]">
+       <a href="/index.html" class="block py-2 font-bold text-slate-600 hover:text-[#F97316]">Home</a>
+       <a href="/about.html" class="block py-2 text-[#F97316] font-bold">About Us</a>
+       <a href="/resources.html" class="block py-2 text-slate-600 font-medium">Resources</a>
+       
+       <div class="py-2 border-l-2 border-[#F97316] pl-4 bg-orange-50/50 rounded-r-lg my-2">
+           <p class="text-[10px] font-bold text-[#F97316] uppercase tracking-widest mb-3 flex items-center gap-2"><i data-lucide="book" class="w-3 h-3"></i> Learning Paths</p>
+           <a href="/programs/python.html" class="block text-sm font-bold text-slate-800 mb-3">Python Programming</a>
+           <a href="/programs/scratch.html" class="block text-sm font-medium text-slate-600 mb-3">Scratch & Logic</a>
+           <a href="/programs/web-dev.html" class="block text-sm font-medium text-slate-600 mb-3">Web Development</a>
+           <a href="/programs/basics.html" class="block text-sm font-medium text-slate-600">Computer Basics</a>
+       </div>
+
+       <a href="/contact.html" class="block py-2 text-slate-600 font-medium">Contact Us</a>
+       <a href="/contact.html" class="block py-3 bg-[#0F172A] text-white text-center rounded-xl font-bold mt-2 shadow-lg">Enroll Now 🚀</a>
     </div>
   </header>
 
-  <section class="relative pt-24 pb-20 overflow-hidden">
-    <div class="absolute inset-0 bg-grid-pattern opacity-30 -z-10"></div>
-    
-    <div class="absolute top-20 left-10 w-64 h-64 bg-[#F97316]/10 rounded-full blur-[100px] pointer-events-none"></div>
-    <div class="absolute bottom-20 right-10 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+  <main>
+    <section class="relative pt-24 pb-20 overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 -z-10"></div>
+        <div class="absolute top-20 left-10 w-64 h-64 bg-[#F97316]/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-20 right-10 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-    <div class="max-w-4xl mx-auto px-4 text-center reveal-up">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-slate-600 text-xs font-bold uppercase tracking-wide mb-6">
-            <span class="w-2 h-2 rounded-full bg-[#F97316] animate-pulse"></span> Non-Profit Mission
+        <div class="max-w-4xl mx-auto px-4 text-center reveal-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-slate-600 text-xs font-bold uppercase tracking-wide mb-6">
+                <span class="w-2 h-2 rounded-full bg-[#F97316] animate-pulse"></span> Our Mission
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-[#0F172A] mb-6 leading-tight">
+                More Than a School.<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#F97316] to-pink-600">We Are a Movement.</span>
+            </h1>
+            <p class="text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto">
+                KidsDev Academy is a global technology institution dedicated to democratizing tech education. We don't just teach code; we mentor the next generation of problem solvers, innovators, and leaders.
+            </p>
         </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold text-[#0F172A] mb-6 leading-tight">
-            More Than a School.<br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#F97316] to-pink-600">We Are a Movement.</span>
-        </h1>
-        <p class="text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto">
-            KidsDev is a global technology group dedicated to democratizing tech education. We don't just teach code; we mentor the next generation of problem solvers.
-        </p>
-    </div>
-  </section>
+    </section>
 
-  <section class="max-w-6xl mx-auto px-4 pb-24">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal-up">
-          <div class="stat-card">
-              <h3 class="text-3xl font-extrabold text-[#0F172A] mb-1">500+</h3>
-              <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Students Mentored</p>
-          </div>
-          <div class="stat-card">
-              <h3 class="text-3xl font-extrabold text-[#0F172A] mb-1">100%</h3>
-              <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Project Based</p>
-          </div>
-          <div class="stat-card">
-              <h3 class="text-3xl font-extrabold text-[#0F172A] mb-1">24/7</h3>
-              <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Community Access</p>
-          </div>
-          <div class="stat-card">
-              <h3 class="text-3xl font-extrabold text-[#0F172A] mb-1">Global</h3>
-              <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Remote & Physical</p>
-          </div>
-      </div>
-  </section>
-
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-      
-      <div class="reveal-up">
-        <h2 class="text-3xl font-extrabold mb-6 text-[#0F172A]">From Sunderland to the World</h2>
-        <div class="space-y-6 text-slate-500 leading-relaxed text-lg">
-          <p>KidsDev began right here in <strong>Sunderland</strong> with a simple idea: coding shouldn't be boring, and it shouldn't be a luxury.</p>
-          <p>We realized that while technology is everywhere, true digital literacy is rare. We wanted to create a space where kids could move from being <em>consumers</em> to <strong>creators</strong>.</p>
-          <p>Today, we have evolved into a <strong>Global Academy</strong>. We offer free resources, daily challenges, and expert mentorship to help students master Python, Web Development, and Game Design.</p>
+    <section class="max-w-6xl mx-auto px-4 pb-24">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal-up">
+            <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center hover:-translate-y-1 transition hover:border-[#F97316] group">
+                <h3 class="text-3xl font-extrabold text-[#0F172A] mb-1 group-hover:text-[#F97316] transition">5+</h3>
+                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Years Experience</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center hover:-translate-y-1 transition hover:border-[#F97316] group">
+                <h3 class="text-3xl font-extrabold text-[#0F172A] mb-1 group-hover:text-[#F97316] transition">100%</h3>
+                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Project Based</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center hover:-translate-y-1 transition hover:border-[#F97316] group">
+                <h3 class="text-3xl font-extrabold text-[#0F172A] mb-1 group-hover:text-[#F97316] transition">24/7</h3>
+                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">LMS Access</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm text-center hover:-translate-y-1 transition hover:border-[#F97316] group">
+                <h3 class="text-3xl font-extrabold text-[#0F172A] mb-1 group-hover:text-[#F97316] transition">Global</h3>
+                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Remote & Physical</p>
+            </div>
         </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
         
-        <div class="mt-8 flex gap-8 border-t border-slate-200 pt-8">
-          <div>
-            <span class="block text-2xl font-bold text-[#F97316]">100% Free</span>
-            <span class="text-xs text-slate-400 uppercase font-bold tracking-wider">Core Resources</span>
-          </div>
-          <div class="w-px h-12 bg-slate-200"></div>
-          <div>
-            <span class="block text-2xl font-bold text-[#0F172A]">Expert Led</span>
-            <span class="text-xs text-slate-400 uppercase font-bold tracking-wider">Mentorship</span>
-          </div>
+        <div class="reveal-up">
+            <h2 class="text-3xl font-extrabold mb-6 text-[#0F172A]">From Sunderland to the World</h2>
+            <div class="space-y-6 text-slate-500 leading-relaxed text-lg">
+            <p>KidsDev began in <strong>Sunderland, UK</strong>, with a simple but powerful idea: technology education should be accessible, engaging, and industry-relevant for every child, regardless of background.</p>
+            <p>We recognized a gap. While children are digital natives, true digital literacy—the ability to <em>create</em> rather than just <em>consume</em>—was rare. We set out to bridge this gap by introducing professional-grade tools like Python, Linux, and GitHub to young minds early.</p>
+            <p>Today, we have evolved into a <strong>Global Academy</strong> with a footprint in the UK and Nigeria. We offer free open-source resources, intensive bootcamps, and expert mentorship that rivals university-level introductions.</p>
+            </div>
+            
+            <div class="mt-8 flex gap-8 border-t border-slate-200 pt-8">
+            <div>
+                <span class="block text-2xl font-bold text-[#F97316]">Open Source</span>
+                <span class="text-xs text-slate-400 uppercase font-bold tracking-wider">Learning Materials</span>
+            </div>
+            <div class="w-px h-12 bg-slate-200"></div>
+            <div>
+                <span class="block text-2xl font-bold text-[#0F172A]">Industry Led</span>
+                <span class="text-xs text-slate-400 uppercase font-bold tracking-wider">Curriculum</span>
+            </div>
+            </div>
         </div>
-      </div>
 
-      <div class="reveal-up relative" style="transition-delay: 200ms">
-        <div class="absolute inset-0 bg-[#F97316] rounded-3xl transform rotate-3 scale-95 opacity-10"></div>
-        <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students learning together" class="w-full h-auto transform group-hover:scale-105 transition duration-700">
-          <div class="absolute inset-0 bg-[#0F172A]/10 pointer-events-none"></div>
+        <div class="reveal-up relative" style="transition-delay: 200ms">
+            <div class="absolute inset-0 bg-[#F97316] rounded-3xl transform rotate-3 scale-95 opacity-10"></div>
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students learning together" class="w-full h-auto transform group-hover:scale-105 transition duration-700">
+            <div class="absolute inset-0 bg-[#0F172A]/10 pointer-events-none"></div>
+            </div>
         </div>
-      </div>
 
-    </div>
-  </section>
+        </div>
+    </section>
 
-  <section class="bg-[#0F172A] py-24 text-white relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-96 h-96 bg-[#F97316] rounded-full filter blur-[150px] opacity-10"></div>
-      
-      <div class="max-w-7xl mx-auto px-4">
-          <div class="text-center mb-16 reveal-up">
-            <h2 class="text-3xl font-extrabold mb-4">Core Values</h2>
-            <p class="text-slate-400">What makes our group different?</p>
-          </div>
-
-          <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition reveal-up">
-                <div class="w-12 h-12 bg-[#F97316] rounded-xl flex items-center justify-center mb-6"><i data-lucide="heart-handshake" class="w-6 h-6 text-white"></i></div>
-                <h3 class="font-bold text-xl mb-3">Accessibility First</h3>
-                <p class="text-slate-400 leading-relaxed text-sm">Education shouldn't have a paywall. Our core learning materials are open to everyone, everywhere.</p>
+    <section class="bg-[#0F172A] py-24 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-[#F97316] rounded-full filter blur-[150px] opacity-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl font-extrabold mb-4">Our Core Values</h2>
+                <p class="text-slate-400">The pillars of our pedagogy.</p>
             </div>
 
-            <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition reveal-up" style="transition-delay: 100ms;">
-                <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6"><i data-lucide="lightbulb" class="w-6 h-6 text-white"></i></div>
-                <h3 class="font-bold text-xl mb-3">Creativity Over Syntax</h3>
-                <p class="text-slate-400 leading-relaxed text-sm">We focus on building actual projects. Logic comes first; memorizing complex code comes second.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition reveal-up">
+                    <div class="w-12 h-12 bg-[#F97316] rounded-xl flex items-center justify-center mb-6"><i data-lucide="heart-handshake" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-xl mb-3">Accessibility First</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">Quality education shouldn't have a paywall. We provide extensive free resources to ensure no child is left behind.</p>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition reveal-up" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6"><i data-lucide="lightbulb" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-xl mb-3">Creativity Over Syntax</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">We teach logic and problem-solving first. Memorizing code is secondary to understanding how to build solutions.</p>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition reveal-up" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-6"><i data-lucide="shield-check" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-xl mb-3">Safe Environment</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">A supportive, bully-free zone where making mistakes is celebrated as an essential part of the learning process.</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition reveal-up" style="transition-delay: 200ms;">
-                <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-6"><i data-lucide="shield-check" class="w-6 h-6 text-white"></i></div>
-                <h3 class="font-bold text-xl mb-3">Safe Environment</h3>
-                <p class="text-slate-400 leading-relaxed text-sm">A supportive, bully-free zone where making mistakes is celebrated as part of the learning process.</p>
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-24 text-center reveal-up">
+        <div class="relative bg-white border border-slate-200 rounded-[2.5rem] p-12 shadow-2xl mt-12 overflow-visible">
+        
+        <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48 profile-blob bg-white">
+            <img src="/image/tola.png" 
+                onerror="this.src='https://ui-avatars.com/api/?name=Tolani+Agbeyangi&background=F97316&color=fff&size=256'" 
+                alt="Tolani Agbeyangi" 
+                class="w-full h-full object-cover">
+        </div>
+
+        <div class="mt-24">
+            <h2 class="text-3xl font-extrabold text-[#0F172A] mb-2">Tolani Agbeyangi</h2>
+            <p class="text-[#F97316] text-xs font-bold uppercase tracking-widest mb-8">Founder & Lead Instructor</p>
+            
+            <div class="relative max-w-2xl mx-auto">
+            <i data-lucide="quote" class="w-10 h-10 text-slate-100 absolute -top-6 -left-6 -z-10"></i>
+            <p class="text-slate-600 leading-relaxed text-lg font-medium">
+                "I have loved and taught Computer Science for over half a decade. My deep passion for children inspired me to found KidsDev, with the goal of helping them grow their tech skills and confidently explore the opportunities within our digital society. We are not just teaching them to code; we are teaching them to think."
+            </p>
             </div>
-          </div>
-      </div>
-  </section>
-
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-24 text-center reveal-up">
-    <div class="relative bg-white border border-slate-200 rounded-[2.5rem] p-12 shadow-2xl mt-12 overflow-visible">
-      
-      <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48 profile-blob bg-white">
-        <img src="/image/tola.png" 
-             onerror="this.src='https://ui-avatars.com/api/?name=Tolani+Agbeyangi&background=F97316&color=fff&size=256'" 
-             alt="Tolani Agbeyangi" 
-             class="w-full h-full object-cover">
-      </div>
-
-      <div class="mt-24">
-        <h2 class="text-3xl font-extrabold text-[#0F172A] mb-2">Tolani Agbeyangi</h2>
-        <p class="text-[#F97316] text-xs font-bold uppercase tracking-widest mb-8">Founder & Lead Instructor</p>
-        
-        <div class="relative max-w-2xl mx-auto">
-          <i data-lucide="quote" class="w-10 h-10 text-slate-100 absolute -top-6 -left-6 -z-10"></i>
-          <p class="text-slate-600 leading-relaxed text-lg font-medium">
-            "I have loved and taught Computer Science for over half a decade. My deep passion for children inspired me to found KidsDev, with the goal of helping them grow their tech skills and confidently explore the opportunities within our digital society."
-          </p>
+            
+            <div class="mt-10 flex justify-center gap-6">
+            <a href="https://github.com/kidsdev-academy" target="_blank" class="text-slate-400 hover:text-[#0F172A] transition"><i data-lucide="github" class="w-6 h-6"></i></a>
+            <a href="https://instagram.com/kidsdevacad" target="_blank" class="text-slate-400 hover:text-[#F97316] transition"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+            <a href="mailto:hello@kidsdevacademy.com" class="text-slate-400 hover:text-blue-500 transition"><i data-lucide="mail" class="w-6 h-6"></i></a>
+            </div>
         </div>
-        
-        <div class="mt-10 flex justify-center gap-6">
-           <a href="https://github.com/kidsdevacademy" target="_blank" class="text-slate-400 hover:text-[#0F172A] transition"><i data-lucide="github" class="w-6 h-6"></i></a>
-           <a href="https://instagram.com/kidsdevacad" target="_blank" class="text-slate-400 hover:text-[#F97316] transition"><i data-lucide="instagram" class="w-6 h-6"></i></a>
-           <a href="mailto:hello@kidsdev.com" class="text-slate-400 hover:text-blue-500 transition"><i data-lucide="mail" class="w-6 h-6"></i></a>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer class="bg-[#0b1021] text-white pt-16 pb-8 border-t border-slate-800">
+  <footer class="bg-[#0b1021] text-white pt-20 pb-10 border-t border-slate-800 font-light">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-12 mb-12">
-        <div class="col-span-1 md:col-span-2 space-y-4">
-          <a href="/index.html" class="flex items-center gap-2 group">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div class="space-y-6">
+          <a href="/index.html" class="flex items-center gap-2 group" aria-label="Home">
              <img src="/image/logo.png" class="h-8 w-auto object-contain transition transform group-hover:scale-105" alt="KidsDev Logo"> 
-             <span class="font-extrabold text-2xl tracking-tighter">Kids<span class="text-[#F97316]">Dev</span></span>
+             <div class="flex flex-col">
+                 <span class="font-extrabold text-2xl tracking-tighter leading-none">Kids<span class="text-[#F97316]">Dev</span></span>
+                 <span class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">Academy</span>
+             </div>
           </a>
-          <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
-            A global tech Academy empowering the next generation with professional coding, linux, and creative skills.
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Global technology school providing professional coding, web development, and digital literacy skills for the next generation.
           </p>
         </div>
         <div>
-          <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Group</h3>
+          <h3 class="font-bold text-sm uppercase mb-6 text-white border-b border-slate-800 pb-2 inline-block">Navigation</h3>
           <ul class="space-y-4 text-sm text-slate-400">
-            <li><a href="/courses.html" class="hover:text-white transition">Curriculum</a></li>
-            <li><a href="/contact.html" class="hover:text-white transition">Admissions</a></li>
-            <li><a href="/about.html" class="hover:text-white transition">Our Mission</a></li>
+            <li><a href="/index.html" class="hover:text-[#F97316] transition">Home</a></li>
+            <li><a href="/about.html" class="hover:text-[#F97316] transition">About Us</a></li>
+            <li><a href="/resources.html" class="hover:text-[#F97316] transition">Resources</a></li>
+            <li><a href="/contact.html" class="hover:text-[#F97316] transition">Contact Us</a></li>
           </ul>
         </div>
         <div>
-          <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Connect</h3>
-                 <div>
-          <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Connect</h3>
-          <div class="flex gap-5 items-center">
-            <a href="https://github.com/kidsdev-academy" target="_blank" class="text-slate-400 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
-            <a href="https://instagram.com/kidsdevacad" target="_blank" class="text-slate-400 hover:text-pink-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-            <a href="https://facebook.com/kidsdevacad" target="_blank" class="text-slate-400 hover:text-blue-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-            <a href="https://tiktok.com/@kidsdevacad" target="_blank" class="text-slate-400 hover:text-white transition group">
-                <svg class="w-5 h-5 fill-current group-hover:fill-white transition" viewBox="0 0 24 24"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/></svg>
+          <h3 class="font-bold text-sm uppercase mb-6 text-white border-b border-slate-800 pb-2 inline-block">Programs</h3>
+          <ul class="space-y-4 text-sm text-slate-400">
+            <li><a href="/programs/basics.html" class="hover:text-white transition">Computer Basics</a></li>
+            <li><a href="/programs/python.html" class="hover:text-white transition">Python & Pygame</a></li>
+            <li><a href="/programs/web-dev.html" class="hover:text-white transition">Web Development</a></li>
+            <li><a href="/programs/scratch.html" class="hover:text-white transition">Scratch Logic</a></li>
+          </ul>
+        </div>
+        
+        <div>
+           <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Connect</h3>
+           <div class="flex flex-col gap-4 text-sm text-slate-400 mb-6">
+             <a href="https://wa.me/447350154850" class="hover:text-[#25D366] transition flex items-center gap-2">
+               <i class="fa-brands fa-whatsapp w-4"></i> WhatsApp Us
+             </a>
+             <a href="tel:+447350154850" class="hover:text-white transition flex items-center gap-2">
+                <i class="fa-solid fa-phone w-4"></i> +44 735 015 4850
+             </a>
+          </div>
+
+          <div class="flex gap-5 mb-6 items-center">
+            <a href="https://github.com/kidsdev-academy" aria-label="Github" class="text-slate-400 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+            <a href="https://instagram.com/kidsdevacad" aria-label="Instagram" class="text-slate-400 hover:text-pink-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            <a href="https://facebook.com/kidsdevacad" aria-label="Facebook" class="text-slate-400 hover:text-blue-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+            <a href="https://tiktok.com/@kidsdevacad" aria-label="TikTok" class="text-slate-400 hover:text-white transition group">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 group-hover:fill-current">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
             </a>
           </div>
-        </div>
+
+          <p class="text-xs text-slate-500">Subscribe for free tips & updates:</p>
+          <form class="mt-2 flex gap-2" onsubmit="event.preventDefault();">
+              <input type="email" placeholder="Email" class="bg-slate-800 border-none rounded px-3 py-2 text-xs w-full focus:ring-1 focus:ring-[#F97316] outline-none text-white">
+              <button class="bg-[#F97316] p-2 rounded hover:bg-orange-600 transition"><i data-lucide="send" class="w-3 h-3 text-white"></i></button>
+          </form>
         </div>
       </div>
-      <div class="border-t border-slate-800 pt-8 text-center flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-slate-500 text-xs">
-          &copy; 2026 KidsDev Academy. All Rights Reserved.
-        </p>
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+        <p class="text-slate-500 text-xs">&copy; 2026 KidsDev Academy. Empowering kids globally.</p>
         <div class="flex gap-6 text-xs text-slate-600">
            <a href="#" class="hover:text-slate-400">Privacy Policy</a>
            <a href="#" class="hover:text-slate-400">Terms of Service</a>
@@ -304,12 +355,26 @@
     </div>
   </footer>
 
-  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4">
+  <div id="cookieBanner" class="fixed bottom-4 right-4 max-w-sm bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 z-[200] hidden reveal-up">
+      <div class="flex gap-4">
+          <div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center text-2xl flex-shrink-0">🍪</div>
+          <div>
+              <p class="font-bold text-[#0F172A] mb-1">We use cookies</p>
+              <p class="text-xs text-slate-500 leading-relaxed mb-4">We use cookies to improve your experience and analyze traffic. Is that okay?</p>
+              <div class="flex gap-2">
+                  <button onclick="document.getElementById('cookieBanner').style.display='none'" class="bg-[#0F172A] text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-slate-800 transition">Accept All</button>
+                  <button onclick="document.getElementById('cookieBanner').style.display='none'" class="bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-xs font-bold hover:bg-slate-200 transition">Decline</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4" role="dialog" aria-modal="true">
       <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden reveal-up active">
           <div class="p-4 border-b border-slate-100 flex items-center gap-4">
               <i data-lucide="search" class="text-slate-400"></i>
-              <input type="text" id="searchInput" placeholder="Search..." class="flex-1 outline-none text-lg font-bold text-[#0F172A]">
-              <button id="closeSearch" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
+              <input type="text" id="searchInput" placeholder="Search courses, tutorials..." class="flex-1 outline-none text-lg font-bold text-[#0F172A]" autofocus>
+              <button id="closeSearch" aria-label="Close Search" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
           </div>
           <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
                <div class="text-center text-slate-400 py-10">Start typing to search...</div>
@@ -318,6 +383,13 @@
   </div>
 
   <script src="/js/main.js"></script>
-  <script>if(window.lucide) lucide.createIcons();</script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        if(window.lucide) lucide.createIcons();
+        setTimeout(() => {
+            document.getElementById('cookieBanner').classList.remove('hidden');
+        }, 2000);
+    });
+  </script>
 </body>
 </html>

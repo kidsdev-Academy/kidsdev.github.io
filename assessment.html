@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Tech Career Assessment | KidsDev Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #0F172A; }
+    
+    /* Card Styles */
+    .card { 
+        border: 2px solid #F1F5F9; 
+        cursor: pointer; 
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    .card:hover { 
+        border-color: #FED7AA; 
+        background-color: #FFF7ED; 
+        transform: translateY(-2px);
+    }
+    .card.selected { 
+        border-color: #F97316; 
+        background-color: #FFF7ED; 
+        box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
+    }
+    .card.selected::after {
+        content: "✓";
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: #F97316;
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+        animation: popIn 0.2s ease-out;
+    }
+
+    /* Animations */
+    .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes popIn { from { transform: scale(0); } to { transform: scale(1); } }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+
+<div class="w-full max-w-3xl">
+
+  <div class="flex justify-between items-center mb-8 px-2">
+      <a href="/index.html" class="flex items-center gap-2 group">
+        <img src="/image/logo.png" alt="KidsDev" class="h-8 w-auto">
+        <span class="font-extrabold text-xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+      </a>
+      <a href="/index.html" class="text-xs font-bold text-slate-500 hover:text-red-500 bg-white px-4 py-2 rounded-full shadow-sm flex items-center gap-2">
+          <i data-lucide="x" class="w-4 h-4"></i> Exit
+      </a>
+  </div>
+
+  <div id="roleBox" class="bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl text-center fade-in">
+    <div class="w-20 h-20 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-6 text-[#F97316]">
+        <i data-lucide="users" class="w-10 h-10"></i>
+    </div>
+    <h1 class="text-3xl font-extrabold mb-3">Who is taking this test?</h1>
+    <p class="text-slate-500 mb-10">We customize the results based on who you are.</p>
+    
+    <div class="grid md:grid-cols-2 gap-6">
+      <button onclick="setRole('parent')" class="group p-6 rounded-2xl border-2 border-slate-100 hover:border-[#F97316] hover:bg-orange-50 transition text-left">
+        <span class="text-3xl block mb-3">👨‍👩‍👧</span>
+        <h3 class="font-bold text-lg text-[#0F172A] group-hover:text-[#F97316]">Parent / Guardian</h3>
+        <p class="text-xs text-slate-500 mt-1">I want to find the best course for my child.</p>
+      </button>
+      <button onclick="setRole('student')" class="group p-6 rounded-2xl border-2 border-slate-100 hover:border-green-500 hover:bg-green-50 transition text-left">
+        <span class="text-3xl block mb-3">🚀</span>
+        <h3 class="font-bold text-lg text-[#0F172A] group-hover:text-green-600">Student / Child</h3>
+        <p class="text-xs text-slate-500 mt-1">I want to discover my tech superpower.</p>
+      </button>
+    </div>
+  </div>
+
+  <div id="formBox" class="hidden bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl fade-in">
+    <h2 class="text-2xl font-bold mb-6 text-center">Tell us about <span id="formLabel">the student</span></h2>
+    <div class="space-y-4">
+      <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase mb-1">First Name</label>
+          <input id="name" placeholder="Enter Name" class="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-[#F97316] outline-none transition font-bold text-[#0F172A]">
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+          <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Age</label>
+              <input id="age" type="number" placeholder="e.g. 10" class="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-[#F97316] outline-none transition font-bold text-[#0F172A]">
+          </div>
+          <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Location</label>
+              <input id="country" placeholder="e.g. Lagos" class="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-[#F97316] outline-none transition font-bold text-[#0F172A]">
+          </div>
+      </div>
+    </div>
+    <button onclick="startAssessment()" class="w-full mt-8 bg-[#0F172A] hover:bg-slate-800 text-white py-4 rounded-xl font-bold shadow-lg transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2">
+      Start Assessment <i data-lucide="arrow-right" class="w-5 h-5"></i>
+    </button>
+  </div>
+
+  <div id="quizBox" class="hidden bg-white p-6 md:p-10 rounded-[2rem] shadow-2xl relative min-h-[500px] flex flex-col fade-in">
+    <div class="mb-8">
+        <div class="flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
+            <span>Question <span id="qNum" class="text-[#F97316]">1</span> / <span id="qTotal">20</span></span>
+            <span class="text-slate-300">Select all that apply</span>
+        </div>
+        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+            <div id="progressBar" class="bg-gradient-to-r from-[#F97316] to-purple-600 h-full w-0 transition-all duration-500"></div>
+        </div>
+    </div>
+
+    <div class="flex-1 flex flex-col justify-center">
+        <h3 id="qText" class="text-xl md:text-2xl font-extrabold mb-8 text-[#0F172A] leading-tight"></h3>
+        <div id="options" class="grid md:grid-cols-2 gap-4"></div>
+    </div>
+
+    <div class="mt-8 flex justify-end border-t border-slate-100 pt-6">
+        <button id="nextBtn" onclick="nextQuestion()" disabled class="bg-[#F97316] hover:bg-orange-600 text-white px-8 py-3 rounded-xl font-bold transition shadow-lg opacity-50 cursor-not-allowed flex items-center gap-2">
+            Next <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </button>
+    </div>
+  </div>
+
+  <div id="resultBox" class="hidden bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl text-center fade-in">
+    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-orange-100 to-white flex items-center justify-center mx-auto mb-6 text-5xl shadow-xl border-4 border-white">
+        🏆
+    </div>
+    
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-2">Assessment Complete</h2>
+    <h1 class="text-3xl font-extrabold mb-2 text-[#0F172A]">
+        <span id="userName">Student</span> is a <span id="resTitle" class="text-[#F97316]">Tech Title</span>
+    </h1>
+    <p class="text-slate-500 mb-8 max-w-lg mx-auto leading-relaxed" id="resDesc"></p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-8 text-left">
+        <div class="bg-orange-50 border border-orange-100 rounded-2xl p-6 relative overflow-hidden group hover:border-[#F97316] transition cursor-pointer" onclick="goToEnroll()">
+            <div class="absolute top-0 right-0 bg-[#F97316] text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase">Recommended</div>
+            <h4 class="text-xs font-bold text-orange-600 uppercase tracking-wide mb-1">Start Here</h4>
+            <h3 id="primaryTrack" class="text-xl font-extrabold text-[#0F172A] mb-2">Course Name</h3>
+            <p class="text-xs text-slate-600 mb-3" id="primaryDesc">Master the fundamentals first.</p>
+            <div class="flex gap-2">
+                <span class="px-2 py-1 bg-white rounded text-[10px] font-bold text-slate-500 border border-orange-100">Best Fit</span>
+            </div>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-100 rounded-2xl p-6 group hover:border-slate-300 transition cursor-pointer" onclick="goToEnroll()">
+            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-1">Alternative Option</h4>
+            <h3 id="altTrack" class="text-lg font-bold text-slate-700 mb-2">Course Name</h3>
+            <p class="text-xs text-slate-500" id="altDesc">Also a good fit for your skills.</p>
+        </div>
+    </div>
+
+    <div class="bg-indigo-50 border border-indigo-100 p-6 rounded-2xl mb-8 text-center">
+        <h3 class="text-xs font-bold text-indigo-500 uppercase tracking-widest mb-2">Potential Future Careers</h3>
+        <p id="careerPaths" class="font-bold text-indigo-900 text-sm md:text-base"></p>
+    </div>
+
+    <div id="parentPanel" class="bg-green-50 border border-green-100 p-6 rounded-2xl mb-8 text-left text-sm text-green-800 leading-relaxed"></div>
+
+    <a href="/enroll.html" class="block w-full bg-[#0F172A] hover:bg-slate-800 text-white py-4 rounded-xl font-bold shadow-lg transition transform hover:-translate-y-1 text-lg flex items-center justify-center gap-2">
+        Enroll Now <i data-lucide="check-circle" class="w-5 h-5 text-[#F97316]"></i>
+    </a>
+    
+    <button onclick="location.reload()" class="mt-4 text-xs font-bold text-slate-400 hover:text-slate-600 underline">Retake Assessment</button>
+  </div>
+
+</div>
+
+<script>
+    if(window.lucide) lucide.createIcons();
+
+    let role = "student";
+    let user = {};
+    let current = 0;
+    // Categories: intro (Basics), ms (Office), web, uiux, python, game (Pygame), scratch
+    let scores = { intro:0, ms:0, web:0, uiux:0, python:0, game:0, scratch:0 };
+
+    // 20 Questions - Basic English for Kids
+    const questions = [
+        // --- 1. Basic Skills ---
+        { q:"Have you ever created a folder or saved a file?", options: [ {t:"Yes, easily", type:"web"}, {t:"I think so", type:"ms"}, {t:"No", type:"intro"}, {t:"What is a folder?", type:"intro"} ] },
+        { q:"Can you type without looking at the keyboard?", options: [ {t:"Yes, super fast!", type:"python"}, {t:"Kind of", type:"ms"}, {t:"No, I look at keys", type:"intro"}, {t:"I use voice typing", type:"intro"} ] },
+        { q:"Have you used Microsoft Word or PowerPoint?", options: [ {t:"Yes, for school", type:"ms"}, {t:"Once or twice", type:"intro"}, {t:"No, never", type:"intro"}, {t:"I prefer coding", type:"python"} ] },
+        { q:"Can you install a new game or app yourself?", options: [ {t:"Yes, easy!", type:"game"}, {t:"My parents do it", type:"intro"}, {t:"I use the browser", type:"web"}, {t:"No", type:"intro"} ] },
+        
+        // --- 2. Interests ---
+        { q:"What do you like doing most?", options: [ {t:"Playing Games", type:"game"}, {t:"Drawing Pictures", type:"uiux"}, {t:"Solving Puzzles", type:"python"}, {t:"Watching YouTube", type:"web"} ] },
+        { q:"If you could build one thing, what would it be?", options: [ {t:"A Robot", type:"python"}, {t:"A Video Game", type:"game"}, {t:"A Website", type:"web"}, {t:"A Movie Poster", type:"uiux"} ] },
+        { q:"Do you prefer Art or Math?", options: [ {t:"Art & Colors", type:"uiux"}, {t:"Math & Logic", type:"python"}, {t:"Both!", type:"web"}, {t:"Neither", type:"intro"} ] },
+        
+        // --- 3. Gaming vs Creating ---
+        { q:"When playing a game, do you wonder how it works?", options: [ {t:"Yes, all the time!", type:"game"}, {t:"Sometimes", type:"scratch"}, {t:"No, I just play", type:"intro"}, {t:"I look at the art", type:"uiux"} ] },
+        { q:"Have you used Scratch (coding blocks)?", options: [ {t:"Yes, loved it", type:"scratch"}, {t:"Yes, but want real code", type:"python"}, {t:"No, never", type:"intro"}, {t:"It was boring", type:"web"} ] },
+        
+        // --- 4. Problem Solving ---
+        { q:"If your computer freezes, what do you do?", options: [ {t:"Restart it", type:"ms"}, {t:"Click everything", type:"web"}, {t:"Ask for help", type:"intro"}, {t:"Check settings", type:"python"} ] },
+        { q:"Do you like riddles?", options: [ {t:"Yes! Hard ones", type:"python"}, {t:"Only easy ones", type:"web"}, {t:"No, I like stories", type:"uiux"}, {t:"I prefer action", type:"game"} ] },
+        
+        // --- 5. Career/Future ---
+        { q:"What sounds like a cool job?", options: [ {t:"Hacker", type:"python"}, {t:"Game Maker", type:"game"}, {t:"Website Builder", type:"web"}, {t:"Artist / Designer", type:"uiux"} ] },
+        { q:"Do you want to work alone or in a team?", options: [ {t:"Alone (Focus)", type:"python"}, {t:"Team (Creative)", type:"uiux"}, {t:"Team (Building)", type:"web"}, {t:"Doesn't matter", type:"ms"} ] },
+        
+        // --- 6. Tools ---
+        { q:"Have you heard of Python?", options: [ {t:"Yes, want to learn", type:"python"}, {t:"Is it a snake?", type:"intro"}, {t:"Yes, sounds hard", type:"scratch"}, {t:"I prefer JavaScript", type:"web"} ] },
+        { q:"Do you like organizing things?", options: [ {t:"Yes, very tidy", type:"ms"}, {t:"Kind of", type:"web"}, {t:"No, messy is fun", type:"uiux"}, {t:"Logic is organized", type:"python"} ] },
+        { q:"Do you like LEGOs?", options: [ {t:"Yes, big builds", type:"python"}, {t:"Yes, pretty houses", type:"uiux"}, {t:"Yes, cars/robots", type:"game"}, {t:"No", type:"intro"} ] },
+        
+        // --- 7. Final Check ---
+        { q:"Do you have a laptop at home?", options: [ {t:"Yes, my own", type:"python"}, {t:"Family shared", type:"web"}, {t:"Tablet only", type:"scratch"}, {t:"No", type:"intro"} ] },
+        { q:"How old are you?", options: [ {t:"6-9 years", type:"scratch"}, {t:"10-12 years", type:"web"}, {t:"13-16 years", type:"python"}, {t:"Adult / Parent", type:"ms"} ] },
+        { q:"Are you ready to learn?", options: [ {t:"Yes! Start now!", type:"web"}, {t:"I'm nervous", type:"intro"}, {t:"Let's build games!", type:"game"}, {t:"I want to design", type:"uiux"} ] },
+        { q:"Do you want to learn Office packages (Word/Excel)?", options: [ {t:"Yes please", type:"ms"}, {t:"Maybe later", type:"intro"}, {t:"No, I want code", type:"python"}, {t:"I know them already", type:"web"} ] }
+    ];
+
+    // Results Data
+    const results = {
+        intro: {
+            title: "Digital Explorer",
+            desc: "It is best to build a strong foundation first. You will learn how to use a computer confidently before moving to complex code.",
+            primary: "Introduction to Computer",
+            primaryDesc: "Learn Typing, Windows/Mac Basics, and File Management.",
+            alt: "Microsoft Office",
+            altDesc: "Master Word, Excel, and PowerPoint.",
+            careers: "IT Support, Digital Assistant"
+        },
+        ms: {
+            title: "Productivity Pro",
+            desc: "You are organized and practical. You should master the essential tools used in every business and school.",
+            primary: "Microsoft Packages",
+            primaryDesc: "Advanced Word, Excel, PowerPoint, and Outlook.",
+            alt: "Introduction to Computer",
+            altDesc: "Ensure your basic OS skills are solid.",
+            careers: "Data Analyst, Project Manager, Admin"
+        },
+        scratch: {
+            title: "Creative Builder",
+            desc: "You have a big imagination! Since you are starting out, block-based coding is the perfect way to learn logic without typing.",
+            primary: "Scratch Programming",
+            primaryDesc: "Create stories and games using easy blocks.",
+            alt: "Intro to Computers",
+            altDesc: "Build computer skills first.",
+            careers: "Game Designer, Storyteller"
+        },
+        web: {
+            title: "Web Creator",
+            desc: "You love seeing your ideas come to life instantly! You enjoy building things that people can see on the internet.",
+            primary: "Web Development",
+            primaryDesc: "Master HTML, CSS, and JavaScript.",
+            alt: "UI/UX Design",
+            altDesc: "Focus on visual design.",
+            careers: "Frontend Developer, Web Designer"
+        },
+        uiux: {
+            title: "Digital Designer",
+            desc: "You have an artist's eye! You care more about how things LOOK and FEEL than the complex math behind them.",
+            primary: "UI/UX Design",
+            primaryDesc: "Design app interfaces and user experiences.",
+            alt: "Web Development",
+            altDesc: "Learn to code your designs.",
+            careers: "Product Designer, UX Researcher"
+        },
+        python: {
+            title: "Logic Master",
+            desc: "You are a problem solver. You like to understand how things work. You are ready for a powerful language.",
+            primary: "Python Programming",
+            primaryDesc: "The #1 language for AI and Data.",
+            alt: "Web Development",
+            altDesc: "Build web apps with logic.",
+            careers: "Software Engineer, AI Developer"
+        },
+        game: {
+            title: "Game Engineer",
+            desc: "You don't just play games; you want to code them from scratch. You are ready to write real code.",
+            primary: "Pygame Development",
+            primaryDesc: "Build professional 2D games with Python.",
+            alt: "Python Programming",
+            altDesc: "Learn core coding skills first.",
+            careers: "Game Developer, Simulation Engineer"
+        }
+    };
+
+    function setRole(r) {
+        role = r;
+        if(role === 'parent') document.getElementById('formLabel').innerText = "your child";
+        document.getElementById('roleBox').style.display = "none";
+        document.getElementById('formBox').style.display = "block";
+    }
+
+    function startAssessment() {
+        user = {
+            name: document.getElementById('name').value || "Student",
+            age: document.getElementById('age').value,
+            country: document.getElementById('country').value,
+            role: role
+        };
+        document.getElementById('formBox').style.display = "none";
+        document.getElementById('quizBox').style.display = "flex"; 
+        document.getElementById('qTotal').innerText = questions.length;
+        renderQuestion();
+    }
+
+    function renderQuestion() {
+        const q = questions[current];
+        document.getElementById('qText').innerText = q.q;
+        document.getElementById('qNum').innerText = current + 1;
+        document.getElementById('progressBar').style.width = ((current + 1) / questions.length) * 100 + "%";
+        
+        const optionsDiv = document.getElementById('options');
+        optionsDiv.innerHTML = "";
+        
+        q.options.forEach((o, i) => {
+            const div = document.createElement("div");
+            div.className = "card p-4 rounded-xl bg-white flex items-center gap-3 group";
+            div.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-xs font-bold text-slate-400 group-hover:bg-[#F97316] group-hover:text-white transition shrink-0 circle-badge border border-slate-100">
+                    ${String.fromCharCode(65 + i)}
+                </div>
+                <span class="font-medium text-slate-600 group-hover:text-[#0F172A]">${o.t}</span>
+            `;
+            div.dataset.type = o.type;
+            
+            div.onclick = () => {
+                div.classList.toggle("selected");
+                
+                // Enable Next Button if at least one selected
+                const count = document.querySelectorAll('.card.selected').length;
+                const nextBtn = document.getElementById('nextBtn');
+                if(count > 0) {
+                    nextBtn.disabled = false;
+                    nextBtn.classList.remove("opacity-50", "cursor-not-allowed");
+                } else {
+                    nextBtn.disabled = true;
+                    nextBtn.classList.add("opacity-50", "cursor-not-allowed");
+                }
+            };
+            optionsDiv.appendChild(div);
+        });
+        
+        const nextBtn = document.getElementById('nextBtn');
+        nextBtn.disabled = true;
+        nextBtn.classList.add("opacity-50", "cursor-not-allowed");
+        nextBtn.innerHTML = (current === questions.length - 1) ? "See Results ⭐️" : `Next <i data-lucide="chevron-right" class="w-4 h-4"></i>`;
+        if(window.lucide) lucide.createIcons();
+    }
+
+    function nextQuestion() {
+        document.querySelectorAll('.card.selected').forEach(card => {
+            const type = card.dataset.type;
+            if(scores[type] !== undefined) scores[type]++;
+        });
+
+        current++;
+        if(current < questions.length) {
+            renderQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        document.getElementById('quizBox').style.display = "none";
+        document.getElementById('resultBox').style.display = "block";
+
+        // Logic to determine winner
+        const winner = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+        const r = results[winner];
+
+        // Display User Name
+        document.getElementById('userName').innerText = user.name;
+        
+        // Populate Data
+        document.getElementById('resTitle').innerText = r.title;
+        document.getElementById('resDesc').innerText = r.desc;
+        document.getElementById('primaryTrack').innerText = r.primary;
+        document.getElementById('primaryDesc').innerText = r.primaryDesc;
+        document.getElementById('altTrack').innerText = r.alt;
+        document.getElementById('altDesc').innerText = r.altDesc;
+        document.getElementById('careerPaths').innerText = r.careers;
+
+        const parentPanel = document.getElementById('parentPanel');
+        if(user.role === "parent") {
+            parentPanel.innerHTML = `
+                <h3 class="font-bold text-green-800 mb-2">📢 Parent Summary</h3>
+                <p>Based on the assessment, <b>${user.name}</b> shows strong interest in <b>${r.title}</b> skills. 
+                Starting with <b>${r.primary}</b> will build their confidence. <br><br>
+                This path leads to future careers in <b>${r.careers}</b>.</p>
+            `;
+        } else {
+            parentPanel.innerHTML = `
+                <h3 class="font-bold text-green-800 mb-2">🚀 Your Tech Journey</h3>
+                <p>You are ready to start building! Follow the <b>${r.primary}</b> roadmap to create your own projects.</p>
+            `;
+        }
+    }
+
+    function goToEnroll() {
+        window.location.href = '/enroll.html';
+    }
+  </script>
+
+</div>
+</body>
+</html>

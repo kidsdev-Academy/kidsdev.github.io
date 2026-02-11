@@ -1,343 +1,302 @@
-/* ==========================================================================
-   KIDSDEV ACADEMY - MAIN CONTROLLER
-   --------------------------------------------------------------------------
-   - Handles Data Fetching (Daily, Courses, Challenges)
-   - Manages UI Rendering & Routing
-   - Controls Search & Mobile Menu
-========================================================================== */
+/**
+ * KidsDev Academy - Professional Main Controller
+ * --------------------------------------------------------------------------
+ * Features:
+ * 1. Data Loading & Live Search
+ * 2. Mobile Menu & Navigation
+ * 3. Scroll Animations & Sticky Header
+ * 4. Interactive Form Handling (Newsletter)
+ * 5. Dynamic Year & Counters
+ */
 
-const UI = {
-  data: [],
-  rootPath: '', 
+document.addEventListener('DOMContentLoaded', () => {
+    App.init();
+});
 
-  async init() {
-    this.calculateRootPath();
-    this.cacheElements();
-    this.setupMobileMenu(); 
-    this.setupSearch();
+const App = {
+    // 1. STATE & CONFIG
+    data: [],
+    config: {
+        scrollOffset: 100, // For sticky header
+        animThreshold: 0.1 // For reveal animations
+    },
 
-    // 1. FETCH DATA
-    await this.fetchData();
-    
-    // 2. ROUTING & RENDERING
-    // Detect which page we are on and render accordingly
-    
-    // -> Home Page
-    if (this.homeDailyContainer || this.homeResourcesContainer) { 
-        this.renderHomeFeeds('all'); 
-    }
-
-    // -> Courses Page
-    if (this.coursesGrid) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const category = urlParams.get('category') || 'all';
-        this.updateFilterButtons(category); 
-        this.renderGrid(this.coursesGrid, 'course', category);
-    }
-
-    // -> Daily Tips Page
-    if (this.dailyGrid) {
-        this.renderGrid(this.dailyGrid, 'daily', 'all');
-    }
-
-    // -> Challenges Page
-    if (this.challengesGrid) {
-        this.renderGrid(this.challengesGrid, 'challenge', 'all');
-    }
-
-    // 3. UI EFFECTS
-    if (window.lucide) lucide.createIcons();
-    this.setupScrollReveal();
-    
-    // 4. GLOBAL EXPORTS (For HTML onclick events)
-    window.filterHome = (type, btn) => this.filterHome(type, btn);
-    window.filterPage = (category, btn) => this.handlePageFilter(category, btn);
-  },
-
-  // --- PATH & DATA LOGIC ---
-  calculateRootPath() {
-      // Handles subfolder navigation if necessary
-      const path = window.location.pathname;
-      if (path.includes('/courses/') || path.includes('/posts/') || path.includes('/daily/') || path.includes('/challenges/')) {
-          const depth = path.split('/').filter(p => p.length > 0).length - 1; 
-          this.rootPath = '../'.repeat(depth) || './';
-      } else {
-          this.rootPath = ''; 
-      }
-  },
-
-  async fetchData() {
-    try {
-      const prefix = this.rootPath;
-      const files = ['data/daily.json', 'data/courses.json', 'data/challenges.json'];
-      
-      const responses = await Promise.allSettled(files.map(f => fetch(prefix + f)));
-      const unpack = async (res) => (res.status === 'fulfilled' && res.value.ok) ? await res.value.json() : [];
-
-      const dailyTips = await unpack(responses[0]);
-      const courses = await unpack(responses[1]);
-      const challenges = await unpack(responses[2]);
-
-      // Merge all data into one searchable array
-      this.data = [
-          ...(Array.isArray(dailyTips) ? dailyTips.map(p => ({...p, type: 'daily'})) : []), 
-          ...(Array.isArray(courses) ? courses.map(c => ({...c, type: 'course'})) : []), 
-          ...(Array.isArray(challenges) ? challenges.map(c => ({...c, type: 'challenge'})) : [])
-      ];
-
-      // Sort by ID (Newest First)
-      this.data.sort((a, b) => (b.id || 0) - (a.id || 0));
-
-    } catch (error) {
-      console.error("Error loading data:", error);
-      this.data = []; 
-    }
-  },
-
-  // --- HOME PAGE LOGIC ---
-  filterHome(filterType, btn) {
-      this.updateFilterButtons(null, btn);
-      this.renderHomeFeeds(filterType);
-  },
-
-  renderHomeFeeds(filterType) {
-    // 1. Daily Tech Feed (Google News Style)
-    if (this.homeDailyContainer) {
-        let items = this.data.filter(i => i.type === 'daily');
+    // 2. INITIALIZATION
+    async init() {
+        this.cacheDOM();
         
-        if (filterType !== 'all') {
-           items = items.filter(item => 
-               (item.category && item.category.includes(filterType)) || 
-               item.type === filterType.toLowerCase()
-           );
+        // Initialize Icons immediately to prevent layout shifts
+        if (window.lucide) lucide.createIcons();
+
+        // Core Systems
+        await this.loadData();
+        this.setupMobileMenu();
+        this.setupSearch();
+        this.setupAnimations();
+        this.setupStickyHeader();
+        this.setupCookieBanner();
+        
+        // Professional Polish
+        this.setupForms();
+        this.setupDynamicYear();
+    },
+
+    // 3. DOM CACHING
+    cacheDOM() {
+        this.dom = {
+            body: document.body,
+            header: document.querySelector('.pro-header'),
+            menuBtn: document.getElementById('menuBtn'),
+            mobileMenu: document.getElementById('mobileMenu'),
+            searchBtn: document.getElementById('searchBtn'),
+            closeSearch: document.getElementById('closeSearch'),
+            searchModal: document.getElementById('searchModal'),
+            searchInput: document.getElementById('searchInput'),
+            searchResults: document.getElementById('searchResults'),
+            cookieBanner: document.getElementById('cookieBanner'),
+            forms: document.querySelectorAll('form')
+        };
+    },
+
+    // 4. DATA FETCHING (Robust with Fallback)
+    async loadData() {
+        try {
+            const response = await fetch('/data/data.json');
+            if (!response.ok) throw new Error("Data load failed");
+            const json = await response.json();
+            
+            this.data = [
+                ...(json.programs || []).map(i => ({...i, type: 'Program'})),
+                ...(json.tips || []).map(i => ({...i, type: 'Tip'})),
+                ...(json.courses || []).map(i => ({...i, type: 'Course'}))
+            ];
+        } catch (error) {
+            console.log("ℹ️ Using offline fallback data.");
+            this.useFallbackData();
         }
-        
-        const displayItems = items.slice(0, 4); // Show max 4
-        
-        if (displayItems.length === 0) {
-            this.homeDailyContainer.innerHTML = this.getEmptyState("No updates found.");
-        } else {
-            // Render using the News Card style
-            this.homeDailyContainer.innerHTML = displayItems.map(item => this.createNewsCard(item)).join('');
-        }
-    }
+    },
 
-    // 2. Fresh Resources (Compact Style)
-    if (this.homeResourcesContainer) {
-        const resources = this.data.filter(i => i.type === 'course' || i.type === 'challenge');
-        const freshResources = resources.slice(0, 3); // Show max 3
-        
-        if (freshResources.length === 0) {
-            this.homeResourcesContainer.innerHTML = this.getEmptyState("Loading resources...");
-        } else {
-            this.homeResourcesContainer.innerHTML = freshResources.map(item => this.createProfessionalCard(item)).join('');
-        }
-    }
-    
-    this.refreshUI();
-  },
+    // 5. NAVIGATION LOGIC
+    setupMobileMenu() {
+        if (!this.dom.menuBtn || !this.dom.mobileMenu) return;
 
-  // --- INNER PAGES LOGIC ---
-  handlePageFilter(category, btn) {
-      this.updateFilterButtons(category, btn);
-      
-      if (this.coursesGrid) this.renderGrid(this.coursesGrid, 'course', category);
-      else if (this.dailyGrid) this.renderGrid(this.dailyGrid, 'daily', category);
-      else if (this.challengesGrid) this.renderGrid(this.challengesGrid, 'challenge', category);
-  },
+        const toggleMenu = () => {
+            const isHidden = this.dom.mobileMenu.classList.contains('hidden');
+            this.dom.mobileMenu.classList.toggle('hidden');
+            
+            // Lock body scroll when menu is open
+            this.dom.body.style.overflow = isHidden ? 'hidden' : '';
+            
+            // Animate Icon
+            this.dom.menuBtn.innerHTML = isHidden 
+                ? '<i data-lucide="x"></i>' 
+                : '<i data-lucide="menu"></i>';
+            
+            if (window.lucide) lucide.createIcons();
+        };
 
-  renderGrid(container, type, category) {
-      if (!container) return;
-      
-      let items = this.data.filter(i => i.type === type);
-      
-      if (category && category !== 'all') {
-          items = items.filter(i => 
-              i.category && i.category.toLowerCase().includes(category.toLowerCase())
-          );
-      }
+        this.dom.menuBtn.addEventListener('click', toggleMenu);
 
-      if (items.length === 0) {
-          container.innerHTML = this.getEmptyState("No content found.");
-      } else {
-          // Use appropriate card style based on page type
-          if(type === 'daily') {
-              container.innerHTML = items.map(item => this.createNewsCard(item)).join('');
-          } else {
-              container.innerHTML = items.map(item => this.createProfessionalCard(item)).join('');
-          }
-      }
-      this.refreshUI();
-  },
-
-  // --- CARD GENERATORS ---
-
-  // 1. News Style Card (For Daily Feed)
-  createNewsCard(item) {
-    const linkUrl = this.fixLink(item.url);
-    const imgUrl = this.fixLink(item.image) || 'https://placehold.co/600x400/f8fafc/94a3b8?text=KidsDev';
-    
-    // Logic for "Try It" vs "Read More"
-    const isChallenge = (item.category && item.category.includes("Challenge"));
-    const btnText = isChallenge ? "Try It" : "Read More";
-    const btnColor = isChallenge ? "text-purple-600 hover:text-purple-700" : "text-blue-600 hover:text-blue-700";
-
-    return `
-    <article class="feed-card group reveal-up">
-        <a href="${linkUrl}" class="feed-image-container">
-            <img src="${imgUrl}" alt="${item.title}" class="feed-image">
-            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#0F172A] text-[10px] font-bold px-2 py-1 rounded shadow-sm uppercase tracking-wide">
-                ${item.category || 'News'}
-            </span>
-        </a>
-        <div class="p-5 flex-1 flex flex-col">
-            <div class="flex items-center gap-2 mb-3">
-                <div class="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center text-[10px]">🚀</div>
-                <span class="text-[10px] font-bold text-slate-400 uppercase">KidsDev • ${item.date || 'Today'}</span>
-            </div>
-            <a href="${linkUrl}" class="text-lg font-bold text-[#0F172A] leading-tight mb-2 group-hover:text-[#F97316] transition cursor-pointer">
-                ${item.title}
-            </a>
-            <p class="text-slate-500 text-sm line-clamp-2 mb-4 flex-1">
-                ${item.desc}
-            </p>
-            <div class="mt-auto border-t border-slate-100 pt-4 flex items-center justify-between">
-                <div class="flex gap-3">
-                    <button class="text-slate-400 hover:text-red-500 transition flex items-center gap-1 text-xs font-bold"><i data-lucide="heart" class="w-4 h-4"></i></button>
-                    <button class="text-slate-400 hover:text-blue-500 transition flex items-center gap-1 text-xs font-bold"><i data-lucide="share-2" class="w-4 h-4"></i></button>
-                </div>
-                <a href="${linkUrl}" class="text-xs font-bold ${btnColor} flex items-center gap-1">
-                    ${btnText} <i data-lucide="arrow-right" class="w-3 h-3"></i>
-                </a>
-            </div>
-        </div>
-    </article>
-    `;
-  },
-
-  // 2. Professional Style Card (For Courses & Resources)
-  createProfessionalCard(item) {
-    const linkUrl = this.fixLink(item.url);
-    const imgUrl = this.fixLink(item.image) || 'https://placehold.co/600x400/0F172A/FFF?text=Course';
-
-    let badgeClass = "bg-slate-100 text-slate-600";
-    let btnText = "Start Now";
-    let btnColor = "text-[#F97316]";
-
-    if (item.level === 'Beginner') badgeClass = "bg-green-50 text-green-700";
-    if (item.level === 'Advanced') badgeClass = "bg-red-50 text-red-700";
-
-    return `
-      <article class="course-card group flex flex-col h-full reveal-up">
-        <div class="relative h-48 bg-slate-100 overflow-hidden">
-            <img src="${imgUrl}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="${item.title}">
-            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-xs font-bold px-3 py-1 rounded-full shadow-sm ${badgeClass}">
-                ${item.level || 'Course'}
-            </div>
-        </div>
-        <div class="p-6 flex-1 flex flex-col">
-            <div class="flex justify-between items-center mb-4 text-xs text-slate-400 font-bold uppercase tracking-wider">
-                <span>${item.category}</span>
-                <span>Module</span>
-            </div>
-            <h3 class="text-xl font-bold text-[#0F172A] mb-2 group-hover:text-[#F97316] transition">
-                ${item.title}
-            </h3>
-            <p class="text-slate-500 text-sm leading-relaxed line-clamp-2 flex-1 mb-4">${item.desc}</p>
-            <div class="mt-auto flex items-center justify-between border-t border-slate-100 pt-4">
-                <span class="text-xs font-bold text-slate-400">Join Class</span>
-                <a href="${linkUrl}" class="text-sm font-bold ${btnColor} flex items-center gap-1">
-                    ${btnText} <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </a>
-            </div>
-        </div>
-      </article>
-    `;
-  },
-
-  // --- HELPERS ---
-  fixLink(url) {
-      if (!url) return '#';
-      if (!url.startsWith('http') && !url.startsWith('/')) return this.rootPath + url;
-      return url;
-  },
-
-  getEmptyState(msg) {
-      return `<div class="col-span-full text-center py-20 text-slate-400"><p>${msg}</p></div>`;
-  },
-
-  updateFilterButtons(category, btn) {
-    // Updates styling for filter pills
-    if (btn) {
-        const container = btn.parentElement;
-        container.querySelectorAll('.filter-btn').forEach(b => {
-            b.classList.remove('active', 'bg-[#0F172A]', 'text-white');
-            b.classList.add('bg-white', 'text-slate-600');
+        // Close menu when clicking any link
+        this.dom.mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                this.dom.mobileMenu.classList.add('hidden');
+                this.dom.body.style.overflow = '';
+                this.dom.menuBtn.innerHTML = '<i data-lucide="menu"></i>';
+                if (window.lucide) lucide.createIcons();
+            });
         });
-        btn.classList.remove('bg-white', 'text-slate-600');
-        btn.classList.add('active', 'bg-[#0F172A]', 'text-white');
+    },
+
+    // 6. SEARCH ENGINE (Live Filter)
+    setupSearch() {
+        if (!this.dom.searchBtn || !this.dom.searchModal) return;
+
+        const toggleSearch = (show) => {
+            if (show) {
+                this.dom.searchModal.classList.remove('hidden');
+                this.dom.body.style.overflow = 'hidden'; // Prevent background scrolling
+                setTimeout(() => this.dom.searchInput.focus(), 100);
+            } else {
+                this.dom.searchModal.classList.add('hidden');
+                this.dom.body.style.overflow = '';
+            }
+        };
+
+        this.dom.searchBtn.addEventListener('click', () => toggleSearch(true));
+        
+        if (this.dom.closeSearch) {
+            this.dom.closeSearch.addEventListener('click', () => toggleSearch(false));
+        }
+        
+        // Close on backdrop click
+        this.dom.searchModal.addEventListener('click', (e) => {
+            if (e.target === this.dom.searchModal) toggleSearch(false);
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !this.dom.searchModal.classList.contains('hidden')) {
+                toggleSearch(false);
+            }
+        });
+
+        // Search Logic
+        this.dom.searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            
+            if (query.length < 2) {
+                this.dom.searchResults.innerHTML = '<div class="text-center text-slate-400 py-10 opacity-60">Start typing to search courses...</div>';
+                return;
+            }
+
+            const matches = this.data.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                (item.desc && item.desc.toLowerCase().includes(query))
+            );
+
+            if (matches.length > 0) {
+                this.dom.searchResults.innerHTML = matches.map(item => `
+                    <a href="${item.url}" class="flex items-center gap-4 p-4 hover:bg-slate-50 rounded-xl transition-all duration-200 group border border-transparent hover:border-slate-100">
+                        <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center text-slate-400 shrink-0 group-hover:bg-[#0F172A] group-hover:text-white transition-colors duration-300">
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-[#0F172A] group-hover:text-[#F97316] transition-colors">${item.title}</h4>
+                            <p class="text-xs text-slate-500 line-clamp-1 mt-0.5">${item.desc}</p>
+                        </div>
+                    </a>
+                `).join('');
+            } else {
+                this.dom.searchResults.innerHTML = '<div class="text-center text-slate-400 py-10">No results found.</div>';
+            }
+            if (window.lucide) lucide.createIcons();
+        });
+    },
+
+    // 7. SCROLL ANIMATIONS (IntersectionObserver)
+    setupAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('active');
+                    observer.unobserve(e.target); // Only animate once for better performance
+                }
+            });
+        }, { threshold: this.config.animThreshold });
+
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+    },
+
+    // 8. STICKY HEADER (Throttled Scroll)
+    setupStickyHeader() {
+        if (!this.dom.header) return;
+        
+        let lastScroll = 0;
+        const throttle = (func, limit) => {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        };
+
+        window.addEventListener('scroll', throttle(() => {
+            const currentScroll = window.scrollY;
+            
+            // Add shadow and slight transparency on scroll
+            if (currentScroll > 10) {
+                this.dom.header.classList.add('shadow-md', 'bg-white/95');
+                this.dom.header.classList.remove('bg-white/85'); // Remove initial transparency
+            } else {
+                this.dom.header.classList.remove('shadow-md', 'bg-white/95');
+                this.dom.header.classList.add('bg-white/85');
+            }
+            lastScroll = currentScroll;
+        }, 100));
+    },
+
+    // 9. PROFESSIONAL FORM HANDLING (UX)
+    setupForms() {
+        this.dom.forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                // Determine if this is our newsletter form
+                const emailInput = form.querySelector('input[type="email"]');
+                const submitBtn = form.querySelector('button');
+                
+                if (emailInput && submitBtn) {
+                    e.preventDefault(); // Stop actual submit
+                    
+                    // Simulate Loading State
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>';
+                    submitBtn.disabled = true;
+
+                    // Simulate Success after 1.5s
+                    setTimeout(() => {
+                        submitBtn.classList.remove('bg-[#F97316]', 'hover:bg-orange-600');
+                        submitBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+                        submitBtn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i>';
+                        
+                        emailInput.value = '';
+                        emailInput.placeholder = "Thanks for subscribing!";
+                        
+                        // Reset after 3s
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.classList.add('bg-[#F97316]', 'hover:bg-orange-600');
+                            submitBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+                            if (window.lucide) lucide.createIcons();
+                        }, 3000);
+                        
+                        if (window.lucide) lucide.createIcons();
+                    }, 1500);
+                }
+            });
+        });
+    },
+
+    // 10. UTILITIES (Year & Cookies)
+    setupDynamicYear() {
+        const yearSpan = document.querySelector('.current-year'); // Add this class to footer year if needed
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    },
+
+    setupCookieBanner() {
+        if (!this.dom.cookieBanner) return;
+        
+        // Check if previously accepted (Local Storage)
+        if (localStorage.getItem('cookiesAccepted')) return;
+
+        setTimeout(() => {
+            this.dom.cookieBanner.classList.remove('hidden');
+        }, 2000);
+
+        const btns = this.dom.cookieBanner.querySelectorAll('button');
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.dom.cookieBanner.style.display = 'none';
+                localStorage.setItem('cookiesAccepted', 'true');
+            });
+        });
+    },
+
+    // 11. FALLBACK DATA
+    useFallbackData() {
+        this.data = [
+            { title: "Python Programming", url: "/programs/python.html", desc: "Learn Python basics & Pygame.", type: "Program" },
+            { title: "Web Development", url: "/programs/web-dev.html", desc: "HTML5, CSS3 & JavaScript.", type: "Program" },
+            { title: "Scratch Games", url: "/programs/scratch.html", desc: "Visual coding for kids.", type: "Program" },
+            { title: "Computer Basics", url: "/programs/basics.html", desc: "Hardware, Typing & Safety.", type: "Program" },
+            { title: "Skill Assessment", url: "/assessment.html", desc: "Find your perfect level.", type: "Tool" }
+        ];
     }
-  },
-
-  cacheElements() {
-    this.menuBtn = document.getElementById("menuBtn");
-    this.mobileMenu = document.getElementById("mobileMenu");
-    
-    this.homeDailyContainer = document.getElementById("home-daily-feed");
-    this.homeResourcesContainer = document.getElementById("home-resources-feed");
-    
-    this.coursesGrid = document.getElementById("courses-grid");
-    this.dailyGrid = document.getElementById("daily-grid");
-    this.challengesGrid = document.getElementById("challenges-grid");
-    
-    this.searchBtn = document.getElementById("searchBtn");
-    this.searchModal = document.getElementById("searchModal");
-    this.closeSearch = document.getElementById("closeSearch");
-    this.searchInput = document.getElementById("searchInput");
-    this.searchResults = document.getElementById("searchResults");
-  },
-
-  setupSearch() {
-      if (!this.searchBtn || !this.searchModal) return;
-      const toggle = (show) => {
-          this.searchModal.classList.toggle('hidden', !show);
-          if(show) setTimeout(() => this.searchInput.focus(), 100);
-      };
-      this.searchBtn.addEventListener('click', (e) => { e.preventDefault(); toggle(true); });
-      if(this.closeSearch) this.closeSearch.addEventListener('click', () => toggle(false));
-      this.searchModal.addEventListener('click', (e) => { if (e.target === this.searchModal) toggle(false); });
-
-      if(this.searchInput) {
-          this.searchInput.addEventListener('input', (e) => {
-              const q = e.target.value.toLowerCase();
-              if (q.length < 2) return (this.searchResults.innerHTML = '<div class="text-center text-slate-400 py-10">Start typing...</div>');
-              const res = this.data.filter(i => (i.title+i.desc+i.category).toLowerCase().includes(q));
-              this.searchResults.innerHTML = res.length ? res.map(i => `
-                <a href="${this.fixLink(i.url)}" class="flex items-center gap-4 p-3 hover:bg-slate-50 rounded-xl transition group">
-                    <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 shrink-0 group-hover:bg-[#0F172A] group-hover:text-white transition"><i data-lucide="arrow-right" class="w-4 h-4"></i></div>
-                    <div><h4 class="font-bold text-sm text-[#0F172A] group-hover:text-blue-600 line-clamp-1">${i.title}</h4><span class="text-xs text-slate-500 uppercase font-bold">${i.category || i.type}</span></div>
-                </a>`).join('') : '<div class="text-center text-slate-400 py-10">No results found.</div>';
-              if (window.lucide) lucide.createIcons();
-          });
-      }
-  },
-
-  setupMobileMenu() {
-    if (this.menuBtn) this.menuBtn.addEventListener("click", () => this.mobileMenu.classList.toggle("hidden"));
-  },
-
-  setupScrollReveal() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('active'); observer.unobserve(e.target); }});
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
-  },
-
-  refreshUI() {
-    if (window.lucide) lucide.createIcons();
-    setTimeout(() => document.querySelectorAll(".reveal-up:not(.active)").forEach(el => el.classList.add('active')), 50);
-  }
 };
-
-// Start App
-document.addEventListener("DOMContentLoaded", () => { UI.init(); });

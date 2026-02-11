@@ -1,86 +1,300 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth" prefix="og: https://ogp.me/ns#">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RS03NGLD1K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RS03NGLD1K', { 'anonymize_ip': true });
+  </script>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#0F172A">
+
   <title>Page Not Found | KidsDev Academy</title>
+  <meta name="description" content="Oops! The page you are looking for seems to have wandered off. Let's get you back on track.">
+  <meta name="robots" content="noindex, follow">
   
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <link rel="canonical" href="https://thekidsdev.netlify.app/404.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/image/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
+  
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
   
   <style>
-    .pro-header { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-bottom: 1px solid #f1f5f9; }
-    
-    /* 404 Animations */
-    @keyframes float-404 {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+    /* 404 Glitch Animation */
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
     }
-    .floating-error { animation: float-404 4s ease-in-out infinite; }
+    .glitch-text:hover {
+      animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+      color: #F97316;
+    }
   </style>
 </head>
 
-<body class="bg-white text-[#0F172A] font-[Poppins] flex flex-col min-h-screen">
+<body class="selection:bg-[#F97316] selection:text-white flex flex-col min-h-screen font-['Poppins'] bg-[#FAFAFA]">
 
-  <header class="pro-header sticky top-0 z-[100]">
+  <noscript>
+    <div class="bg-red-600 text-white text-center p-4 font-bold text-sm">
+        Please enable JavaScript to view the full experience of KidsDev Academy.
+    </div>
+  </noscript>
+
+  <header class="pro-header sticky top-0 z-[100] w-full transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      
       <div class="flex items-center gap-4">
-        <a href="index.html" class="flex items-center gap-2 cursor-pointer group">
-          <img src="image/logo.png" alt="KidsDev Logo" class="h-10 w-auto object-contain">
+        <a href="/index.html" class="flex items-center gap-2 group" aria-label="KidsDev Academy Home">
+          <img src="/image/logo.png" alt="KidsDev Academy Logo" width="36" height="36" class="h-9 w-auto object-contain drop-shadow-sm group-hover:scale-110 transition">
           <div class="flex flex-col leading-none">
             <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
             <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
           </div>
         </a>
       </div>
-      
-      <a href="index.html" class="text-sm font-bold text-[#F97316] hover:text-orange-700 transition flex items-center gap-2">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back Home
-      </a>
-    </div>
-  </header>
 
-  <main class="flex-1 flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
-    
-    <div class="absolute top-20 left-10 w-32 h-32 bg-orange-100 rounded-full blur-3xl -z-10"></div>
-    <div class="absolute bottom-20 right-10 w-48 h-48 bg-blue-100 rounded-full blur-3xl -z-10"></div>
+      <div class="flex items-center gap-8">
+        <nav class="hidden md:flex gap-8 font-medium text-sm text-slate-600 items-center">
+          <a href="/index.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Home</a>
+          <a href="/about.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">About Us</a>
+          <a href="/resources.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Resources</a>
+          
+          <div class="relative group">
+            <button class="hover:text-[#F97316] transition hover:-translate-y-0.5 flex items-center gap-1 focus:outline-none py-4">
+              Programs <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 w-64">
+                <div class="bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden p-2 flex flex-col ring-1 ring-black/5">
+                    <a href="/programs/python.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Python Programming</a>
+                    <a href="/programs/scratch.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Scratch & Logic</a>
+                    <a href="/programs/web-dev.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Web Development</a>
+                    <a href="/programs/basics.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Computer Basics</a>
+                </div>
+            </div>
+          </div>
 
-    <div class="floating-error mb-8 relative">
-      <h1 class="text-9xl font-extrabold text-[#0F172A] opacity-10 select-none">404</h1>
-      <div class="absolute inset-0 flex items-center justify-center">
-        <i data-lucide="ghost" class="w-32 h-32 text-[#F97316]"></i>
+          <a href="/contact.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Contact Us</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+            <button id="searchBtn" aria-label="Search" class="p-2 text-slate-600 hover:text-[#F97316] transition rounded-full hover:bg-slate-100"><i data-lucide="search" class="w-5 h-5"></i></button>
+            
+            <div class="hidden md:flex pl-4 border-l border-slate-200">
+               <a href="/contact.html" class="bg-[#0F172A] hover:bg-[#F97316] text-white px-7 py-3 rounded-full text-xs font-bold shadow-lg shadow-slate-200 transition transform hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wide">
+                 Enroll Now <i data-lucide="rocket" class="w-4 h-4"></i>
+               </a>
+            </div>
+            
+            <button id="menuBtn" aria-label="Open Menu" class="md:hidden p-2 text-slate-600 hover:text-[#F97316] transition"><i data-lucide="menu"></i></button>
+        </div>
       </div>
     </div>
 
-    <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-4">You've Gone Off Script!</h2>
-    <p class="text-slate-500 max-w-md mx-auto mb-8 text-lg">
-      The page you are looking for seems to have drifted into a black hole. Or maybe there's a bug in the code? 🐛
-    </p>
+    <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b shadow-lg p-6 space-y-3 z-50 overflow-y-auto max-h-[85vh]">
+       <a href="/index.html" class="block py-2 font-bold text-[#F97316]">Home</a>
+       <a href="/about.html" class="block py-2 text-slate-600 font-medium">About Us</a>
+       <a href="/resources.html" class="block py-2 text-slate-600 font-medium">Resources</a>
+       
+       <div class="py-2 border-l-2 border-[#F97316] pl-4 bg-orange-50/50 rounded-r-lg my-2">
+           <p class="text-[10px] font-bold text-[#F97316] uppercase tracking-widest mb-3 flex items-center gap-2"><i data-lucide="book" class="w-3 h-3"></i> Learning Paths</p>
+           <a href="/programs/python.html" class="block text-sm font-bold text-slate-800 mb-3">Python Programming</a>
+           <a href="/programs/scratch.html" class="block text-sm font-medium text-slate-600 mb-3">Scratch & Logic</a>
+           <a href="/programs/web-dev.html" class="block text-sm font-medium text-slate-600 mb-3">Web Development</a>
+           <a href="/programs/basics.html" class="block text-sm font-medium text-slate-600">Computer Basics</a>
+       </div>
 
-    <div class="flex flex-col sm:flex-row gap-4">
-      <a href="index.html" class="bg-[#0F172A] hover:bg-slate-800 text-white px-8 py-3 rounded-xl font-bold shadow-lg transition transform hover:-translate-y-1 flex items-center gap-2 justify-center">
-        Return to Base 🚀
-      </a>
-      <a href="contact.html" class="bg-white border border-slate-300 text-[#0F172A] hover:border-[#F97316] hover:text-[#F97316] px-8 py-3 rounded-xl font-bold transition flex items-center gap-2 justify-center">
-        Report Bug <i data-lucide="bug" class="w-4 h-4"></i>
-      </a>
+       <a href="/contact.html" class="block py-2 text-slate-600 font-medium">Contact Us</a>
+       <a href="/contact.html" class="block py-3 bg-[#0F172A] text-white text-center rounded-xl font-bold mt-2 shadow-lg">Enroll Now 🚀</a>
     </div>
+  </header>
 
-    <div class="mt-12 p-4 bg-slate-50 rounded-lg border border-slate-200 font-mono text-sm text-slate-400">
-      Error: PAGE_NOT_FOUND_EXCEPTION at line 404
-    </div>
+  <main class="flex-grow">
+    <section class="relative min-h-[80vh] flex items-center justify-center py-20 px-4 overflow-hidden">
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 -z-10"></div>
+      <div class="absolute top-20 left-10 w-64 h-64 bg-slate-200 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+      <div class="absolute bottom-20 right-10 w-64 h-64 bg-orange-100 rounded-full blur-[100px] pointer-events-none -z-10"></div>
 
+      <div class="max-w-3xl w-full text-center">
+          <div class="mb-8 reveal-up">
+              <i data-lucide="server-crash" class="w-24 h-24 text-slate-300 mx-auto mb-6"></i>
+              <h1 class="text-8xl md:text-9xl font-black text-[#0F172A] tracking-tighter glitch-text cursor-default select-none">404</h1>
+              <h2 class="text-2xl md:text-3xl font-bold text-slate-700 mt-4 mb-2">Lost in Cyberspace?</h2>
+              <p class="text-slate-500 text-lg max-w-lg mx-auto leading-relaxed">
+                  Oops! It looks like you've found a dead link. Even the best code has bugs sometimes.
+              </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row justify-center gap-4 reveal-up" style="transition-delay: 100ms;">
+              <a href="/index.html" class="bg-[#0F172A] hover:bg-slate-800 text-white px-8 py-4 rounded-xl font-bold shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                  <i data-lucide="home" class="w-4 h-4 text-[#F97316]"></i> Return Home
+              </a>
+              <button id="searchBtn404" class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold shadow-sm transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                  <i data-lucide="search" class="w-4 h-4 text-[#F97316]"></i> Search Site
+              </button>
+          </div>
+
+          <div class="mt-12 pt-12 border-t border-slate-200 reveal-up" style="transition-delay: 200ms;">
+              <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Or try one of our programs</p>
+              <div class="flex flex-wrap justify-center gap-3">
+                  <a href="/programs/python.html" class="px-4 py-2 bg-slate-100 text-slate-600 rounded-full text-xs font-bold hover:bg-[#F97316] hover:text-white transition">Python</a>
+                  <a href="/programs/web-dev.html" class="px-4 py-2 bg-slate-100 text-slate-600 rounded-full text-xs font-bold hover:bg-[#F97316] hover:text-white transition">Web Dev</a>
+                  <a href="/programs/scratch.html" class="px-4 py-2 bg-slate-100 text-slate-600 rounded-full text-xs font-bold hover:bg-[#F97316] hover:text-white transition">Scratch</a>
+              </div>
+          </div>
+      </div>
+    </section>
   </main>
 
-  <footer id="main-footer"></footer>
+  <footer class="bg-[#0b1021] text-white pt-20 pb-10 border-t border-slate-800 font-light mt-auto">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div class="space-y-6">
+          <div class="flex items-center gap-2">
+             <img src="/image/logo.png" class="h-8 w-auto object-contain" alt="KidsDev Logo"> 
+             <div class="flex flex-col">
+                 <span class="font-extrabold text-2xl tracking-tighter leading-none">Kids<span class="text-[#F97316]">Dev</span></span>
+                 <span class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">Academy</span>
+             </div>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Global technology school providing professional coding, web development, and digital literacy skills for the next generation.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-bold text-sm uppercase mb-6 text-white border-b border-slate-800 pb-2 inline-block">Navigation</h3>
+          <ul class="space-y-4 text-sm text-slate-400">
+            <li><a href="/index.html" class="hover:text-[#F97316] transition">Home</a></li>
+            <li><a href="/about.html" class="hover:text-[#F97316] transition">About Us</a></li>
+            <li><a href="/resources.html" class="hover:text-[#F97316] transition">Resources</a></li>
+            <li><a href="/contact.html" class="hover:text-[#F97316] transition">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-sm uppercase mb-6 text-white border-b border-slate-800 pb-2 inline-block">Programs</h3>
+          <ul class="space-y-4 text-sm text-slate-400">
+            <li><a href="/programs/basics.html" class="hover:text-white transition">Computer Basics</a></li>
+            <li><a href="/programs/python.html" class="hover:text-white transition">Python & Pygame</a></li>
+            <li><a href="/programs/web-dev.html" class="hover:text-white transition">Web Development</a></li>
+            <li><a href="/programs/scratch.html" class="hover:text-white transition">Scratch Logic</a></li>
+          </ul>
+        </div>
+        
+        <div>
+           <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Connect</h3>
+           <div class="flex flex-col gap-4 text-sm text-slate-400 mb-6">
+             <a href="https://wa.me/447350154850" class="hover:text-[#25D366] transition flex items-center gap-2">
+               <i class="fa-brands fa-whatsapp w-4"></i> WhatsApp Us
+             </a>
+             <a href="tel:+447350154850" class="hover:text-white transition flex items-center gap-2">
+                <i class="fa-solid fa-phone w-4"></i> +44 735 015 4850
+             </a>
+          </div>
 
-  <script src="js/main.js"></script>
+          <div class="flex gap-5 mb-6 items-center">
+            <a href="https://github.com/kidsdev-academy" aria-label="Github" class="text-slate-400 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+            <a href="https://instagram.com/kidsdevacad" aria-label="Instagram" class="text-slate-400 hover:text-pink-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            <a href="https://facebook.com/kidsdevacad" aria-label="Facebook" class="text-slate-400 hover:text-blue-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+            <a href="https://tiktok.com/@kidsdevacad" aria-label="TikTok" class="text-slate-400 hover:text-white transition group">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 group-hover:fill-current">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
+            </a>
+          </div>
+
+          <p class="text-xs text-slate-500">Subscribe for free tips & updates:</p>
+          <form class="mt-2 flex gap-2" onsubmit="event.preventDefault();">
+              <input type="email" placeholder="Email" class="bg-slate-800 border-none rounded px-3 py-2 text-xs w-full focus:ring-1 focus:ring-[#F97316] outline-none text-white">
+              <button class="bg-[#F97316] p-2 rounded hover:bg-orange-600 transition"><i data-lucide="send" class="w-3 h-3 text-white"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+        <p class="text-slate-500 text-xs">&copy; 2026 KidsDev Academy. All Rights Reserved.</p>
+        <div class="flex gap-6 text-xs text-slate-600">
+           <a href="#" class="hover:text-slate-400">Privacy Policy</a>
+           <a href="#" class="hover:text-slate-400">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookieBanner" class="fixed bottom-4 right-4 max-w-sm bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 z-[200] hidden reveal-up">
+      <div class="flex gap-4">
+          <div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center text-2xl flex-shrink-0">🍪</div>
+          <div>
+              <p class="font-bold text-[#0F172A] mb-1">We use cookies</p>
+              <p class="text-xs text-slate-500 leading-relaxed mb-4">We use cookies to improve your experience and analyze traffic. Is that okay?</p>
+              <div class="flex gap-2">
+                  <button onclick="document.getElementById('cookieBanner').style.display='none'" class="bg-[#0F172A] text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-slate-800 transition">Accept All</button>
+                  <button onclick="document.getElementById('cookieBanner').style.display='none'" class="bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-xs font-bold hover:bg-slate-200 transition">Decline</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4" role="dialog" aria-modal="true">
+      <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden reveal-up active">
+          <div class="p-4 border-b border-slate-100 flex items-center gap-4">
+              <i data-lucide="search" class="text-slate-400"></i>
+              <input type="text" id="searchInput" placeholder="Search courses, tutorials..." class="flex-1 outline-none text-lg font-bold text-[#0F172A]" autofocus>
+              <button id="closeSearch" aria-label="Close Search" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
+          </div>
+          <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+               <div class="text-center text-slate-400 py-10">Start typing to search...</div>
+          </div>
+      </div>
+  </div>
+
+  <script src="/js/main.js"></script>
   <script>
-    // Initialize icons immediately
-    if(window.lucide) lucide.createIcons();
+    document.addEventListener("DOMContentLoaded", () => {
+        // Init Icons
+        if(window.lucide) lucide.createIcons();
+        
+        // Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+        // Connect 404 Search Button to Modal
+        const btn404 = document.getElementById('searchBtn404');
+        const modal = document.getElementById('searchModal');
+        const input = document.getElementById('searchInput');
+        if(btn404 && modal) {
+            btn404.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+                setTimeout(() => input.focus(), 100);
+            });
+        }
+        
+        // Cookie Banner Delay
+        setTimeout(() => {
+            const banner = document.getElementById('cookieBanner');
+            if(banner) banner.classList.remove('hidden');
+        }, 2000);
+    });
   </script>
 </body>
 </html>

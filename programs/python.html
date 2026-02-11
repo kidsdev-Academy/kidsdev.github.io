@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" prefix="og: https://ogp.me/ns#">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RS03NGLD1K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-RS03NGLD1K', { 'anonymize_ip': true });
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#0F172A">
+
+  <title>Python Programming for Kids | The #1 Language for Future Innovators</title>
+  <meta name="title" content="Python Programming for Kids | Build Games, AI & Apps!">
+  <meta name="description" content="The most complete Python course for kids 8-14. Learn where Python is used (NASA, AI), why it's a superpower, and master the full language from variables to game dev.">
+  <meta name="keywords" content="python for kids, why learn python, python curriculum for children, coding games, pygame, kids programming course, python robotics">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <link rel="canonical" href="https://thekidsdev.netlify.app/python-programming.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/image/apple-touch-icon.png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://thekidsdev.netlify.app/python-programming.html">
+  <meta property="og:title" content="Python Programming for Kids 🐍">
+  <meta property="og:description" content="Master the language of the future. From game dev to AI.">
+  <meta property="og:image" content="https://thekidsdev.netlify.app/image/og-python.jpg">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://thekidsdev.netlify.app/python-programming.html">
+  <meta name="twitter:title" content="Python Programming for Kids 🐍">
+  <meta name="twitter:description" content="Master the language of the future. From game dev to AI.">
+  <meta name="twitter:image" content="https://thekidsdev.netlify.app/image/og-python.jpg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    /* Custom Styling */
+    details[open] summary ~ * { animation: slideDown 0.3s ease-in-out; }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .fun-badge { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 800; padding: 4px 10px; border-radius: 99px; }
+    .fun-badge.project { background: #FFF7ED; color: #C2410C; border: 1px solid #FFEDD5; }
+    .fun-badge.skill { background: #F0F9FF; color: #0369A1; border: 1px solid #E0F2FE; }
+    
+    .float-icon { animation: float 6s ease-in-out infinite; }
+    .float-icon-delay { animation: float 7s ease-in-out infinite; animation-delay: 1s; }
+  </style>
+</head>
+
+<body class="selection:bg-[#F97316] selection:text-white flex flex-col min-h-screen font-['Poppins'] bg-[#FAFAFA]">
+
+  <noscript><div class="bg-red-600 text-white text-center p-4 font-bold text-sm">Please enable JavaScript to view the full experience.</div></noscript>
+
+  <header class="pro-header sticky top-0 z-[100] w-full transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
+      
+      <div class="flex items-center gap-4">
+        <a href="/index.html" class="flex items-center gap-2 group">
+          <img src="/image/logo.png" alt="KidsDev Logo" width="36" height="36" class="h-9 w-auto object-contain drop-shadow-sm group-hover:scale-110 transition">
+          <div class="flex flex-col leading-none">
+            <span class="font-extrabold text-2xl tracking-tighter text-[#0F172A]">Kids<span class="text-[#F97316]">Dev</span></span>
+            <span class="text-[10px] font-bold text-[#0F172A] tracking-[0.2em] uppercase opacity-80">Academy</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-8">
+        <nav class="hidden md:flex gap-8 font-medium text-sm text-slate-600 items-center">
+          <a href="/index.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Home</a>
+          <a href="/about.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">About Us</a>
+          <a href="/resources.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Resources</a>
+          
+          <div class="relative group">
+            <button class="hover:text-[#F97316] transition hover:-translate-y-0.5 flex items-center gap-1 focus:outline-none py-4">
+              Programs <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+            </button>
+            <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 w-64">
+                <div class="bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden p-2 flex flex-col ring-1 ring-black/5">
+                    <a href="/programs/python.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Python Programming</a>
+                    <a href="/programs/scratch.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Scratch & Logic</a>
+                    <a href="/programs/web-dev.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Web Development</a>
+                    <a href="/programs/basics.html" class="block px-4 py-3 rounded-lg hover:bg-orange-50 hover:text-[#F97316] transition font-bold text-slate-800 text-xs">Computer Basics</a>
+                </div>
+            </div>
+          </div>
+
+          <a href="/contact.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Contact Us</a>
+        </nav>
+
+        <div class="hidden md:flex pl-8 border-l border-slate-200">
+           <a href="enroll.html" class="bg-[#0F172A] hover:bg-[#F97316] text-white px-7 py-3 rounded-full text-xs font-bold shadow-lg shadow-slate-200 transition transform hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wide">
+             Enroll Now <i data-lucide="rocket" class="w-4 h-4"></i>
+           </a>
+        </div>
+        
+        <button id="menuBtn" aria-label="Open Menu" class="md:hidden p-2 text-slate-600 hover:text-[#F97316] transition"><i data-lucide="menu"></i></button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b shadow-lg p-6 space-y-3 z-50 overflow-y-auto max-h-[85vh]">
+       <a href="/index.html" class="block py-2 font-bold text-slate-600 hover:text-[#F97316]">Home</a>
+       <a href="/about.html" class="block py-2 text-slate-600 font-medium">About Us</a>
+       <a href="/resources.html" class="block py-2 text-slate-600 font-medium">Resources</a>
+       
+       <div class="py-2 border-l-2 border-[#F97316] pl-4 bg-orange-50/50 rounded-r-lg my-2">
+           <p class="text-[10px] font-bold text-[#F97316] uppercase tracking-widest mb-3 flex items-center gap-2"><i data-lucide="book" class="w-3 h-3"></i> Learning Paths</p>
+           <a href="/programs/python.html" class="block text-sm font-bold text-slate-800 mb-3">Python Programming</a>
+           <a href="/programs/scratch.html" class="block text-sm font-medium text-slate-600 mb-3">Scratch & Logic</a>
+           <a href="/programs/web-dev.html" class="block text-sm font-medium text-slate-600 mb-3">Web Development</a>
+           <a href="/programs/basics.html" class="block text-sm font-medium text-slate-600">Computer Basics</a>
+       </div>
+
+       <a href="/contact.html" class="block py-2 text-slate-600 font-medium">Contact Us</a>
+       <a href="enroll.html" class="block py-3 bg-[#0F172A] text-white text-center rounded-xl font-bold mt-2 shadow-lg">Enroll Now 🚀</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative bg-gradient-to-br from-[#F97316] via-orange-600 to-orange-700 text-white py-24 overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/20 pointer-events-none"></div>
+      
+      <div class="absolute top-20 right-20 w-32 h-32 bg-yellow-400 rounded-full blur-[60px] opacity-20 float-icon"></div>
+      <div class="absolute bottom-20 left-20 w-40 h-40 bg-purple-500 rounded-full blur-[60px] opacity-20 float-icon-delay"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          
+          <div class="reveal-up text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-white/20 shadow-lg">
+              <span class="w-2 h-2 rounded-full bg-yellow-300 animate-pulse"></span>
+              <span class="text-xs font-bold text-yellow-100 uppercase tracking-widest">Ages 8-14 • Industry Standard</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
+              Build the Future with <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-white">Python 🐍</span>
+            </h1>
+            
+            <p class="text-xl text-orange-100 mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              The world's #1 programming language. Used by NASA, Google, and Netflix. Your child will learn to build games, automate tasks, and create AI.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
+              <a href="enroll.html" class="inline-flex items-center justify-center gap-2 bg-white text-orange-700 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:bg-orange-50 transition transform hover:-translate-y-1 hover:shadow-2xl">
+                Enroll Now
+                <i data-lucide="rocket" class="w-5 h-5 text-orange-600"></i>
+              </a>
+              <a href="#curriculum" class="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-2xl font-bold text-lg border border-white/20 hover:bg-white/20 transition">
+                View Curriculum
+                <i data-lucide="book-open" class="w-5 h-5"></i>
+              </a>
+            </div>
+
+            <div class="flex items-center justify-center lg:justify-start gap-6 pt-4 border-t border-white/10">
+              <div class="flex items-center gap-2">
+                <div class="p-1.5 bg-yellow-500/20 rounded-lg"><i data-lucide="clock" class="w-4 h-4 text-yellow-200"></i></div>
+                <span class="text-xs font-bold text-orange-100 uppercase tracking-wide">Self-Paced</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="p-1.5 bg-purple-500/20 rounded-lg"><i data-lucide="award" class="w-4 h-4 text-purple-200"></i></div>
+                <span class="text-xs font-bold text-orange-100 uppercase tracking-wide">Certificate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative reveal-up hidden lg:block" style="transition-delay: 200ms;">
+            <div class="bg-[#0F172A]/90 backdrop-blur-xl rounded-[2rem] p-6 border border-white/10 shadow-2xl relative overflow-hidden group">
+              <div class="flex gap-2 mb-4">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="ml-auto text-[10px] text-slate-400 font-mono">super_hero.py</span>
+              </div>
+              
+              <pre class="font-['Fira_Code'] text-sm leading-relaxed overflow-x-auto text-slate-300">
+<span class="text-purple-400">import</span> pygame
+<span class="text-purple-400">import</span> random
+
+<span class="text-slate-500"># Create your hero</span>
+<span class="text-blue-400">class</span> <span class="text-yellow-300">SuperHero</span>:
+    <span class="text-blue-400">def</span> <span class="text-yellow-300">__init__</span>(self, name):
+        self.name = name
+        self.power = <span class="text-green-400">"Coding"</span>
+        self.level = <span class="text-orange-400">1</span>
+    
+    <span class="text-blue-400">def</span> <span class="text-yellow-300">level_up</span>(self):
+        self.level += <span class="text-orange-400">1</span>
+        <span class="text-purple-400">print</span>(f<span class="text-green-400">"{self.name} is now Level {self.level}!"</span>)
+
+<span class="text-slate-500"># Start your adventure!</span>
+player = SuperHero(<span class="text-green-400">"Alex"</span>)
+player.level_up()
+</pre>
+              
+              <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-2xl shadow-lg animate-float-delay text-center">
+                  <span class="text-2xl">🎮</span>
+                  <p class="text-[10px] font-bold text-slate-600 uppercase">Real Code!</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-16 reveal-up">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-4">Real World Superpowers 🦸</h2>
+          <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+            Python isn't a toy. It's the same powerful tool used by the world's biggest companies.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up">
+          <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-xl transition group">
+            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-red-600 transition"><i data-lucide="rocket" class="w-6 h-6 text-red-600 group-hover:text-white transition"></i></div>
+            <h3 class="font-bold text-lg text-[#0F172A]">NASA & Space</h3>
+            <p class="text-sm text-slate-600 mt-2">Python helps analyze data from satellites and rovers on Mars!</p>
+          </div>
+          <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-xl transition group">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 transition"><i data-lucide="bot" class="w-6 h-6 text-blue-600 group-hover:text-white transition"></i></div>
+            <h3 class="font-bold text-lg text-[#0F172A]">AI & Robots</h3>
+            <p class="text-sm text-slate-600 mt-2">The brains behind ChatBots and self-driving cars run on Python.</p>
+          </div>
+          <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-xl transition group">
+            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-600 transition"><i data-lucide="gamepad-2" class="w-6 h-6 text-green-600 group-hover:text-white transition"></i></div>
+            <h3 class="font-bold text-lg text-[#0F172A]">Game Dev</h3>
+            <p class="text-sm text-slate-600 mt-2">Many game tools and servers (like for Minecraft/Eve Online) use Python.</p>
+          </div>
+          <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:shadow-xl transition group">
+            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-600 transition"><i data-lucide="youtube" class="w-6 h-6 text-purple-600 group-hover:text-white transition"></i></div>
+            <h3 class="font-bold text-lg text-[#0F172A]">Web & Apps</h3>
+            <p class="text-sm text-slate-600 mt-2">Youtube, Instagram, and Netflix rely on Python to stream video.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-b from-[#FFF7ED] to-white border-y border-orange-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="reveal-up">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#0F172A] mb-6">Why You'll Love Learning Python 😍</h2>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold shrink-0">1</div>
+                <div>
+                  <h4 class="font-bold text-lg text-[#0F172A]">It's Like Magic Spells</h4>
+                  <p class="text-slate-600 text-sm">Type a few words, and the computer obeys! Make text appear, characters move, or math solve itself instantly.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold shrink-0">2</div>
+                <div>
+                  <h4 class="font-bold text-lg text-[#0F172A]">Mod Your Favorite Games</h4>
+                  <p class="text-slate-600 text-sm">Understanding Python logic helps you write scripts for Minecraft and Roblox much faster.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold shrink-0">3</div>
+                <div>
+                  <h4 class="font-bold text-lg text-[#0F172A]">Automate Boring Homework</h4>
+                  <p class="text-slate-600 text-sm">Build a calculator that shows the steps or a program that quizzes you before a test!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal-up relative">
+             <div class="absolute inset-0 bg-orange-200 rounded-3xl transform rotate-3"></div>
+             <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Happy kids coding" class="relative rounded-3xl shadow-xl border-4 border-white">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="curriculum" class="py-24 bg-white relative">
+      <div class="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+      
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-16 reveal-up">
+          <div class="inline-block px-3 py-1 bg-orange-50 text-orange-600 rounded-full text-xs font-bold uppercase tracking-wider mb-4">Complete Roadmap</div>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-4">Your Mission Plan 🗺️</h2>
+          <p class="text-xl text-slate-600">12 Missions to Master Python.</p>
+        </div>
+
+        <div class="space-y-4 reveal-up">
+          
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-orange-100 open:border-orange-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">1</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">Code Commander 💻</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">Setup</span><span class="fun-badge skill">Print()</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Project: Hello World</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Installing Python & IDLE</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Your first command: talking to the computer</span></div>
+            </div>
+          </details>
+
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-blue-100 open:border-blue-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">2</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">Data Wizard 🧙‍♂️</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">Variables</span><span class="fun-badge skill">Math</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Project: Age Calculator</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Storing information in Variables (Boxes)</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Computer Math (+, -, *, /)</span></div>
+            </div>
+          </details>
+
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-green-100 open:border-green-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">3</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">Decision Master 🚦</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">Logic</span><span class="fun-badge skill">If/Else</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Project: Text Adventure Game</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Teaching the computer to think (True/False)</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Making choices with If statements</span></div>
+            </div>
+          </details>
+
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-purple-100 open:border-purple-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">4</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">Loop the Loop 🔄</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">Loops</span><span class="fun-badge skill">Automation</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Project: Multiplication Bot</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Repeating tasks with For & While loops</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Drawing patterns automatically</span></div>
+            </div>
+          </details>
+
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-indigo-100 open:border-indigo-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">5</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">List Logic 📋</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">Data Structures</span><span class="fun-badge skill">Lists</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Project: Shopping Cart</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Storing many things in one place (Lists)</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Adding and removing items</span></div>
+            </div>
+          </details>
+
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-pink-100 open:border-pink-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">6</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">Super Functions ⚡</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">Functions</span><span class="fun-badge skill">Reuse</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Project: Area Calculator</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Building your own commands (def)</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Parameters and Return values</span></div>
+            </div>
+          </details>
+
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-yellow-100 open:border-yellow-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">7</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">Dictionary Detective 📖</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">Data Structures</span><span class="fun-badge skill">Key/Value</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Project: Phonebook App</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Understanding Keys and Values</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Building a simple database</span></div>
+            </div>
+          </details>
+
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-gray-100 open:border-gray-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-gray-100 text-gray-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">8</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">Object Blueprint 🏗️</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">OOP</span><span class="fun-badge skill">Classes</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Project: Hero Factory</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Intro to Classes & Objects (Blueprints)</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Creating Characters with properties</span></div>
+            </div>
+          </details>
+
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-teal-100 open:border-teal-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">9</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">Bug Hunter 🐞</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">Debugging</span><span class="fun-badge skill">Errors</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Activity: Fix the Broken Game</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Reading Error Messages</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Using Try/Except to handle crashes</span></div>
+            </div>
+          </details>
+
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-red-100 open:border-red-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">10</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">Game Studio (Pygame) 🎮</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">Graphics</span><span class="fun-badge skill">Animation</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Mission: Space Invaders</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Setting up a Game Window</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Moving Characters with keyboard</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Detecting Collisions</span></div>
+            </div>
+          </details>
+
+          <details class="group bg-white p-1 rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 open:ring-2 open:ring-cyan-100 open:border-cyan-200">
+            <summary class="flex items-center justify-between cursor-pointer p-5">
+              <div class="flex items-center gap-5">
+                <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-sm">11</div>
+                <div><h3 class="font-bold text-lg text-[#0F172A]">Classroom Ready 🎓</h3><div class="flex gap-2 mt-1"><span class="fun-badge skill">LMS</span><span class="fun-badge skill">Zoom</span></div></div>
+              </div>
+              <span class="fun-badge project hidden sm:block">Activity: Student Portal</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 pl-[4.5rem] space-y-3 border-t border-dashed border-slate-100 mt-2">
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Navigating the Student Portal to find assignments</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Joining Zoom Classes (Share Screen, Mute)</span></div>
+              <div class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-0.5"></i><span class="text-slate-600 text-sm">Managing Project Files & Unzipping</span></div>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-br from-[#F97316] to-orange-700 text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+      <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Start Your Python Journey Today</h2>
+        <p class="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+          Join thousands of students learning to code with Python. Build games, solve problems, and unlock your potential!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="enroll.html" class="inline-flex items-center justify-center gap-2 bg-white text-orange-700 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:bg-orange-50 transition transform hover:-translate-y-1">
+            Enroll Now
+            <i data-lucide="rocket" class="w-5 h-5 text-orange-600"></i>
+          </a>
+          <a href="enroll.html" class="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-2xl font-bold text-lg border border-white/20 hover:bg-white/20 transition">
+            Chat with a Mentor
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#0b1021] text-white pt-20 pb-10 border-t border-slate-800 font-light">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div class="space-y-6">
+          <a href="/index.html" class="flex items-center gap-2 group">
+             <img src="/image/logo.png" class="h-8 w-auto object-contain transition transform group-hover:scale-105" alt="KidsDev Logo"> 
+             <div class="flex flex-col">
+                 <span class="font-extrabold text-2xl tracking-tighter leading-none">Kids<span class="text-[#F97316]">Dev</span></span>
+                 <span class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">Academy</span>
+             </div>
+          </a>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Global technology school providing professional coding, web development, and digital literacy skills for the next generation.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-bold text-sm tracking-widest uppercase mb-6 text-white border-b border-slate-800 pb-2 inline-block">Navigation</h3>
+          <ul class="space-y-4 text-sm text-slate-400">
+            <li><a href="/index.html" class="hover:text-[#F97316] transition">Home</a></li>
+            <li><a href="/about.html" class="hover:text-[#F97316] transition">About Us</a></li>
+            <li><a href="/resources.html" class="hover:text-[#F97316] transition">Resources</a></li>
+            <li><a href="/contact.html" class="hover:text-[#F97316] transition">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-sm tracking-widest uppercase mb-6 text-white border-b border-slate-800 pb-2 inline-block">Programs</h3>
+          <ul class="space-y-4 text-sm text-slate-400">
+            <li><a href="/programs/basics.html" class="hover:text-white transition">Computer Basics</a></li>
+            <li><a href="/programs/python.html" class="hover:text-white transition">Python & Pygame</a></li>
+            <li><a href="/programs/web-dev.html" class="hover:text-white transition">Web Development</a></li>
+            <li><a href="/programs/scratch.html" class="hover:text-white transition">Scratch Logic</a></li>
+          </ul>
+        </div>
+        
+        <div>
+           <h3 class="font-bold text-xs tracking-widest uppercase mb-6 text-slate-500">Connect</h3>
+           <div class="flex flex-col gap-4 text-sm text-slate-400 mb-6">
+             <a href="https://wa.me/447350154850" class="hover:text-[#25D366] transition flex items-center gap-2">
+               <i class="fa-brands fa-whatsapp w-4"></i> WhatsApp Us
+             </a>
+             <a href="tel:+447350154850" class="hover:text-white transition flex items-center gap-2">
+                <i class="fa-solid fa-phone w-4"></i> +44 735 015 4850
+             </a>
+          </div>
+
+          <div class="flex gap-5 mb-6 items-center">
+            <a href="https://github.com/kidsdev-academy" aria-label="Github" class="text-slate-400 hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+            <a href="https://instagram.com/kidsdevacad" aria-label="Instagram" class="text-slate-400 hover:text-pink-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            <a href="https://facebook.com/kidsdevacad" aria-label="Facebook" class="text-slate-400 hover:text-blue-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+            <a href="https://tiktok.com/@kidsdevacad" aria-label="TikTok" class="text-slate-400 hover:text-white transition group">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 group-hover:fill-current">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
+            </a>
+          </div>
+
+          <p class="text-xs text-slate-500">Subscribe for free tips & updates:</p>
+          <form class="mt-2 flex gap-2" onsubmit="event.preventDefault();">
+              <input type="email" placeholder="Email" class="bg-slate-800 border-none rounded px-3 py-2 text-xs w-full focus:ring-1 focus:ring-[#F97316] outline-none text-white">
+              <button class="bg-[#F97316] p-2 rounded hover:bg-orange-600 transition"><i data-lucide="send" class="w-3 h-3 text-white"></i></button>
+          </form>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+        <p class="text-slate-500 text-xs">&copy; 2026 KidsDev Academy. All Rights Reserved.</p>
+        <div class="flex gap-6 text-xs text-slate-600">
+           <a href="/privacy.html" class="hover:text-slate-400">Privacy Policy</a>
+           <a href="#" class="hover:text-slate-400">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookieBanner" class="fixed bottom-4 right-4 max-w-sm bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 z-[200] hidden reveal-up">
+      <div class="flex gap-4">
+          <div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center text-2xl flex-shrink-0">🍪</div>
+          <div>
+              <p class="font-bold text-[#0F172A] mb-1">We use cookies</p>
+              <p class="text-xs text-slate-500 leading-relaxed mb-4">We use cookies to improve your experience and analyze traffic. Is that okay?</p>
+              <div class="flex gap-2">
+                  <button onclick="document.getElementById('cookieBanner').style.display='none'" class="bg-[#0F172A] text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-slate-800 transition">Accept All</button>
+                  <button onclick="document.getElementById('cookieBanner').style.display='none'" class="bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-xs font-bold hover:bg-slate-200 transition">Decline</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4" role="dialog" aria-modal="true">
+      <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden reveal-up active">
+          <div class="p-4 border-b border-slate-100 flex items-center gap-4">
+              <i data-lucide="search" class="text-slate-400"></i>
+              <input type="text" id="searchInput" placeholder="Search courses, tutorials..." class="flex-1 outline-none text-lg font-bold text-[#0F172A]" autofocus>
+              <button id="closeSearch" aria-label="Close Search" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
+          </div>
+          <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+               <div class="text-center text-slate-400 py-10">Start typing to search...</div>
+          </div>
+      </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        if(window.lucide) lucide.createIcons();
+        
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+        // Cookie Banner Delay
+        setTimeout(() => {
+            const banner = document.getElementById('cookieBanner');
+            if(banner) banner.classList.remove('hidden');
+        }, 2000);
+    });
+  </script>
+</body>
+</html>

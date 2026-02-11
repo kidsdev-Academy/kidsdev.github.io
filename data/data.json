@@ -1,0 +1,97 @@
+{
+  "channel": {
+    "name": "KidsDev Academy",
+    "subscribeLink": "https://www.youtube.com/@kidsdevacad?sub_confirmation=1",
+    "subscriberCount": "5.2K"
+  },
+  "programs": [
+    { "title": "Python Programming", "url": "/programs/python.html", "desc": "Game Dev & Logic", "type": "Program" },
+    { "title": "Web Development", "url": "/programs/web-dev.html", "desc": "HTML, CSS & JS", "type": "Program" },
+    { "title": "Scratch Logic", "url": "/programs/scratch.html", "desc": "Visual Coding", "type": "Program" },
+    { "title": "Computer Basics", "url": "/programs/basics.html", "desc": "Typing & Hardware", "type": "Program" }
+  ],
+  "resources": [
+    {
+      "title": "Build a Space Shooter Game 🚀",
+      "videoId": "rfscVS0vtbw",
+      "category": "Python",
+      "date": "2 days ago",
+      "duration": "15:30",
+      "description": "Step-by-step tutorial on creating your first game with Pygame Zero."
+    },
+    {
+      "title": "HTML & CSS for Beginners 🌐",
+      "videoId": "G3e-cpL7ofc",
+      "category": "Web",
+      "date": "1 week ago",
+      "duration": "20:45",
+      "description": "Learn to structure and style your first webpage from scratch."
+    },
+    {
+      "title": "Scratch Chase Game Tutorial 😺",
+      "videoId": "F1fX5K7g7Y4",
+      "category": "Scratch",
+      "date": "2 weeks ago",
+      "duration": "12:00",
+      "description": "Create a fun chase game using simple blocks and logic."
+    },
+    {
+      "title": "Inside a Computer 🖥️",
+      "videoId": "AkFi90lZmXA",
+      "category": "Basics",
+      "date": "3 weeks ago",
+      "duration": "08:45",
+      "description": "What are CPU, RAM, and SSD? Hardware explained simply."
+    },
+    {
+      "title": "5 Tips to Type Faster ⌨️",
+      "videoId": "3_F2Yj8gEw8",
+      "category": "Tips",
+      "date": "1 month ago",
+      "duration": "05:20",
+      "description": "Proper finger placement and tricks to double your typing speed."
+    },
+    {
+      "title": "Make Your Own Chatbot 🤖",
+      "videoId": "q5uM4VKywbA",
+      "category": "Python",
+      "date": "1 month ago",
+      "duration": "18:10",
+      "description": "Use Python input and print to talk to your computer."
+    }
+  ],
+  "documents": [
+    {
+      "title": "Python Syntax Cheatsheet",
+      "type": "PDF",
+      "size": "1.2 MB",
+      "category": "Guide",
+      "url": "#",
+      "description": "Quick reference for loops, variables, and functions."
+    },
+    {
+      "title": "Web Design Project Checklist",
+      "type": "DOC",
+      "size": "0.5 MB",
+      "category": "Worksheet",
+      "url": "#",
+      "description": "Printable checklist for building your first portfolio site."
+    },
+    {
+      "title": "Scratch Block Guide",
+      "type": "PDF",
+      "size": "2.4 MB",
+      "category": "Guide",
+      "url": "#",
+      "description": "Visual dictionary of what every color block does."
+    },
+    {
+      "title": "Parent's Guide to Online Safety",
+      "type": "PDF",
+      "size": "0.8 MB",
+      "category": "Safety",
+      "url": "#",
+      "description": "Essential tips for keeping your child safe on the internet."
+    }
+  ]
+}
