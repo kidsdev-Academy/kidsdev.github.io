@@ -16,7 +16,7 @@
 
   <title>Free Tech Resources & Tutorials for Kids | KidsDev Academy</title>
   <meta name="title" content="Free Tech Resources & Tutorials for Kids | KidsDev Academy">
-  <meta name="description" content="Access a massive library of free coding tutorials for kids. Learn Python, Web Design, Scratch, and Computer Basics with our curated video lessons. Start learning today!">
+  <meta name="description" content="Access a massive library of free coding tutorials, PDFs, and guides for kids. Learn Python, Web Design, Scratch, and Computer Basics.">
   <meta name="keywords" content="free coding tutorials, kids programming videos, learn python free, web design for kids, computer basics, scratch programming, stem education resources, online tech library">
   <meta name="robots" content="index, follow, max-image-preview:large">
   
@@ -28,13 +28,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thekidsdev.netlify.app/resources.html">
   <meta property="og:title" content="Free Coding Library for Kids 📚 | KidsDev Academy">
-  <meta property="og:description" content="Watch free tutorials on Python, Scratch, Web Design, and Basics. Start building your future today.">
+  <meta property="og:description" content="Watch free tutorials and download guides on Python, Scratch, Web Design, and Basics. Start building your future today.">
   <meta property="og:image" content="https://thekidsdev.netlify.app/image/og-resources.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://thekidsdev.netlify.app/resources.html">
   <meta name="twitter:title" content="Free Coding Library for Kids 📚">
-  <meta name="twitter:description" content="Watch free tutorials on Python, Scratch, Web Design, and Basics. Start building your future today.">
+  <meta name="twitter:description" content="Watch free tutorials and download guides on Python, Scratch, Web Design, and Basics. Start building your future today.">
   <meta name="twitter:image" content="https://thekidsdev.netlify.app/image/og-resources.jpg">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -44,11 +44,13 @@
   <link rel="stylesheet" href="/css/style.css">
 
   <style>
-    /* Specific Styles for Video Cards */
     .video-card:hover .play-btn { transform: scale(1.1); background-color: #EF4444; border-color: #EF4444; color: white; }
     .video-card img { transition: transform 0.7s ease; }
     .video-card:hover img { transform: scale(1.05); }
-    .filter-btn.active { background-color: #0F172A; color: white; border-color: #0F172A; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+    .doc-card:hover .download-btn { background-color: #F97316; color: white; border-color: #F97316; }
+    .filter-btn.active { background-color: #0F172A; color: white; border-color: #0F172A; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .reveal-up.active { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 
@@ -60,7 +62,7 @@
     </div>
   </noscript>
 
-  <header class="pro-header sticky top-0 z-[100] w-full transition-all duration-300">
+  <header class="pro-header sticky top-0 z-[100] w-full transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
       
       <div class="flex items-center gap-4">
@@ -96,13 +98,17 @@
           <a href="/contact.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Contact Us</a>
         </nav>
 
-        <div class="hidden md:flex pl-8 border-l border-slate-200">
-           <a href="/contact.html" class="bg-[#0F172A] hover:bg-[#F97316] text-white px-7 py-3 rounded-full text-xs font-bold shadow-lg shadow-slate-200 transition transform hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wide">
-             Register <i data-lucide="rocket" class="w-4 h-4"></i>
-           </a>
+        <div class="flex items-center gap-4">
+            <button id="searchBtn" aria-label="Search" class="p-2 text-slate-600 hover:text-[#F97316] transition rounded-full hover:bg-slate-100"><i data-lucide="search" class="w-5 h-5"></i></button>
+            
+            <div class="hidden md:flex pl-4 border-l border-slate-200">
+               <a href="/enroll.html" class="bg-[#0F172A] hover:bg-[#F97316] text-white px-7 py-3 rounded-full text-xs font-bold shadow-lg shadow-slate-200 transition transform hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wide">
+                 Enroll Now <i data-lucide="rocket" class="w-4 h-4"></i>
+               </a>
+            </div>
+            
+            <button id="menuBtn" aria-label="Open Menu" class="md:hidden p-2 text-slate-600 hover:text-[#F97316] transition"><i data-lucide="menu"></i></button>
         </div>
-        
-        <button id="menuBtn" aria-label="Open Menu" class="md:hidden p-2 text-slate-600 hover:text-[#F97316] transition"><i data-lucide="menu"></i></button>
       </div>
     </div>
 
@@ -120,54 +126,73 @@
        </div>
 
        <a href="/contact.html" class="block py-2 text-slate-600 font-medium">Contact Us</a>
-       <a href="/contact.html" class="block py-3 bg-[#0F172A] text-white text-center rounded-xl font-bold mt-2 shadow-lg hover:bg-slate-800 transition">Register Now 🚀</a>
+       <a href="/enroll.html" class="block py-3 bg-[#0F172A] text-white text-center rounded-xl font-bold mt-2 shadow-lg hover:bg-slate-800 transition">Enroll Now 🚀</a>
     </div>
   </header>
 
-  <main>
+  <main class="flex-grow">
     <section class="relative bg-[#F8FAFC] py-20 border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 text-center">
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-full text-[10px] font-bold uppercase tracking-wider mb-6 shadow-sm reveal-up">
-                <i data-lucide="youtube" class="w-3 h-3 text-red-600"></i> Free Video Library
+                <i data-lucide="library" class="w-3 h-3 text-blue-600"></i> Free Digital Library
             </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-6 reveal-up">Learn to Code for Free 📺</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-6 reveal-up">Learn to Code for Free 📚</h1>
             <p class="text-slate-500 max-w-2xl mx-auto mb-10 text-lg reveal-up">
-                Access our complete library of coding tutorials. Python games, Scratch stories, and Computer Basics—all 100% free on YouTube.
+                Access our complete library of coding tutorials, PDF guides, cheat sheets, and readable materials. 100% free for kids globally.
             </p>
             
             <div class="max-w-xl mx-auto relative mb-10 reveal-up">
-                <input type="text" id="resourceSearch" placeholder="Search for 'Scratch', 'Python', or 'Basics'..." class="w-full pl-12 pr-4 py-4 rounded-full border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#F97316] focus:border-transparent text-sm">
+                <input type="text" id="resourceSearch" placeholder="Search for 'Scratch', 'PDF', or 'Basics'..." class="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#F97316] focus:border-transparent text-sm transition">
                 <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5"></i>
             </div>
 
             <div class="flex flex-wrap justify-center gap-3 reveal-up">
-                <button class="filter-btn active px-6 py-2 rounded-full bg-[#0F172A] text-white text-xs font-bold shadow-lg transform hover:-translate-y-0.5 transition" onclick="filterResources('all', this)">All Videos</button>
+                <button class="filter-btn active px-6 py-2 rounded-full bg-[#0F172A] text-white text-xs font-bold shadow-lg transform hover:-translate-y-0.5 transition" onclick="filterResources('all', this)">All Resources</button>
                 <button class="filter-btn px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold hover:border-[#F97316] hover:text-[#F97316] transition" onclick="filterResources('python', this)">Python 🐍</button>
                 <button class="filter-btn px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold hover:border-[#F97316] hover:text-[#F97316] transition" onclick="filterResources('web', this)">Web Dev 🌐</button>
                 <button class="filter-btn px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold hover:border-[#F97316] hover:text-[#F97316] transition" onclick="filterResources('scratch', this)">Scratch 😺</button>
                 <button class="filter-btn px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold hover:border-[#F97316] hover:text-[#F97316] transition" onclick="filterResources('basics', this)">Basics 🖥️</button>
-                <button class="filter-btn px-6 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold hover:border-[#F97316] hover:text-[#F97316] transition" onclick="filterResources('tips', this)">Tech Tips 💡</button>
             </div>
         </div>
     </section>
 
-    <section class="py-20">
+    <section class="py-16 bg-white border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center gap-3 mb-10 reveal-up">
+                <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center"><i data-lucide="file-text"></i></div>
+                <h2 class="text-2xl font-extrabold text-[#0F172A]">Downloadable Guides & PDFs</h2>
+            </div>
+            
+            <div id="docGrid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="col-span-full flex flex-col items-center justify-center py-10 text-slate-400">
+                    <i data-lucide="loader-2" class="w-8 h-8 animate-spin text-[#F97316] mb-3"></i>
+                    <p class="text-sm">Loading documents...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center gap-3 mb-10 reveal-up">
+                <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center"><i data-lucide="youtube"></i></div>
+                <h2 class="text-2xl font-extrabold text-[#0F172A]">Video Tutorials</h2>
+            </div>
             
             <div id="videoGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="col-span-full text-center py-20 text-slate-400 flex flex-col items-center">
-                    <i data-lucide="loader-2" class="w-10 h-10 animate-spin text-[#F97316] mb-4"></i>
-                    <span class="text-sm font-medium">Fetching tutorials...</span>
+                <div class="col-span-full flex flex-col items-center justify-center py-10 text-slate-400">
+                    <i data-lucide="loader-2" class="w-8 h-8 animate-spin text-[#F97316] mb-3"></i>
+                    <p class="text-sm">Loading videos...</p>
                 </div>
             </div>
 
-            <div class="text-center mt-20 border-t border-slate-100 pt-10">
+            <div class="text-center mt-20 pt-10 reveal-up">
                 <p class="text-slate-500 text-sm mb-6">Want to get notified when we upload new lessons?</p>
                 <a href="https://www.youtube.com/@kidsdevacad?sub_confirmation=1" target="_blank" class="inline-flex items-center gap-2 bg-[#FF0000] hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold shadow-xl transition transform hover:-translate-y-1">
                     <i data-lucide="youtube" class="w-5 h-5 fill-current"></i> Subscribe on YouTube
                 </a>
             </div>
-
         </div>
     </section>
   </main>
@@ -176,13 +201,13 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         <div class="space-y-6">
-          <a href="/index.html" class="flex items-center gap-2 group" aria-label="Home">
+          <div class="flex items-center gap-2 group">
              <img src="/image/logo.png" class="h-8 w-auto object-contain transition transform group-hover:scale-105" alt="KidsDev Logo"> 
              <div class="flex flex-col">
                  <span class="font-extrabold text-2xl tracking-tighter leading-none">Kids<span class="text-[#F97316]">Dev</span></span>
                  <span class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">Academy</span>
              </div>
-          </a>
+          </div>
           <p class="text-slate-400 text-sm leading-relaxed">
             Global technology school providing professional coding, web development, and digital literacy skills for the next generation.
           </p>
@@ -236,7 +261,7 @@
         </div>
       </div>
       <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
-        <p class="text-slate-500 text-xs">&copy; 2026 KidsDev Academy. All Rights Reserved.</p>
+        <p class="text-slate-500 text-xs">&copy; 2026 KidsDev Academy. Empowering kids globally.</p>
         <div class="flex gap-6 text-xs text-slate-600">
            <a href="/privacy.html" class="hover:text-slate-400">Privacy Policy</a>
            <a href="#" class="hover:text-slate-400">Terms of Service</a>
@@ -245,28 +270,14 @@
     </div>
   </footer>
 
-  <div id="cookieBanner" class="fixed bottom-4 right-4 max-w-sm bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 z-[200] hidden reveal-up">
-      <div class="flex gap-4">
-          <div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center text-2xl flex-shrink-0">🍪</div>
-          <div>
-              <p class="font-bold text-[#0F172A] mb-1">We use cookies</p>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">We use cookies to improve your experience and analyze traffic. Is that okay?</p>
-              <div class="flex gap-2">
-                  <button onclick="document.getElementById('cookieBanner').style.display='none'" class="bg-[#0F172A] text-white px-4 py-2 rounded-lg text-xs font-bold hover:bg-slate-800 transition">Accept All</button>
-                  <button onclick="document.getElementById('cookieBanner').style.display='none'" class="bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-xs font-bold hover:bg-slate-200 transition">Decline</button>
-              </div>
-          </div>
-      </div>
-  </div>
-
   <div id="searchModal" class="fixed inset-0 bg-[#0F172A]/90 z-[200] hidden backdrop-blur-sm flex items-start justify-center pt-24 px-4" role="dialog" aria-modal="true">
       <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden reveal-up active">
           <div class="p-4 border-b border-slate-100 flex items-center gap-4">
               <i data-lucide="search" class="text-slate-400"></i>
-              <input type="text" id="searchInput" placeholder="Search courses, tutorials..." class="flex-1 outline-none text-lg font-bold text-[#0F172A]" autofocus>
+              <input type="text" id="globalSearchInput" placeholder="Quick Search courses, tutorials..." class="flex-1 outline-none text-lg font-bold text-[#0F172A]" autofocus>
               <button id="closeSearch" aria-label="Close Search" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
           </div>
-          <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+          <div id="globalSearchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
                <div class="text-center text-slate-400 py-10">Start typing to search...</div>
           </div>
       </div>
@@ -275,137 +286,226 @@
   <script src="/js/main.js"></script>
   
   <script>
+    let allVideos = [];
+    let allDocs = [];
+
     document.addEventListener("DOMContentLoaded", () => {
         if(window.lucide) lucide.createIcons();
-        fetchResources();
         
-        // Cookie Banner Delay
-        setTimeout(() => {
-            const banner = document.getElementById('cookieBanner');
-            if(banner) banner.classList.remove('hidden');
-        }, 2000);
+        // Setup Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if(menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
+
+        // Global Search Setup
+        setupGlobalSearch();
+
+        // Fetch Both Resources purely from JSON
+        fetchResources();
     });
 
-    let allResources = [];
-
-    // 1. Fetch Data from JSON
+    // 1. Fetch Data strictly from JSON
     async function fetchResources() {
         try {
             const response = await fetch('/data/data.json'); 
             if (!response.ok) throw new Error("Failed to load data");
             const data = await response.json();
-            allResources = data.resources || [];
-            renderVideos(allResources);
+            
+            // Map JSON data exactly
+            allVideos = data.resources || data.videos || [];
+            allDocs = data.documents || [];
+            
+            renderVideos(allVideos);
+            renderDocs(allDocs);
         } catch (error) {
-            console.error('Error:', error);
-            // Simulating content if JSON fetch fails (for demo purposes)
-            allResources = [
-                { title: "Intro to Python for Kids", category: "Python", videoId: "rfscVS0vtbw", date: "2 days ago", duration: "10:05", description: "Learn variables and loops in 10 minutes!" },
-                { title: "Build Your First Website", category: "Web", videoId: "bWPMSSsVdPk", date: "1 week ago", duration: "15:30", description: "HTML & CSS basics for complete beginners." },
-                { title: "Scratch Game Tutorial", category: "Scratch", videoId: "F1fX5K7g7Y4", date: "2 weeks ago", duration: "12:00", description: "Create a chase game using block coding." },
-                { title: "Computer Hardware Basics", category: "Basics", videoId: "AkFi90lZmXA", date: "3 weeks ago", duration: "08:45", description: "What is inside a computer? CPU, RAM, and more." }
-            ];
-            renderVideos(allResources);
+            console.error('Error fetching resources:', error);
+            document.getElementById('videoGrid').innerHTML = `
+                <div class="col-span-full text-center text-red-400 py-10 border-2 border-dashed border-red-100 rounded-2xl bg-red-50">
+                    <i data-lucide="alert-circle" class="w-10 h-10 mx-auto mb-2 opacity-70"></i>
+                    <p class="text-sm">Failed to load resources. Please check your connection or data.json file.</p>
+                </div>
+            `;
+            document.getElementById('docGrid').innerHTML = `
+                <div class="col-span-full text-center text-red-400 py-10 border-2 border-dashed border-red-100 rounded-2xl bg-red-50">
+                    <i data-lucide="alert-circle" class="w-10 h-10 mx-auto mb-2 opacity-70"></i>
+                    <p class="text-sm">Failed to load documents.</p>
+                </div>
+            `;
+            if(window.lucide) lucide.createIcons();
         }
     }
 
-    // 2. Render HTML Cards
+    // 2. Render Videos (Updated to ensure fully clickable links robustly)
     function renderVideos(videos) {
         const grid = document.getElementById('videoGrid');
         grid.innerHTML = ''; 
 
         if(videos.length === 0) {
             grid.innerHTML = `
-                <div class="col-span-full text-center text-slate-400 py-20">
-                    <i data-lucide="search-x" class="w-12 h-12 mx-auto mb-4 opacity-50"></i>
-                    <p>No videos found matching your search.</p>
+                <div class="col-span-full text-center text-slate-400 py-10 border-2 border-dashed border-slate-200 rounded-2xl">
+                    <i data-lucide="video-off" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
+                    <p class="text-sm">No videos found for this filter.</p>
                 </div>`;
             if(window.lucide) lucide.createIcons();
             return;
         }
 
         videos.forEach((video, index) => {
-            const delay = index * 100; // Staggered animation
+            const delay = index * 50; 
+            let badgeColor = getCategoryColor(video.category);
             
-            // Map categories to colors
-            let badgeColor = "bg-slate-100 text-slate-700";
-            const cat = video.category.toLowerCase();
+            // Fix: Build the actual YouTube Link robustly whether 'videoId' or 'url' is provided in JSON
+            const videoLink = video.videoId ? `https://www.youtube.com/watch?v=${video.videoId}` : (video.url || '#');
             
-            if(cat.includes('python')) badgeColor = "bg-green-100 text-green-700";
-            else if(cat.includes('web')) badgeColor = "bg-blue-100 text-blue-700";
-            else if(cat.includes('scratch')) badgeColor = "bg-yellow-100 text-yellow-700";
-            else if(cat.includes('basic')) badgeColor = "bg-gray-100 text-gray-700";
-            else if(cat.includes('tip')) badgeColor = "bg-purple-100 text-purple-700";
+            // Try to extract an image ID even if they only provided a URL
+            const extractedId = video.videoId || (video.url ? video.url.split('v=')[1]?.split('&')[0] : '');
+            const imgSrc = extractedId ? `https://img.youtube.com/vi/${extractedId}/maxresdefault.jpg` : 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80';
+            const imgFallback = extractedId ? `https://img.youtube.com/vi/${extractedId}/hqdefault.jpg` : '';
 
-            const card = `
-              <article class="video-card group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all reveal-up overflow-hidden" 
-                       style="animation-delay: ${delay}ms; animation-fill-mode: forwards;">
-                  <a href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank" class="block relative aspect-video bg-slate-800 overflow-hidden">
-                      <img src="https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg" 
-                           alt="${video.title}" 
-                           class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-700"
-                           onerror="this.src='https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg'"> 
-                      
+            grid.innerHTML += `
+              <article class="video-card group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all reveal-up overflow-hidden" style="animation-delay: ${delay}ms; animation-fill-mode: forwards;">
+                  <a href="${videoLink}" target="_blank" class="block relative aspect-video bg-slate-800 overflow-hidden">
+                      <img src="${imgSrc}" alt="${video.title}" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-700" onerror="if(this.src !== '${imgFallback}') this.src='${imgFallback}';"> 
                       <div class="absolute inset-0 flex items-center justify-center">
                           <div class="play-btn w-14 h-14 rounded-full border-2 border-white text-white flex items-center justify-center backdrop-blur-sm transition duration-300">
                               <i data-lucide="play" class="w-6 h-6 fill-current ml-1"></i>
                           </div>
                       </div>
-                      
-                      <div class="absolute bottom-3 right-3 bg-black/70 text-white text-[10px] px-2 py-1 rounded font-bold tracking-wide">${video.duration}</div>
+                      <div class="absolute bottom-3 right-3 bg-black/70 text-white text-[10px] px-2 py-1 rounded font-bold tracking-wide">${video.duration || 'Video'}</div>
                   </a>
-                  
                   <div class="p-6">
                       <div class="flex items-center gap-2 mb-3">
-                          <span class="${badgeColor} text-[10px] font-bold px-2 py-1 rounded uppercase border border-white/50">${video.category}</span>
-                          <span class="text-slate-400 text-[10px] flex items-center gap-1 ml-auto"><i data-lucide="clock" class="w-3 h-3"></i> ${video.date}</span>
+                          <span class="${badgeColor} text-[10px] font-bold px-2 py-1 rounded uppercase">${video.category || 'General'}</span>
+                          <span class="text-slate-400 text-[10px] flex items-center gap-1 ml-auto"><i data-lucide="clock" class="w-3 h-3"></i> ${video.date || ''}</span>
                       </div>
-                      <h3 class="font-bold text-lg text-[#0F172A] mb-2 group-hover:text-[#F97316] transition leading-tight line-clamp-2">${video.title}</h3>
+                      <a href="${videoLink}" target="_blank" class="block">
+                          <h3 class="font-bold text-lg text-[#0F172A] mb-2 group-hover:text-[#F97316] transition leading-tight line-clamp-2">${video.title}</h3>
+                      </a>
                       <p class="text-sm text-slate-500 line-clamp-2 leading-relaxed">${video.description}</p>
                   </div>
               </article>
             `;
-            grid.innerHTML += card;
         });
-
         if(window.lucide) lucide.createIcons();
-        
-        // Trigger animations
-        setTimeout(() => {
-            document.querySelectorAll('.video-card').forEach(el => el.classList.add('active'));
-        }, 50);
+        setTimeout(() => document.querySelectorAll('.video-card').forEach(el => el.classList.add('active')), 50);
     }
 
-    // 3. Filter Function
+    // 3. Render Documents
+    function renderDocs(docs) {
+        const grid = document.getElementById('docGrid');
+        grid.innerHTML = ''; 
+
+        if(docs.length === 0) {
+            grid.innerHTML = `
+                <div class="col-span-full text-center text-slate-400 py-10 border-2 border-dashed border-slate-200 rounded-2xl">
+                    <i data-lucide="file-x" class="w-10 h-10 mx-auto mb-2 opacity-50"></i>
+                    <p class="text-sm">No documents found for this filter.</p>
+                </div>`;
+            if(window.lucide) lucide.createIcons();
+            return;
+        }
+
+        docs.forEach((doc, index) => {
+            const delay = index * 50; 
+            let badgeColor = getCategoryColor(doc.category);
+            let docType = doc.type || 'DOC';
+            let fileIconColor = docType.toUpperCase() === 'PDF' ? 'text-red-500 bg-red-50' : 'text-blue-500 bg-blue-50';
+
+            grid.innerHTML += `
+              <article class="doc-card group bg-white rounded-2xl border border-slate-200 p-5 flex flex-col h-full shadow-sm hover:shadow-lg transition-all reveal-up" style="animation-delay: ${delay}ms; animation-fill-mode: forwards;">
+                  <div class="flex justify-between items-start mb-4">
+                      <div class="w-12 h-12 rounded-xl flex items-center justify-center ${fileIconColor}">
+                          <i data-lucide="file-text" class="w-6 h-6"></i>
+                      </div>
+                      <span class="${badgeColor} text-[10px] font-bold px-2 py-1 rounded uppercase">${doc.category || 'General'}</span>
+                  </div>
+                  <h3 class="font-bold text-base text-[#0F172A] mb-2 leading-tight">${doc.title}</h3>
+                  <p class="text-xs text-slate-500 mb-4 flex-grow">${doc.description}</p>
+                  
+                  <div class="mt-auto border-t border-slate-100 pt-4 flex items-center justify-between">
+                      <div class="flex items-center gap-1 text-[10px] font-bold text-slate-400 uppercase">
+                          <i data-lucide="hard-drive" class="w-3 h-3"></i> ${docType} • ${doc.size || 'Link'}
+                      </div>
+                      <a href="${doc.url || '#'}" download target="_blank" class="download-btn w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 transition">
+                          <i data-lucide="download" class="w-4 h-4"></i>
+                      </a>
+                  </div>
+              </article>
+            `;
+        });
+        if(window.lucide) lucide.createIcons();
+        setTimeout(() => document.querySelectorAll('.doc-card').forEach(el => el.classList.add('active')), 50);
+    }
+
+    // Utility: Category Colors
+    function getCategoryColor(category) {
+        if (!category) return "bg-slate-100 text-slate-700";
+        const cat = category.toLowerCase();
+        if(cat.includes('python')) return "bg-green-100 text-green-700";
+        if(cat.includes('web')) return "bg-blue-100 text-blue-700";
+        if(cat.includes('scratch')) return "bg-yellow-100 text-yellow-700";
+        if(cat.includes('basic')) return "bg-slate-100 text-slate-700";
+        return "bg-purple-100 text-purple-700";
+    }
+
+    // 4. Filter Button Function
     window.filterResources = function(category, btnElement) {
-        // Update active button style
         document.querySelectorAll('.filter-btn').forEach(b => {
             b.classList.remove('bg-[#0F172A]', 'text-white');
             b.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
         });
         
-        // Style Active Button
         btnElement.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
         btnElement.classList.add('bg-[#0F172A]', 'text-white');
 
-        // Filter Logic
         if (category === 'all') {
-            renderVideos(allResources);
+            renderVideos(allVideos);
+            renderDocs(allDocs);
         } else {
-            const filtered = allResources.filter(v => v.category.toLowerCase().includes(category));
-            renderVideos(filtered);
+            renderVideos(allVideos.filter(v => (v.category || '').toLowerCase().includes(category)));
+            renderDocs(allDocs.filter(d => (d.category || '').toLowerCase().includes(category)));
         }
     }
 
-    // 4. Search Function
+    // 5. Page Search Input
     document.getElementById('resourceSearch').addEventListener('keyup', (e) => {
         const val = e.target.value.toLowerCase();
-        const filtered = allResources.filter(v => 
-            v.title.toLowerCase().includes(val) || 
-            v.description.toLowerCase().includes(val)
-        );
-        renderVideos(filtered);
+        renderVideos(allVideos.filter(v => 
+            (v.title || '').toLowerCase().includes(val) || 
+            (v.description || '').toLowerCase().includes(val)
+        ));
+        renderDocs(allDocs.filter(d => 
+            (d.title || '').toLowerCase().includes(val) || 
+            (d.description || '').toLowerCase().includes(val)
+        ));
     });
+
+    // 6. Global Navigation Search Modal logic
+    function setupGlobalSearch() {
+        const searchBtn = document.getElementById('searchBtn');
+        const searchModal = document.getElementById('searchModal');
+        const closeSearch = document.getElementById('closeSearch');
+        const globalSearchInput = document.getElementById('globalSearchInput');
+        
+        if(searchBtn && searchModal && closeSearch) {
+            searchBtn.addEventListener('click', () => {
+                searchModal.classList.remove('hidden');
+                setTimeout(() => globalSearchInput.focus(), 100);
+            });
+            closeSearch.addEventListener('click', () => searchModal.classList.add('hidden'));
+            searchModal.addEventListener('click', (e) => {
+                if(e.target === searchModal) searchModal.classList.add('hidden');
+            });
+        }
+    }
   </script>
 </body>
 </html>

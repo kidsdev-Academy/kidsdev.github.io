@@ -10,88 +10,56 @@
     { "title": "Scratch Logic", "url": "/programs/scratch.html", "desc": "Visual Coding", "type": "Program" },
     { "title": "Computer Basics", "url": "/programs/basics.html", "desc": "Typing & Hardware", "type": "Program" }
   ],
-  "resources": [
+  "videos": [
     {
-      "title": "Build a Space Shooter Game 🚀",
-      "videoId": "rfscVS0vtbw",
+      "url": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+      "title": "Intro to Python for Kids",
       "category": "Python",
-      "date": "2 days ago",
-      "duration": "15:30",
-      "description": "Step-by-step tutorial on creating your first game with Pygame Zero."
-    },
-    {
-      "title": "HTML & CSS for Beginners 🌐",
-      "videoId": "G3e-cpL7ofc",
-      "category": "Web",
       "date": "1 week ago",
-      "duration": "20:45",
-      "description": "Learn to structure and style your first webpage from scratch."
+      "duration": "10:05",
+      "description": "Learn what Python is, how to print text to the screen, and create your very first variables!"
     },
     {
-      "title": "Scratch Chase Game Tutorial 😺",
-      "videoId": "F1fX5K7g7Y4",
-      "category": "Scratch",
+      "url": "https://www.youtube.com/watch?v=bWPMSSsVdPk",
+      "title": "Build Your First Website with HTML",
+      "category": "Web Dev",
       "date": "2 weeks ago",
-      "duration": "12:00",
-      "description": "Create a fun chase game using simple blocks and logic."
+      "duration": "15:30",
+      "description": "A complete beginner's guide to writing HTML and CSS to build a real webpage from scratch."
     },
     {
-      "title": "Inside a Computer 🖥️",
-      "videoId": "AkFi90lZmXA",
-      "category": "Basics",
+      "url": "https://www.youtube.com/watch?v=F1fX5K7g7Y4",
+      "title": "Introduction to Scratch Coding",
+      "category": "Scratch",
       "date": "3 weeks ago",
-      "duration": "08:45",
-      "description": "What are CPU, RAM, and SSD? Hardware explained simply."
-    },
-    {
-      "title": "5 Tips to Type Faster ⌨️",
-      "videoId": "3_F2Yj8gEw8",
-      "category": "Tips",
-      "date": "1 month ago",
-      "duration": "05:20",
-      "description": "Proper finger placement and tricks to double your typing speed."
-    },
-    {
-      "title": "Make Your Own Chatbot 🤖",
-      "videoId": "q5uM4VKywbA",
-      "category": "Python",
-      "date": "1 month ago",
-      "duration": "18:10",
-      "description": "Use Python input and print to talk to your computer."
+      "duration": "12:00",
+      "description": "Learn how to use blocks to make a character move, jump, and talk in your very first Scratch project."
     }
   ],
   "documents": [
     {
-      "title": "Python Syntax Cheatsheet",
-      "type": "PDF",
-      "size": "1.2 MB",
-      "category": "Guide",
-      "url": "#",
-      "description": "Quick reference for loops, variables, and functions."
-    },
-    {
-      "title": "Web Design Project Checklist",
-      "type": "DOC",
-      "size": "0.5 MB",
-      "category": "Worksheet",
-      "url": "#",
-      "description": "Printable checklist for building your first portfolio site."
-    },
-    {
-      "title": "Scratch Block Guide",
+      "title": "Python Quickstart Guide",
+      "url": "/downloads/python-quickstart.pdf",
+      "category": "Python",
       "type": "PDF",
       "size": "2.4 MB",
-      "category": "Guide",
-      "url": "#",
-      "description": "Visual dictionary of what every color block does."
+      "description": "A printable cheat sheet covering Python variables, loops, math operators, and common functions."
     },
     {
-      "title": "Parent's Guide to Online Safety",
+      "title": "HTML5 Structure Tags",
+      "url": "/downloads/html5-structure.docx",
+      "category": "Web Dev",
+      "type": "DOCX",
+      "size": "1.1 MB",
+      "description": "Learn how to structure your first web page correctly with header, main, section, and footer tags."
+    },
+    {
+      "title": "Keyboard Shortcuts Ninja",
+      "url": "/downloads/keyboard-shortcuts.pdf",
+      "category": "Basics",
       "type": "PDF",
-      "size": "0.8 MB",
-      "category": "Safety",
-      "url": "#",
-      "description": "Essential tips for keeping your child safe on the internet."
+      "size": "1.8 MB",
+      "description": "Master your keyboard with these essential introductory shortcuts for Windows, Mac, and Linux."
     }
   ]
 }
