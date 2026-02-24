@@ -10,47 +10,34 @@
   </script>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#0F172A">
 
-  <title>Privacy Policy | KidsDev Academy</title>
-  <meta name="title" content="Privacy Policy | KidsDev Academy">
-  <meta name="description" content="Our commitment to protecting your child's data. Read our privacy policy regarding data collection, usage, and safety standards.">
-  <meta name="robots" content="noindex, follow"> 
-  
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  
-  <link rel="canonical" href="https://thekidsdev.netlify.app/privacy.html">
+  <title>Terms of Service | KidsDev Academy</title>
+  <meta name="title" content="Terms of Service | KidsDev Academy">
+  <meta name="description" content="Read the Terms of Service for KidsDev Academy. Learn about our guidelines, parental consent policies, and community rules.">
+  <meta name="robots" content="noindex, follow"> <link rel="canonical" href="https://thekidsdev.netlify.app/terms.html">
   <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
   <link rel="apple-touch-icon" href="/image/apple-touch-icon.png">
 
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thekidsdev.netlify.app/privacy.html">
-  <meta property="og:title" content="Privacy Policy | KidsDev Academy">
-  <meta property="og:description" content="We prioritize your child's safety online. Read our full privacy commitment.">
-  <meta property="og:image" content="https://thekidsdev.netlify.app/image/og-contact.jpg">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
-  
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/css/style.css">
-  
+
   <style>
-    /* Policy Typography Overrides */
-    .policy-content h2 { font-size: 1.5rem; font-weight: 800; color: #0F172A; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid #E2E8F0; padding-bottom: 0.5rem; }
-    .policy-content h3 { font-size: 1.1rem; font-weight: 700; color: #1E293B; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-    .policy-content p { margin-bottom: 1rem; color: #475569; line-height: 1.7; font-size: 0.95rem; }
-    .policy-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #475569; font-size: 0.95rem; }
-    .policy-content li { margin-bottom: 0.5rem; }
-    .policy-content strong { color: #0F172A; font-weight: 600; }
+    .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .reveal-up.active { opacity: 1; transform: translateY(0); }
+    
+    /* Typography specific for legal documents */
+    .legal-content h2 { color: #0F172A; font-weight: 700; font-size: 1.25rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+    .legal-content p, .legal-content li { color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+    .legal-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .legal-content a { color: #F97316; font-weight: 600; text-decoration: none; }
+    .legal-content a:hover { text-decoration: underline; }
   </style>
 </head>
 
@@ -62,7 +49,7 @@
     </div>
   </noscript>
 
-  <header class="pro-header sticky top-0 z-[100] w-full transition-all duration-300">
+  <header class="pro-header sticky top-0 z-[100] w-full transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex justify-between items-center">
       
       <div class="flex items-center gap-4">
@@ -98,18 +85,22 @@
           <a href="/contact.html" class="hover:text-[#F97316] transition hover:-translate-y-0.5">Contact Us</a>
         </nav>
 
-        <div class="hidden md:flex pl-8 border-l border-slate-200">
-           <a href="/contact.html" class="bg-[#0F172A] hover:bg-[#F97316] text-white px-7 py-3 rounded-full text-xs font-bold shadow-lg shadow-slate-200 transition transform hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wide">
-             Register <i data-lucide="rocket" class="w-4 h-4"></i>
-           </a>
+        <div class="flex items-center gap-4">
+            <button id="searchBtn" aria-label="Search" class="p-2 text-slate-600 hover:text-[#F97316] transition rounded-full hover:bg-slate-100"><i data-lucide="search" class="w-5 h-5"></i></button>
+            
+            <div class="hidden md:flex pl-4 border-l border-slate-200">
+               <a href="/enroll.html" class="bg-[#0F172A] hover:bg-[#F97316] text-white px-7 py-3 rounded-full text-xs font-bold shadow-lg shadow-slate-200 transition transform hover:-translate-y-1 flex items-center gap-2 uppercase tracking-wide">
+                 Enroll Now <i data-lucide="rocket" class="w-4 h-4"></i>
+               </a>
+            </div>
+            
+            <button id="menuBtn" aria-label="Open Menu" class="md:hidden p-2 text-slate-600 hover:text-[#F97316] transition"><i data-lucide="menu"></i></button>
         </div>
-        
-        <button id="menuBtn" aria-label="Open Menu" class="md:hidden p-2 text-slate-600 hover:text-[#F97316] transition"><i data-lucide="menu"></i></button>
       </div>
     </div>
 
     <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b shadow-lg p-6 space-y-3 z-50 overflow-y-auto max-h-[85vh]">
-       <a href="/index.html" class="block py-2 font-bold text-[#F97316]">Home</a>
+       <a href="/index.html" class="block py-2 font-bold text-slate-600 hover:text-[#F97316]">Home</a>
        <a href="/about.html" class="block py-2 text-slate-600 font-medium">About Us</a>
        <a href="/resources.html" class="block py-2 text-slate-600 font-medium">Resources</a>
        
@@ -122,103 +113,104 @@
        </div>
 
        <a href="/contact.html" class="block py-2 text-slate-600 font-medium">Contact Us</a>
-       <a href="/contact.html" class="block py-3 bg-[#0F172A] text-white text-center rounded-xl font-bold mt-2 shadow-lg">Enroll Now 🚀</a>
+       <a href="/enroll.html" class="block py-3 bg-[#0F172A] text-white text-center rounded-xl font-bold mt-2 shadow-lg hover:bg-slate-800 transition">Enroll Now 🚀</a>
     </div>
   </header>
 
-  <main>
-    <section class="relative py-20 px-4 overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 -z-10"></div>
-        <div class="absolute top-20 left-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
-        
-        <div class="max-w-4xl mx-auto px-4">
-            
-            <div class="text-center mb-16 reveal-up">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-4">Privacy Policy</h1>
-                <p class="text-slate-500 text-sm">Last Updated: October 1, 2025</p>
-            </div>
-
-            <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl shadow-slate-200 border border-slate-100 policy-content reveal-up" style="transition-delay: 100ms;">
-                <p class="text-lg font-medium text-[#0F172A] mb-8 border-l-4 border-[#F97316] pl-4">
-                    At KidsDev Academy ("we", "us", or "our"), respecting your privacy and protecting your child's data is our highest priority. This Privacy Policy describes how we collect, use, and safeguard information when you use our website or register for our programs.
-                </p>
-
-                <h2>1. Commitment to Children's Privacy</h2>
-                <p>We operate in strict compliance with global standards, including the <strong>Children’s Online Privacy Protection Act (COPPA)</strong> and <strong>GDPR-K</strong>.</p>
-                <ul>
-                    <li>We do not knowingly collect personal information from children under the age of 13 without verifiable parental consent.</li>
-                    <li>All registration forms must be completed by a Parent or Legal Guardian.</li>
-                    <li>Any data found to be collected from a minor without parental consent will be deleted immediately.</li>
-                </ul>
-
-                <h2>2. Information We Collect</h2>
-                <h3>A. Information You Provide Voluntarily</h3>
-                <p>When you register for a course or contact us, we may collect:</p>
-                <ul>
-                    <li><strong>Parent/Guardian Details:</strong> Name, Email Address, Phone Number.</li>
-                    <li><strong>Student Details:</strong> Name, Age, Learning Preferences, Previous Coding Experience.</li>
-                    <li><strong>Payment Information:</strong> Processed securely via our banking partners (Providus Bank/Stripe). We do not store credit card details on our servers.</li>
-                </ul>
-
-                <h3>B. Automatically Collected Information</h3>
-                <p>We may collect non-personal data such as browser type, operating system, and IP address for security and analytics purposes (via Google Analytics).</p>
-
-                <h2>3. How We Use Your Information</h2>
-                <p>We use collected data solely for educational and administrative purposes:</p>
-                <ul>
-                    <li>To provide access to our Learning Management System (LMS) and live classes.</li>
-                    <li>To process tuition payments and issue receipts.</li>
-                    <li>To communicate class schedules, progress reports, and emergency updates.</li>
-                    <li>To improve our curriculum based on aggregate student performance.</li>
-                </ul>
-
-                <h2>4. Data Sharing & Third Parties</h2>
-                <p><strong>We do not sell, trade, or rent student data to third parties.</strong> We only share necessary data with trusted service providers who assist our operations:</p>
-                <ul>
-                    <li><strong>Communication:</strong> Zoom/Google Meet (for live classes), WhatsApp (for parent support).</li>
-                    <li><strong>Development Tools:</strong> GitHub, Replit, Scratch (educational platforms).</li>
-                </ul>
-
-                <h2>5. International Data Transfers</h2>
-                <p>As a global academy with operations in Nigeria and the UK, your information may be transferred to—and maintained on—computers located outside of your state or country. By submitting your information, you agree to this transfer strictly for the purpose of service delivery.</p>
-
-                <h2>6. Your Rights</h2>
-                <p>Parents/Guardians have the right to:</p>
-                <ul>
-                    <li>Review the personal information we have collected about your child.</li>
-                    <li>Request the deletion of your child's personal information.</li>
-                    <li>Refuse further collection or use of your child's information.</li>
-                </ul>
-
-                <h2>7. Contact Us</h2>
-                <p>If you have any questions about this Privacy Policy or wish to exercise your rights, please contact our Data Protection Officer:</p>
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mt-4 flex flex-col sm:flex-row gap-6">
-                    <div>
-                        <p class="text-xs font-bold uppercase text-slate-400 mb-1">Email</p>
-                        <a href="mailto:privacy@kidsdevacademy.com" class="font-bold text-[#0F172A] hover:text-[#F97316] transition">privacy@kidsdevacademy.com</a>
-                    </div>
-                    <div>
-                        <p class="text-xs font-bold uppercase text-slate-400 mb-1">Phone</p>
-                        <a href="tel:+2348034810829" class="font-bold text-[#0F172A] hover:text-[#F97316] transition">+234 803 481 0829</a>
-                    </div>
-                </div>
-            </div>
-
+  <main class="flex-grow">
+    
+    <section class="bg-[#0F172A] text-white py-16 border-b border-slate-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center reveal-up">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Terms of Service</h1>
+            <p class="text-slate-400">Last Updated: February 2026</p>
         </div>
     </section>
+
+    <section class="py-16 pb-24">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-sm legal-content reveal-up">
+                
+                <p>Welcome to KidsDev Academy! These Terms of Service ("Terms") govern your use of the KidsDev Academy website, educational platforms, and associated services (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms.</p>
+                <p>If you are a parent or guardian, you agree to these Terms on behalf of your child who uses the Services.</p>
+
+                <h2>1. Acceptance of Terms</h2>
+                <p>By registering for an account, enrolling in a course, or otherwise accessing our Services, you agree to comply with these Terms. If you do not agree with any part of these Terms, please do not use our Services.</p>
+
+                <h2>2. Eligibility and Parental Consent</h2>
+                <ul>
+                    <li><strong>Age Requirement:</strong> Our Services are designed for children between the ages of 6 and 16. However, any user under the age of 18 must have the consent of a parent or legal guardian to register for a course or create an account.</li>
+                    <li><strong>Parental Responsibility:</strong> Parents and guardians are solely responsible for monitoring their child's use of the Services and ensuring that their child complies with our Code of Conduct.</li>
+                </ul>
+
+                <h2>3. User Accounts</h2>
+                <p>To access certain features (such as enrolled courses or premium materials), you may need to create an account. You agree to:</p>
+                <ul>
+                    <li>Provide accurate, current, and complete information during registration.</li>
+                    <li>Maintain the security of your password and account credentials.</li>
+                    <li>Notify us immediately of any unauthorized use of your account.</li>
+                </ul>
+
+                <h2>4. Code of Conduct and Safety</h2>
+                <p>KidsDev Academy is committed to providing a safe, positive, and inclusive learning environment. All students must adhere to the following rules:</p>
+                <ul>
+                    <li><strong>Respect Others:</strong> No bullying, harassment, hate speech, or inappropriate language will be tolerated in live classes, forums, or project comments.</li>
+                    <li><strong>Protect Privacy:</strong> Students must not share personal identifying information (such as home addresses, phone numbers, or full names) on public project boards or forums.</li>
+                    <li><strong>Academic Integrity:</strong> Students are encouraged to share code and collaborate, but they must not pass off someone else's complete project as their own without giving credit.</li>
+                </ul>
+                <p><em>Violation of this Code of Conduct may result in immediate suspension or termination of the student's access to the Services without a refund.</em></p>
+
+                <h2>5. Intellectual Property</h2>
+                <ul>
+                    <li><strong>Our Content:</strong> All lessons, videos, graphics, text, and software provided by KidsDev Academy are our intellectual property. You may not copy, distribute, or resell our course materials without explicit written permission.</li>
+                    <li><strong>Student Content:</strong> Students retain ownership of the code, games, and projects they create using our platforms. By creating a project in a KidsDev class, you grant us a non-exclusive license to showcase the project (anonymously or with a first name only) on our website or social media for promotional purposes.</li>
+                </ul>
+
+                <h2>6. Payments, Cancellations, and Refunds</h2>
+                <p>If you enroll in a paid mentorship program, bootcamp, or premium course:</p>
+                <ul>
+                    <li><strong>Payments:</strong> All fees are stated upfront and must be paid prior to the commencement of the cohort or class.</li>
+                    <li><strong>Refunds:</strong> We offer a 7-day money-back guarantee for most premium programs if your child feels the course isn't a good fit. After 7 days, no refunds will be issued. (Certain short-term bootcamps may have different refund policies stated at checkout).</li>
+                    <li><strong>Cancellations:</strong> You may cancel an ongoing subscription or upcoming enrollment at any time by contacting our support team.</li>
+                </ul>
+
+                <h2>7. Limitation of Liability</h2>
+                <p>KidsDev Academy strives to provide high-quality education, but our Services are provided "as is" without warranties of any kind. We do not guarantee that our platform will always be error-free or uninterrupted. KidsDev Academy shall not be liable for any indirect, incidental, or consequential damages arising from the use of our Services.</p>
+
+                <h2>8. Third-Party Tools</h2>
+                <p>Our curriculum requires the use of third-party tools (e.g., Scratch, Repl.it, GitHub, Python). Your use of these external tools is governed by their respective Terms of Service and Privacy Policies. KidsDev Academy is not responsible for the functionality or policies of these third-party platforms.</p>
+
+                <h2>9. Changes to These Terms</h2>
+                <p>We may update these Terms from time to time to reflect changes in our services or legal requirements. We will notify you of any significant changes by posting the new Terms on this page and updating the "Last Updated" date. Your continued use of the Services after changes are posted constitutes your acceptance of the new Terms.</p>
+
+                <h2>10. Contact Us</h2>
+                <p>If you have any questions, concerns, or feedback regarding these Terms, please contact us at:</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:kidsdevacad@gmail.com">kidsdevacad@gmail.com</a></li>
+                    <li><strong>Phone/WhatsApp:</strong> +44 7350 154 850</li>
+                </ul>
+
+                <div class="mt-12 pt-8 border-t border-slate-100 text-center">
+                    <a href="/enroll.html" class="inline-block bg-[#F97316] text-white px-8 py-3 rounded-xl font-bold shadow-md hover:bg-orange-600 transition">Return to Enrollment</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
   </main>
 
   <footer class="bg-[#0b1021] text-white pt-20 pb-10 border-t border-slate-800 font-light">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         <div class="space-y-6">
-          <a href="/index.html" class="flex items-center gap-2 group" aria-label="Home">
+          <div class="flex items-center gap-2 group">
              <img src="/image/logo.png" class="h-8 w-auto object-contain transition transform group-hover:scale-105" alt="KidsDev Logo"> 
              <div class="flex flex-col">
                  <span class="font-extrabold text-2xl tracking-tighter leading-none">Kids<span class="text-[#F97316]">Dev</span></span>
                  <span class="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">Academy</span>
              </div>
-          </a>
+          </div>
           <p class="text-slate-400 text-sm leading-relaxed">
             Global technology school providing professional coding, web development, and digital literacy skills for the next generation.
           </p>
@@ -263,19 +255,13 @@
                 </svg>
             </a>
           </div>
-
-          <p class="text-xs text-slate-500">Subscribe for free tips & updates:</p>
-          <form class="mt-2 flex gap-2" onsubmit="event.preventDefault();">
-              <input type="email" placeholder="Email" class="bg-slate-800 border-none rounded px-3 py-2 text-xs w-full focus:ring-1 focus:ring-[#F97316] outline-none text-white">
-              <button class="bg-[#F97316] p-2 rounded hover:bg-orange-600 transition"><i data-lucide="send" class="w-3 h-3 text-white"></i></button>
-          </form>
         </div>
       </div>
       <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
-        <p class="text-slate-500 text-xs">&copy; 2026 KidsDev Academy. All Rights Reserved.</p>
+        <p class="text-slate-500 text-xs">&copy; 2026 KidsDev Academy. Empowering kids globally.</p>
         <div class="flex gap-6 text-xs text-slate-600">
-           <a href="/privacy.html" class="hover:text-slate-400 text-[#F97316]">Privacy Policy</a>
-           <a href="terms.html" class="hover:text-slate-400">Terms of Service</a>
+           <a href="/privacy.html" class="hover:text-slate-400">Privacy Policy</a>
+           <a href="/terms.html" class="text-[#F97316] font-bold">Terms of Service</a>
         </div>
       </div>
     </div>
@@ -299,21 +285,55 @@
       <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden reveal-up active">
           <div class="p-4 border-b border-slate-100 flex items-center gap-4">
               <i data-lucide="search" class="text-slate-400"></i>
-              <input type="text" id="searchInput" placeholder="Search courses, tutorials..." class="flex-1 outline-none text-lg font-bold text-[#0F172A]" autofocus>
+              <input type="text" id="globalSearchInput" placeholder="Quick Search courses, tutorials..." class="flex-1 outline-none text-lg font-bold text-[#0F172A]" autofocus>
               <button id="closeSearch" aria-label="Close Search" class="p-1 hover:bg-slate-100 rounded-full transition"><i data-lucide="x" class="text-slate-400"></i></button>
           </div>
-          <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
+          <div id="globalSearchResults" class="max-h-[60vh] overflow-y-auto p-4 space-y-2">
                <div class="text-center text-slate-400 py-10">Start typing to search...</div>
           </div>
       </div>
   </div>
 
   <script src="/js/main.js"></script>
+  
   <script>
     document.addEventListener("DOMContentLoaded", () => {
         if(window.lucide) lucide.createIcons();
+        
+        // Setup Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if(menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
+
+        // Global Search Modal Setup
+        const searchBtn = document.getElementById('searchBtn');
+        const searchModal = document.getElementById('searchModal');
+        const closeSearch = document.getElementById('closeSearch');
+        const globalSearchInput = document.getElementById('globalSearchInput');
+        
+        if(searchBtn && searchModal && closeSearch) {
+            searchBtn.addEventListener('click', () => {
+                searchModal.classList.remove('hidden');
+                setTimeout(() => globalSearchInput.focus(), 100);
+            });
+            closeSearch.addEventListener('click', () => searchModal.classList.add('hidden'));
+            searchModal.addEventListener('click', (e) => {
+                if(e.target === searchModal) searchModal.classList.add('hidden');
+            });
+        }
+
+        // Cookie Banner Delay
         setTimeout(() => {
-            document.getElementById('cookieBanner').classList.remove('hidden');
+            const banner = document.getElementById('cookieBanner');
+            if(banner) banner.classList.remove('hidden');
         }, 2000);
     });
   </script>
